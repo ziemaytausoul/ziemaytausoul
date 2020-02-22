@@ -1,0 +1,82 @@
+{
+    "1": {
+        "1": "gold",
+        "3": "water",
+        "5": "fire",
+        "7": "gold",
+        "9": "water",
+        "11": "fire"
+    },
+    "2": {
+        "2": "gold",
+        "4": "water",
+        "6": "fire",
+        "8": "gold",
+        "10": "water",
+        "12": "fire"
+    },
+    "3": {
+        "1": "water",
+        "3": "fire",
+        "5": "earth",
+        "7": "water",
+        "9": "fire",
+        "11": "earth"
+    },
+    "4": {
+        "2": "water",
+        "4": "fire",
+        "6": "earth",
+        "8": "water",
+        "10": "fire",
+        "12": "earth"
+    },
+    "5": {
+        "1": "fire",
+        "3": "earth",
+        "5": "wood",
+        "7": "fire",
+        "9": "earth",
+        "11": "wood"
+    },
+    "6": {
+        "2": "fire",
+        "4": "earth",
+        "6": "wood",
+        "8": "fire",
+        "10": "earth",
+        "12": "wood"
+    },
+    "7": {
+        "1": "earth",
+        "3": "wood",
+        "5": "gold",
+        "7": "earth",
+        "9": "wood",
+        "11": "gold"
+    },
+    "8": {
+        "2": "earth",
+        "4": "wood",
+        "6": "gold",
+        "8": "earth",
+        "10": "wood",
+        "12": "gold"
+    },
+    "9": {
+        "1": "wood",
+        "3": "gold",
+        "5": "water",
+        "7": "wood",
+        "9": "gold",
+        "11": "water"
+    },
+    "10": {
+        "2": "wood",
+        "4": "gold",
+        "6": "water",
+        "8": "wood",
+        "10": "gold",
+        "12": "water"
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "firestore_testing",
+  "version": "1.0.0",
+  "description": "Testing Firestore",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/firestore": "^2.4.0",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.3.3",
+    "ejs": "^2.7.1"
+  }
+}

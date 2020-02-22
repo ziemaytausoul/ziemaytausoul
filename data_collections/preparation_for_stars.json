@@ -1,0 +1,30 @@
+{
+    "zie_may_start_point": {
+        "water": 2,
+        "wood": 5,
+        "gold": 12,
+        "earth": 7,
+        "fire": 10
+    },
+    "tim_foo_start_point": {
+        "1": 5,
+        "2": 4,
+        "3": 3,
+        "4": 2,
+        "5": 1,
+        "6": 12,
+        "7": 11,
+        "8": 10,
+        "9": 9,
+        "10": 8,
+        "11": 7,
+        "12": 6
+    },
+    "twelve_cheong_sun_start_point": {
+        "fire": 3,
+        "gold": 6,
+        "water": 9,
+        "earth": 9,
+        "wood": 12
+    }
+}

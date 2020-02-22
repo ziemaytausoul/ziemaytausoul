@@ -1,0 +1,259 @@
+{
+    "five_elements": {
+        "gold": "金",
+        "wood": "木",
+        "water": "水",
+        "fire": "火",
+        "earth": "土"
+    },
+    "type_of_module": {
+        "gold": 4,
+        "wood": 3,
+        "water": 2,
+        "fire": 6,
+        "earth": 5
+    },
+    "number_to_chinese_clock": {
+        "1": "rat",
+        "2": "ox",
+        "3": "tiger",
+        "4": "rabbit",
+        "5": "dragon",
+        "6": "snake",
+        "7": "horse",
+        "8": "goat",
+        "9": "monkey",
+        "10": "rooster",
+        "11": "dog",
+        "12": "pig"
+    },
+    "tim_gone_to_traChin": {
+        "1": "甲",
+        "2": "乙",
+        "3": "丙",
+        "4": "丁",
+        "5": "戊",
+        "6": "己",
+        "7": "庚",
+        "8": "辛",
+        "9": "壬",
+        "10": "癸"
+    },
+    "type_of_tim_gone": {
+        "1": "1",
+        "2": "0",
+        "3": "1",
+        "4": "0",
+        "5": "1",
+        "6": "0",
+        "7": "1",
+        "8": "0",
+        "9": "1",
+        "10": "0"
+    },
+    "chinese_clock_to_traChin": {
+        "rat": "子",
+        "ox": "丑",
+        "tiger": "寅",
+        "rabbit": "卯",
+        "dragon": "辰",
+        "snake": "巳",
+        "horse": "午",
+        "goat": "未",
+        "monkey": "申",
+        "rooster": "酉",
+        "dog": "戍",
+        "pig": "亥"
+    },
+    "chinese_YearOrClock_to_number": {
+        "rat": 1,
+        "ox": 2,
+        "tiger": 3,
+        "rabbit": 4,
+        "dragon": 5,
+        "snake": 6,
+        "horse": 7,
+        "goat": 8,
+        "monkey": 9,
+        "rooster": 10,
+        "dog": 11,
+        "pig": 12
+    },
+    "point_name": {
+        "life_point": "命宮",
+        "parent_point": "父母宮",
+        "thought_point": "福德宮",
+        "housing_point": "田宅宮",
+        "career_point": "事業宮",
+        "friendship_point": "交友宮",
+        "travel_point": "遷移宮",
+        "illness_point": "疾厄宮",
+        "possession_point": "財帛宮",
+        "posterity_point": "子女宮",
+        "marriage_point": "夫妻宮",
+        "sibling_point": "兄弟宮",
+        "anatomy_point": "身宮"
+    },
+    "star_name_translation": {
+        "four_changes": {
+            "luc": "化祿",
+            "kwun": "化權",
+            "fol": "化科",
+            "gav": "化忌"
+        },
+        "forteen_main_stars": {
+            "zie_may": "紫微",
+            "tim_gey": "天機",
+            "tai_yueng": "太陽",
+            "mau_koo": "武曲",
+            "tim_toun": "天同",
+            "lin_zaen": "廉貞",
+            "tim_foo": "天府",
+            "tai_yian": "太陰",
+            "tam_long": "貪狼",
+            "guoy_moon": "巨門",
+            "tim_sueng": "天相",
+            "tim_leung": "天梁",
+            "chey_sa": "七殺",
+            "pob_gaun": "破軍"
+        },
+        "tim_fhui": ["天魁", "positive"],
+        "tim_jue": ["天鉞", "positive"],
+        "luc_chen": ["祿存", "positive"],
+        "king_yeong": ["擎羊", "negative"],
+        "tau_lo": ["陀羅", "negative"],
+        "tim_kwun": ["天官", "first_tier"],
+        "tim_fu": ["天福", "first_tier"],
+        "tim_tchu": ["天廚", "first_tier"],
+        "zi_kong": ["截空", "first_tier"],
+        "tim_ma": ["天馬", "positive"],
+        "tim_kong": ["天空", "first_tier"],
+        "tim_hoo": ["天哭", "first_tier"],
+        "tim_hoy": ["天虛", "first_tier"],
+        "hung_leung": ["紅鸞", "first_tier"],
+        "tim_hey": ["天喜", "first_tier"],
+        "goo_shen": ["孤辰", "first_tier"],
+        "gau_sou": ["寡宿", "first_tier"],
+        "gee_sa": ["劫殺", "first_tier"],
+        "die_hau": ["大耗", "first_tier"],
+        "fey_lin": ["蜚廉", "first_tier"],
+        "po_suei": ["破碎", "first_tier"],
+        "wa_kwoi": ["華蓋", "first_tier"],
+        "ham_chi": ["咸池", "first_tier"],
+        "non_tak": ["龍德", "first_tier"],
+        "yuk_tak": ["月德", "first_tier"],
+        "lin_khai": ["年解", "first_tier"],
+        "tim_choi": ["天才", "first_tier"],
+        "tim_soul": ["天壽", "first_tier"],
+        "non_chi": ["龍池", "first_tier"],
+        "fung_kwok": ["鳳閣", "first_tier"],
+        "tai_soi_twelve_stars": {
+            "stars": [{
+                "tai_soi": "太歲"
+            }, {
+                "foi_hey": "晦氣"
+            }, {
+                "song_mon": "喪門"
+            }, {
+                "gwan_sol": "貫索"
+            }, {
+                "kwun_fu": "官符"
+            }, {
+                "siu_ho": "小耗"
+            }, {
+                "soi_po": "歲破"
+            }, {
+                "non_tak": "龍德"
+            }, {
+                "bab_fu": "白虎"
+            }, {
+                "tim_tak": "天德"
+            }, {
+                "dual_hak": "吊客"
+            }, {
+                "bang_fu": "病符"
+            }],
+            "tier": "second_tier"
+        },
+        "jaen_sing": ["將星", "second_tier"],
+        "pam_on": ["攀鞍", "second_tier"],
+        "soi_yea": ["歲驛", "second_tier"],
+        "sig_sun": ["息神", "second_tier"],
+        "wa_goi": ["華蓋", "second_tier"],
+        "gee_sak": ["劫煞", "second_tier"],
+        "zoi_sa": ["災煞", "second_tier"],
+        "tim_sa": ["天煞", "second_tier"],
+        "zie_boi": ["指背", "second_tier"],
+        "ham_chee": ["咸池", "second_tier"],
+        "yuk_sa": ["月煞", "second_tier"],
+        "mong_sun": ["亡神", "second_tier"],
+        "bou_si_twelve_stars": {
+            "stars": [{
+                "bou_si": "博士"
+            }, {
+                "lag_si": "力士"
+            }, {
+                "ching_non": "青龍"
+            }, {
+                "siu_ho": "小耗"
+            }, {
+                "jaen_gwun": "將軍"
+            }, {
+                "joe_sue": "奏書"
+            }, {
+                "phea_ling": "蜚廉"
+            }, {
+                "hey_sun": "喜神"
+            }, {
+                "bang_phoo": "病符"
+            }, {
+                "die_hau": "大耗"
+            }, {
+                "phok_bing": "伏兵"
+            }, {
+                "kwun_phoo": "官符"
+            }],
+            "tier": "second_tier"
+        },
+        "joe_fu": ["左輔", "positive"],
+        "yo_bei": ["右弼", "positive"],
+        "tim_yan": ["天刑", "first_tier"],
+        "tim_yiu": ["天姚", "first_tier"],
+        "khai_sun": ["解神", "first_tier"],
+        "tim_mo": ["天巫", "first_tier"],
+        "tim_yuk": ["天月", "first_tier"],
+        "yan_sak": ["陰煞", "first_tier"],
+        "san_tai": ["三台", "first_tier"],
+        "bap_zoi": ["八座", "first_tier"],
+        "yan_kwong": ["恩光", "first_tier"],
+        "tim_kwui": ["天貴", "first_tier"],
+        "men_cheong": ["文昌", "positive"],
+        "men_kog": ["文曲", "positive"],
+        "tay_kong": ["地空", "negative"],
+        "tay_giv": ["地劫", "negative"],
+        "for_sing": ["火星", "negative"],
+        "lin_sing": ["鈴星", "negative"],
+        "swun_kong": ["旬空", "first_tier"],
+        "tim_sze": ["天使", "first_tier"],
+        "tim_shoin": ["天傷", "first_tier"],
+        "tai_fu": ["台輔", "first_tier"],
+        "fung_gau": ["封誥", "first_tier"],
+        "tim_tak": ["天德", "second_tier"],
+        "tim_yau": ["天", "first_tier"],
+        "zie_dau": ["子斗", "special"],
+        "twelve_cheong_sun": {
+            "cheong_sun": "長生",
+            "moo_yau": "沐浴",
+            "kwun_tai": "冠帶",
+            "lin_kwun": "臨官",
+            "tai_mon": "帝旺",
+            "soi": "衰",
+            "bang": "病",
+            "say": "死",
+            "mou": "墓",
+            "chue": "絕",
+            "toi": "胎",
+            "yeung": "養"
+        }
+    }
+}
