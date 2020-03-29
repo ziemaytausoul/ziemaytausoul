@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require("fs");
-const bodyParser = require('body-parser').urlencoded({
-    extended: false
-});
+const bodyParser = require('body-parser');
 const cookie = require("cookie-session");
 const finding_position = require("./data_collections/finding_position/finding_position.js");
 const handleTaskFunctions = require("./handleTaskFunctions.js");
@@ -12,13 +10,26 @@ const {
     Firestore
 } = require('@google-cloud/firestore');
 const data_convertion = require("./data_collections/data_convertion.json");
+const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 
+/**Environment setting**/
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(cookie({
     name: "birth_information",
     keys: ["key1", "key2"]
 }));
-app.set('views', './views');
+app.use(express.static(__dirname + '/public'));
+
+app.set("port", process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+app.get('/', function (req, res) {
+    res.render("index.ejs");
+});
 
 app.get('/uploadData', function (req, res) {
     handleTaskFunctions.uploadData("data_collections").then(result => {
@@ -32,7 +43,7 @@ app.get('/updateData', function (req, res) {
     res.status(200).render("index");
 });
 
-app.post('/createModule', bodyParser, function (req, res) {
+app.post('/createModule', function (req, res) {
     if (req.session.isPopulated) {
         req.session = null;
     }
@@ -50,7 +61,7 @@ app.post('/createModule', bodyParser, function (req, res) {
     reference_data.birth_day = req.session["birth_day"];
     reference_data.birth_time = req.session["birth_time"];
     reference_data.tim_gone = req.session["tim_gone"];
-    reference_data.twelveTimGone = require("./data_collections/tim_gone_of_twelve_sections")[reference_data.tim_gone];
+    reference_data.twelveTimGone = tim_gone_of_12Sections[reference_data.tim_gone];
 
     setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point).then(result_type_of_module => {
         reference_data.type_of_module = result_type_of_module;
@@ -91,4 +102,6 @@ app.post('/createModule', bodyParser, function (req, res) {
     });
 });
 
-app.listen(3000);
+app.listen(app.get("port"), function () {
+    console.log("Server is listening on: ", app.get("port"));
+});
