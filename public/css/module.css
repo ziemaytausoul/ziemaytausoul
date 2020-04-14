@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#rat {
+  border: thin solid;
+  border-width: 1px 1px 2px 1px;
+}
+
+#ox {
+  border: thin solid;
+  border-width: 1px 1px 2px 1px;
+}
+
+#tiger {
+  border: thin solid;
+  border-width: 1px 1px 2px 2px;
+}
+
+#rabbit {
+  border: thin solid;
+  border-width: 1px 1px 1px 2px;
+}
+
+#dragon {
+  border: thin solid;
+  border-width: 1px 1px 1px 2px;
+}
+
+#snake {
+  border: thin solid;
+  border-width: 2px 1px 1px 2px;
+}
+
+#horse {
+  border: thin solid;
+  border-width: 2px 1px 1px 1px;
+}
+
+#goat {
+  border: thin solid;
+  border-width: 2px 1px 1px 1px;
+}
+
+#monkey {
+  border: thin solid;
+  border-width: 2px 2px 1px 1px;
+}
+
+#rooster {
+  border: thin solid;
+  border-width: 1px 2px 1px 1px;
+}
+
+#dog {
+  border: thin solid;
+  border-width: 1px 2px 1px 1px;
+}
+
+#pig {
+  border: thin solid;
+  border-width: 1px 2px 2px 1px;
+}
+
+#center_vector {
+  border: thin solid;
+  border-width: 0.5px 0.5px 0.5px 0.5px;
+}
+
+span {
+  display: inline-block;
+}
+
+.content {
+  text-align: center;
+  width: 100%;
+  height: 66.7%;
+}
+
+.main {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+
+.moon {
+  float: right;
+  font-size: 75%;
+  height: 100%;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+
+.first_tier {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  width: auto;
+  height: 100%;
+  font-size: 50%;
+  display: inline-block;
+  vertical-align: bottom;
+  float: left;
+}
+
+.second_tier {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  width: auto;
+  height: 100%;
+  font-size: 50%;
+  display: inline-block;
+  vertical-align: bottom;
+  float: left;
+}
+
+.ten_years {
+  text-align: center;
+}
+
+.cheong_sun {
+  text-align: center;
+}
+
+.row-1 {
+  height: 8.33%;
+}
+
+.row-2 {
+  height: 16.66%;
+}
+
+.row-3 {
+  height: 25%;
+}
+
+.row-4 {
+  height: 33.33%;
+}
+
+.row-5 {
+  height: 41.66%;
+}
+
+.row-6 {
+  height: 50%;
+}
+
+.row-7 {
+  height: 58.33%;
+}
+
+.row-8 {
+  height: 66.66%;
+}
+
+.row-9 {
+  height: 75%;
+}
+
+.row-10 {
+  height: 83.33%;
+}
+
+.row-11 {
+  height: 91.66%;
+}
+
+.row-12 {
+  height: 100%;
+}
+
+[class*="row-"] ::after {
+  content: "";
+  clear: both;
+  display: table;
+  position: relative;
+  width: 100%;
+}
+
+.character {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  width: auto;
+  height: 100%;
+  float: right;
+  font-size: 75%;
+}
+
+.position {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  width: auto;
+  height: 100%;
+  float: right;
+  font-size: 75%;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 0;
+}
+
+.col-1 {
+  width: 8.33%;
+  height: 100%;
+}
+
+.col-2 {
+  width: 16.66%;
+  height: 100%;
+}
+
+.col-3 {
+  width: 25%;
+  height: 100%;
+}
+
+.col-4 {
+  width: 33.33%;
+  height: 100%;
+}
+
+.col-5 {
+  width: 41.66%;
+  height: 100%;
+}
+
+.col-6 {
+  width: 50%;
+  height: 100%;
+}
+
+.col-7 {
+  width: 58.33%;
+  height: 100%;
+}
+
+.col-8 {
+  width: 66.66%;
+  height: 100%;
+}
+
+.col-9 {
+  width: 75%;
+  height: 100%;
+}
+
+.col-10 {
+  width: 83.33%;
+  height: 100%;
+}
+
+.col-11 {
+  width: 91.66%;
+  height: 100%;
+}
+
+.col-12 {
+  width: 100%;
+  height: 100%;
+}
+
+.col-mid {
+  width: 24.99%;
+  height: 100%;
+}
+
+.col-beside {
+  width: 37.5%;
+  height: 100%;
+}

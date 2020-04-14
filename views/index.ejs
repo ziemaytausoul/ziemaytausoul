@@ -5,102 +5,1597 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Tailored CSS -->
+    <link rel="stylesheet" type="text/css" href="css/module.css">
+
+    <!-- Tailored JavaScript-->
+    <script src="js/ExtractData.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="./main.css">-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        pre {
-            margin-top: 0;
-            margin-bottom: 0;
-            margin-left: 0;
-            margin-right: 0;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container-fluid" style="height: 100vh;">
-        <div class="row h-25">
-            <div class="col bg-success border" id="6">
-                <div>
-                    <pre id="tim_gone" style="position: absolute; right:0; bottom:0;">丁<br>巳</pre>
+    <nav class="navbar bg-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <form class="form-inline">
+                    <!--<input id="time" class="form-control mr-sm-2" type="text" placeholder="時" required>-->
+                    <select id="time">
+                        <option value="1" selected>子時(00:00 - 00:59)</option>
+                        <option value="2">丑時(01:00 - 02:59)</option>
+                        <option value="3">寅時(03:00 - 04:59)</option>
+                        <option value="4">卯時(05:00 - 06:59)</option>
+                        <option value="5">辰時(07:00 - 08:59)</option>
+                        <option value="6">巳時(09:00 - 10:59)</option>
+                        <option value="7">午時(11:00 - 12:59)</option>
+                        <option value="8">未時(13:00 - 14:59)</option>
+                        <option value="9">申時(15:00 - 16:59)</option>
+                        <option value="10">酉時(17:00 - 18:59)</option>
+                        <option value="11">戍時(19:00 - 20:59)</option>
+                        <option value="12">亥時(21:00 - 22:59)</option>
+                        <option value="1">子時(23:00 - 23:59)</option>
+                    </select>
+                    <input id="day" class="form-control mr-sm-2" type="text" placeholder="日" required>
+                    <input id="month" class="form-control mr-sm-2" type="text" placeholder="月" required>
+                    <input id="year" class="form-control mr-sm-2" type="text" placeholder="年" required>
+                    <button id="submitBtn" class="btn btn-success" type="button" onclick="createModule()">起盤</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <section id="first-sec">
+        <div style="height: 100vh;">
+            <div id="top" class="row-3" style="position:relative;">
+                <!--first row-4-->
+                <div id="snake" class="col-3">
+                    <!--first row-4, first column-->
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="6_first_tier" class="row-6 content">
+
+                                </div>
+                                <div id="6_second_tier" class="row-6 content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="6_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="6_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="6_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="6_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4 ">
+                            <div class="col-12 ">
+                                <div id="6_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="6_character" class="character">
+                                        乙巳
+                                    </div>
+                                    <div id="6_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="horse" class="col-3">
+                    <!--first row-4, second column-->
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="7_first_tier" class="row-6 content">
+                                    <div class="first_tier">
+                                        鳳閣
+                                    </div>
+                                    <div class="first_tier">
+                                        台輔
+                                    </div>
+                                    <div class="first_tier">
+                                        恩光
+                                    </div>
+                                    <div class="first_tier">
+                                        天空
+                                    </div>
+                                    <div class="first_tier">
+                                        截空
+                                    </div>
+                                    <div class="first_tier">
+                                        旬空
+                                    </div>
+                                    <div class="first_tier">
+                                        地空
+                                    </div>
+                                    <div class="first_tier">
+                                        地劫
+                                    </div>
+                                </div>
+                                <div id="7_second_tier" class="row-6 content">
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="7_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="7_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="7_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="7_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4">
+                            <div class="col-12 ">
+                                <div id="7_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="7_character" class="character">
+                                        丙午
+                                    </div>
+                                    <div id="7_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="goat" class="col-3">
+                    <!--first row-4, third column-->
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="8_first_tier" class="row-6 content">
+                                    <div class="first_tier">
+                                        鳳閣
+                                    </div>
+                                    <div class="first_tier">
+                                        台輔
+                                    </div>
+                                    <div class="first_tier">
+                                        恩光
+                                    </div>
+                                    <div class="first_tier">
+                                        天空
+                                    </div>
+                                    <div class="first_tier">
+                                        截空
+                                    </div>
+                                    <div class="first_tier">
+                                        旬空
+                                    </div>
+                                    <div class="first_tier">
+                                        地空
+                                    </div>
+                                    <div class="first_tier">
+                                        地劫
+                                    </div>
+                                </div>
+                                <div id="8_second_tier" class="row-6 content">
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="8_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="8_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="8_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="8_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4 ">
+                            <div class="col-12 ">
+                                <div id="8_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="8_character" class="character">
+                                        丁未
+                                    </div>
+                                    <div id="8_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="monkey" class="col-3">
+                    <!--first row-4, forth column-->
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="9_first_tier" class="row-6 content">
+                                    <div class="first_tier">
+                                        鳳閣
+                                    </div>
+                                    <div class="first_tier">
+                                        台輔
+                                    </div>
+                                    <div class="first_tier">
+                                        恩光
+                                    </div>
+                                    <div class="first_tier">
+                                        天空
+                                    </div>
+                                    <div class="first_tier">
+                                        截空
+                                    </div>
+                                    <div class="first_tier">
+                                        旬空
+                                    </div>
+                                    <div class="first_tier">
+                                        地空
+                                    </div>
+                                    <div class="first_tier">
+                                        地劫
+                                    </div>
+                                </div>
+                                <div id="9_second_tier" class="row-6 content">
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="9_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="9_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="9_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="9_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4">
+                            <div class="col-12 ">
+                                <div id="9_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="9_character" class="character">
+                                        戊申
+                                    </div>
+                                    <div id="9_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col bg-info border" id="7">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">戊<br>午</pre>
+            <div id="middle" class="row-6">
+                <!--second row-4-->
+                <div class="col-3">
+                    <div class="row-6">
+                        <div id="dragon" class="col-12">
+                            <div class="col-beside">
+                                <!--first column-->
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="5_first_tier" class="row-6 content">
+                                            <div class="first_tier">
+                                                鳳閣
+                                            </div>
+                                            <div class="first_tier">
+                                                台輔
+                                            </div>
+                                            <div class="first_tier">
+                                                恩光
+                                            </div>
+                                            <div class="first_tier">
+                                                天空
+                                            </div>
+                                            <div class="first_tier">
+                                                截空
+                                            </div>
+                                            <div class="first_tier">
+                                                旬空
+                                            </div>
+                                            <div class="first_tier">
+                                                地空
+                                            </div>
+                                            <div class="first_tier">
+                                                地劫
+                                            </div>
+                                        </div>
+                                        <div id="5_second_tier" class="row-6 content">
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-mid">
+                                <!--second column-->
+                                <div class="content" style="text-align:center;">
+                                    <div id="5_main_left" class="main" style="display:inline-block;">
+                                        <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                            name="left_third">祿</span>
+                                    </div>
+                                    <div id="5_main_right" class="main" style="display:inline-block;">
+                                        <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                            name="right_third">忌</span>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="5_ten_years" class="row-6 ten_years">
+                                            112-121
+                                        </div>
+                                        <div id="5_cheong_sun" class="row-6 cheong_sun">
+                                            長生
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-beside">
+                                <!--third column-->
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="5_moon" class="row-12 content">
+                                            <div class="moon">
+                                                擎羊
+                                            </div>
+                                            <div class="moon">
+                                                鈴星
+                                            </div>
+                                            <div class="moon">
+                                                文昌
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+
+                                </div>
+                                <div class="row-4 content">
+                                    <div class="col-12">
+                                        <div class="row-5">
+
+                                        </div>
+                                        <div class="row-7">
+                                            <div id="5_character" class="character">
+                                                甲辰
+                                            </div>
+                                            <div id="5_position" class="position">
+                                                事業
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-6">
+                        <div id="rabbit" class="col-12">
+                            <div class="col-beside">
+                                <!--first column-->
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="4_first_tier" class="row-6 content">
+                                            <div class="first_tier">
+                                                鳳閣
+                                            </div>
+                                            <div class="first_tier">
+                                                台輔
+                                            </div>
+                                            <div class="first_tier">
+                                                恩光
+                                            </div>
+                                            <div class="first_tier">
+                                                天空
+                                            </div>
+                                            <div class="first_tier">
+                                                截空
+                                            </div>
+                                            <div class="first_tier">
+                                                旬空
+                                            </div>
+                                            <div class="first_tier">
+                                                地空
+                                            </div>
+                                            <div class="first_tier">
+                                                地劫
+                                            </div>
+                                        </div>
+                                        <div id="4_second_tier" class="row-6 content">
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-mid">
+                                <!--second column-->
+                                <div class="content" style="text-align:center;">
+                                    <div id="4_main_left" class="main" style="display:inline-block;">
+                                        <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                            name="left_third">祿</span>
+                                    </div>
+                                    <div id="4_main_right" class="main" style="display:inline-block;">
+                                        <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                            name="right_third">忌</span>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="4_ten_years" class="row-6 ten_years">
+                                            112-121
+                                        </div>
+                                        <div id="4_cheong_sun" class="row-6 cheong_sun">
+                                            長生
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-beside">
+                                <!--third column-->
+                                <div class="row-4">
+                                    <div class="col-12 ">
+                                        <div id="4_moon" class="row-12 content">
+                                            <div class="moon">
+                                                擎羊
+                                            </div>
+                                            <div class="moon">
+                                                鈴星
+                                            </div>
+                                            <div class="moon">
+                                                文昌
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+
+                                </div>
+                                <div class="row-4 content">
+                                    <div class="col-12">
+                                        <div class="row-5">
+
+                                        </div>
+                                        <div class="row-7">
+                                            <div id="4_character" class="character">
+                                                癸卯
+                                            </div>
+                                            <div id="4_position" class="position">
+                                                事業
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="center_vector" class="col-6">
+
+                </div>
+                <div class="col-3">
+                    <div class="row-6">
+                        <div id="rooster" class="col-12">
+                            <div class="col-beside">
+                                <!--first column-->
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="10_first_tier" class="row-6 content">
+                                            <div class="first_tier">
+                                                鳳閣
+                                            </div>
+                                            <div class="first_tier">
+                                                台輔
+                                            </div>
+                                            <div class="first_tier">
+                                                恩光
+                                            </div>
+                                            <div class="first_tier">
+                                                天空
+                                            </div>
+                                            <div class="first_tier">
+                                                截空
+                                            </div>
+                                            <div class="first_tier">
+                                                旬空
+                                            </div>
+                                            <div class="first_tier">
+                                                地空
+                                            </div>
+                                            <div class="first_tier">
+                                                地劫
+                                            </div>
+                                        </div>
+                                        <div id="10_second_tier" class="row-6 content">
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-mid">
+                                <!--second column-->
+                                <div class="content" style="text-align:center;">
+                                    <div id="10_main_left" class="main" style="display:inline-block;">
+                                        <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                            name="left_third">祿</span>
+                                    </div>
+                                    <div id="10_main_right" class="main" style="display:inline-block;">
+                                        <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                            name="right_third">忌</span>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="10_ten_years" class="row-6 ten_years">
+                                            112-121
+                                        </div>
+                                        <div id="10_cheong_sun" class="row-6 cheong_sun">
+                                            長生
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-beside">
+                                <!--third column-->
+                                <div class="row-4 ">
+                                    <div class="col-12 ">
+                                        <div id="10_moon" class="row-12 content">
+                                            <div class="moon">
+                                                擎羊
+                                            </div>
+                                            <div class="moon">
+                                                鈴星
+                                            </div>
+                                            <div class="moon">
+                                                文昌
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+
+                                </div>
+                                <div class="row-4 content">
+                                    <div class="col-12">
+                                        <div class="row-5">
+
+                                        </div>
+                                        <div class="row-7">
+                                            <div id="10_character" class="character">
+                                                己酉
+                                            </div>
+                                            <div id="10_position" class="position">
+                                                事業
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-6">
+                        <div id="dog" class="col-12">
+                            <div class="col-beside">
+                                <!--first column-->
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="11_first_tier" class="row-6 content">
+                                            <div class="first_tier">
+                                                鳳閣
+                                            </div>
+                                            <div class="first_tier">
+                                                台輔
+                                            </div>
+                                            <div class="first_tier">
+                                                恩光
+                                            </div>
+                                            <div class="first_tier">
+                                                天空
+                                            </div>
+                                            <div class="first_tier">
+                                                截空
+                                            </div>
+                                            <div class="first_tier">
+                                                旬空
+                                            </div>
+                                            <div class="first_tier">
+                                                地空
+                                            </div>
+                                            <div class="first_tier">
+                                                地劫
+                                            </div>
+                                        </div>
+                                        <div id="11_second_tier" class="row-6 content">
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                博士
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                貫索
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                            <div class="second_tier">
+                                                亡神
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-mid">
+                                <!--second column-->
+                                <div class="content" style="text-align:center;">
+                                    <div id="11_main_left" class="main" style="display:inline-block;">
+                                        <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                            name="left_third">祿</span>
+                                    </div>
+                                    <div id="11_main_right" class="main" style="display:inline-block;">
+                                        <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                            name="right_third">忌</span>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+                                    <div class="col-12">
+                                        <div id="11_ten_years" class="row-6 ten_years">
+                                            112-121
+                                        </div>
+                                        <div id="11_cheong_sun" class="row-6 cheong_sun">
+                                            長生
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-beside">
+                                <!--third column-->
+                                <div class="row-4">
+                                    <div class="col-12 ">
+                                        <div id="11_moon" class="row-12 content">
+                                            <div class="moon">
+                                                擎羊
+                                            </div>
+                                            <div class="moon">
+                                                鈴星
+                                            </div>
+                                            <div class="moon">
+                                                文昌
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-4">
+
+                                </div>
+                                <div class="row-4 content">
+                                    <div class="col-12">
+                                        <div class="row-5">
+
+                                        </div>
+                                        <div class="row-7">
+                                            <div id="11_character" class="character">
+                                                庚戍
+                                            </div>
+                                            <div id="11_position" class="position">
+                                                事業
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col bg-warning border" id="8">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">己<br>未</pre>
+            <div id="bottom" class="row-3">
+                <!--third row-4-->
+                <div id="tiger" class="col-3">
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="3_first_tier" class="row-6 content">
+                                    <div class="first_tier">
+                                        鳳閣
+                                    </div>
+                                    <div class="first_tier">
+                                        台輔
+                                    </div>
+                                    <div class="first_tier">
+                                        恩光
+                                    </div>
+                                    <div class="first_tier">
+                                        天空
+                                    </div>
+                                    <div class="first_tier">
+                                        截空
+                                    </div>
+                                    <div class="first_tier">
+                                        旬空
+                                    </div>
+                                    <div class="first_tier">
+                                        地空
+                                    </div>
+                                    <div class="first_tier">
+                                        地劫
+                                    </div>
+                                </div>
+                                <div id="3_second_tier" class="row-6 content">
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="3_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="3_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="3_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="3_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4 ">
+                            <div class="col-12">
+                                <div id="3_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="3_character" class="character">
+                                        壬寅
+                                    </div>
+                                    <div id="3_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col bg-info  border" id="9">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">庚<br>申</pre>
+                <div id="ox" class="col-3">
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="2_first_tier" class="row-6 content">
+                                    <div class="first_tier">
+                                        鳳閣
+                                    </div>
+                                    <div class="first_tier">
+                                        台輔
+                                    </div>
+                                    <div class="first_tier">
+                                        恩光
+                                    </div>
+                                    <div class="first_tier">
+                                        天空
+                                    </div>
+                                    <div class="first_tier">
+                                        截空
+                                    </div>
+                                    <div class="first_tier">
+                                        旬空
+                                    </div>
+                                    <div class="first_tier">
+                                        地空
+                                    </div>
+                                    <div class="first_tier">
+                                        地劫
+                                    </div>
+                                </div>
+                                <div id="2_second_tier" class="row-6 content">
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="2_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="2_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="2_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="2_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4 ">
+                            <div class="col-12 ">
+                                <div id="2_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="2_character" class="character">
+                                        癸丑
+                                    </div>
+                                    <div id="2_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="rat" class="col-3">
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="1_first_tier" class="row-6 content">
+                                    <div class="first_tier">
+                                        鳳閣
+                                    </div>
+                                    <div class="first_tier">
+                                        台輔
+                                    </div>
+                                    <div class="first_tier">
+                                        恩光
+                                    </div>
+                                    <div class="first_tier">
+                                        天空
+                                    </div>
+                                    <div class="first_tier">
+                                        截空
+                                    </div>
+                                    <div class="first_tier">
+                                        旬空
+                                    </div>
+                                    <div class="first_tier">
+                                        地空
+                                    </div>
+                                    <div class="first_tier">
+                                        地劫
+                                    </div>
+                                </div>
+                                <div id="1_second_tier" class="row-6 content">
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="1_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="1_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="1_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="1_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4 ">
+                            <div class="col-12 ">
+                                <div id="1_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="1_character" class="character">
+                                        壬子
+                                    </div>
+                                    <div id="1_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pig" class="col-3">
+                    <div class="col-beside">
+                        <!--first column-->
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="12_first_tier" class="row-6 content">
+                                    <div class="first_tier">
+                                        鳳閣
+                                    </div>
+                                    <div class="first_tier">
+                                        台輔
+                                    </div>
+                                    <div class="first_tier">
+                                        恩光
+                                    </div>
+                                    <div class="first_tier">
+                                        天空
+                                    </div>
+                                    <div class="first_tier">
+                                        截空
+                                    </div>
+                                    <div class="first_tier">
+                                        旬空
+                                    </div>
+                                    <div class="first_tier">
+                                        地空
+                                    </div>
+                                    <div class="first_tier">
+                                        地劫
+                                    </div>
+                                </div>
+                                <div id="12_second_tier" class="row-6 content">
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        博士
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        貫索
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                    <div class="second_tier">
+                                        亡神
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-mid">
+                        <!--second column-->
+                        <div class="content" style="text-align:center;">
+                            <div id="12_main_left" class="main" style="display:inline-block;">
+                                <span name="left_original">天梁祿</span><span name="left_second">祿</span><span
+                                    name="left_third">祿</span>
+                            </div>
+                            <div id="12_main_right" class="main" style="display:inline-block;">
+                                <span name="right_original">天同忌</span name="right_second"><span>忌</span><span
+                                    name="right_third">忌</span>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                            <div class="col-12">
+                                <div id="12_ten_years" class="row-6 ten_years">
+                                    112-121
+                                </div>
+                                <div id="12_cheong_sun" class="row-6 cheong_sun">
+                                    長生
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-beside">
+                        <!--third column-->
+                        <div class="row-4 ">
+                            <div class="col-12 ">
+                                <div id="12_moon" class="row-12 content">
+                                    <div class="moon">
+                                        擎羊
+                                    </div>
+                                    <div class="moon">
+                                        鈴星
+                                    </div>
+                                    <div class="moon">
+                                        文昌
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-4">
+                        </div>
+                        <div class="row-4 content">
+                            <div class="col-12">
+                                <div class="row-5">
+
+                                </div>
+                                <div class="row-7">
+                                    <div id="12_character" class="character">
+                                        辛亥
+                                    </div>
+                                    <div id="12_position" class="position">
+                                        事業
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row h-25">
-            <div class="col bg-info border" id="5">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">丙<br>辰</pre>
-                </div>
-            </div>
-            <div class="col-6 bg-success border border-bottom-0" id="mid-high">middle-high</div>
-            <div class="col bg-warning border" id="10">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">辛<br>酉</pre>
-                </div>
-            </div>
-        </div>
-        <div class="row h-25">
-            <div class="col bg-info border" id="4">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">乙<br>卯</pre>
-                </div>
-            </div>
-            <div class="col-6 bg-success border border-top-0" id="mid-low">middle-low
-            </div>
-            <div class="col bg-warning border" id="11">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">壬<br>戍</pre>
-                </div>
-            </div>
-        </div>
-        <div class="row h-25">
-            <div class="col bg-success border" id="3">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">甲<br>寅</pre>
-                </div>
-            </div>
-            <div class="col bg-info border" id="2">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">乙<br>丑</pre>
-                </div>
-            </div>
-            <div class="col bg-warning border" id="1">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">甲<br>子</pre>
-                </div>
-            </div>
-            <div class="col bg-info border" id="12">
-                <div>
-                    <pre style="position: absolute; right:0; bottom:0;">癸<br>亥</pre>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
+    <section id="second-sec">
+
+    </section>
+    <section id="third-sec">
+
+    </section>
+    <script>
+        function createModule() {
+            var time = $("#time").children("option:selected").val();
+            var day = $("#day").val();
+            var month = $("#month").val();
+            var year = $("#year").val();
+
+            $.ajax({
+                url: "http://localhost:3000/createModule",
+                method: "POST",
+                data: JSON.stringify({
+                    "year": year,
+                    "month": month,
+                    "day": day,
+                    "time": time
+                }),
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: function (result, status, xhr) {
+                    //console.log(first_tier(result));
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.status);
+                    console.log(error);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

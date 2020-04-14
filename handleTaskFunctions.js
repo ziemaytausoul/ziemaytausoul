@@ -104,10 +104,14 @@ module.exports.getModuleData = function (birth_year, birth_month, birth_day, bir
             results.docs.forEach(items => {
                 let item = items.data();
                 let doc_id = items.id;
+                if (doc_id == "by_tim_gone") {
+                    console.log(key[doc_id]);
+                }
                 for (const star in item) {
                     stars[star] = new Object();
                     if (typeof item[star][key[doc_id]] != "undefined") {
                         stars[star]["position"] = item[star][key[doc_id]];
+
                     }
                     if (item[star].hasOwnProperty("findingPosition")) {
                         stars[star]["findingPosition"] = item[star]["findingPosition"];
