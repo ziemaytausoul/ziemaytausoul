@@ -34,42 +34,6 @@ exports.uploadData = function (dir_name, collection = "") {
         });
     });
     return promise;
-    /*fs.readFile(dataForUploading, function (error, data) {
-        if (error && callback) {
-            callback(error, false);
-        } else if (error && !callback) {
-            throw error
-        }
-        const data_obj = JSON.parse(data);
-        for (const key in data_obj) {
-
-            const firestore = new Firestore({
-                projectId: project_id,
-                keyFilename: keyFilename
-            });
-            console.log(key + " : " + JSON.stringify(data_obj[key]) + "\n");
-            if (data_obj.hasOwnProperty(key)) {
-
-                const doc_content = data_obj[key];
-
-                firestore.collection(collection).doc(key).set(doc_content).then(documentReference => {
-
-                    console.log(`Added document with name: ${documentReference.writeTime.toDate()}`);
-
-                }).catch((error) => {
-                    if (callback) {
-                        callback(error, false);
-                    } else {
-                        throw error;
-                    }
-                });
-
-            }
-        }
-        if (callback) {
-            callback(null, true);
-        }
-    });*/
 }
 
 module.exports.updateData = function (newData, collection = "") {

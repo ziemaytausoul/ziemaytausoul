@@ -1,6 +1,6 @@
 const fs = require('fs');
-const data_convertion = require(__dirname.replace('/finding_position', '/data_convertion.json'));
-const preparation_for_stars = require(__dirname.replace('/finding_position', '/preparation_for_stars.json'));
+const data_convertion = require(__dirname.replace('finding_position', 'data_convertion.json'));
+const preparation_for_stars = require(__dirname.replace('finding_position', 'preparation_for_stars.json'));
 module.exports.findForSing = function (startPointForSing, birth_time) {
     return isNaN(startPointForSing) ? 0 : parseInt(startPointForSing) + parseInt(birth_time);
 }
