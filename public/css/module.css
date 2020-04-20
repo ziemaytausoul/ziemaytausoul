@@ -93,10 +93,10 @@ span {
 
 .first_tier {
   writing-mode: vertical-lr;
-  text-orientation: upright;
+  /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 50%;
+  font-size: 10%;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -104,10 +104,10 @@ span {
 
 .second_tier {
   writing-mode: vertical-lr;
-  text-orientation: upright;
+  /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 50%;
+  font-size: 10%;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -261,11 +261,11 @@ span {
 }
 
 .col-mid {
-  width: 24.99%;
+  width: 20%;
   height: 100%;
 }
 
 .col-beside {
-  width: 37.5%;
+  width: 40%;
   height: 100%;
 }
