@@ -3,8 +3,8 @@
   margin: 0;
 }
 
-body {
-  font-size: 62.5%;
+html {
+  font-size: 10px;
 }
 
 #rat {
@@ -86,13 +86,13 @@ span {
 .main {
   writing-mode: vertical-lr;
   text-orientation: upright;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/
 .moon {
   float: right;
-  font-size: 1em;
+  font-size: 1rem;
   height: 100%;
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -103,7 +103,7 @@ span {
   /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 1em;
+  font-size: 1rem;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -114,7 +114,7 @@ span {
   /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 1em;
+  font-size: 1rem;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -123,13 +123,13 @@ span {
 /** 十年大運 **/
 .ten_years {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 /** 長生 **/
 .cheong_sun {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 /** 十二宮宮位 **/
@@ -139,7 +139,7 @@ span {
   width: auto;
   height: 100%;
   float: right;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 /** 十二宮天干地支 **/
@@ -149,8 +149,9 @@ span {
   width: auto;
   height: 100%;
   float: right;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
+
 
 /* row css */
 .row-1 {
@@ -201,6 +202,10 @@ span {
   height: 100%;
 }
 
+[class*="row-"]{
+  font-size: 1rem;
+}
+
 [class*="row-"] ::after {
   content: "";
   clear: both;
@@ -213,6 +218,7 @@ span {
 [class*="col-"] {
   float: left;
   padding: 0;
+  font-size: 1rem;
 }
 
 .col-1 {
