@@ -92,6 +92,7 @@ app.post('/createModule', function (req, res) {
             result.intervalForTenYears = setting_background.settingInternvalForTenYears(reference_data.type_of_module, reference_data.type_of_people, reference_data.life_point);
             result.twelveTimGone = reference_data.twelveTimGone;
             result.twelveTimGone.metaData = data_convertion.tim_gone_to_traChin;
+            result.twelveTimGone.metaData = data_convertion.tim_gone_to_traChin;
             res.status(200).jsonp(result);
             //res.status(200).render("index");
         }, function (error) {

@@ -67,15 +67,65 @@ html {
   border-width: 1px 2px 2px 1px;
 }
 
-#center_vector {
-  border: thin solid;
-  border-width: 0.5px 0.5px 0.5px 0.5px;
-}
-
 span {
   display: inline-block;
 }
 
+/** 中間區域 **/
+#center_vector {
+  writing-mode: vertical-lr;
+  border: thin solid;
+  border-width: 0.5px 0.5px 0.5px 0.5px;
+  position: relatvie;
+}
+
+#center_vector span {
+  text-orientation: upright;
+}
+
+/** div class="source" **/
+.source{
+  font-size: 2.5rem;
+  padding: 10% 0%;
+  height: inherit;
+}
+
+div .source span {
+  font-size: 1.5rem;
+}
+
+.center_vec_other {
+  font-size: 1.75rem;
+  padding: 15% 0%;
+  height: inherit;
+  margin: 0% 25%;
+}
+
+#year_data{
+  margin: 0% 10% 0% 0%;
+}
+
+#body_core{
+  margin: 0% 10% 0% 0%;
+}
+
+#module_core{
+  margin: 0% 10% 0% 0%;
+}
+
+#module_level{
+  margin: 0% 10% 0% 0%;
+}
+
+#birth_data{
+  margin: 0% 10% 0% 0%;
+}
+
+#people_type{
+  margin: 0% 10% 0% 0%;
+}
+
+/** 中間區域 **/
 .content {
   text-align: center;
   width: 100%;
@@ -86,13 +136,13 @@ span {
 .main {
   writing-mode: vertical-lr;
   text-orientation: upright;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/
 .moon {
   float: right;
-  font-size: 1rem;
+  font-size: 1.3rem;
   height: 100%;
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -103,7 +153,7 @@ span {
   /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -114,7 +164,7 @@ span {
   /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -123,13 +173,13 @@ span {
 /** 十年大運 **/
 .ten_years {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 /** 長生 **/
 .cheong_sun {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 /** 十二宮宮位 **/
@@ -139,7 +189,7 @@ span {
   width: auto;
   height: 100%;
   float: right;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 /** 十二宮天干地支 **/
@@ -149,7 +199,7 @@ span {
   width: auto;
   height: 100%;
   float: right;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 
@@ -202,10 +252,6 @@ span {
   height: 100%;
 }
 
-[class*="row-"]{
-  font-size: 1rem;
-}
-
 [class*="row-"] ::after {
   content: "";
   clear: both;
@@ -218,7 +264,6 @@ span {
 [class*="col-"] {
   float: left;
   padding: 0;
-  font-size: 1rem;
 }
 
 .col-1 {
