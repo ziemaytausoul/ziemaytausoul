@@ -110,17 +110,18 @@ module.exports.findTaiSoiTwelveStars = function (birth_year) {
     let birth_year_number = parseInt(birth_year);
     let tai_soi_twelve_stars = new Array();
     tai_soi_twelve_stars = data_convertion["star_name_translation"]["tai_soi_twelve_stars"]["stars"];
-    let result = new Array();
+    
     let tai_soi = Object.keys(tai_soi_twelve_stars[0]);
-    let obj = new Object();
-    obj[tai_soi] = birth_year_number;
-    result.push(obj);
+
+    let result = new Object();
+    result[tai_soi] = {"position" : birth_year_number};
+
     for (let steps = 1; steps < tai_soi_twelve_stars.length; steps++) {
         birth_year_number = birth_year_number == 12 ? 1 : birth_year_number + 1;
+
         let result_key = Object.keys(tai_soi_twelve_stars[steps]);
-        const result_obj = new Object();
-        result_obj[result_key] = birth_year_number;
-        result.push(result_obj);
+
+        result[result_key] = {"position" : birth_year_number};
     }
     return result;
 }

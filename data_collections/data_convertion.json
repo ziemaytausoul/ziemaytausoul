@@ -102,20 +102,20 @@
             "gav": "化忌"
         },
         "forteen_main_stars": {
-            "zie_may": "紫微",
-            "tim_gey": "天機",
-            "tai_yueng": "太陽",
-            "mau_koo": "武曲",
-            "tim_toun": "天同",
-            "lin_zaen": "廉貞",
-            "tim_foo": "天府",
-            "tai_yian": "太陰",
-            "tam_long": "貪狼",
-            "guoy_moon": "巨門",
-            "tim_sueng": "天相",
-            "tim_leung": "天梁",
-            "chey_sa": "七殺",
-            "pob_gaun": "破軍"
+            "zie_may": ["紫微", "main"],
+            "tim_gey": ["天機", "main"],
+            "tai_yueng": ["太陽", "main"],
+            "mau_koo": ["武曲", "main"],
+            "tim_toun": ["天同", "main"],
+            "lin_zaen": ["廉貞", "main"],
+            "tim_foo": ["天府", "main"],
+            "tai_yian": ["太陰", "main"],
+            "tam_long": ["貪狼", "main"],
+            "guoy_moon": ["巨門", "main"],
+            "tim_sueng": ["天相", "main"],
+            "tim_leung": ["天梁", "main"],
+            "chey_sa": ["七殺", "main"],
+            "pob_gaun": ["破軍", "main"]
         },
         "tim_fhui": ["天魁", "positive"],
         "tim_jue": ["天鉞", "positive"],
@@ -149,31 +149,30 @@
         "fung_kwok": ["鳳閣", "first_tier"],
         "tai_soi_twelve_stars": {
             "stars": [{
-                "tai_soi": "太歲"
+                "tai_soi": ["太歲","second_tier"]
             }, {
-                "foi_hey": "晦氣"
+                "foi_hey": ["晦氣","second_tier"]
             }, {
-                "song_mon": "喪門"
+                "song_mon": ["喪門","second_tier"]
             }, {
-                "gwan_sol": "貫索"
+                "gwan_sol": ["貫索","second_tier"]
             }, {
-                "kwun_fu": "官符"
+                "kwun_fu": ["官符","second_tier"]
             }, {
-                "siu_ho": "小耗"
+                "siu_ho": ["小耗","second_tier"]
             }, {
-                "soi_po": "歲破"
+                "soi_po": ["歲破","second_tier"]
             }, {
-                "non_tak": "龍德"
+                "non_tak": ["龍德","second_tier"]
             }, {
-                "bab_fu": "白虎"
+                "bab_fu": ["白虎", "second_tier"]
             }, {
-                "tim_tak": "天德"
+                "tim_tak": ["天德", "second_tier"]
             }, {
-                "dual_hak": "吊客"
+                "dual_hak": ["吊客", "second_tier"]
             }, {
-                "bang_fu": "病符"
-            }],
-            "tier": "second_tier"
+                "bang_fu": ["病符", "second_tier"]
+            }]
         },
         "jaen_sing": ["將星", "second_tier"],
         "pam_on": ["攀鞍", "second_tier"],
@@ -189,31 +188,30 @@
         "mong_sun": ["亡神", "second_tier"],
         "bou_si_twelve_stars": {
             "stars": [{
-                "bou_si": "博士"
+                "bou_si": ["博士", "second_tier"]
             }, {
-                "lag_si": "力士"
+                "lag_si": ["力士", "second_tier"]
             }, {
-                "ching_non": "青龍"
+                "ching_non": ["青龍", "second_tier"]
             }, {
-                "siu_ho": "小耗"
+                "siu_ho": ["小耗", "second_tier"]
             }, {
-                "jaen_gwun": "將軍"
+                "jaen_gwun": ["將軍", "second_tier"]
             }, {
-                "joe_sue": "奏書"
+                "joe_sue": ["奏書", "second_tier"]
             }, {
-                "phea_ling": "蜚廉"
+                "phea_ling": ["蜚廉", "second_tier"]
             }, {
-                "hey_sun": "喜神"
+                "hey_sun": ["喜神", "second_tier"]
             }, {
-                "bang_phoo": "病符"
+                "bang_phoo": ["病符", "second_tier"]
             }, {
-                "die_hau": "大耗"
+                "die_hau": ["大耗", "second_tier"]
             }, {
-                "phok_bing": "伏兵"
+                "phok_bing": ["伏兵", "second_tier"]
             }, {
-                "kwun_phoo": "官符"
-            }],
-            "tier": "second_tier"
+                "kwun_phoo": ["官符","second_tier"]
+            }]
         },
         "joe_fu": ["左輔", "positive"],
         "yo_bei": ["右弼", "positive"],
