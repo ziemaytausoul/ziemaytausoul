@@ -40,16 +40,16 @@
         "10": "癸"
     },
     "type_of_tim_gone": {
-        "1": "1",
-        "2": "0",
-        "3": "1",
-        "4": "0",
-        "5": "1",
-        "6": "0",
-        "7": "1",
-        "8": "0",
-        "9": "1",
-        "10": "0"
+        "one": "1",
+        "two": "0",
+        "three": "1",
+        "four": "0",
+        "five": "1",
+        "six": "0",
+        "seven": "1",
+        "eight": "0",
+        "nine": "1",
+        "ten": "0"
     },
     "chinese_clock_to_traChin": {
         "rat": "子",
@@ -149,21 +149,21 @@
         "fung_kwok": ["鳳閣", "first_tier"],
         "tai_soi_twelve_stars": {
             "stars": [{
-                "tai_soi": ["太歲","second_tier"]
+                "tai_soi": ["太歲", "second_tier"]
             }, {
-                "foi_hey": ["晦氣","second_tier"]
+                "foi_hey": ["晦氣", "second_tier"]
             }, {
-                "song_mon": ["喪門","second_tier"]
+                "song_mon": ["喪門", "second_tier"]
             }, {
-                "gwan_sol": ["貫索","second_tier"]
+                "gwan_sol": ["貫索", "second_tier"]
             }, {
-                "kwun_fu": ["官符","second_tier"]
+                "kwun_fu": ["官符", "second_tier"]
             }, {
-                "siu_ho": ["小耗","second_tier"]
+                "siu_ho": ["小耗", "second_tier"]
             }, {
-                "soi_po": ["歲破","second_tier"]
+                "soi_po": ["歲破", "second_tier"]
             }, {
-                "non_tak": ["龍德","second_tier"]
+                "non_tak": ["龍德", "second_tier"]
             }, {
                 "bab_fu": ["白虎", "second_tier"]
             }, {
@@ -210,7 +210,7 @@
             }, {
                 "phok_bing": ["伏兵", "second_tier"]
             }, {
-                "kwun_phoo": ["官符","second_tier"]
+                "kwun_phoo": ["官符", "second_tier"]
             }]
         },
         "joe_fu": ["左輔", "positive"],

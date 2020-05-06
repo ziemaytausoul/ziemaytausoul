@@ -84,7 +84,7 @@ span {
 }
 
 /** div class="source" **/
-.source{
+.source {
   font-size: 2.5rem;
   padding: 10% 0%;
   height: inherit;
@@ -101,27 +101,27 @@ div .source span {
   margin: 0% 25%;
 }
 
-#year_data{
+#year_data {
   margin: 0% 10% 0% 0%;
 }
 
-#body_core{
+#body_core {
   margin: 0% 10% 0% 0%;
 }
 
-#module_core{
+#module_core {
   margin: 0% 10% 0% 0%;
 }
 
-#module_level{
+#module_level {
   margin: 0% 10% 0% 0%;
 }
 
-#birth_data{
+#birth_data {
   margin: 0% 10% 0% 0%;
 }
 
-#people_type{
+#people_type {
   margin: 0% 10% 0% 0%;
 }
 

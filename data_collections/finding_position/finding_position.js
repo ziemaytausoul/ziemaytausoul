@@ -1,6 +1,7 @@
 const fs = require('fs');
 const data_convertion = require(__dirname.replace('finding_position', 'data_convertion.json'));
 const preparation_for_stars = require(__dirname.replace('finding_position', 'preparation_for_stars.json'));
+
 module.exports.findForSing = function (startPointForSing, birth_time) {
     return isNaN(startPointForSing) ? 0 : parseInt(startPointForSing) + parseInt(birth_time);
 }
@@ -110,18 +111,22 @@ module.exports.findTaiSoiTwelveStars = function (birth_year) {
     let birth_year_number = parseInt(birth_year);
     let tai_soi_twelve_stars = new Array();
     tai_soi_twelve_stars = data_convertion["star_name_translation"]["tai_soi_twelve_stars"]["stars"];
-    
-    let tai_soi = Object.keys(tai_soi_twelve_stars[0]);
+
+    let [tai_soi] = Object.keys(tai_soi_twelve_stars[0]);
 
     let result = new Object();
-    result[tai_soi] = {"position" : birth_year_number};
+    result[tai_soi] = {
+        "position": birth_year_number
+    };
 
     for (let steps = 1; steps < tai_soi_twelve_stars.length; steps++) {
         birth_year_number = birth_year_number == 12 ? 1 : birth_year_number + 1;
 
-        let result_key = Object.keys(tai_soi_twelve_stars[steps]);
+        let [result_key] = Object.keys(tai_soi_twelve_stars[steps]);
 
-        result[result_key] = {"position" : birth_year_number};
+        result[result_key] = {
+            "position": birth_year_number
+        };
     }
     return result;
 }
@@ -129,28 +134,30 @@ module.exports.findTaiSoiTwelveStars = function (birth_year) {
 module.exports.findBouSiTwelveStars = function (positionOf_luk_chen, type_of_people) {
     let luk_chen = parseInt(positionOf_luk_chen);
     let bou_si_twelve_stars = data_convertion["star_name_translation"]["bou_si_twelve_stars"]["stars"];
-    let result = new Array();
+
     let obj = new Object();
-    obj[Object.keys(bou_si_twelve_stars[0])[0]] = luk_chen;
-    result.push(obj);
+    obj[Object.keys(bou_si_twelve_stars[0])[0]] = {
+        "position": luk_chen
+    };
+
     if (type_of_people == "01" || type_of_people == "10") {
         for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
-            const result_key = Object.keys(bou_si_twelve_stars[steps]);
+            const [result_key] = Object.keys(bou_si_twelve_stars[steps]);
             luk_chen = luk_chen == 1 ? 12 : luk_chen - 1;
-            const result_obj = new Object();
-            result_obj[result_key] = luk_chen;
-            result.push(result_obj);
+            obj[result_key] = {
+                "position": luk_chen
+            };
         }
     } else if (type_of_people == "00" || type_of_people == "11") {
         for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
-            const result_key = Object.keys(bou_si_twelve_stars[steps]);
+            const [result_key] = Object.keys(bou_si_twelve_stars[steps]);
             luk_chen = luk_chen == 12 ? 1 : luk_chen + 1;
-            const result_obj = new Object();
-            result_obj[result_key] = luk_chen;
-            result.push(result_obj);
+            obj[result_key] = {
+                "position": luk_chen
+            };
         }
     }
-    return result;
+    return obj;
 }
 
 //figure out the position of twelve sections
@@ -199,20 +206,48 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
     const tim_foo_start_point = preparation_for_stars.tim_foo_start_point[zie_may_end_point.toString()];
     //console.log("findForteenMainStars: ", num_birth_day, num_type_of_module);
     return {
-        "zie_may": zie_may_end_point,
-        "tim_gey": zie_may_end_point == 1 ? 12 : zie_may_end_point - 1,
-        "tai_yueng": zie_may_end_point > 3 ? zie_may_end_point - 3 : zie_may_end_point - 3 + 12,
-        "mau_koo": zie_may_end_point > 4 ? zie_may_end_point - 4 : zie_may_end_point - 4 + 12,
-        "tim_toun": zie_may_end_point > 5 ? zie_may_end_point - 5 : zie_may_end_point - 5 + 12,
-        "lin_zaen": zie_may_end_point > 8 ? zie_may_end_point - 8 : zie_may_end_point - 8 + 12,
-        "tim_foo": tim_foo_start_point,
-        "tai_yian": tim_foo_start_point == 12 ? 1 : tim_foo_start_point + 1,
-        "tam_long": tim_foo_start_point > 10 ? tim_foo_start_point + 2 - 12 : tim_foo_start_point + 2,
-        "guoy_moon": tim_foo_start_point > 9 ? tim_foo_start_point + 3 - 12 : tim_foo_start_point + 3,
-        "tim_sueng": tim_foo_start_point > 8 ? tim_foo_start_point + 4 - 12 : tim_foo_start_point + 4,
-        "tim_leung": tim_foo_start_point > 7 ? tim_foo_start_point + 5 - 12 : tim_foo_start_point + 5,
-        "chey_sa": tim_foo_start_point > 6 ? tim_foo_start_point + 6 - 12 : tim_foo_start_point + 6,
-        "pob_gaun": tim_foo_start_point > 2 ? tim_foo_start_point + 10 - 12 : tim_foo_start_point + 10
+        "zie_may": {
+            "position": zie_may_end_point
+        },
+        "tim_gey": {
+            "position": zie_may_end_point == 1 ? 12 : zie_may_end_point - 1
+        },
+        "tai_yueng": {
+            "position": zie_may_end_point > 3 ? zie_may_end_point - 3 : zie_may_end_point - 3 + 12
+        },
+        "mau_koo": {
+            "position": zie_may_end_point > 4 ? zie_may_end_point - 4 : zie_may_end_point - 4 + 12
+        },
+        "tim_toun": {
+            "position": zie_may_end_point > 5 ? zie_may_end_point - 5 : zie_may_end_point - 5 + 12
+        },
+        "lin_zaen": {
+            "position": zie_may_end_point > 8 ? zie_may_end_point - 8 : zie_may_end_point - 8 + 12
+        },
+        "tim_foo": {
+            "position": tim_foo_start_point
+        },
+        "tai_yian": {
+            "position": tim_foo_start_point == 12 ? 1 : tim_foo_start_point + 1
+        },
+        "tam_long": {
+            "position": tim_foo_start_point > 10 ? tim_foo_start_point + 2 - 12 : tim_foo_start_point + 2
+        },
+        "guoy_moon": {
+            "position": tim_foo_start_point > 9 ? tim_foo_start_point + 3 - 12 : tim_foo_start_point + 3
+        },
+        "tim_sueng": {
+            "position": tim_foo_start_point > 8 ? tim_foo_start_point + 4 - 12 : tim_foo_start_point + 4
+        },
+        "tim_leung": {
+            "position": tim_foo_start_point > 7 ? tim_foo_start_point + 5 - 12 : tim_foo_start_point + 5
+        },
+        "chey_sa": {
+            "position": tim_foo_start_point > 6 ? tim_foo_start_point + 6 - 12 : tim_foo_start_point + 6
+        },
+        "pob_gaun": {
+            "position": tim_foo_start_point > 2 ? tim_foo_start_point + 10 - 12 : tim_foo_start_point + 10
+        }
     }
 }
 
