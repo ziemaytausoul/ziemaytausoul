@@ -62,8 +62,8 @@ app.post('/createModule', function (req, res) {
     reference_data.birth_time = req.session["birth_time"];
     reference_data.tim_gone = req.session["tim_gone"];
     reference_data.twelveTimGone = tim_gone_of_12Sections[reference_data.tim_gone];
-
-    setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point)
+    
+    setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point.toString())
         .then(result_type_of_module => {
             reference_data.type_of_module = result_type_of_module;
             reference_data.type_of_people = finding_position.getTypeOfPeople((req.body.gender != null ? req.body.gender : "0"), reference_data.tim_gone);
@@ -87,24 +87,33 @@ app.post('/createModule', function (req, res) {
                                 }
                                 delete result[star].findingPosition;
                                 let result_fromFindingPosition = func.apply(this, params_toPass);
-                                //console.log(result_fromFindingPosition);
                                 for (const r_result in result_fromFindingPosition) {
                                     result[r_result] = result_fromFindingPosition[r_result];
                                 }
-                                delete result[star];
-                            }
+                                if(star_name_translation[star].hasOwnProperty("stars")){
+                                    star_name_translation[star]["stars"].forEach(element => {
+                                        const key = Object.keys(element);
+                                        result[key]["metaData"] = element[key];
+                                    });
+                                    delete result[star];
+                                } else {
+                                    result[star]["metaData"] = star_name_translation[star];
+                                }
 
-                            if (typeof result[star] !== "undefined") {
-                                result[star]["metaData"] = star_name_translation[star];
                             } else {
-                                const stars_metaData = star_name_translation[star]["stars"];
-                                console.log(star);
-                                stars_metaData.forEach(element => {
-                                    const [key] = Object.keys(element);
-                                    //console.log(key, " : ", result[key]);
-                                    result[key]["metaData"] = element[key];
-                                });
+                                result[star]["metaData"] = star_name_translation[star];
                             }
+                            
+                            // if (result[star] !== "undefined") {
+                                
+                            // } else {
+                            //     const stars_metaData = star_name_translation[star]["stars"];
+                            //     console.log("stars_metaData: ",star_name_translation[star]);
+                            //     stars_metaData.forEach(element => {
+                            //         const [key] = Object.keys(element);
+                            //         result[key]["metaData"] = element[key];
+                            //     });
+                            // }
                         }
                     }
                     result.intervalForTenYears = setting_background.settingInternvalForTenYears(reference_data.type_of_module, reference_data.type_of_people, reference_data.life_point);

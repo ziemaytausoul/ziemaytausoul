@@ -18,7 +18,7 @@ module.exports.getTypeOfModule = function (tim_gone, positionOf_life_point) {
         projectId: project_id,
         keyFilename: keyFilename
     });
-
+    
     const promise = new Promise(function (resolve, reject) {
         firestore.collection("type_of_module").doc(tim_gone).get().then(result => {
             if (result.exists) {
