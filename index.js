@@ -62,16 +62,21 @@ app.post('/createModule', function (req, res) {
     reference_data.birth_time = req.session["birth_time"];
     reference_data.tim_gone = req.session["tim_gone"];
     reference_data.twelveTimGone = tim_gone_of_12Sections[reference_data.tim_gone];
-    
+
     setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point.toString())
         .then(result_type_of_module => {
             reference_data.type_of_module = result_type_of_module;
             reference_data.type_of_people = finding_position.getTypeOfPeople((req.body.gender != null ? req.body.gender : "0"), reference_data.tim_gone);
+
             handleTaskFunctions.getModuleData(reference_data.birth_year, reference_data.birth_month, reference_data.birth_day, reference_data.birth_time, reference_data.tim_gone)
                 .then(function (result) {
+
                     let star_name_translation = data_convertion["star_name_translation"];
+
                     for (const star in result) {
+
                         if (star_name_translation.hasOwnProperty(star)) {
+
                             if (result[star].hasOwnProperty("findingPosition")) {
                                 let [params] = Object.values(result[star].findingPosition);
                                 let func = finding_position[Object.keys(result[star].findingPosition)];
@@ -85,12 +90,15 @@ app.post('/createModule', function (req, res) {
                                         params_toPass[i] = reference_data[params[i]];
                                     }
                                 }
+
                                 delete result[star].findingPosition;
                                 let result_fromFindingPosition = func.apply(this, params_toPass);
+
                                 for (const r_result in result_fromFindingPosition) {
                                     result[r_result] = result_fromFindingPosition[r_result];
                                 }
-                                if(star_name_translation[star].hasOwnProperty("stars")){
+
+                                if (star_name_translation[star].hasOwnProperty("stars")) {
                                     star_name_translation[star]["stars"].forEach(element => {
                                         const key = Object.keys(element);
                                         result[key]["metaData"] = element[key];
@@ -103,9 +111,9 @@ app.post('/createModule', function (req, res) {
                             } else {
                                 result[star]["metaData"] = star_name_translation[star];
                             }
-                            
+
                             // if (result[star] !== "undefined") {
-                                
+
                             // } else {
                             //     const stars_metaData = star_name_translation[star]["stars"];
                             //     console.log("stars_metaData: ",star_name_translation[star]);
@@ -116,10 +124,20 @@ app.post('/createModule', function (req, res) {
                             // }
                         }
                     }
-                    result.intervalForTenYears = setting_background.settingInternvalForTenYears(reference_data.type_of_module, reference_data.type_of_people, reference_data.life_point);
-                    result.twelveTimGone = reference_data.twelveTimGone;
-                    result.twelveTimGone.metaData = data_convertion.tim_gone_to_traChin;
-                    result.twelveTimGone.metaData = data_convertion.tim_gone_to_traChin;
+                    /** Prepare ten years **/
+                    const temp_ten_years = setting_background.settingInternvalForTenYears(reference_data.type_of_module, reference_data.type_of_people, reference_data.life_point);
+                    for (const year in temp_ten_years) {
+                        if (temp_ten_years.hasOwnProperty(year)) {
+                            result[year] = temp_ten_years[year];
+                        }
+                    }
+                    /** Prepare character **/
+                    const temp_character = setting_background.defineTimGoneOfTwelveSections(reference_data.tim_gone);
+                    for (const charac in temp_character) {
+                        if (temp_character.hasOwnProperty(charac)) {
+                            result[charac] = temp_character[charac];
+                        }
+                    }
                     res.status(200).jsonp(result);
                     //res.status(200).render("index");
                 }, function (error) {

@@ -896,7 +896,7 @@
         },
         "tim_sze": {
             "findingPosition": {
-                "findTimChoi": ["travel_point", "type_of_people"]
+                "findTimSze": ["travel_point", "type_of_people"]
             }
         },
         "tai_fu": {

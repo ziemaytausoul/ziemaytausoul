@@ -102,21 +102,50 @@
             "gav": "化忌"
         },
         "forteen_main_stars": {
-           "stars":[{ "zie_may": ["紫微", "main"]},
-            {"tim_gey": ["天機", "main"]},
-            {"tai_yueng": ["太陽", "main"]},
-            {"mau_koo": ["武曲", "main"]},
-            {"tim_toun": ["天同", "main"]},
-            {"lin_zaen": ["廉貞", "main"]},
-            {"tim_foo": ["天府", "main"]},
-            {"tai_yian": ["太陰", "main"]},
-            {"tam_long": ["貪狼", "main"]},
-            {"guoy_moon": ["巨門", "main"]},
-            {"tim_sueng": ["天相", "main"]},
-            {"tim_leung": ["天梁", "main"]},
-            {"chey_sa": ["七殺", "main"]},
-            {"pob_gaun": ["破軍", "main"]}
-           ]},
+            "stars": [{
+                    "zie_may": ["紫微", "main"]
+                },
+                {
+                    "tim_gey": ["天機", "main"]
+                },
+                {
+                    "tai_yueng": ["太陽", "main"]
+                },
+                {
+                    "mau_koo": ["武曲", "main"]
+                },
+                {
+                    "tim_toun": ["天同", "main"]
+                },
+                {
+                    "lin_zaen": ["廉貞", "main"]
+                },
+                {
+                    "tim_foo": ["天府", "main"]
+                },
+                {
+                    "tai_yian": ["太陰", "main"]
+                },
+                {
+                    "tam_long": ["貪狼", "main"]
+                },
+                {
+                    "guoy_moon": ["巨門", "main"]
+                },
+                {
+                    "tim_sueng": ["天相", "main"]
+                },
+                {
+                    "tim_leung": ["天梁", "main"]
+                },
+                {
+                    "chey_sa": ["七殺", "main"]
+                },
+                {
+                    "pob_gaun": ["破軍", "main"]
+                }
+            ]
+        },
         "tim_fhui": ["天魁", "positive"],
         "tim_jue": ["天鉞", "positive"],
         "luc_chen": ["祿存", "positive"],
@@ -240,18 +269,43 @@
         "tim_yau": ["天", "first_tier"],
         "zie_dau": ["子斗", "special"],
         "twelve_cheong_sun": {
-            "cheong_sun": "長生",
-            "moo_yau": "沐浴",
-            "kwun_tai": "冠帶",
-            "lin_kwun": "臨官",
-            "tai_mon": "帝旺",
-            "soi": "衰",
-            "bang": "病",
-            "say": "死",
-            "mou": "墓",
-            "chue": "絕",
-            "toi": "胎",
-            "yeung": "養"
+            "stars": [{
+                    "cheong_sun": ["長生", "cheong_sun"]
+                },
+                {
+                    "moo_yau": ["沐浴", "cheong_sun"]
+                },
+                {
+                    "kwun_tai": ["冠帶", "cheong_sun"]
+                },
+                {
+                    "lin_kwun": ["臨官", "cheong_sun"]
+                },
+                {
+                    "tai_mon": ["帝旺", "cheong_sun"]
+                },
+                {
+                    "soi": ["衰", "cheong_sun"]
+                },
+                {
+                    "bang": ["病", "cheong_sun"]
+                },
+                {
+                    "say": ["死", "cheong_sun"]
+                },
+                {
+                    "mou": ["墓", "cheong_sun"]
+                },
+                {
+                    "chue": ["絕", "cheong_sun"]
+                },
+                {
+                    "toi": ["胎", "cheong_sun"]
+                },
+                {
+                    "yeung": ["養", "cheong_sun"]
+                }
+            ]
         }
     }
 }
