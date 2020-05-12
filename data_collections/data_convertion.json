@@ -80,19 +80,19 @@
         "pig": 12
     },
     "point_name": {
-        "life_point": "命宮",
-        "parent_point": "父母宮",
-        "thought_point": "福德宮",
-        "housing_point": "田宅宮",
-        "career_point": "事業宮",
-        "friendship_point": "交友宮",
-        "travel_point": "遷移宮",
-        "illness_point": "疾厄宮",
-        "possession_point": "財帛宮",
-        "posterity_point": "子女宮",
-        "marriage_point": "夫妻宮",
-        "sibling_point": "兄弟宮",
-        "anatomy_point": "身宮"
+        "life_point": ["命宮", "position"],
+        "parent_point": ["父母", "position"],
+        "thought_point": ["福德", "position"],
+        "housing_point": ["田宅", "position"],
+        "career_point": ["事業", "position"],
+        "friendship_point": ["交友", "position"],
+        "travel_point": ["遷移", "position"],
+        "illness_point": ["疾厄", "position"],
+        "possession_point": ["財帛", "position"],
+        "posterity_point": ["子女", "position"],
+        "marriage_point": ["夫妻", "position"],
+        "sibling_point": ["兄弟", "position"],
+        "anatomy_point": ["身宮", "position"]
     },
     "star_name_translation": {
         "four_changes": {

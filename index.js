@@ -138,6 +138,18 @@ app.post('/createModule', function (req, res) {
                             result[charac] = temp_character[charac];
                         }
                     }
+
+                    /** Prepare position**/
+                    const temp_twelveSections = finding_position.defineSection(reference_data.birth_month, reference_data.birth_time);
+                    const twelveSections_trans = data_convertion["point_name"];
+                    for (const position in temp_twelveSections) {
+                        if (temp_twelveSections.hasOwnProperty(position)) {
+                            result[position] = {
+                                "position": temp_twelveSections[position]
+                            };
+                            result[position]["metaData"] = twelveSections_trans[position];
+                        }
+                    }
                     res.status(200).jsonp(result);
                     //res.status(200).render("index");
                 }, function (error) {

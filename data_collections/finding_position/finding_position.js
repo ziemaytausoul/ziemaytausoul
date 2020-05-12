@@ -2,6 +2,7 @@ const fs = require('fs');
 const data_convertion = require(__dirname.replace('finding_position', 'data_convertion.json'));
 const preparation_for_stars = require(__dirname.replace('finding_position', 'preparation_for_stars.json'));
 
+/** 火星 **/
 module.exports.findForSing = function (startPointForSing, birth_time) {
     return {
         "for_sing": {
@@ -10,6 +11,7 @@ module.exports.findForSing = function (startPointForSing, birth_time) {
     };
 }
 
+/** 鈴星 **/
 module.exports.findLinSing = function (startPointLinSing, birth_time) {
     return {
         "lin_sing": {
@@ -18,6 +20,7 @@ module.exports.findLinSing = function (startPointLinSing, birth_time) {
     };
 }
 
+/** 旬空 **/
 module.exports.findSwunKong = function (tim_gone, birth_year) {
     var number_tim_gone = parseInt(tim_gone);
     birth_year = parseInt(birth_year);
@@ -31,6 +34,7 @@ module.exports.findSwunKong = function (tim_gone, birth_year) {
     };
 }
 
+/** 天才 **/
 module.exports.findTimChoi = function (life_point, birth_year) {
     birth_year = parseInt(birth_year);
     life_point = parseInt(life_point);
@@ -44,6 +48,7 @@ module.exports.findTimChoi = function (life_point, birth_year) {
     };
 }
 
+/** 天壽 **/
 module.exports.findTimSoul = function (anatomy_point, birth_year) {
     birth_year = parseInt(birth_year);
     anatomy_point = parseInt(anatomy_point);
@@ -57,6 +62,7 @@ module.exports.findTimSoul = function (anatomy_point, birth_year) {
     };
 }
 
+/** 天傷 **/
 module.exports.findTimShoin = function (travel_point, type_of_people) {
     let tim_shoin = 0;
     travel_point = parseInt(travel_point);
@@ -72,6 +78,7 @@ module.exports.findTimShoin = function (travel_point, type_of_people) {
     };
 }
 
+/** 天使 **/
 module.exports.findTimSze = function (travel_point, type_of_people) {
     let tim_sze = 0;
     travel_point = parseInt(travel_point);
@@ -87,6 +94,7 @@ module.exports.findTimSze = function (travel_point, type_of_people) {
     };
 }
 
+/** 台輔 **/
 module.exports.findTaiFu = function (positionOf_men_kog) {
     let tai_fu = positionOf_men_kog;
     for (let steps = 0; steps < 2; steps++) {
@@ -99,6 +107,7 @@ module.exports.findTaiFu = function (positionOf_men_kog) {
     };
 }
 
+/** 封誥 **/
 module.exports.findFungGau = function (positionOf_men_kog) {
     let fung_gau = positionOf_men_kog;
     for (let steps = 0; steps < 2; steps++) {
@@ -111,6 +120,7 @@ module.exports.findFungGau = function (positionOf_men_kog) {
     };
 }
 
+/** 三台 **/
 module.exports.findSanTai = function (positionOf_joe_fu, birth_day) {
     let san_tai = positionOf_joe_fu;
     //console.log(positionOf_joe_fu, birth_day);
@@ -124,6 +134,7 @@ module.exports.findSanTai = function (positionOf_joe_fu, birth_day) {
     };
 }
 
+/** 八座 **/
 module.exports.findBapZoi = function (positionOf_yo_bei, birth_day) {
     let bap_zoi = positionOf_yo_bei;
     for (let steps = 0; steps < birth_day; steps++) {
@@ -136,6 +147,7 @@ module.exports.findBapZoi = function (positionOf_yo_bei, birth_day) {
     };
 }
 
+/** 恩光 **/
 module.exports.findYanKwong = function (positionOf_men_cheong, birth_day) {
     let yan_kwong = positionOf_men_cheong;
     for (let steps = 1; steps < birth_day; steps++) {
@@ -148,6 +160,7 @@ module.exports.findYanKwong = function (positionOf_men_cheong, birth_day) {
     };
 }
 
+/** 天貴 **/
 module.exports.findTimKwui = function (positionOf_men_kog, birth_day) {
     let tim_kwui = positionOf_men_kog;
     for (let steps = 0; steps < birth_day; steps++) {
