@@ -111,7 +111,6 @@ module.exports.getModuleData = function (birth_year, birth_month, birth_day, bir
                     stars[star] = new Object();
                     if (typeof item[star][key[doc_id]] != "undefined") {
                         stars[star]["position"] = item[star][key[doc_id]];
-
                     }
                     if (item[star].hasOwnProperty("findingPosition")) {
                         stars[star]["findingPosition"] = item[star]["findingPosition"];
