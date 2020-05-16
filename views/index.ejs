@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="6_main" class="content" style="text-align:center;">
                             <div id="6_main_left" class="main" style="display:inline-block;">
                                 <span id="6_left_original">天梁祿</span><span id="6_left_second">祿</span><span
                                     id="6_left_third">祿</span>
@@ -208,7 +208,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="7_main" class="content" style="text-align:center;">
                             <div id="7_main_left" class="main" style="display:inline-block;">
                                 <span id="7_left_original">天梁祿</span><span id="7_left_second">祿</span><span
                                     id="7_left_third">祿</span>
@@ -336,7 +336,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="8_main" class="content" style="text-align:center;">
                             <div id="8_main_left" class="main" style="display:inline-block;">
                                 <span id="8_left_original">天梁祿</span><span id="8_left_second">祿</span><span
                                     id="8_left_third">祿</span>
@@ -430,7 +430,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="9_mian" class="content" style="text-align:center;">
                             <div id="9_main_left" class="main" style="display:inline-block;">
                                 <span id="9_left_original">天梁祿</span><span id="9_left_second">祿</span><span
                                     id="9_left_third">祿</span>
@@ -562,7 +562,7 @@
                             </div>
                             <div class="col-mid">
                                 <!--second column-->
-                                <div class="content" style="text-align:center;">
+                                <div id="5_main" class="content" style="text-align:center;">
                                     <div id="5_main_left" class="main" style="display:inline-block;">
                                         <span id="5_left_original">天梁祿</span><span id="5_left_second">祿</span><span
                                             id="5_left_third">祿</span>
@@ -691,7 +691,7 @@
                             </div>
                             <div class="col-mid">
                                 <!--second column-->
-                                <div class="content" style="text-align:center;">
+                                <div id="4_main" class="content" style="text-align:center;">
                                     <div id="4_main_left" class="main" style="display:inline-block;">
                                         <span id="4_left_original">天梁祿</span><span id="4_left_second">祿</span><span
                                             id="4_left_third">祿</span>
@@ -834,7 +834,7 @@
                             </div>
                             <div class="col-mid">
                                 <!--second column-->
-                                <div class="content" style="text-align:center;">
+                                <div id="10_main" class="content" style="text-align:center;">
                                     <div id="10_main_left" class="main" style="display:inline-block;">
                                         <span id="10_left_original">天梁祿</span><span id="10_left_second">祿</span><span
                                             id="10_left_third">祿</span>
@@ -963,7 +963,7 @@
                             </div>
                             <div class="col-mid">
                                 <!--second column-->
-                                <div class="content" style="text-align:center;">
+                                <div id="11_main" class="content" style="text-align:center;">
                                     <div id="11_main_left" class="main" style="display:inline-block;">
                                         <span id="11_left_original">天梁祿</span><span id="11_left_second">祿</span><span
                                             id="11_left_third">祿</span>
@@ -1095,7 +1095,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="3_main" class="content" style="text-align:center;">
                             <div id="3_main_left" class="main" style="display:inline-block;">
                                 <span id="3_left_original">天梁祿</span><span id="3_left_second">祿</span><span
                                     id="3_left_third">祿</span>
@@ -1222,7 +1222,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="2_main" class="content" style="text-align:center;">
                             <div id="2_main_left" class="main" style="display:inline-block;">
                                 <span id="2_left_original">天梁祿</span><span id="2_left_second">祿</span><span
                                     id="2_left_third">祿</span>
@@ -1349,7 +1349,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="1_main" class="content" style="text-align:center;">
                             <div id="1_main_left" class="main" style="display:inline-block;">
                                 <span id="1_left_original">天梁祿</span><span id="1_left_second">祿</span><span
                                     id="1_left_third">祿</span>
@@ -1476,7 +1476,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div class="content" style="text-align:center;">
+                        <div id="12_main" class="content" style="text-align:center;">
                             <div id="12_main_left" class="main" style="display:inline-block;">
                                 <span id="12_left_original">天梁祿</span><span id="12_left_second">祿</span><span
                                 id="12_left_third">祿</span>
@@ -1561,8 +1561,7 @@
                 dataType: "json",
                 contentType: "application/json;charset=utf-8",
                 success: function (result, status, xhr) {
-                    //console.log(first_tier(result));
-
+                    LocateStar(result);
                 },
                 error: function (xhr, status, error) {
                     console.log(xhr.status);
@@ -1570,6 +1569,24 @@
                 }
             });
         }
+
+        function LocateStar(module) {
+
+            for (const star in module) {
+
+                if (module.hasOwnProperty(star)) {
+
+                    const location_detail = module[star];
+                    
+                    const node_id = `${location_detail.position}_${location_detail.metaData[1]}`;
+                    console.info(node_id);
+                    console.log(`Node: ${node_id} \n ${$(`#${node_id}`).html()}`);
+
+                }
+
+            }
+
+        }   
     </script>
 </body>
 
