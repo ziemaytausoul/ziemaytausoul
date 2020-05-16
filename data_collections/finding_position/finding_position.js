@@ -266,6 +266,7 @@ module.exports.getTypeOfPeople = function (typeOf_people, tim_gone) {
     return data_convertion["type_of_tim_gone"][tim_gone] + typeOf_people;
 }
 
+/** 十四主星 **/
 module.exports.findForteenMainStars = function (birth_day, type_of_module) {
     const zie_may_start_point = preparation_for_stars["zie_may_start_point"][type_of_module];
     const num_birth_day = parseInt(birth_day);

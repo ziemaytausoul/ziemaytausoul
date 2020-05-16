@@ -1,66 +1,52 @@
 {
     "by_tim_gone": {
-        "four_changes": {
-            "one": {
-                "luc": "lin_zaen",
-                "kwun": "pob_gaun",
-                "fol": "mau_koo",
-                "gav": "tai_yueng"
-            },
-            "two": {
-                "luc": "tim_gey",
-                "kwun": "tim_leung",
-                "fol": "zie_may",
-                "gav": "tai_yian"
-            },
-            "three": {
-                "luc": "tim_toun",
-                "kwun": "tim_gey",
-                "fol": "men_cheong",
-                "gav": "lin_zaen"
-            },
-            "four": {
-                "luc": "tai_yian",
-                "kwun": "tim_toun",
-                "fol": "tim_gey",
-                "gav": "guoy_moon"
-            },
-            "five": {
-                "luc": "tam_long",
-                "kwun": "tai_yian",
-                "fol": "tai_yueng",
-                "gav": "tim_gey"
-            },
-            "six": {
-                "luc": "mau_koo",
-                "kwun": "tam_long",
-                "fol": "tim_leung",
-                "gav": "tim_gey"
-            },
-            "seven": {
-                "luc": "tai_yueng",
-                "kwun": "mau_koo",
-                "fol": "tim_foo",
-                "gav": "tim_toun"
-            },
-            "eight": {
-                "luc": "guoy_moon",
-                "kwun": "tai_yueng",
-                "fol": "men_kog",
-                "gav": "men_cheong"
-            },
-            "nine": {
-                "luc": "tim_leung",
-                "kwun": "zie_may",
-                "fol": "tim_foo",
-                "gav": "mau_koo"
-            },
-            "ten": {
-                "luc": "pob_gaun",
-                "kwun": "guoy_moon",
-                "fol": "tai_yian",
-                "gav": "tam_long"
-            }
+        "luc": {
+            "one": "lin_zaen",
+            "two": "tim_gey",
+            "three": "tim_toun",
+            "four": "tai_yian",
+            "five": "tam_long",
+            "six": "mau_koo",
+            "seven": "tai_yueng",
+            "eight": "guoy_moon",
+            "nine": "tim_leung",
+            "ten": "pob_gaun"
+        },
+        "kwun": {
+            "one": "pob_gaun",
+            "two": "tim_leung",
+            "three": "tim_gey",
+            "four": "tim_toun",
+            "five": "tai_yian",
+            "six": "tam_long",
+            "seven": "mau_koo",
+            "eight": "tai_yueng",
+            "nine": "zie_may",
+            "ten": "guoy_moon"
+        },
+        "fol": {
+            "one": "mau_koo",
+            "two": "zie_may",
+            "three": "men_cheong",
+            "four": "tim_gey",
+            "five": "tai_yueng",
+            "six": "tim_leung",
+            "seven": "tim_foo",
+            "eight": "men_kog",
+            "nine": "tim_foo",
+            "ten": "tai_yian"
+        },
+        "gav": {
+            "one": "tai_yueng",
+            "two": "tai_yian",
+            "three": "lin_zaen",
+            "four": "guoy_moon",
+            "five": "tim_gey",
+            "six": "tim_gey",
+            "seven": "tim_toun",
+            "eight": "men_cheong",
+            "nine": "mau_koo",
+            "ten": "tam_long"
         },
         "king_yeong": {
             "one": 4,
