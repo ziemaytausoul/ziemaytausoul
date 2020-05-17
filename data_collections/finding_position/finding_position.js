@@ -272,7 +272,7 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
     const num_type_of_module = data_convertion.type_of_module[type_of_module];
     const zie_may_end_point = num_birth_day >= num_type_of_module ? (num_birth_day % num_type_of_module == 0 ? 3 : (num_birth_day / num_type_of_module) + zie_may_start_point + 1 > 12 ? (num_birth_day / num_type_of_module) + zie_may_start_point + 1 - 12 : (num_birth_day / num_type_of_module) + zie_may_start_point + 1) : num_type_of_module;
     const tim_foo_start_point = preparation_for_stars.tim_foo_start_point[zie_may_end_point.toString()];
-
+    
     return {
         "zie_may": {
             "position": zie_may_end_point

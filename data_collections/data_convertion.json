@@ -95,12 +95,10 @@
         "anatomy_point": ["身宮", "position"]
     },
     "star_name_translation": {
-        "four_changes": {
-            "luc": "化祿",
-            "kwun": "化權",
-            "fol": "化科",
-            "gav": "化忌"
-        },
+        "luc": ["化祿","changes"],
+        "kwun": ["化權", "changes"],
+        "fol": ["化科", "changes"],
+        "gav": ["化忌", "changes"],
         "forteen_main_stars": {
             "stars": [{
                     "zie_may": ["紫微", "main"]
