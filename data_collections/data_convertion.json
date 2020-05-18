@@ -144,11 +144,11 @@
                 }
             ]
         },
-        "tim_fhui": ["天魁", "positive"],
-        "tim_jue": ["天鉞", "positive"],
-        "luc_chen": ["祿存", "positive"],
-        "king_yeong": ["擎羊", "negative"],
-        "tau_lo": ["陀羅", "negative"],
+        "tim_fhui": ["天魁", "moon"],
+        "tim_jue": ["天鉞", "moon"],
+        "luc_chen": ["祿存", "moon"],
+        "king_yeong": ["擎羊", "moon"],
+        "tau_lo": ["陀羅", "moon"],
         "tim_kwun": ["天官", "first_tier"],
         "tim_fu": ["天福", "first_tier"],
         "tim_tchu": ["天廚", "first_tier"],

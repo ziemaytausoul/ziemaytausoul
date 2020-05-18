@@ -1,7 +1,38 @@
 {
-    "main": "<div id=\"\" class=\"main\" style=\"display:inline-block;\"><span id=\"tim_leung\"></span></div>",
-    "moon":"<div class=\"moon\"></div>",
-    "first_tier":"<div class=\"second_tier\"></div>",
-    "second_tier":"<div class=\"second_tier\"></div>",
-    "changes":"<span id=\"\"></span>"
+    "main": {
+        "front": "<div id=\"\" class=\"main\" style=\"display:inline-block;\"><span id=\"tim_leung\">",
+        "end": "</span></div>"
+    },
+    "moon": {
+        "front": "<div class=\"moon\">",
+        "ende": "</div>"
+    },
+    "first_tier": {
+        "front": "<div class=\"second_tier\">",
+        "end": "</div>"
+    },
+    "second_tier": {
+        "front": "<div class=\"second_tier\">",
+        "end": "</div>"
+    },
+    "changes": {
+        "front": "<span id=\"\">",
+        "end": "</span>"
+    },
+    "character":{
+        "front":"",
+        "end":""
+    },
+    "position":{
+        "front":"",
+        "end":""
+    },
+    "ten_years":{
+        "front":"",
+        "end":""
+    },
+    "cheong_sun":{
+        "front":"",
+        "end":""
+    }
 }
