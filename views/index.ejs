@@ -908,7 +908,7 @@
             var year = $("#year").val();
 
             $.ajax({
-                url: window.location.host + "/createModule",
+                url: "/createModule",
                 method: "POST",
                 data: JSON.stringify({
                     "year": year,
