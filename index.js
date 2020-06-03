@@ -76,7 +76,7 @@ app.post('/createModule', function (req, res) {
                     for (const star in result) {
 
                         if (star_name_translation.hasOwnProperty(star)) {
-                            
+
                             if (result[star].hasOwnProperty("findingPosition")) {
                                 let [params] = Object.values(result[star].findingPosition);
                                 let func = finding_position[Object.keys(result[star].findingPosition)];
@@ -111,7 +111,7 @@ app.post('/createModule', function (req, res) {
                             } else {
                                 result[star]["metaData"] = star_name_translation[star];
                             }
-                            
+
                             // if (result[star] !== "undefined") {
 
                             // } else {

@@ -27,6 +27,20 @@
         "11": "dog",
         "12": "pig"
     },
+    "number_to_zodiac": {
+        "1": "子",
+        "2": "丑",
+        "3": "寅",
+        "4": "卯",
+        "5": "辰",
+        "6": "巳",
+        "7": "午",
+        "8": "未",
+        "9": "申",
+        "10": "酉",
+        "11": "戍",
+        "12": "亥"
+    },
     "tim_gone_to_traChin": {
         "one": "甲",
         "two": "乙",
@@ -95,7 +109,7 @@
         "anatomy_point": ["身宮", "position"]
     },
     "star_name_translation": {
-        "luc": ["化祿","changes"],
+        "luc": ["化祿", "changes"],
         "kwun": ["化權", "changes"],
         "fol": ["化科", "changes"],
         "gav": ["化忌", "changes"],
