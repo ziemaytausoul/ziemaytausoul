@@ -1,9 +1,10 @@
 {
-  "name": "firestore_testing",
+  "name": "ZieMayTauSoul",
   "version": "1.0.0",
-  "description": "Testing Firestore",
+  "description": "Zie May Tau Soul",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "npm test"
   },
   "author": "",
