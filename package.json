@@ -1,10 +1,15 @@
 {
-  "name": "firestore_testing",
+  "name": "ziemaytausoul",
   "version": "1.0.0",
-  "description": "Testing Firestore",
+  "description": "Zie May Tau Soul",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "node index.js"
+=======
+    "start": "node index.js",
+    "test": "npm test"
+>>>>>>> c32a626a03465b112fe45af3007bd47d6b84675f
   },
   "author": "",
   "license": "ISC",

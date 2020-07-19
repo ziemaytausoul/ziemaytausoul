@@ -6,6 +6,7 @@ module.exports.defineTimGoneOfTwelveSections = function (tim_gone) {
     let result = new Object();
     try {
         const twelveSections = require("./data_collections/tim_gone_of_twelve_sections");
+        const zodiac = require("./data_collections/data_convertion")["number_to_zodiac"];
         const metaData = data_convertion["tim_gone_to_traChin"];
         const raw_data = twelveSections[tim_gone];
         for (const position in raw_data) {
@@ -15,7 +16,7 @@ module.exports.defineTimGoneOfTwelveSections = function (tim_gone) {
                 result[key] = {
                     "position": position
                 };
-                result[key]["metaData"] = [metaData[tim_gone], "character"];
+                result[key]["metaData"] = [metaData[tim_gone] + zodiac[position], "character"];
             }
         }
     } catch (error) {
