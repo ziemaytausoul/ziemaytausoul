@@ -900,12 +900,30 @@
         "end":""
     }
 };
-
         function createModule() {
             var time = $("#time").children("option:selected").val();
             var day = $("#day").val();
             var month = $("#month").val();
             var year = $("#year").val();
+            var tim_gone = null;
+
+            $.ajax({
+                url:"http://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetYearTransform?year="+year,
+                method: "GET",
+                success : function (result, status, xhr) {
+                  console.log(result, xhr);
+                  var transformed_year = JSON.parse(result)["result"];
+                  var chinese_year = transformed_year.split("_");
+                  if(chinese_year){
+                      year = chinese_year[0];
+                      tim_gone = chinese_year[1];
+                  }else {
+                      Console.log(result);
+                      Console.log(status);
+                      Console.log(xhr);
+                  }
+                } 
+            });
 
             $.ajax({
                 url: "http://localhost:3000/createModule",
@@ -931,7 +949,6 @@
         function LocateStar(module) {
             
             $.each(module, function (star, details) {
-                
                 const node_id = `${details.position}_${details.metaData[1]}`;
                 const template = template_obj[details.metaData[1]];
                 console.log(node_id);
