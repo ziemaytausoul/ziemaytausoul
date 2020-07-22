@@ -53,6 +53,18 @@
         "nine": "壬",
         "ten": "癸"
     },
+    "number_to_tim_gone": {
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six",
+        "7": "seven",
+        "8": "eight",
+        "9": "nine",
+        "10": "ten"
+    },
     "type_of_tim_gone": {
         "one": "1",
         "two": "0",

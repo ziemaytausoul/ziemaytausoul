@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy"
-        content="connect-src https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetYearTransform?*;">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -274,7 +272,7 @@
                     </div>
                     <div class="col-mid">
                         <!--second column-->
-                        <div id="9_mian" class="content" style="text-align:center;">
+                        <div id="9_main" class="content" style="text-align:center;">
 
                         </div>
                         <div class="row-4">
@@ -916,11 +914,12 @@
                 method: "GET",
                 success: function (result, status, xhr) {
                     console.log(result, xhr);
-                    var transformed_year = JSON.parse(result)["result"];
+                    var transformed_year = result["result"];
                     var chinese_year = transformed_year.split("_");
                     if (chinese_year) {
-                        year = chinese_year[0];
-                        tim_gone = chinese_year[1];
+                        tim_gone = chinese_year[0];
+                        year = chinese_year[1];
+                        getModulData();
                     } else {
                         Console.log(result);
                         Console.log(status);
@@ -929,25 +928,28 @@
                 }
             });
 
-            $.ajax({
-                url: "/createModule",
-                method: "POST",
-                data: JSON.stringify({
-                    "year": year,
-                    "month": month,
-                    "day": day,
-                    "time": time
-                }),
-                dataType: "json",
-                contentType: "application/json;charset=utf-8",
-                success: function (result, status, xhr) {
-                    LocateStar(result);
-                },
-                error: function (xhr, status, error) {
-                    console.log(xhr.status);
-                    console.log(error);
-                }
-            });
+            function getModulData() {
+                $.ajax({
+                    url: "/createModule",
+                    method: "POST",
+                    data: JSON.stringify({
+                        "tim_gone": tim_gone,
+                        "year": year,
+                        "month": month,
+                        "day": day,
+                        "time": time
+                    }),
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    success: function (result, status, xhr) {
+                        LocateStar(result);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.status);
+                        console.log(error);
+                    }
+                });
+            }
         }
 
         function LocateStar(module) {

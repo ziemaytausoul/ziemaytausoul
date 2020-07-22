@@ -3,7 +3,6 @@ const app = express();
 const fs = require("fs");
 const bodyParser = require('body-parser');
 const cookie = require("cookie-session");
-const csp = require("helmet");
 const finding_position = require("./data_collections/finding_position/finding_position.js");
 const handleTaskFunctions = require("./handleTaskFunctions.js");
 const setting_background = require("./setting_background.js");
@@ -23,7 +22,6 @@ app.use(cookie({
     keys: ["key1", "key2"]
 }));
 app.use(express.static(__dirname + '/public'));
-app.use(csp());
 
 app.set("port", process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -54,8 +52,8 @@ app.post('/createModule', function (req, res) {
     req.session["birth_month"] = req.body.month ? req.body.month : "5";
     req.session["birth_day"] = req.body.day ? req.body.day : "5";
     req.session["birth_time"] = req.body.time ? req.body.time : "5";
-    req.session["tim_gone"] = req.body.tim_gone ? req.body.tim_gone : "five";
-
+    req.session["tim_gone"] = req.body.tim_gone ? data_convertion["number_to_tim_gone"][req.body.tim_gone] : "five";
+    console.log(req.session);
     let reference_data = finding_position.defineSection(req.session.birth_month, req.session.birth_time);
 
     reference_data.birth_year = req.session["birth_year"];
