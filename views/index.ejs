@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <meta http-equiv="Content-Security-Policy"
+        content="connect-src https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetYearTransform?*;">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -864,43 +865,44 @@
     </section>
     <script>
         var template_obj = {
-    "main": {
-        "front": "<div id=\"\" class=\"main\" style=\"display:inline-block;\"><span id=\"\">",
-        "end": "</span></div>"
-    },
-    "moon": {
-        "front": "<div class=\"moon\">",
-        "end": "</div>"
-    },
-    "first_tier": {
-        "front": "<div class=\"first_tier\">",
-        "end": "</div>"
-    },
-    "second_tier": {
-        "front": "<div class=\"second_tier\">",
-        "end": "</div>"
-    },
-    "changes": {
-        "front": "<span id=\"\">",
-        "end": "</span>"
-    },
-    "character":{
-        "front":"",
-        "end":""
-    },
-    "position":{
-        "front":"",
-        "end":""
-    },
-    "ten_years":{
-        "front":"",
-        "end":""
-    },
-    "cheong_sun":{
-        "front":"",
-        "end":""
-    }
-};
+            "main": {
+                "front": "<div id=\"\" class=\"main\" style=\"display:inline-block;\"><span id=\"\">",
+                "end": "</span></div>"
+            },
+            "moon": {
+                "front": "<div class=\"moon\">",
+                "end": "</div>"
+            },
+            "first_tier": {
+                "front": "<div class=\"first_tier\">",
+                "end": "</div>"
+            },
+            "second_tier": {
+                "front": "<div class=\"second_tier\">",
+                "end": "</div>"
+            },
+            "changes": {
+                "front": "<span id=\"\">",
+                "end": "</span>"
+            },
+            "character": {
+                "front": "",
+                "end": ""
+            },
+            "position": {
+                "front": "",
+                "end": ""
+            },
+            "ten_years": {
+                "front": "",
+                "end": ""
+            },
+            "cheong_sun": {
+                "front": "",
+                "end": ""
+            }
+        };
+
         function createModule() {
             var time = $("#time").children("option:selected").val();
             var day = $("#day").val();
@@ -909,21 +911,22 @@
             var tim_gone = null;
 
             $.ajax({
-                url:"https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetYearTransform?year="+year,
+                url: "https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetYearTransform?year=" +
+                    year,
                 method: "GET",
-                success : function (result, status, xhr) {
-                  console.log(result, xhr);
-                  var transformed_year = JSON.parse(result)["result"];
-                  var chinese_year = transformed_year.split("_");
-                  if(chinese_year){
-                      year = chinese_year[0];
-                      tim_gone = chinese_year[1];
-                  }else {
-                      Console.log(result);
-                      Console.log(status);
-                      Console.log(xhr);
-                  }
-                } 
+                success: function (result, status, xhr) {
+                    console.log(result, xhr);
+                    var transformed_year = JSON.parse(result)["result"];
+                    var chinese_year = transformed_year.split("_");
+                    if (chinese_year) {
+                        year = chinese_year[0];
+                        tim_gone = chinese_year[1];
+                    } else {
+                        Console.log(result);
+                        Console.log(status);
+                        Console.log(xhr);
+                    }
+                }
             });
 
             $.ajax({
