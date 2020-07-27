@@ -2,6 +2,8 @@ const data_convertion = require("./data_collections/data_convertion.json");
 const project_id = "ziemaytausoul",
     keyFilename = "./ZieMayTauSoul-fec5572fa40b.json";
 const fs = require("fs");
+
+/** 十二宮的大運天干 **/
 module.exports.defineTimGoneOfTwelveSections = function (tim_gone) {
     let result = new Object();
     try {
@@ -25,6 +27,7 @@ module.exports.defineTimGoneOfTwelveSections = function (tim_gone) {
     return result;
 }
 
+/** 命盤的局數 **/
 module.exports.getTypeOfModule = function (tim_gone, positionOf_life_point) {
     const {
         Firestore
@@ -48,6 +51,7 @@ module.exports.getTypeOfModule = function (tim_gone, positionOf_life_point) {
     return promise;
 }
 
+/** 十年大運 **/
 module.exports.settingInternvalForTenYears = function (type_of_module, type_of_people, positionOf_life_point) {
     let result = new Object();
     let data = JSON.parse(fs.readFileSync("./data_collections/interval_for_ten_years.json", {

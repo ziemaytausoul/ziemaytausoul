@@ -4,8 +4,8 @@ const fs = require("fs");
 const bodyParser = require('body-parser');
 const cookie = require("cookie-session");
 const finding_position = require("./data_collections/finding_position/finding_position.js");
-const handleTaskFunctions = require("./handleTaskFunctions.js");
-const setting_background = require("./setting_background.js");
+const handleTaskFunctions = require("./Utility/handleTaskFunctions.js");
+const setting_background = require("./Utility/setting_background.js");
 const {
     Firestore
 } = require('@google-cloud/firestore');
@@ -148,14 +148,16 @@ app.post('/createModule', function (req, res) {
                         for (const position in temp_twelveSections) {
                             if (temp_twelveSections.hasOwnProperty(position)) {
                                 result[position] = {
-                                    "position": temp_twelveSections[position]
+                                    "position": temp_twelveSections[position],
+                                    "metaData": twelveSections_trans[position] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/
                                 };
-                                result[position]["metaData"] = twelveSections_trans[position];
                             }
                         }
 
                         /** Prepare type_of_module **/
-
+                        result["position"] = {
+                            "position" : "center_vector"
+                        }
                         /** Prepare type_of_people**/
 
                         res.status(200).jsonp(result);
