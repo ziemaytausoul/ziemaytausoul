@@ -45,8 +45,6 @@ app.get('/updateData', function (req, res) {
 
 app.post('/createModule', function (req, res) {
     try {
-
-
         if (req.session.isPopulated) {
             req.session = null;
         }
@@ -155,8 +153,9 @@ app.post('/createModule', function (req, res) {
                         }
 
                         /** Prepare type_of_module **/
-                        result["position"] = {
-                            "position" : "center_vector"
+                        result["module_level"] = {
+                            "position" : "510",
+                            "metaData" : [data_convertion["five_elements"][reference_data.type_of_module] + data_convertion["chinese_numbers"][data_convertion["type_of_module"][reference_data.type_of_module]], "span_module_level"]
                         }
                         /** Prepare type_of_people**/
 
@@ -165,10 +164,10 @@ app.post('/createModule', function (req, res) {
                     }, function (error) {
                         res.status(500).end(error);
                     }).catch(error => {
-                        console.error("Index.js -> /createModule.handleTaskFunction.getTypeOfModule.getModuleData\n", error)
+                        console.error("Index.js -> /handleTaskFunction.getModuleData\n", error)
                     });
             }).catch(error => {
-                console.error("Index.js -> /createModule.handleTaskFunction.getTypeOfModule\n", error);
+                console.error("Index.js -> /createModule.setting_background.getTypeOfModule\n", error);
             });
     } catch (error) {
         res.status(500).end(error);

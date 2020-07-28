@@ -13,6 +13,14 @@
         "fire": 6,
         "earth": 5
     },
+    "chinese_numbers": {
+        "2":"二",
+        "3":"三",
+        "4":"四",
+        "5":"五",
+        "6":"六"
+    }
+    ,
     "number_to_chinese_clock": {
         "1": "rat",
         "2": "ox",

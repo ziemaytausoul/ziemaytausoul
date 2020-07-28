@@ -1,14 +1,17 @@
-const data_convertion = require("./data_collections/data_convertion.json");
+const path_mod = require('path');
+const parent_dir = path_mod.join(path_mod.resolve(__dirname,".."), "data_collections");
+const data_convertion = require(path_mod.join(parent_dir, "data_convertion.json"));
 const project_id = "ziemaytausoul",
     keyFilename = "./ZieMayTauSoul-fec5572fa40b.json";
 const fs = require("fs");
+
 
 /** 十二宮的大運天干 **/
 module.exports.defineTimGoneOfTwelveSections = function (tim_gone) {
     let result = new Object();
     try {
-        const twelveSections = require("./data_collections/tim_gone_of_twelve_sections");
-        const zodiac = require("./data_collections/data_convertion")["number_to_zodiac"];
+        const twelveSections = require(path_mod.join(parent_dir, "tim_gone_of_twelve_sections.json"));
+        const zodiac = require(path_mod.join(parent_dir, "data_convertion.json"))["number_to_zodiac"];
         const metaData = data_convertion["tim_gone_to_traChin"];
         const raw_data = twelveSections[tim_gone];
         for (const position in raw_data) {
@@ -54,7 +57,7 @@ module.exports.getTypeOfModule = function (tim_gone, positionOf_life_point) {
 /** 十年大運 **/
 module.exports.settingInternvalForTenYears = function (type_of_module, type_of_people, positionOf_life_point) {
     let result = new Object();
-    let data = JSON.parse(fs.readFileSync("./data_collections/interval_for_ten_years.json", {
+    let data = JSON.parse(fs.readFileSync(path_mod.join(parent_dir, "interval_for_ten_years.json"), {
         encoding: 'utf-8'
     }));
     let intervals = data.interval[type_of_module];
