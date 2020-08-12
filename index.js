@@ -158,6 +158,35 @@ app.post('/createModule', function (req, res) {
                             "metaData" : [data_convertion["five_elements"][reference_data.type_of_module] + data_convertion["chinese_numbers"][data_convertion["type_of_module"][reference_data.type_of_module]], "span_module_level"]
                         }
                         /** Prepare type_of_people**/
+                        result["normal_year"] = {
+                            "position" : "510",
+                            "metaData" : ["", "span_normal_year"]
+                        }
+                        /** Prepare lunar_year **/
+                        result["lunar_year"] = {
+                            "position" : "510",
+                            "metaData" : ["", "span_lunar_year"]
+                        }
+                        /** Prepare lunar_year **/
+                         result["lunar_day"] = {
+                            "position" : "510",
+                            "metaData" : ["", "span_lunar_month"]
+                        }
+                        /** Prepare lunar_year **/
+                        result["lunar_day"] = {
+                            "position" : "510",
+                            "metaData" : ["", "span_lunar_day"]
+                        }
+                        /** Prepare lunar_year **/
+                        result["lunar_time"] = {
+                            "position" : "510",
+                            "metaData" : ["", "span_lunar_time"]
+                        }
+                        /** Prepare lunar_year **/
+                        result["people_type"] = {
+                            "position" : "510",
+                            "metaData" : ["", "people_type"]
+                        }                          
 
                         res.status(200).jsonp(result);
                         //res.status(200).render("index");
