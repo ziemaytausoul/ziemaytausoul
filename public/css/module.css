@@ -72,14 +72,14 @@ span {
 }
 
 /** 中間區域 **/
-#center_vector {
+.center_vector {
   writing-mode: vertical-lr;
   border: thin solid;
   border-width: 0.5px 0.5px 0.5px 0.5px;
   position: relatvie;
 }
 
-#center_vector span {
+.center_vector span {
   text-orientation: upright;
 }
 
@@ -121,7 +121,7 @@ div .source span {
   margin: 0% 10% 0% 0%;
 }
 
-#people_type {
+.people_type {
   margin: 0% 10% 0% 0%;
 }
 
