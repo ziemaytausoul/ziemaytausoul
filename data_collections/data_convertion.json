@@ -113,6 +113,12 @@
         "dog": 11,
         "pig": 12
     },
+    "people_type_conversion" : {
+        "01":"陰男",
+        "00": "陰女",
+        "10": "陽女",
+        "11": "陽男"
+    },
     "point_name": {
         "life_point": ["命宮", "position"],
         "parent_point": ["父母", "position"],

@@ -54,6 +54,7 @@ app.post('/createModule', function (req, res) {
         req.session["birth_day"] = req.body.day ? req.body.day : "5";
         req.session["birth_time"] = req.body.time ? req.body.time : "5";
         req.session["tim_gone"] = req.body.tim_gone ? data_convertion["number_to_tim_gone"][req.body.tim_gone] : "five";
+        req.session["lunar_year"] = req.body.c_year ? req.body.c_year : "0";
         console.log(req.session);
         let reference_data = finding_position.defineSection(req.session.birth_month, req.session.birth_time);
 
@@ -62,6 +63,7 @@ app.post('/createModule', function (req, res) {
         reference_data.birth_day = req.session["birth_day"];
         reference_data.birth_time = req.session["birth_time"];
         reference_data.tim_gone = req.session["tim_gone"];
+        reference_data.lunar_year = req.session["lunar_year"];
         reference_data.twelveTimGone = tim_gone_of_12Sections[reference_data.tim_gone];
 
         setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point.toString())
@@ -157,35 +159,35 @@ app.post('/createModule', function (req, res) {
                             "position" : "510",
                             "metaData" : [data_convertion["five_elements"][reference_data.type_of_module] + data_convertion["chinese_numbers"][data_convertion["type_of_module"][reference_data.type_of_module]], "span_module_level"]
                         }
-                        /** Prepare type_of_people**/
+                        /** Prepare normal_year**/
                         result["normal_year"] = {
                             "position" : "510",
-                            "metaData" : ["", "span_normal_year"]
+                            "metaData" : [reference_data.lunar_year, "span_normal_year"]
                         }
                         /** Prepare lunar_year **/
                         result["lunar_year"] = {
                             "position" : "510",
-                            "metaData" : ["", "span_lunar_year"]
+                            "metaData" : [`${data_convertion["tim_gone_to_traChin"][reference_data.tim_gone]}${data_convertion["number_to_zodiac"][reference_data.birth_year]}`, "span_lunar_year"]
                         }
-                        /** Prepare lunar_year **/
-                         result["lunar_day"] = {
+                        /** Prepare lunar_month **/
+                         result["lunar_month"] = {
                             "position" : "510",
-                            "metaData" : ["", "span_lunar_month"]
+                            "metaData" : [reference_data.birth_month, "span_lunar_month"]
                         }
-                        /** Prepare lunar_year **/
+                        /** Prepare lunar_day **/
                         result["lunar_day"] = {
                             "position" : "510",
-                            "metaData" : ["", "span_lunar_day"]
+                            "metaData" : [reference_data.birth_day, "span_lunar_day"]
                         }
-                        /** Prepare lunar_year **/
+                        /** Prepare lunar_time **/
                         result["lunar_time"] = {
                             "position" : "510",
-                            "metaData" : ["", "span_lunar_time"]
+                            "metaData" : [data_convertion["number_to_zodiac"][reference_data.birth_time], "span_lunar_time"]
                         }
-                        /** Prepare lunar_year **/
+                        /** Prepare perople_type **/
                         result["people_type"] = {
                             "position" : "510",
-                            "metaData" : ["", "people_type"]
+                            "metaData" : [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
                         }                          
 
                         res.status(200).jsonp(result);

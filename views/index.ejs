@@ -463,7 +463,7 @@
                                 style="writing-mode: horizontal-tb;"></span>年<span
                                 id="510_span_lunar_year"></span>年<span id="510_span_lunar_month"></span>月<span
                                 id="510_span_lunar_day"></span>日<span id="510_span_lunar_time"></span>時</div>
-                        <div id="510_people_type" class = "people_type"></div>
+                        <div id="510_people_type" class="people_type"></div>
                     </div>
                 </div>
                 <div class="col-3">
@@ -899,75 +899,78 @@
                 "front": "",
                 "end": ""
             },
-            "module_type":{
-                "front":"",
-                "end":""
+            "module_type": {
+                "front": "",
+                "end": ""
             },
-            "ten_years_positioning":{
-                "front":"",
-                "end":""
+            "ten_years_positioning": {
+                "front": "",
+                "end": ""
             },
-            "span_year_data":{
-                "front":"",
-                "end":""
+            "span_year_data": {
+                "front": "",
+                "end": ""
             },
-            "span_body_core":{
-                "front":"",
-                "end":""
+            "span_body_core": {
+                "front": "",
+                "end": ""
             },
-            "span_module_core":{
-                "front":"",
-                "end":""
+            "span_module_core": {
+                "front": "",
+                "end": ""
             },
-            "span_module_level":{
-                "front":"",
-                "end":""
+            "span_module_level": {
+                "front": "",
+                "end": ""
             },
             "span_normal_year": {
-                "front":"",
-                "end":""
+                "front": "",
+                "end": ""
             },
             "span_lunar_year": {
-                "front":"",
-                "end":""
+                "front": "",
+                "end": ""
             },
             "span_lunar_month": {
-                "front":"",
-                "end":""
+                "front": "",
+                "end": ""
             },
-            "span_lunar_day":{
-                "front":"",
-                "end":""
+            "span_lunar_day": {
+                "front": "",
+                "end": ""
             },
-            "span_lunar_time":{
-                "front":"",
-                "end":""
+            "span_lunar_time": {
+                "front": "",
+                "end": ""
             },
-            "people_type":{
-                "front":"",
-                "end":""
+            "people_type": {
+                "front": "",
+                "end": ""
             }
 
         };
 
         function createModule() {
             var time = $("#time").children("option:selected").val();
-            var day = $("#day").val();
-            var month = $("#month").val();
-            var year = $("#year").val();
-            var tim_gone = null;
+            var day = "";
+            var month = "";
+            var year = "";
+            var tim_gone = "";
+            var c_year = "";
 
             $.ajax({
-                url: "https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetYearTransform?year=" +
-                    year,
+                url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
                 method: "GET",
                 success: function (result, status, xhr) {
                     console.log(result, xhr);
-                    var transformed_year = result["result"];
-                    var chinese_year = transformed_year.split("_");
-                    if (chinese_year) {
-                        tim_gone = chinese_year[0];
-                        year = chinese_year[1];
+                    var transformed_date = result["result"];
+                    var date_arr = transformed_date.split("_");
+                    if (date_arr) {
+                        year = date_arr[0];
+                        month = date_arr[1];
+                        day = date_arr[2];
+                        tim_gone = date_arr[3];
+                        c_year= date_arr[4];
                         getModulData();
                     } else {
                         Console.log(result);
@@ -976,7 +979,7 @@
                     }
                 }
             });
-
+            
             function getModulData() {
                 $.ajax({
                     url: "/createModule",
@@ -986,7 +989,8 @@
                         "year": year,
                         "month": month,
                         "day": day,
-                        "time": time
+                        "time": time,
+                        "c_year": c_year
                     }),
                     dataType: "json",
                     contentType: "application/json;charset=utf-8",
