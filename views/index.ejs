@@ -966,11 +966,11 @@
                     var transformed_date = result["result"];
                     var date_arr = transformed_date.split("_");
                     if (date_arr) {
-                        year = date_arr[0];
-                        month = date_arr[1];
-                        day = date_arr[2];
+                        c_year = $("#year").val();
+                        month = $("#month").val();
+                        day = $("#day").val();
                         tim_gone = date_arr[3];
-                        c_year= date_arr[4];
+                        year= date_arr[4];
                         getModulData();
                     } else {
                         Console.log(result);
@@ -1011,6 +1011,7 @@
                 const node_id = `${details.position}_${details.metaData[1]}`;
                 const template = template_obj[details.metaData[1]];
                 console.log(node_id);
+                
                 $(`#${node_id}`).append(`${template["front"]}${details.metaData[0]}${template["end"]}`);
             });
         }

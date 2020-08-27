@@ -381,12 +381,12 @@ module.exports.findTwelveCheongSun = function (type_of_module, type_of_people) {
         result["lin_kwun"]["position"] = start_point < 10 ? start_point + 3 : start_point + 3 - 12;
         result["tai_mon"]["position"] = start_point < 9 ? start_point + 4 : start_point + 4 - 12;
         result["soi"]["position"] = start_point < 8 ? start_point + 5 : start_point + 5 - 12;
-        result["bang"]["position"] = start_point < 6 ? start_point + 6 : start_point + 6 - 12;
-        result["say"]["position"] = start_point < 7 ? start_point + 7 : start_point + 7 - 12;
-        result["mou"]["position"] = start_point < 8 ? start_point + 8 : start_point + 8 - 12;
-        result["chue"]["position"] = start_point < 9 ? start_point + 9 : start_point + 9 - 12;
-        result["toi"]["position"] = start_point < 10 ? start_point + 10 : start_point + 10 - 12;
-        result["yeung"]["position"] = start_point < 11 ? start_point + 11 : start_point + 11 - 12;
+        result["bang"]["position"] = start_point < 7 ? start_point + 6 : start_point + 6 - 12;
+        result["say"]["position"] = start_point < 6 ? start_point + 7 : start_point + 7 - 12;
+        result["mou"]["position"] = start_point < 5 ? start_point + 8 : start_point + 8 - 12;
+        result["chue"]["position"] = start_point < 4 ? start_point + 9 : start_point + 9 - 12;
+        result["toi"]["position"] = start_point < 3 ? start_point + 10 : start_point + 10 - 12;
+        result["yeung"]["position"] = start_point < 2 ? start_point + 11 : start_point + 11 - 12;
     }
     return result;
 }
