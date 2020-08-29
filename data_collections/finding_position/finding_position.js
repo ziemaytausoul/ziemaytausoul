@@ -271,9 +271,12 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
     const zie_may_start_point = preparation_for_stars["zie_may_start_point"][type_of_module];
     const num_birth_day = parseInt(birth_day);
     const num_type_of_module = data_convertion.type_of_module[type_of_module];
-    const zie_may_end_point = num_birth_day >= num_type_of_module ? (num_birth_day % num_type_of_module == 0 ? 3 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 > 12 ? parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1) : num_type_of_module;
+    const zie_may_end_point = 
+    num_birth_day >= num_type_of_module ? (num_birth_day % num_type_of_module == 0 ? 
+        (3 + parseInt(num_birth_day / num_type_of_module, 10)) <= 12 ? 3 + parseInt(num_birth_day / num_type_of_module, 10) : 2 + parseInt(num_birth_day / num_type_of_module, 10) - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 > 12 ? 
+        parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1) : num_type_of_module;
     const tim_foo_start_point = preparation_for_stars.tim_foo_start_point[zie_may_end_point.toString()];
-    console.log(zie_may_end_point > 5 ? zie_may_end_point - 5 : zie_may_end_point - 5 + 12, tim_foo_start_point > 7 ? tim_foo_start_point + 5 - 12 : tim_foo_start_point + 5)
+    console.log()
     return {
         "zie_may": {
             "position": zie_may_end_point
