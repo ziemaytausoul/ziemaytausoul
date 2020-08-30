@@ -55,7 +55,7 @@ app.post('/createModule', function (req, res) {
         req.session["birth_time"] = req.body.time ? req.body.time : "5";
         req.session["tim_gone"] = req.body.tim_gone ? data_convertion["number_to_tim_gone"][req.body.tim_gone] : "five";
         req.session["lunar_year"] = req.body.c_year ? req.body.c_year : "0";
-        console.log(req.session);
+        
         let reference_data = finding_position.defineSection(req.session.birth_month, req.session.birth_time);
 
         reference_data.birth_year = req.session["birth_year"];

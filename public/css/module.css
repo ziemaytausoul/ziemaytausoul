@@ -7,62 +7,62 @@ html {
   font-size: 10px;
 }
 
-#rat {
+.rat {
   border: thin solid;
   border-width: 1px 1px 2px 1px;
 }
 
-#ox {
+.ox {
   border: thin solid;
   border-width: 1px 1px 2px 1px;
 }
 
-#tiger {
+.tiger {
   border: thin solid;
   border-width: 1px 1px 2px 2px;
 }
 
-#rabbit {
+.rabbit {
   border: thin solid;
   border-width: 1px 1px 1px 2px;
 }
 
-#dragon {
+.dragon {
   border: thin solid;
   border-width: 1px 1px 1px 2px;
 }
 
-#snake {
+.snake {
   border: thin solid;
   border-width: 2px 1px 1px 2px;
 }
 
-#horse {
+.horse {
   border: thin solid;
   border-width: 2px 1px 1px 1px;
 }
 
-#goat {
+.goat {
   border: thin solid;
   border-width: 2px 1px 1px 1px;
 }
 
-#monkey {
+.monkey {
   border: thin solid;
   border-width: 2px 2px 1px 1px;
 }
 
-#rooster {
+.rooster {
   border: thin solid;
   border-width: 1px 2px 1px 1px;
 }
 
-#dog {
+.dog {
   border: thin solid;
   border-width: 1px 2px 1px 1px;
 }
 
-#pig {
+.pig {
   border: thin solid;
   border-width: 1px 2px 2px 1px;
 }
