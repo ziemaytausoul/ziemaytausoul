@@ -148,3 +148,4 @@ module.exports.StarNameTranslation = function () {
 
     return promise;
 }
+

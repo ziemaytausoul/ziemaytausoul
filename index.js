@@ -189,6 +189,13 @@ app.post('/createModule', function (req, res) {
                             "position" : "510",
                             "metaData" : [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
                         }                          
+                        
+                        var temp_result = {"first_sec":result};
+                        var anatomyPoint_position = result["anatomy_point"].position;
+                        var thoughtPoint_position = result["thought_point"].position;
+
+                        finding_position.AdjustTwelveSections(result, anatomyPoint_position);
+                        
 
                         res.status(200).jsonp(result);
                         //res.status(200).render("index");

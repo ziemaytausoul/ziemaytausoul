@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { start } = require('repl');
 const data_convertion = require(__dirname.replace('finding_position', 'data_convertion.json'));
 const preparation_for_stars = require(__dirname.replace('finding_position', 'preparation_for_stars.json'));
 
@@ -234,16 +235,16 @@ module.exports.defineSection = function (birth_month, birth_time) {
     let birth_time_number = parseInt(birth_time);
     let life_point = 3,
         anatomy_point = 3;
-    for (let step = 0; step < birth_month_number; step++) {
+    for (let step = 1; step < birth_month_number; step++) {
         life_point = life_point == 12 ? 1 : life_point + 1;
         anatomy_point = anatomy_point == 12 ? 1 : anatomy_point + 1;
     }
 
-    for (let step = 0; step < birth_time_number; step++) {
+    for (let step = 1; step < birth_time_number; step++) {
         life_point = life_point == 1 ? 12 : life_point - 1;
         anatomy_point = anatomy_point == 12 ? 1 : anatomy_point + 1;
     }
-
+    
     return {
         "life_point": life_point,
         "parent_point": life_point + 1 > 12 ? life_point + 1 - 12 : life_point + 1,
@@ -392,4 +393,24 @@ module.exports.findTwelveCheongSun = function (type_of_module, type_of_people) {
         result["yeung"]["position"] = start_point < 2 ? start_point + 11 : start_point + 11 - 12;
     }
     return result;
+}
+
+/** 地盤-十二宮 **/
+module.exports.AdjustTwelveSections = function(FirstSec_Result, StartPoint){
+    const pointsName = Object.keys(data_convertion["point_name"]);
+    const newLifePoint = StartPoint;
+    let nextPoint = 0;
+    pointsName.forEach(name => {
+        if(name != "anatomy_point"){
+            console.log(FirstSec_Result[name]);
+            FirstSec_Result[name].position = nextPoint + newLifePoint > 12 ? nextPoint + newLifePoint - 12 : nextPoint + newLifePoint;
+            nextPoint ++;
+            console.log(FirstSec_Result[name]);
+        }
+    });
+    return FirstSec_Result;
+}
+
+module.exports.AdjustMainStars = function(FirstSec_Result, newTimGone){
+
 }
