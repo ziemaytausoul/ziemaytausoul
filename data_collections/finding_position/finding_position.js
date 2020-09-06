@@ -1,5 +1,7 @@
 const fs = require('fs');
-const { start } = require('repl');
+const {
+    start
+} = require('repl');
 const data_convertion = require(__dirname.replace('finding_position', 'data_convertion.json'));
 const preparation_for_stars = require(__dirname.replace('finding_position', 'preparation_for_stars.json'));
 
@@ -244,7 +246,7 @@ module.exports.defineSection = function (birth_month, birth_time) {
         life_point = life_point == 1 ? 12 : life_point - 1;
         anatomy_point = anatomy_point == 12 ? 1 : anatomy_point + 1;
     }
-    
+
     return {
         "life_point": life_point,
         "parent_point": life_point + 1 > 12 ? life_point + 1 - 12 : life_point + 1,
@@ -272,10 +274,10 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
     const zie_may_start_point = preparation_for_stars["zie_may_start_point"][type_of_module];
     const num_birth_day = parseInt(birth_day);
     const num_type_of_module = data_convertion.type_of_module[type_of_module];
-    const zie_may_end_point = 
-    num_birth_day >= num_type_of_module ? (num_birth_day % num_type_of_module == 0 ? 
-        (3 + parseInt(num_birth_day / num_type_of_module, 10)) <= 12 ? 3 + parseInt(num_birth_day / num_type_of_module, 10) : 2 + parseInt(num_birth_day / num_type_of_module, 10) - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 > 12 ? 
-        parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1) : num_type_of_module;
+    const zie_may_end_point =
+        num_birth_day >= num_type_of_module ? (num_birth_day % num_type_of_module == 0 ?
+            (3 + parseInt(num_birth_day / num_type_of_module, 10)) <= 12 ? 3 + parseInt(num_birth_day / num_type_of_module, 10) : 2 + parseInt(num_birth_day / num_type_of_module, 10) - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 > 12 ?
+            parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1) : num_type_of_module;
     const tim_foo_start_point = preparation_for_stars.tim_foo_start_point[zie_may_end_point.toString()];
     console.log()
     return {
@@ -396,21 +398,30 @@ module.exports.findTwelveCheongSun = function (type_of_module, type_of_people) {
 }
 
 /** 地盤-十二宮 **/
-module.exports.AdjustTwelveSections = function(FirstSec_Result, StartPoint){
+module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint) {
     const pointsName = Object.keys(data_convertion["point_name"]);
     const newLifePoint = StartPoint;
+    let SecondSec_Result = FirstSec_Result;
     let nextPoint = 0;
     pointsName.forEach(name => {
-        if(name != "anatomy_point"){
-            console.log(FirstSec_Result[name]);
-            FirstSec_Result[name].position = nextPoint + newLifePoint > 12 ? nextPoint + newLifePoint - 12 : nextPoint + newLifePoint;
-            nextPoint ++;
-            console.log(FirstSec_Result[name]);
+        if (name != "anatomy_point") {
+            SecondSec_Result[name].position = nextPoint + newLifePoint > 12 ? nextPoint + newLifePoint - 12 : nextPoint + newLifePoint;
+            nextPoint++;
         }
     });
-    return FirstSec_Result;
+    SecondSec_Result["anatomy_point"].position = StartPoint;
+    return SecondSec_Result;
 }
 
-module.exports.AdjustMainStars = function(FirstSec_Result, newTimGone){
-
+/** 地盤-十二長生 **/
+module.exports.AdjustTwelveCheongSun = function (SecondSec_Result, typeOfModule, typeOfPeople) {
+    let result = SecondSec_Result;
+    let cheongSun = this.findTwelveCheongSun(typeOfModule, typeOfPeople);
+    for (const key in cheongSun) {
+        if (CheongSun.hasOwnProperty(key)) {
+            const element = CheongSun[key];
+            result[key]["position"] = element["position"];
+        }
+    }
+    return result;
 }

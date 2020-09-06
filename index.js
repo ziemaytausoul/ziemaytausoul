@@ -55,7 +55,7 @@ app.post('/createModule', function (req, res) {
         req.session["birth_time"] = req.body.time ? req.body.time : "5";
         req.session["tim_gone"] = req.body.tim_gone ? data_convertion["number_to_tim_gone"][req.body.tim_gone] : "five";
         req.session["lunar_year"] = req.body.c_year ? req.body.c_year : "0";
-        
+
         let reference_data = finding_position.defineSection(req.session.birth_month, req.session.birth_time);
 
         reference_data.birth_year = req.session["birth_year"];
@@ -156,47 +156,50 @@ app.post('/createModule', function (req, res) {
 
                         /** Prepare type_of_module **/
                         result["module_level"] = {
-                            "position" : "510",
-                            "metaData" : [data_convertion["five_elements"][reference_data.type_of_module] + data_convertion["chinese_numbers"][data_convertion["type_of_module"][reference_data.type_of_module]], "span_module_level"]
+                            "position": "510",
+                            "metaData": [data_convertion["five_elements"][reference_data.type_of_module] + data_convertion["chinese_numbers"][data_convertion["type_of_module"][reference_data.type_of_module]], "span_module_level"]
                         }
                         /** Prepare normal_year**/
                         result["normal_year"] = {
-                            "position" : "510",
-                            "metaData" : [reference_data.lunar_year, "span_normal_year"]
+                            "position": "510",
+                            "metaData": [reference_data.lunar_year, "span_normal_year"]
                         }
                         /** Prepare lunar_year **/
                         result["lunar_year"] = {
-                            "position" : "510",
-                            "metaData" : [`${data_convertion["tim_gone_to_traChin"][reference_data.tim_gone]}${data_convertion["number_to_zodiac"][reference_data.birth_year]}`, "span_lunar_year"]
+                            "position": "510",
+                            "metaData": [`${data_convertion["tim_gone_to_traChin"][reference_data.tim_gone]}${data_convertion["number_to_zodiac"][reference_data.birth_year]}`, "span_lunar_year"]
                         }
                         /** Prepare lunar_month **/
-                         result["lunar_month"] = {
-                            "position" : "510",
-                            "metaData" : [reference_data.birth_month, "span_lunar_month"]
+                        result["lunar_month"] = {
+                            "position": "510",
+                            "metaData": [reference_data.birth_month, "span_lunar_month"]
                         }
                         /** Prepare lunar_day **/
                         result["lunar_day"] = {
-                            "position" : "510",
-                            "metaData" : [reference_data.birth_day, "span_lunar_day"]
+                            "position": "510",
+                            "metaData": [reference_data.birth_day, "span_lunar_day"]
                         }
                         /** Prepare lunar_time **/
                         result["lunar_time"] = {
-                            "position" : "510",
-                            "metaData" : [data_convertion["number_to_zodiac"][reference_data.birth_time], "span_lunar_time"]
+                            "position": "510",
+                            "metaData": [data_convertion["number_to_zodiac"][reference_data.birth_time], "span_lunar_time"]
                         }
                         /** Prepare perople_type **/
                         result["people_type"] = {
-                            "position" : "510",
-                            "metaData" : [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
-                        }                          
-                        
-                        var temp_result = {"first_sec":result};
+                            "position": "510",
+                            "metaData": [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
+                        }
+
+                        var temp_result = {
+                            "first_sec": result
+                        };
                         var anatomyPoint_position = result["anatomy_point"].position;
                         var thoughtPoint_position = result["thought_point"].position;
 
-                        finding_position.AdjustTwelveSections(result, anatomyPoint_position);
-                        
-
+                        temp_result["second_sec"] = finding_position.AdjustTwelveSections(result, anatomyPoint_position);
+                        temp_result["second_sec"] = finding_position.AdjustTwelveCheongSun(temp_result["second_sec"],
+                            setting_background.getTypeOfModule(reference_data.twelveTimGone[temp_result["second_sec"]["life_point"]["position"]], reference_data.type_of_people),
+                            reference_data.type_of_people);
                         res.status(200).jsonp(result);
                         //res.status(200).render("index");
                     }, function (error) {
