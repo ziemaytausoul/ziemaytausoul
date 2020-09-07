@@ -70,7 +70,7 @@ app.post('/createModule', function (req, res) {
             .then(result_type_of_module => {
                 reference_data.type_of_module = result_type_of_module;
                 reference_data.type_of_people = finding_position.getTypeOfPeople((req.body.gender != null ? req.body.gender : "0"), reference_data.tim_gone);
-
+                
                 handleTaskFunctions.getModuleData(reference_data.birth_year, reference_data.birth_month, reference_data.birth_day, reference_data.birth_time, reference_data.tim_gone)
                     .then(function (result) {
 
@@ -195,12 +195,44 @@ app.post('/createModule', function (req, res) {
                         };
                         var anatomyPoint_position = result["anatomy_point"].position;
                         var thoughtPoint_position = result["thought_point"].position;
+                        
 
-                        temp_result["second_sec"] = finding_position.AdjustTwelveSections(result, anatomyPoint_position);
-                        temp_result["second_sec"] = finding_position.AdjustTwelveCheongSun(temp_result["second_sec"],
-                            setting_background.getTypeOfModule(reference_data.twelveTimGone[temp_result["second_sec"]["life_point"]["position"]], reference_data.type_of_people),
-                            reference_data.type_of_people);
-                        res.status(200).jsonp(result);
+                        temp_result["second_sec"] = finding_position.AdjustTwelveSections(Object.assign({}, result), anatomyPoint_position);
+                        
+                        setting_background.getTypeOfModule(reference_data.twelveTimGone[temp_result["second_sec"]["life_point"]["position"]], anatomyPoint_position)
+                            .then(typeOfModule => {
+                                finding_position.AdjustTwelveCheongSun(temp_result["second_sec"], typeOfModule, reference_data.type_of_people);
+                            }).catch(error => { 
+                                console.log(error);
+                            });
+
+                        setting_background.getTypeOfModule(reference_data.twelveTimGone[temp_result["second_sec"]["life_point"]["position"]], anatomyPoint_position)
+                            .then(typeOfModule => {
+                                finding_position.AdjustMainStars(temp_result["second_sec"], typeOfModule,reference_data.birth_day);
+                            })
+                            .catch(error => {
+                                console.log(error)
+                            });
+                        
+                        temp_result["third_sec"] = finding_position.AdjustTwelveSections(Object.assign({}, result), thoughtPoint_position);
+
+                        setting_background.getTypeOfModule(reference_data.twelveTimGone[temp_result["third_sec"]["thought_point"]["position"]], thoughtPoint_position)
+                            .then(typeOfModule => {
+                                temp_result["third_sec"] = finding_position.AdjustTwelveCheongSun(temp_result["third_sec"], typeOfModule, reference_data.type_of_people);
+                            }).catch(error => { 
+                                console.log(error);
+                            });
+                            
+                        setting_background.getTypeOfModule(reference_data.twelveTimGone[temp_result["third_sec"]["thought_point"]["position"]], thoughtPoint_position)
+                            .then(typeOfModule => {
+                                temp_result["third_sec"] = finding_position.AdjustMainStars(temp_result["third_sec"], typeOfModule, reference_data.birth_day );
+                            })
+                            .catch(error => {
+                                console.log(error)
+                            });
+                        
+                        //console.table(temp_result);
+                        res.status(200).jsonp(temp_result);
                         //res.status(200).render("index");
                     }, function (error) {
                         res.status(500).end(error);

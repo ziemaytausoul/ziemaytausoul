@@ -279,7 +279,7 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
             (3 + parseInt(num_birth_day / num_type_of_module, 10)) <= 12 ? 3 + parseInt(num_birth_day / num_type_of_module, 10) : 2 + parseInt(num_birth_day / num_type_of_module, 10) - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 > 12 ?
             parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1) : num_type_of_module;
     const tim_foo_start_point = preparation_for_stars.tim_foo_start_point[zie_may_end_point.toString()];
-    console.log()
+
     return {
         "zie_may": {
             "position": zie_may_end_point
@@ -417,11 +417,24 @@ module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint) {
 module.exports.AdjustTwelveCheongSun = function (SecondSec_Result, typeOfModule, typeOfPeople) {
     let result = SecondSec_Result;
     let cheongSun = this.findTwelveCheongSun(typeOfModule, typeOfPeople);
+    
     for (const key in cheongSun) {
-        if (CheongSun.hasOwnProperty(key)) {
-            const element = CheongSun[key];
-            result[key]["position"] = element["position"];
+        if (cheongSun.hasOwnProperty(key)) {
+            result[key]["position"] = cheongSun[key];
         }
     }
     return result;
+}
+
+/** 地盤-十四星 **/
+module.exports.AdjustMainStars = function (SecondSec_Result, typeOfModule, birth_day ) {
+    let result = SecondSec_Result;
+    const mainStars = this.findForteenMainStars(birth_day, typeOfModule);
+    
+    for (const key in mainStars) {
+        if (mainStars.hasOwnProperty(key)) {
+            result[key]["position"] = mainStars[key]["position"];
+        }
+    }
+    return result
 }

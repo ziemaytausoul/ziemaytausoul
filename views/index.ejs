@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <nav class="navbar bg-light" >
+    <nav class="navbar bg-light">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <form class="form-inline">
@@ -60,7 +60,7 @@
         </ul>
     </nav>
     <section id="first_sec">
-        
+
     </section>
     <section id="second_sec">
 
@@ -157,9 +157,9 @@
 
         };
         var top_position = $(".navbar").height();
-        $(window).scroll(function(){
+        $(window).scroll(function () {
             var position_staying = $(window).scrollTop();
-            if(position_staying > top_position){
+            if (position_staying > top_position) {
                 $(".navbar").hide();
             } else {
                 $(".navbar").show();
@@ -174,12 +174,12 @@
             var tim_gone = "";
             var c_year = "";
             var gender = $("#gender").children("option:selected").val();
-            
+
             console.log(section_list);
-            section_list.each(function(index, elem){
+            section_list.each(function (index, elem) {
                 EmbedTemplate(elem.id);
             });
-            
+
             $.ajax({
                 url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
                 method: "GET",
@@ -192,7 +192,7 @@
                         month = $("#month").val();
                         day = $("#day").val();
                         tim_gone = date_arr[3];
-                        year= date_arr[4];
+                        year = date_arr[4];
                         getModulData();
                     } else {
                         Console.log(result);
@@ -201,7 +201,7 @@
                     }
                 }
             });
-            
+
             function getModulData() {
                 $.ajax({
                     url: "/createModule",
@@ -229,12 +229,13 @@
         }
 
         function LocateStar(module) {
-
-            $.each(module, function (star, details) {
-                const node_id = `${details.position}_${details.metaData[1]}`;
-                const template = template_obj[details.metaData[1]];
-                console.log(node_id);
-                $(`#first_sec_${node_id}`).append(`${template["front"]}${details.metaData[0]}${template["end"]}`);
+            $.each(module, function(sec_name, section_content) {
+                $.each(section_content, function (star, details) {
+                    const node_id = `${details.position}_${details.metaData[1]}`;
+                    const template = template_obj[details.metaData[1]];
+                    console.log(node_id);
+                    $(`#${sec_name}_${node_id}`).append(`${template["front"]}${details.metaData[0]}${template["end"]}`);
+                });
             });
         }
     </script>
