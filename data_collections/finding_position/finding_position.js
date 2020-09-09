@@ -409,7 +409,6 @@ module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint) {
             nextPoint++;
         }
     });
-    SecondSec_Result["anatomy_point"].position = StartPoint;
     return SecondSec_Result;
 }
 
