@@ -190,57 +190,54 @@ app.post('/createModule', function (req, res) {
                             "metaData": [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
                         }
                         
-                        var first_sec = new Object();
-                        var second_sec = new Object();
-                        var third_sec = new Object();
-                        var temp_result = {
-                            "first_sec": first_sec
+                        var first_sec = new Object({...result});
+                        var second_sec = new Object({...result});
+                        var third_sec = new Object({...result});
+                        var result = {
+                            "first_sec": first_sec,
+                            "second_sec" : second_sec,
+                            "third_sec" : third_sec
                         };
-                        var anatomyPoint_position = result["anatomy_point"].position;
-                        var thoughtPoint_position = result["thought_point"].position;
                         
-                        for(const key in result){
-                            first_sec[key] = result[key];
-                            second_sec[key] = result[key];
-                            third_sec[key] = result[key];
-                        }
-
-                        temp_result["second_sec"] = finding_position.AdjustTwelveSections(second_sec, anatomyPoint_position);
+                        var anatomyPoint_position = result["first_sec"]["anatomy_point"].position;
+                        var thoughtPoint_position = result["first_sec"]["thought_point"].position;
+                        
+                        finding_position.AdjustTwelveSections(result, anatomyPoint_position, "second_sec");
                         
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[anatomyPoint_position], anatomyPoint_position)
                             .then(typeOfModule => {
-                                finding_position.AdjustTwelveCheongSun(second_sec, typeOfModule, reference_data.type_of_people);
+                                finding_position.AdjustTwelveCheongSun(result, typeOfModule, reference_data.type_of_people, "second_sec");
                             }).catch(error => { 
                                 console.log(error);
                             });
 
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[anatomyPoint_position], anatomyPoint_position)
                             .then(typeOfModule => {
-                                finding_position.AdjustMainStars(second_sec, typeOfModule,reference_data.birth_day);
+                                finding_position.AdjustMainStars(result, typeOfModule,reference_data.birth_day, "second_sec");
                             })
                             .catch(error => {
                                 console.log(error)
                             });
                         
-                        temp_result["third_sec"] = finding_position.AdjustTwelveSections(third_sec, thoughtPoint_position);
-                        console.log(temp_result);
+                        finding_position.AdjustTwelveSections(result, thoughtPoint_position, "third_sec");
+                        //console.log(result);
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[thoughtPoint_position], thoughtPoint_position)
                             .then(typeOfModule => {
-                                temp_result["third_sec"] = finding_position.AdjustTwelveCheongSun(third_sec, typeOfModule, reference_data.type_of_people);
+                                finding_position.AdjustTwelveCheongSun(result, typeOfModule, reference_data.type_of_people, "third_sec");
                             }).catch(error => { 
                                 console.log(error);
                             });
                             
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[thoughtPoint_position], thoughtPoint_position)
                             .then(typeOfModule => {
-                                temp_result["third_sec"] = finding_position.AdjustMainStars(third_sec, typeOfModule, reference_data.birth_day);
+                                finding_position.AdjustMainStars(result, typeOfModule, reference_data.birth_day, "third_sec");
                             })
                             .catch(error => {
                                 console.log(error)
                             });
                         
                         //console.table(temp_result);
-                        res.status(200).jsonp(temp_result);
+                        res.status(200).jsonp(result);
                         //res.status(200).render("index");
                     }, function (error) {
                         res.status(500).end(error);

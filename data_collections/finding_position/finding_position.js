@@ -398,42 +398,37 @@ module.exports.findTwelveCheongSun = function (type_of_module, type_of_people) {
 }
 
 /** 地盤-十二宮 **/
-module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint) {
+module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint, Section) {
     const pointsName = Object.keys(data_convertion["point_name"]);
     const newLifePoint = StartPoint;
-    let SecondSec_Result = FirstSec_Result;
     let nextPoint = 0;
     pointsName.forEach(name => {
         if (name != "anatomy_point") {
-            SecondSec_Result[name].position = nextPoint + newLifePoint > 12 ? nextPoint + newLifePoint - 12 : nextPoint + newLifePoint;
+            FirstSec_Result[Section][name].position = nextPoint + newLifePoint > 12 ? nextPoint + newLifePoint - 12 : nextPoint + newLifePoint;
+            console.log(FirstSec_Result["first_sec"][name].position," ", FirstSec_Result["second_sec"][name].position," ", FirstSec_Result["third_sec"][name].position, Section);
             nextPoint++;
         }
     });
-    return SecondSec_Result;
+    
 }
 
 /** 地盤-十二長生 **/
-module.exports.AdjustTwelveCheongSun = function (SecondSec_Result, typeOfModule, typeOfPeople) {
-    let result = SecondSec_Result;
+module.exports.AdjustTwelveCheongSun = function (FirstSec_Result, typeOfModule, typeOfPeople, Section) {
     let cheongSun = this.findTwelveCheongSun(typeOfModule, typeOfPeople);
-    
     for (const key in cheongSun) {
         if (cheongSun.hasOwnProperty(key)) {
-            result[key]["position"] = cheongSun[key];
+            FirstSec_Result[Section][key]["position"] = cheongSun[key];
         }
     }
-    return result;
 }
 
 /** 地盤-十四星 **/
-module.exports.AdjustMainStars = function (SecondSec_Result, typeOfModule, birth_day ) {
-    let result = SecondSec_Result;
+module.exports.AdjustMainStars = function (FirstSec_Result, typeOfModule, birth_day, Section) {
     const mainStars = this.findForteenMainStars(birth_day, typeOfModule);
     
     for (const key in mainStars) {
         if (mainStars.hasOwnProperty(key)) {
-            result[key]["position"] = mainStars[key]["position"];
+            FirstSec_Result[Section][key]["position"] = mainStars[key]["position"];
         }
     }
-    return result
 }
