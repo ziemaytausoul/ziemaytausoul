@@ -405,11 +405,10 @@ module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint, Sec
     pointsName.forEach(name => {
         if (name != "anatomy_point") {
             FirstSec_Result[Section][name].position = nextPoint + newLifePoint > 12 ? nextPoint + newLifePoint - 12 : nextPoint + newLifePoint;
-            console.log(FirstSec_Result["first_sec"][name].position," ", FirstSec_Result["second_sec"][name].position," ", FirstSec_Result["third_sec"][name].position, Section);
+            //console.log(FirstSec_Result["first_sec"][name].position, " ", FirstSec_Result["second_sec"][name].position, " ", FirstSec_Result["third_sec"][name].position, Section, name);
             nextPoint++;
         }
     });
-    
 }
 
 /** 地盤-十二長生 **/
@@ -425,7 +424,7 @@ module.exports.AdjustTwelveCheongSun = function (FirstSec_Result, typeOfModule, 
 /** 地盤-十四星 **/
 module.exports.AdjustMainStars = function (FirstSec_Result, typeOfModule, birth_day, Section) {
     const mainStars = this.findForteenMainStars(birth_day, typeOfModule);
-    
+
     for (const key in mainStars) {
         if (mainStars.hasOwnProperty(key)) {
             FirstSec_Result[Section][key]["position"] = mainStars[key]["position"];

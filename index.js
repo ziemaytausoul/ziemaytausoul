@@ -70,7 +70,7 @@ app.post('/createModule', function (req, res) {
             .then(result_type_of_module => {
                 reference_data.type_of_module = result_type_of_module;
                 reference_data.type_of_people = finding_position.getTypeOfPeople((req.body.gender != null ? req.body.gender : "0"), reference_data.tim_gone);
-                
+
                 handleTaskFunctions.getModuleData(reference_data.birth_year, reference_data.birth_month, reference_data.birth_day, reference_data.birth_time, reference_data.tim_gone)
                     .then(function (result) {
 
@@ -189,45 +189,72 @@ app.post('/createModule', function (req, res) {
                             "position": "510",
                             "metaData": [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
                         }
-                        
-                        var first_sec = new Object({...result});
-                        var second_sec = new Object({...result});
-                        var third_sec = new Object({...result});
+
+                        var first_sec = new Object();
+                        var second_sec = new Object();
+                        var third_sec = new Object();
+
+                        for (const key in result) {
+                            const position = result[key]["position"];
+                            const first_sec_metaData = new Array();
+                            const second_sec_metaData = new Array();
+                            const third_sec_metaData = new Array();
+                            console.trace(first_sec_metaData, second_sec_metaData, third_sec_metaData)
+                            result[key]["metaData"].forEach(metaD => {
+                                first_sec_metaData.push(metaD);
+                                second_sec_metaData.push(metaD);
+                                third_sec_metaData.push(metaD);
+                            });
+                            console.trace(first_sec_metaData, second_sec_metaData, third_sec_metaData)
+                            first_sec[key] = {
+                                position: position,
+                                metaData: first_sec_metaData
+                            };
+                            second_sec[key] = {
+                                position: position,
+                                metaData: second_sec_metaData
+                            };
+                            third_sec[key] = {
+                                position: position,
+                                metaData: third_sec_metaData
+                            };
+                        }
+
                         var result = {
                             "first_sec": first_sec,
-                            "second_sec" : second_sec,
-                            "third_sec" : third_sec
+                            "second_sec": second_sec,
+                            "third_sec": third_sec
                         };
-                        
                         var anatomyPoint_position = result["first_sec"]["anatomy_point"].position;
                         var thoughtPoint_position = result["first_sec"]["thought_point"].position;
-                        
                         finding_position.AdjustTwelveSections(result, anatomyPoint_position, "second_sec");
-                        
+
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[anatomyPoint_position], anatomyPoint_position)
                             .then(typeOfModule => {
+                                result["second_sec"]["module_level"]["metaData"][0] = data_convertion["five_elements"][typeOfModule] + data_convertion["chinese_numbers"][data_convertion["type_of_module"][typeOfModule]];
                                 finding_position.AdjustTwelveCheongSun(result, typeOfModule, reference_data.type_of_people, "second_sec");
-                            }).catch(error => { 
+                            }).catch(error => {
                                 console.log(error);
                             });
 
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[anatomyPoint_position], anatomyPoint_position)
                             .then(typeOfModule => {
-                                finding_position.AdjustMainStars(result, typeOfModule,reference_data.birth_day, "second_sec");
+                                finding_position.AdjustMainStars(result, typeOfModule, reference_data.birth_day, "second_sec");
                             })
                             .catch(error => {
                                 console.log(error)
                             });
-                        
+
                         finding_position.AdjustTwelveSections(result, thoughtPoint_position, "third_sec");
-                        //console.log(result);
+
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[thoughtPoint_position], thoughtPoint_position)
                             .then(typeOfModule => {
+                                result["third_sec"]["module_level"]["metaData"][0] = data_convertion["five_elements"][typeOfModule] + data_convertion["chinese_numbers"][data_convertion["type_of_module"][typeOfModule]];
                                 finding_position.AdjustTwelveCheongSun(result, typeOfModule, reference_data.type_of_people, "third_sec");
-                            }).catch(error => { 
+                            }).catch(error => {
                                 console.log(error);
                             });
-                            
+                        console.trace(result["third_sec"]["module_level"]["metaData"][0]);
                         setting_background.getTypeOfModule(reference_data.twelveTimGone[thoughtPoint_position], thoughtPoint_position)
                             .then(typeOfModule => {
                                 finding_position.AdjustMainStars(result, typeOfModule, reference_data.birth_day, "third_sec");
@@ -235,7 +262,7 @@ app.post('/createModule', function (req, res) {
                             .catch(error => {
                                 console.log(error)
                             });
-                        
+                        console.trace(result["third_sec"]["module_level"]["metaData"][0]);
                         //console.table(temp_result);
                         res.status(200).jsonp(result);
                         //res.status(200).render("index");

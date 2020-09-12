@@ -1,5 +1,5 @@
 const path_mod = require('path');
-const parent_dir = path_mod.join(path_mod.resolve(__dirname,".."), "data_collections");
+const parent_dir = path_mod.join(path_mod.resolve(__dirname, ".."), "data_collections");
 const data_convertion = require(path_mod.join(parent_dir, "data_convertion.json"));
 const project_id = "ziemaytausoul",
     keyFilename = "./ZieMayTauSoul-fec5572fa40b.json";
