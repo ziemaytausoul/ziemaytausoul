@@ -797,11 +797,11 @@ const module_template = `<div style="height: 100vh;">
 </div>
 </div>`;
 
-function EmbedTemplate(sectionName){
+function EmbedTemplate(sectionName) {
     $(`#${sectionName}`).html(module_template);
     $(`#${sectionName}`).find("*").filter(function () {
         var tag_id = $(this).attr("id");
-        if($(this).attr("id") != undefined) {
+        if ($(this).attr("id") != undefined) {
             $(this).attr("id", `${sectionName}_${tag_id}`);
             console.log($(this).attr("id"));
         }
@@ -809,16 +809,15 @@ function EmbedTemplate(sectionName){
 }
 
 function LocateStar(module) {
-  
+
     for (const data in module) {
 
         if (module.hasOwnProperty(data)) {
 
             const star = module[data];
-            
+
             const node_id = `${star.position}_${star.metaData[1]}`;
 
         }
     }
 }
-

@@ -144,18 +144,31 @@
             "nine": 10,
             "ten": 12
         },
-        "zi_kong": {
-            "one": [9, 10],
-            "two": [7, 8],
-            "three": [5, 6],
-            "four": [3, 4],
-            "five": [1, 2],
-            "six": [9, 10],
-            "seven": [7, 8],
-            "eight": [5, 6],
-            "nine": [3, 4],
-            "ten": [1, 2]
+        "zi_kong_main": {
+            "one": 9,
+            "two": 7,
+            "three": 5,
+            "four": 3,
+            "five": 1,
+            "six": 9,
+            "seven": 7,
+            "eight": 5,
+            "nine": 3,
+            "ten": 1
+        },
+        "zi_kong_sub": {
+            "one": 10,
+            "two": 8,
+            "three": 6,
+            "four": 4,
+            "five": 2,
+            "six": 10,
+            "seven": 8,
+            "eight": 6,
+            "nine": 4,
+            "ten": 2
         }
+
     },
     "by_year": {
         "for_sing": {
@@ -860,9 +873,14 @@
         }
     },
     "by_special_calculation": {
-        "swun_kong": {
+        "swun_kong_main": {
             "findingPosition": {
-                "findSwunKong": ["tim_gone", "birth_year"]
+                "findSwunKongMain": ["tim_gone", "birth_year"]
+            }
+        },
+        "swun_kong_sub": {
+            "findingPosition": {
+                "findSwunKongSub": ["tim_gone", "birth_year"]
             }
         },
         "tim_choi": {

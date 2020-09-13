@@ -23,16 +23,32 @@ module.exports.findLinSing = function (startPointLinSing, birth_time) {
     };
 }
 
-/** 旬空 **/
-module.exports.findSwunKong = function (tim_gone, birth_year) {
-    var number_tim_gone = parseInt(tim_gone);
+/** 旬空(正) **/
+module.exports.findSwunKongMain = function (tim_gone, birth_year) {
+    var number_tim_gone = data_convertion["tim_gone_to_number"][tim_gone];
     birth_year = parseInt(birth_year);
+
     for (let temp_tim_gone = number_tim_gone; temp_tim_gone <= 10; temp_tim_gone++) {
         birth_year = birth_year == 12 ? 1 : birth_year + 1;
     }
     return {
-        "swun_kong": {
+        "swun_kong_main": {
             "position": birth_year
+        }
+    };
+}
+
+/** 旬空(傍) **/
+module.exports.findSwunKongSub = function (tim_gone, birth_year) {
+    var number_tim_gone = data_convertion["tim_gone_to_number"][tim_gone];
+    birth_year = parseInt(birth_year);
+
+    for (let temp_tim_gone = number_tim_gone; temp_tim_gone <= 10; temp_tim_gone++) {
+        birth_year = birth_year == 12 ? 1 : birth_year + 1;
+    }
+    return {
+        "swun_kong_sub": {
+            "position": birth_year + 1
         }
     };
 }
@@ -265,6 +281,7 @@ module.exports.defineSection = function (birth_month, birth_time) {
 
 }
 
+/** 人的類別 **/
 module.exports.getTypeOfPeople = function (typeOf_people, tim_gone) {
     return data_convertion["type_of_tim_gone"][tim_gone] + typeOf_people;
 }
@@ -274,10 +291,21 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
     const zie_may_start_point = preparation_for_stars["zie_may_start_point"][type_of_module];
     const num_birth_day = parseInt(birth_day);
     const num_type_of_module = data_convertion.type_of_module[type_of_module];
-    const zie_may_end_point =
-        num_birth_day >= num_type_of_module ? (num_birth_day % num_type_of_module == 0 ?
-            (3 + parseInt(num_birth_day / num_type_of_module, 10)) <= 12 ? 3 + parseInt(num_birth_day / num_type_of_module, 10) : 2 + parseInt(num_birth_day / num_type_of_module, 10) - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 > 12 ?
-            parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1 - 12 : parseInt(num_birth_day / num_type_of_module, 10) + zie_may_start_point + 1) : num_type_of_module;
+    let zie_may_end_point = 0;
+
+    if (num_birth_day >= num_type_of_module) {
+        if (num_birth_day % num_type_of_module == 0) {
+            zie_may_end_point = 2 + parseInt(num_birth_day / num_type_of_module, 10);
+        } else {
+            zie_may_end_point = zie_may_start_point + parseInt(num_birth_day / num_type_of_module, 10);
+        }
+    } else {
+        zie_may_end_point = zie_may_start_point + num_birth_day;
+    }
+
+    if (zie_may_end_point > 12) {
+        zie_may_end_point -= 12;
+    }
     const tim_foo_start_point = preparation_for_stars.tim_foo_start_point[zie_may_end_point.toString()];
 
     return {
@@ -405,7 +433,6 @@ module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint, Sec
     pointsName.forEach(name => {
         if (name != "anatomy_point") {
             FirstSec_Result[Section][name].position = nextPoint + newLifePoint > 12 ? nextPoint + newLifePoint - 12 : nextPoint + newLifePoint;
-            //console.log(FirstSec_Result["first_sec"][name].position, " ", FirstSec_Result["second_sec"][name].position, " ", FirstSec_Result["third_sec"][name].position, Section, name);
             nextPoint++;
         }
     });
@@ -416,7 +443,7 @@ module.exports.AdjustTwelveCheongSun = function (FirstSec_Result, typeOfModule, 
     let cheongSun = this.findTwelveCheongSun(typeOfModule, typeOfPeople);
     for (const key in cheongSun) {
         if (cheongSun.hasOwnProperty(key)) {
-            FirstSec_Result[Section][key]["position"] = cheongSun[key];
+            FirstSec_Result[Section][key]["position"] = cheongSun[key]["position"];
         }
     }
 }
@@ -424,7 +451,6 @@ module.exports.AdjustTwelveCheongSun = function (FirstSec_Result, typeOfModule, 
 /** 地盤-十四星 **/
 module.exports.AdjustMainStars = function (FirstSec_Result, typeOfModule, birth_day, Section) {
     const mainStars = this.findForteenMainStars(birth_day, typeOfModule);
-
     for (const key in mainStars) {
         if (mainStars.hasOwnProperty(key)) {
             FirstSec_Result[Section][key]["position"] = mainStars[key]["position"];

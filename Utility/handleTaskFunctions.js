@@ -24,7 +24,7 @@ exports.uploadData = function (dir_name, collection = "") {
                             firestore.collection(path.basename(file, ".json")).doc(obj_key).set(doc_content).then(documentReference => {
                                 console.log(documentReference.writeTime);
                             }).catch(firestore_error => {
-                                console.error(firestore_error);
+                                console.error("uploadData: ", firestore_error);
                             });
                         }
                         resolve("success");
@@ -117,7 +117,7 @@ module.exports.getModuleData = function (birth_year, birth_month, birth_day, bir
                     if (item[star].hasOwnProperty("findingPosition")) {
 
                         stars[star]["findingPosition"] = item[star]["findingPosition"];
-                        
+
                     }
                 }
             });
@@ -148,4 +148,3 @@ module.exports.StarNameTranslation = function () {
 
     return promise;
 }
-

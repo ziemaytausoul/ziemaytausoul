@@ -14,13 +14,12 @@
         "earth": 5
     },
     "chinese_numbers": {
-        "2":"二",
-        "3":"三",
-        "4":"四",
-        "5":"五",
-        "6":"六"
-    }
-    ,
+        "2": "二",
+        "3": "三",
+        "4": "四",
+        "5": "五",
+        "6": "六"
+    },
     "number_to_chinese_clock": {
         "1": "rat",
         "2": "ox",
@@ -60,6 +59,18 @@
         "eight": "辛",
         "nine": "壬",
         "ten": "癸"
+    },
+    "tim_gone_to_number": {
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
+        "ten": 10
     },
     "number_to_tim_gone": {
         "1": "one",
@@ -113,8 +124,8 @@
         "dog": 11,
         "pig": 12
     },
-    "people_type_conversion" : {
-        "01":"陰男",
+    "people_type_conversion": {
+        "01": "陰男",
         "00": "陰女",
         "10": "陽女",
         "11": "陽男"
@@ -192,7 +203,8 @@
         "tim_kwun": ["天官", "first_tier"],
         "tim_fu": ["天福", "first_tier"],
         "tim_tchu": ["天廚", "first_tier"],
-        "zi_kong": ["截空", "first_tier"],
+        "zi_kong_main": ["截空", "first_tier"],
+        "zi_kong_sub": ["截空", "first_tier"],
         "tim_ma": ["天馬", "moon"],
         "tim_kong": ["天空", "first_tier"],
         "tim_hoo": ["天哭", "first_tier"],
@@ -298,13 +310,14 @@
         "tay_giv": ["地劫", "first_tier"],
         "for_sing": ["火星", "moon"],
         "lin_sing": ["鈴星", "moon"],
-        "swun_kong": ["旬空", "first_tier"],
+        "swun_kong_main": ["旬空", "first_tier"],
+        "swun_kong_sub": ["旬空", "first_tier"],
         "tim_sze": ["天使", "first_tier"],
         "tim_shoin": ["天傷", "first_tier"],
         "tai_fu": ["台輔", "first_tier"],
         "fung_gau": ["封誥", "first_tier"],
         "tim_tak": ["天德", "second_tier"],
-        "tim_yau": ["天", "first_tier"],
+        "tim_yau": ["天姚", "first_tier"],
         "zie_dau": ["子斗", "special"],
         "twelve_cheong_sun": {
             "stars": [{
