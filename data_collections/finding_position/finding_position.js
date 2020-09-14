@@ -142,7 +142,6 @@ module.exports.findFungGau = function (positionOf_men_kog) {
 /** 三台 **/
 module.exports.findSanTai = function (positionOf_joe_fu, birth_day) {
     let san_tai = positionOf_joe_fu;
-    //console.log(positionOf_joe_fu, birth_day);
     for (let steps = 0; steps < birth_day; steps++) {
         san_tai = san_tai == 12 ? 1 : san_tai + 1;
     }

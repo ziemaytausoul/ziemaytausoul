@@ -398,8 +398,8 @@ const module_template = `<div style="height: 100vh;">
             <div>現行&nbsp;<span id="ten_years_positioning"> </span>&nbsp;大限</div>
             <div id="year_data"><span id="510_span_year_data"></span>年<span id="span_year_old"></span>歲
             </div>
-            <div id="body_core">身主&nbsp;<span id="510_span_body_core"></span></div>
-            <div id="module_core">命主&nbsp;<span id="510_span_module_core"></span></div>
+            <div id="510_anatomy_core">身主&nbsp;<span id="510_span_anatomy_core"></span></div>
+            <div id="510_module_core">命主&nbsp;<span id="510_span_module_core"></span></div>
             <div id="module_level"><span id="510_span_module_level"></span>局</div>
             <div id="birth_data"><span id="510_span_normal_year"
                     style="writing-mode: horizontal-tb;"></span>年<span

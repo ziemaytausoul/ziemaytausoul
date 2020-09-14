@@ -189,7 +189,16 @@ app.post('/createModule', function (req, res) {
                             "position": "510",
                             "metaData": [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
                         }
-
+                        /** Prepare module_core **/
+                        result["module_core"] = {
+                            "position": "510",
+                            "metaData": [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
+                        }
+                        /** Prepare anatomy_core **/
+                        result["module_core"] = {
+                            "position": "510",
+                            "metaData": [data_convertion["people_type_conversion"][reference_data.type_of_people], "people_type"]
+                        }
                         var first_sec = new Object();
                         var second_sec = new Object();
                         var third_sec = new Object();

@@ -80,3 +80,7 @@ module.exports.settingInternvalForTenYears = function (type_of_module, type_of_p
             return result;
     }
 }
+
+module.exports.getModulecore = function(birth_year){
+    
+}

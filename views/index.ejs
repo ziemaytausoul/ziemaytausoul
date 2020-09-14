@@ -118,7 +118,7 @@
                 "front": "",
                 "end": ""
             },
-            "span_body_core": {
+            "span_anatomy_core": {
                 "front": "",
                 "end": ""
             },
@@ -234,7 +234,7 @@
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;
                     const template = template_obj[details.metaData[1]];
-                    console.log(`#${sec_name}_${node_id} : ${details.metaData[0]}`);
+                    console.log(`#${sec_name}_${node_id} : ${details.metaData[0]} : ${details.metaData[1]}`);
                     $(`#${sec_name}_${node_id}`).append(
                         `${template["front"]}${details.metaData[0]}${template["end"]}`);
                 });
