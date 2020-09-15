@@ -395,7 +395,7 @@ const module_template = `<div style="height: 100vh;">
     <div id="510" class="col-6 center_vector">
         <div class="source">中洲派紫微斗數<span id="510_module_type">天盤</span></div>
         <div class="center_vec_other">
-            <div>現行&nbsp;<span id="ten_years_positioning"> </span>&nbsp;大限</div>
+            <div>現行&nbsp;<span id="510_span_ten_years_positioning"> </span>&nbsp;大限</div>
             <div id="year_data"><span id="510_span_year_data"></span>年<span id="span_year_old"></span>歲
             </div>
             <div id="510_anatomy_core">身主&nbsp;<span id="510_span_anatomy_core"></span></div>

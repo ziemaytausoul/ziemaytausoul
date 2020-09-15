@@ -1,6 +1,7 @@
 const path_mod = require('path');
 const parent_dir = path_mod.join(path_mod.resolve(__dirname, ".."), "data_collections");
 const data_convertion = require(path_mod.join(parent_dir, "data_convertion.json"));
+const background = require(path_mod.join(parent_dir, "basic_data.json"));
 const project_id = "ziemaytausoul",
     keyFilename = "./ZieMayTauSoul-fec5572fa40b.json";
 const fs = require("fs");
@@ -81,6 +82,38 @@ module.exports.settingInternvalForTenYears = function (type_of_module, type_of_p
     }
 }
 
+/** 人/地盤-十年大運 **/
+module.exports.adjustInternvalForTenYears = function(FirstSec_Result, type_of_module, type_of_people, positionOf_life_point, Section){
+    let data = JSON.parse(fs.readFileSync(path_mod.join(parent_dir, "interval_for_ten_years.json"), {
+        encoding: 'utf-8'
+    }));
+    let intervals = data.interval[type_of_module];
+    switch (type_of_people) {
+        case "11", "00":
+            for (let steps = 0; steps < intervals.length; steps++) {
+                FirstSec_Result[Section][steps] = {
+                    "position": positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps,
+                    "metaData": [intervals[steps], "ten_years"]
+                }
+            }
+            return result;
+        default:
+            for (let steps = 0; steps < intervals.length; steps++) {
+                FirstSec_Result[Section][steps] = {
+                    "position": positionOf_life_point - steps < 1 ? positionOf_life_point - steps + 12 : positionOf_life_point - steps,
+                    "metaData": [intervals[steps], "ten_years"]
+                }
+            }
+            return result;
+    }
+}
+
+/** 命主 **/
 module.exports.getModulecore = function(birth_year){
-    
+    return background["module_core"][birth_year];
+}
+
+/** 身主 **/
+module.exports.getAnatomyCore = function(birth_year){
+    return background["anatomy_core"][birth_year];
 }
