@@ -5,6 +5,7 @@ const background = require(path_mod.join(parent_dir, "basic_data.json"));
 const project_id = "ziemaytausoul",
     keyFilename = "./ZieMayTauSoul-fec5572fa40b.json";
 const fs = require("fs");
+const { openDelimiter } = require('ejs');
 
 
 /** 十二宮的大運天干 **/
@@ -82,6 +83,40 @@ module.exports.settingInternvalForTenYears = function (type_of_module, type_of_p
     }
 }
 
+/** 現行大運 **/
+module.exports.settingTenYearsLiving = function(year_old, type_of_module, type_of_people, positionOf_life_point){
+    let result = new Object();
+    let data = JSON.parse(fs.readFileSync(path_mod.join(parent_dir, "interval_for_ten_years.json"), {
+        encoding: 'utf-8'
+    }));
+    let intervals = data.interval[type_of_module];
+    switch (type_of_people) {
+        case "11", "00":
+            for (let steps = 0; steps < intervals.length; steps++) {
+                var temp = intervals[steps].split("-");
+                if(year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)){
+                    result[steps] = {
+                        "position": positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps,
+                        "metaData": ["", "span_ten_years_positioning"]
+                    }
+                }
+            }
+            return result;
+        default:
+            for (let steps = 0; steps < intervals.length; steps++) {
+                var temp = intervals[steps].split("-");
+                if(year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)){
+                    result[steps] = {
+                        "position": "510",
+                        "metaData": [intervals[steps], "span_ten_years_positioning"]
+                    }
+                }
+            }
+            return result;
+    }
+}
+
+
 /** 人/地盤-十年大運 **/
 module.exports.adjustInternvalForTenYears = function(FirstSec_Result, type_of_module, type_of_people, positionOf_life_point, Section){
     let data = JSON.parse(fs.readFileSync(path_mod.join(parent_dir, "interval_for_ten_years.json"), {
@@ -107,6 +142,9 @@ module.exports.adjustInternvalForTenYears = function(FirstSec_Result, type_of_mo
             return result;
     }
 }
+
+
+
 
 /** 命主 **/
 module.exports.getModulecore = function(birth_year){
