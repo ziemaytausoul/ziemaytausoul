@@ -200,6 +200,10 @@
                         Console.log(status);
                         Console.log(xhr);
                     }
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.status);
+                    console.log(error);
                 }
             });
 
@@ -234,7 +238,8 @@
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;
                     const template = template_obj[details.metaData[1]];
-                    console.log(`#${sec_name}_${node_id} : ${details.metaData[0]} : ${details.metaData[1]}`);
+                    console.log(
+                        `#${sec_name}_${node_id} : ${details.metaData[0]} : ${details.metaData[1]}`);
                     $(`#${sec_name}_${node_id}`).append(
                         `${template["front"]}${details.metaData[0]}${template["end"]}`);
                 });

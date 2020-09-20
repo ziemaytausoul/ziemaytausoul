@@ -424,7 +424,7 @@ module.exports.findTwelveCheongSun = function (type_of_module, type_of_people) {
     return result;
 }
 
-/** 地盤-十二宮 **/
+/** 人/地盤-十二宮 **/
 module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint, Section) {
     const pointsName = Object.keys(data_convertion["point_name"]);
     const newLifePoint = StartPoint;
@@ -437,7 +437,7 @@ module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint, Sec
     });
 }
 
-/** 地盤-十二長生 **/
+/** 人/地盤-十二長生 **/
 module.exports.AdjustTwelveCheongSun = function (FirstSec_Result, typeOfModule, typeOfPeople, Section) {
     let cheongSun = this.findTwelveCheongSun(typeOfModule, typeOfPeople);
     for (const key in cheongSun) {
@@ -447,7 +447,7 @@ module.exports.AdjustTwelveCheongSun = function (FirstSec_Result, typeOfModule, 
     }
 }
 
-/** 地盤-十四星 **/
+/** 人/地盤-十四星 **/
 module.exports.AdjustMainStars = function (FirstSec_Result, typeOfModule, birth_day, Section) {
     const mainStars = this.findForteenMainStars(birth_day, typeOfModule);
     for (const key in mainStars) {

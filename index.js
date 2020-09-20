@@ -199,6 +199,11 @@ app.post('/createModule', function (req, res) {
                             "position": "510",
                             "metaData": [setting_background.getAnatomyCore(reference_data.birth_year), "span_anatomy_core"]
                         }
+
+                        /*result["year_old"] = {
+                            "position": "510",
+                            "metaData": ["1", "span_year_old"]
+                        }*/
                         var first_sec = new Object();
                         var second_sec = new Object();
                         var third_sec = new Object();
