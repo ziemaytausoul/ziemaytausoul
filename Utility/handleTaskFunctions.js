@@ -1,5 +1,5 @@
 const project_id = "ziemaytausoul",
-    keyFilename = "./ZieMayTauSoul-fec5572fa40b.json";
+    keyFilename = "./ziemaytausoul.json";
 const path = require("path");
 
 exports.uploadData = function (dir_name, collection = "") {

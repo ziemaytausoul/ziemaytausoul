@@ -200,9 +200,16 @@ app.post('/createModule', function (req, res) {
                             "metaData": [setting_background.getAnatomyCore(reference_data.birth_year), "span_anatomy_core"]
                         }
 
-                        /*result["year_old"] = {
+                        /** Prepare age **/
+                        result["age"] = {
                             "position": "510",
-                            "metaData": ["1", "span_year_old"]
+                            "metaData": [setting_background.getAge(reference_data.birth_year,reference_data.birth_month, reference_data.birth_day), "span_age"]
+                        }
+
+                        /** Prepare year data **/
+                        /*result["year_data"] = {
+                            "position": "510",
+                            "metaData": [setting_background.settingTenYearsLiving(), "span_age"]
                         }*/
                         var first_sec = new Object();
                         var second_sec = new Object();

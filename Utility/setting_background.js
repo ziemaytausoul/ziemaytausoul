@@ -3,7 +3,7 @@ const parent_dir = path_mod.join(path_mod.resolve(__dirname, ".."), "data_collec
 const data_convertion = require(path_mod.join(parent_dir, "data_convertion.json"));
 const background = require(path_mod.join(parent_dir, "basic_data.json"));
 const project_id = "ziemaytausoul",
-    keyFilename = "./ZieMayTauSoul-fec5572fa40b.json";
+    keyFilename = "./ziemaytausoul.json";
 const fs = require("fs");
 const { openDelimiter } = require('ejs');
 
@@ -101,7 +101,6 @@ module.exports.settingTenYearsLiving = function(year_old, type_of_module, type_o
                     }
                 }
             }
-            return result;
         default:
             for (let steps = 0; steps < intervals.length; steps++) {
                 var temp = intervals[steps].split("-");
@@ -112,7 +111,6 @@ module.exports.settingTenYearsLiving = function(year_old, type_of_module, type_o
                     }
                 }
             }
-            return result;
     }
 }
 
@@ -131,7 +129,7 @@ module.exports.adjustInternvalForTenYears = function(FirstSec_Result, type_of_mo
                     "metaData": [intervals[steps], "ten_years"]
                 }
             }
-            return result;
+            break;
         default:
             for (let steps = 0; steps < intervals.length; steps++) {
                 FirstSec_Result[Section][steps] = {
@@ -139,12 +137,24 @@ module.exports.adjustInternvalForTenYears = function(FirstSec_Result, type_of_mo
                     "metaData": [intervals[steps], "ten_years"]
                 }
             }
-            return result;
+            break;
     }
 }
 
+/** 年歲 **/
+module.exports.getAge = function(birth_year, birth_month, birth_day){
+    let date_obj = new Date();
+    let now_day = date_obj.getDay();
+    let now_month = date_obj.getMonth();
+    let now_year = date_obj.getFullYear();
 
-
+    if(now_month >= parseInt(birth_month, 10)){
+        if(now_day >= parseInt(birth_day, 10)){
+            return now_year - parseInt(birth_year, 10);
+        }
+    }
+    return now_year - parseInt(birth_year, 10) - 1;
+}
 
 /** 命主 **/
 module.exports.getModulecore = function(birth_year){
