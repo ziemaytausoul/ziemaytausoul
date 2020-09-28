@@ -203,9 +203,8 @@ app.post('/createModule', function (req, res) {
                         /** Prepare age **/
                         result["age"] = {
                             "position": "510",
-                            "metaData": [setting_background.getAge(reference_data.birth_year,reference_data.birth_month, reference_data.birth_day), "span_age"]
+                            "metaData": [setting_background.getAge(reference_data.lunar_year,reference_data.birth_month, reference_data.birth_day), "span_age"]
                         }
-
                         /** Prepare year data **/
                         /*result["year_data"] = {
                             "position": "510",

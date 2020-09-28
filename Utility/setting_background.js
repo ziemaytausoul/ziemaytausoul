@@ -5,7 +5,9 @@ const background = require(path_mod.join(parent_dir, "basic_data.json"));
 const project_id = "ziemaytausoul",
     keyFilename = "./ziemaytausoul.json";
 const fs = require("fs");
+const https = require('https');
 const { openDelimiter } = require('ejs');
+const express = require('express');
 
 
 /** 十二宮的大運天干 **/
@@ -142,18 +144,48 @@ module.exports.adjustInternvalForTenYears = function(FirstSec_Result, type_of_mo
 }
 
 /** 年歲 **/
-module.exports.getAge = function(birth_year, birth_month, birth_day){
+module.exports.getAge = async function(birth_year, birth_month, birth_day, callback){
+    
     let date_obj = new Date();
-    let now_day = date_obj.getDay();
-    let now_month = date_obj.getMonth();
-    let now_year = date_obj.getFullYear();
+    let now_day = '';
+    let now_month = '';
+    let now_year = '';
+    let output = '';
+
+    const options = {
+        hostname: 'ziemaytausoul.azurewebsites.net',
+        path: `/api/DateTransformation/GetLunarDate?year=${date_obj.getFullYear()}&month=${date_obj.getMonth()}&day=${date_obj.getDay()}`,
+        method: 'GET'
+    }
+
+    const req = await https.request(options, (res)=>{
+        res.setEncoding('utf8');
+
+        res.on('data', (chunk)=> {
+            output += chunk;
+        }).on('end', () => {
+            let obj = JSON.parse(output);
+            let result = obj["result"].split("_");
+            
+            now_year = parseInt(result[0], 10);
+            now_month = parseInt(result[1], 10);
+            now_day = parseInt(result[2], 10);
+            //console.log(`year: ${now_year} month: ${now_month} day: ${now_day}`);
+        });
+    });
+    req.on('error', (err)=>{
+        console.log(err);
+    });
+
+    req.end();
 
     if(now_month >= parseInt(birth_month, 10)){
         if(now_day >= parseInt(birth_day, 10)){
-            return now_year - parseInt(birth_year, 10);
+            callback(now_year - parseInt(birth_year, 10));
         }
     }
-    return now_year - parseInt(birth_year, 10) - 1;
+    callback(now_year - parseInt(birth_year, 10) - 1);
+    
 }
 
 /** 命主 **/

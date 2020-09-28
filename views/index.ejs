@@ -193,9 +193,9 @@
                     var transformed_date = result["result"];
                     var date_arr = transformed_date.split("_");
                     if (date_arr) {
-                        c_year = $("#year").val();
-                        month = $("#month").val();
-                        day = $("#day").val();
+                        c_year = date_arr[0];
+                        month = date_arr[1];
+                        day = date_arr[2];
                         tim_gone = date_arr[3];
                         year = date_arr[4];
                         getModulData();
@@ -242,8 +242,8 @@
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;
                     const template = template_obj[details.metaData[1]];
-                    console.log(
-                        `#${sec_name}_${node_id} : ${details.metaData[0]} : ${details.metaData[1]}`);
+                    /*console.log(
+                        `#${sec_name}_${node_id} : ${details.metaData[0]} : ${details.metaData[1]}`);*/
                     $(`#${sec_name}_${node_id}`).append(
                         `${template["front"]}${details.metaData[0]}${template["end"]}`);
                 });
