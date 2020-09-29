@@ -11,6 +11,7 @@ const {
 } = require('@google-cloud/firestore');
 const data_convertion = require("./data_collections/data_convertion.json");
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
+const { error } = require('console');
 
 /**Environment setting**/
 app.use(bodyParser.json());
@@ -203,8 +204,9 @@ app.post('/createModule', function (req, res) {
                         /** Prepare age **/
                         result["age"] = {
                             "position": "510",
-                            "metaData": [setting_background.getAge(reference_data.lunar_year,reference_data.birth_month, reference_data.birth_day), "span_age"]
+                            "metaData": [setting_background.getAge(reference_data.lunar_year, reference_data.birth_month, reference_data.birth_day), "span_age"]
                         }
+
                         /** Prepare year data **/
                         /*result["year_data"] = {
                             "position": "510",
