@@ -100,7 +100,7 @@ module.exports.settingTenYearsLiving = function (year_old, type_of_module, type_
                 if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
                     result[steps] = {
                         "position": positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps,
-                        "metaData": ["", "span_ten_years_positioning"]
+                        "metaData": [intervals[steps], "span_ten_years_positioning"]
                     }
                 }
             }
@@ -165,6 +165,7 @@ module.exports.getAge = async function (birth_year, birth_month, birth_day) {
         }
     }
     return now_year - parseInt(birth_year, 10) - 1;
+
 }
 
 /** 命主 **/
@@ -177,6 +178,12 @@ module.exports.getAnatomyCore = function (birth_year) {
     return background["anatomy_core"][birth_year];
 }
 
+/**
+ * support function - Get lunar date
+ * @param {*} year 
+ * @param {*} month 
+ * @param {*} day 
+ */
 const getDate = async function (year, month, day) {
     const path = `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${year}&month=${month}&day=${day}`;
     let now_date = await superagent.get(path);
