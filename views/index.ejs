@@ -180,7 +180,6 @@
             var c_year = "";
             var gender = $("#gender").children("option:selected").val();
 
-            console.log(section_list);
             section_list.each(function (index, elem) {
                 EmbedTemplate(elem.id);
             });
@@ -247,6 +246,17 @@
                     $(`#${sec_name}_${node_id}`).append(
                         `${template["front"]}${details.metaData[0]}${template["end"]}`);
                 });
+                switch (sec_name) {
+                    case "first_sec":
+                        $(`#${sec_name}_510_module_type`).text("天盤");
+                        break;
+                    case "second_sec":
+                        $(`#${sec_name}_510_module_type`).text("地盤");
+                        break;
+                    default:
+                        $(`#${sec_name}_510_module_type`).text("人盤");
+                        break;
+                }
             });
         }
     </script>

@@ -87,33 +87,55 @@ module.exports.settingInternvalForTenYears = function (type_of_module, type_of_p
 }
 
 /** 現行大運 **/
-module.exports.settingTenYearsLiving = function (year_old, type_of_module, type_of_people, positionOf_life_point) {
-    let result = new Object();
+module.exports.settingTenYearsLiving = function (year_old, type_of_module, type_of_people, tim_gone, positionOf_life_point) {
     let data = JSON.parse(fs.readFileSync(path_mod.join(parent_dir, "interval_for_ten_years.json"), {
         encoding: 'utf-8'
     }));
     let intervals = data.interval[type_of_module];
-    switch (type_of_people) {
-        case "11", "00":
-            for (let steps = 0; steps < intervals.length; steps++) {
-                var temp = intervals[steps].split("-");
-                if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
-                    result[steps] = {
-                        "position": positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps,
-                        "metaData": [intervals[steps], "span_ten_years_positioning"]
-                    }
+    for (let steps = 0; steps < intervals.length; steps++) {
+        var temp = intervals[steps].split("-");
+        if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
+            let ten_year_living = '';
+            if (type_of_people == '11' || type_of_people == '00') {
+                ten_year_living = positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps;
+            } else {
+                ten_year_living = positionOf_life_point - steps < 1 ? positionOf_life_point + steps + 12 : positionOf_life_point - steps;
+            }
+            for (const key in tim_gone) {
+                const string_arr = key.split('_');
+                if (string_arr[1] == ten_year_living) { //Check if the value at position of 2 is equal to the value in ten_year_living
+                    return tim_gone[key]["metaData"][0];
                 }
             }
-        default:
-            for (let steps = 0; steps < intervals.length; steps++) {
-                var temp = intervals[steps].split("-");
-                if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
-                    result[steps] = {
-                        "position": "510",
-                        "metaData": [intervals[steps], "span_ten_years_positioning"]
-                    }
+        }
+
+    }
+}
+
+/** 人/地-現行大運 **/
+module.exports.adjustTenYearsLiving = function (FirstSec_result, year_old, type_of_module, type_of_people, tim_gone, Section) {
+    let data = JSON.parse(fs.readFileSync(path_mod.join(parent_dir, "interval_for_ten_years.json"), {
+        encoding: 'utf-8'
+    }));
+    let positionOf_life_point = FirstSec_result[Section]["life_point"]["position"];
+    let intervals = data.interval[type_of_module];
+    for (let steps = 0; steps < intervals.length; steps++) {
+        var temp = intervals[steps].split("-");
+        if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
+            let ten_year_living = '';
+            if (type_of_people == '11' || type_of_people == '00') {
+                ten_year_living = positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps;
+            } else {
+                ten_year_living = positionOf_life_point - steps < 1 ? positionOf_life_point + steps + 12 : positionOf_life_point - steps;
+            }
+            for (const key in tim_gone) {
+                const string_arr = key.split('_');
+                if (string_arr[1] == ten_year_living) { //Check if the value at position of 2 is equal to the value in ten_year_living
+                    FirstSec_result[Section]["ten_years_positioning"]["metaData"][0] = tim_gone[key]["metaData"][0];
                 }
             }
+        }
+
     }
 }
 
