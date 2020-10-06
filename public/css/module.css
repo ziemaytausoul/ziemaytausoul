@@ -136,6 +136,8 @@ div .source span {
 .main {
   writing-mode: vertical-lr;
   text-orientation: upright;
+  position: sticky;
+  top: 0;
   font-size: 1.6rem;
 }
 

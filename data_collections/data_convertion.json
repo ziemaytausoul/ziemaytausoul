@@ -131,230 +131,669 @@
         "11": "陽男"
     },
     "point_name": {
-        "life_point": ["命宮", "position"],
-        "parent_point": ["父母", "position"],
-        "thought_point": ["福德", "position"],
-        "housing_point": ["田宅", "position"],
-        "career_point": ["事業", "position"],
-        "friendship_point": ["交友", "position"],
-        "travel_point": ["遷移", "position"],
-        "illness_point": ["疾厄", "position"],
-        "possession_point": ["財帛", "position"],
-        "posterity_point": ["子女", "position"],
-        "marriage_point": ["夫妻", "position"],
-        "sibling_point": ["兄弟", "position"],
-        "anatomy_point": ["身宮", "position"]
+        "life_point": [
+            "命宮",
+            "position"
+        ],
+        "parent_point": [
+            "父母",
+            "position"
+        ],
+        "thought_point": [
+            "福德",
+            "position"
+        ],
+        "housing_point": [
+            "田宅",
+            "position"
+        ],
+        "career_point": [
+            "事業",
+            "position"
+        ],
+        "friendship_point": [
+            "交友",
+            "position"
+        ],
+        "travel_point": [
+            "遷移",
+            "position"
+        ],
+        "illness_point": [
+            "疾厄",
+            "position"
+        ],
+        "possession_point": [
+            "財帛",
+            "position"
+        ],
+        "posterity_point": [
+            "子女",
+            "position"
+        ],
+        "marriage_point": [
+            "夫妻",
+            "position"
+        ],
+        "sibling_point": [
+            "兄弟",
+            "position"
+        ],
+        "anatomy_point": [
+            "身宮",
+            "position"
+        ]
     },
     "star_name_translation": {
-        "luc": ["化祿", "changes"],
-        "kwun": ["化權", "changes"],
-        "fol": ["化科", "changes"],
-        "gav": ["化忌", "changes"],
+        "luc": [
+            "化祿",
+            "changes"
+        ],
+        "kwun": [
+            "化權",
+            "changes"
+        ],
+        "fol": [
+            "化科",
+            "changes"
+        ],
+        "gav": [
+            "化忌",
+            "changes"
+        ],
         "forteen_main_stars": {
-            "stars": [{
-                    "zie_may": ["紫微", "main"]
+            "stars": [
+                {
+                    "zie_may": [
+                        "紫微",
+                        "main"
+                    ]
                 },
                 {
-                    "tim_gey": ["天機", "main"]
+                    "tim_gey": [
+                        "天機",
+                        "main"
+                    ]
                 },
                 {
-                    "tai_yueng": ["太陽", "main"]
+                    "tai_yueng": [
+                        "太陽",
+                        "main"
+                    ]
                 },
                 {
-                    "mau_koo": ["武曲", "main"]
+                    "mau_koo": [
+                        "武曲",
+                        "main"
+                    ]
                 },
                 {
-                    "tim_toun": ["天同", "main"]
+                    "tim_toun": [
+                        "天同",
+                        "main"
+                    ]
                 },
                 {
-                    "lin_zaen": ["廉貞", "main"]
+                    "lin_zaen": [
+                        "廉貞",
+                        "main"
+                    ]
                 },
                 {
-                    "tim_foo": ["天府", "main"]
+                    "tim_foo": [
+                        "天府",
+                        "main"
+                    ]
                 },
                 {
-                    "tai_yian": ["太陰", "main"]
+                    "tai_yian": [
+                        "太陰",
+                        "main"
+                    ]
                 },
                 {
-                    "tam_long": ["貪狼", "main"]
+                    "tam_long": [
+                        "貪狼",
+                        "main"
+                    ]
                 },
                 {
-                    "guoy_moon": ["巨門", "main"]
+                    "guoy_moon": [
+                        "巨門",
+                        "main"
+                    ]
                 },
                 {
-                    "tim_sueng": ["天相", "main"]
+                    "tim_sueng": [
+                        "天相",
+                        "main"
+                    ]
                 },
                 {
-                    "tim_leung": ["天梁", "main"]
+                    "tim_leung": [
+                        "天梁",
+                        "main"
+                    ]
                 },
                 {
-                    "chey_sa": ["七殺", "main"]
+                    "chey_sa": [
+                        "七殺",
+                        "main"
+                    ]
                 },
                 {
-                    "pob_gaun": ["破軍", "main"]
+                    "pob_gaun": [
+                        "破軍",
+                        "main"
+                    ]
                 }
             ]
         },
-        "tim_fhui": ["天魁", "moon"],
-        "tim_jue": ["天鉞", "moon"],
-        "luc_chen": ["祿存", "moon"],
-        "king_yeong": ["擎羊", "moon"],
-        "tau_lo": ["陀羅", "moon"],
-        "tim_kwun": ["天官", "first_tier"],
-        "tim_fu": ["天福", "first_tier"],
-        "tim_tchu": ["天廚", "first_tier"],
-        "zi_kong_main": ["截空", "first_tier"],
-        "zi_kong_sub": ["截空", "first_tier"],
-        "tim_ma": ["天馬", "moon"],
-        "tim_kong": ["天空", "first_tier"],
-        "tim_hoo": ["天哭", "first_tier"],
-        "tim_hoy": ["天虛", "first_tier"],
-        "hung_leung": ["紅鸞", "first_tier"],
-        "tim_hey": ["天喜", "first_tier"],
-        "goo_shen": ["孤辰", "first_tier"],
-        "gau_sou": ["寡宿", "first_tier"],
-        "gee_sa": ["劫殺", "first_tier"],
-        "die_hau": ["大耗", "first_tier"],
-        "fey_lin": ["蜚廉", "first_tier"],
-        "po_suei": ["破碎", "first_tier"],
-        "wa_kwoi": ["華蓋", "first_tier"],
-        "ham_chi": ["咸池", "first_tier"],
-        "non_tak": ["龍德", "first_tier"],
-        "yuk_tak": ["月德", "first_tier"],
-        "lin_khai": ["年解", "first_tier"],
-        "tim_choi": ["天才", "first_tier"],
-        "tim_soul": ["天壽", "first_tier"],
-        "non_chi": ["龍池", "first_tier"],
-        "fung_kwok": ["鳳閣", "first_tier"],
+        "tim_fhui": [
+            "天魁",
+            "moon"
+        ],
+        "tim_jue": [
+            "天鉞",
+            "moon"
+        ],
+        "luc_chen": [
+            "祿存",
+            "moon"
+        ],
+        "king_yeong": [
+            "擎羊",
+            "moon"
+        ],
+        "tau_lo": [
+            "陀羅",
+            "moon"
+        ],
+        "tim_kwun": [
+            "天官",
+            "first_tier"
+        ],
+        "tim_fu": [
+            "天福",
+            "first_tier"
+        ],
+        "tim_tchu": [
+            "天廚",
+            "first_tier"
+        ],
+        "zi_kong_main": [
+            "截空",
+            "first_tier"
+        ],
+        "zi_kong_sub": [
+            "截空",
+            "first_tier"
+        ],
+        "tim_ma": [
+            "天馬",
+            "moon"
+        ],
+        "tim_kong": [
+            "天空",
+            "first_tier"
+        ],
+        "tim_hoo": [
+            "天哭",
+            "first_tier"
+        ],
+        "tim_hoy": [
+            "天虛",
+            "first_tier"
+        ],
+        "hung_leung": [
+            "紅鸞",
+            "first_tier"
+        ],
+        "tim_hey": [
+            "天喜",
+            "first_tier"
+        ],
+        "goo_shen": [
+            "孤辰",
+            "first_tier"
+        ],
+        "gau_sou": [
+            "寡宿",
+            "first_tier"
+        ],
+        "gee_sa": [
+            "劫殺",
+            "first_tier"
+        ],
+        "die_hau": [
+            "大耗",
+            "first_tier"
+        ],
+        "fey_lin": [
+            "蜚廉",
+            "first_tier"
+        ],
+        "po_suei": [
+            "破碎",
+            "first_tier"
+        ],
+        "wa_kwoi": [
+            "華蓋",
+            "first_tier"
+        ],
+        "ham_chi": [
+            "咸池",
+            "first_tier"
+        ],
+        "non_tak": [
+            "龍德",
+            "first_tier"
+        ],
+        "yuk_tak": [
+            "月德",
+            "first_tier"
+        ],
+        "lin_khai": [
+            "年解",
+            "first_tier"
+        ],
+        "tim_choi": [
+            "天才",
+            "first_tier"
+        ],
+        "tim_soul": [
+            "天壽",
+            "first_tier"
+        ],
+        "non_chi": [
+            "龍池",
+            "first_tier"
+        ],
+        "fung_kwok": [
+            "鳳閣",
+            "first_tier"
+        ],
         "tai_soi_twelve_stars": {
-            "stars": [{
-                "tai_soi": ["太歲", "second_tier"]
-            }, {
-                "foi_hey": ["晦氣", "second_tier"]
-            }, {
-                "song_mon": ["喪門", "second_tier"]
-            }, {
-                "gwan_sol": ["貫索", "second_tier"]
-            }, {
-                "kwun_fu": ["官符", "second_tier"]
-            }, {
-                "siu_ho": ["小耗", "second_tier"]
-            }, {
-                "soi_po": ["歲破", "second_tier"]
-            }, {
-                "non_tak": ["龍德", "second_tier"]
-            }, {
-                "bab_fu": ["白虎", "second_tier"]
-            }, {
-                "tim_tak": ["天德", "second_tier"]
-            }, {
-                "dual_hak": ["吊客", "second_tier"]
-            }, {
-                "bang_fu": ["病符", "second_tier"]
-            }]
+            "stars": [
+                {
+                    "tai_soi": [
+                        "太歲",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "foi_hey": [
+                        "晦氣",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "song_mon": [
+                        "喪門",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "gwan_sol": [
+                        "貫索",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "kwun_fu": [
+                        "官符",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "siu_ho": [
+                        "小耗",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "soi_po": [
+                        "歲破",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "non_tak": [
+                        "龍德",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "bab_fu": [
+                        "白虎",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "tim_tak": [
+                        "天德",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "dual_hak": [
+                        "吊客",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "bang_fu": [
+                        "病符",
+                        "second_tier"
+                    ]
+                }
+            ]
         },
-        "jaen_sing": ["將星", "second_tier"],
-        "pam_on": ["攀鞍", "second_tier"],
-        "soi_yea": ["歲驛", "second_tier"],
-        "sig_sun": ["息神", "second_tier"],
-        "wa_goi": ["華蓋", "second_tier"],
-        "gee_sak": ["劫煞", "second_tier"],
-        "zoi_sa": ["災煞", "second_tier"],
-        "tim_sa": ["天煞", "second_tier"],
-        "zie_boi": ["指背", "second_tier"],
-        "ham_chee": ["咸池", "second_tier"],
-        "yuk_sa": ["月煞", "second_tier"],
-        "mong_sun": ["亡神", "second_tier"],
+        "jaen_sing": [
+            "將星",
+            "second_tier"
+        ],
+        "pam_on": [
+            "攀鞍",
+            "second_tier"
+        ],
+        "soi_yea": [
+            "歲驛",
+            "second_tier"
+        ],
+        "sig_sun": [
+            "息神",
+            "second_tier"
+        ],
+        "wa_goi": [
+            "華蓋",
+            "second_tier"
+        ],
+        "gee_sak": [
+            "劫煞",
+            "second_tier"
+        ],
+        "zoi_sa": [
+            "災煞",
+            "second_tier"
+        ],
+        "tim_sa": [
+            "天煞",
+            "second_tier"
+        ],
+        "zie_boi": [
+            "指背",
+            "second_tier"
+        ],
+        "ham_chee": [
+            "咸池",
+            "second_tier"
+        ],
+        "yuk_sa": [
+            "月煞",
+            "second_tier"
+        ],
+        "mong_sun": [
+            "亡神",
+            "second_tier"
+        ],
         "bou_si_twelve_stars": {
-            "stars": [{
-                "bou_si": ["博士", "second_tier"]
-            }, {
-                "lag_si": ["力士", "second_tier"]
-            }, {
-                "ching_non": ["青龍", "second_tier"]
-            }, {
-                "siu_ho": ["小耗", "second_tier"]
-            }, {
-                "jaen_gwun": ["將軍", "second_tier"]
-            }, {
-                "joe_sue": ["奏書", "second_tier"]
-            }, {
-                "phea_ling": ["蜚廉", "second_tier"]
-            }, {
-                "hey_sun": ["喜神", "second_tier"]
-            }, {
-                "bang_phoo": ["病符", "second_tier"]
-            }, {
-                "die_hau": ["大耗", "second_tier"]
-            }, {
-                "phok_bing": ["伏兵", "second_tier"]
-            }, {
-                "kwun_phoo": ["官符", "second_tier"]
-            }]
+            "stars": [
+                {
+                    "bou_si": [
+                        "博士",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "lag_si": [
+                        "力士",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "ching_non": [
+                        "青龍",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "siu_ho": [
+                        "小耗",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "jaen_gwun": [
+                        "將軍",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "joe_sue": [
+                        "奏書",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "phea_ling": [
+                        "蜚廉",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "hey_sun": [
+                        "喜神",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "bang_phoo": [
+                        "病符",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "die_hau": [
+                        "大耗",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "phok_bing": [
+                        "伏兵",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "kwun_phoo": [
+                        "官符",
+                        "second_tier"
+                    ]
+                }
+            ]
         },
-        "joe_fu": ["左輔", "moon"],
-        "yo_bei": ["右弼", "moon"],
-        "tim_yan": ["天刑", "first_tier"],
-        "tim_yiu": ["天姚", "first_tier"],
-        "khai_sun": ["解神", "first_tier"],
-        "tim_mo": ["天巫", "first_tier"],
-        "tim_yuk": ["天月", "first_tier"],
-        "yan_sak": ["陰煞", "first_tier"],
-        "san_tai": ["三台", "first_tier"],
-        "bap_zoi": ["八座", "first_tier"],
-        "yan_kwong": ["恩光", "first_tier"],
-        "tim_kwui": ["天貴", "first_tier"],
-        "men_cheong": ["文昌", "moon"],
-        "men_kog": ["文曲", "moon"],
-        "tay_kong": ["地空", "first_tier"],
-        "tay_giv": ["地劫", "first_tier"],
-        "for_sing": ["火星", "moon"],
-        "lin_sing": ["鈴星", "moon"],
-        "swun_kong_main": ["旬空", "first_tier"],
-        "swun_kong_sub": ["旬空", "first_tier"],
-        "tim_sze": ["天使", "first_tier"],
-        "tim_shoin": ["天傷", "first_tier"],
-        "tai_fu": ["台輔", "first_tier"],
-        "fung_gau": ["封誥", "first_tier"],
-        "tim_tak": ["天德", "second_tier"],
-        "tim_yau": ["天姚", "first_tier"],
-        "zie_dau": ["子斗", "special"],
+        "joe_fu": [
+            "左輔",
+            "moon"
+        ],
+        "yo_bei": [
+            "右弼",
+            "moon"
+        ],
+        "tim_yan": [
+            "天刑",
+            "first_tier"
+        ],
+        "tim_yiu": [
+            "天姚",
+            "first_tier"
+        ],
+        "khai_sun": [
+            "解神",
+            "first_tier"
+        ],
+        "tim_mo": [
+            "天巫",
+            "first_tier"
+        ],
+        "tim_yuk": [
+            "天月",
+            "first_tier"
+        ],
+        "yan_sak": [
+            "陰煞",
+            "first_tier"
+        ],
+        "san_tai": [
+            "三台",
+            "first_tier"
+        ],
+        "bap_zoi": [
+            "八座",
+            "first_tier"
+        ],
+        "yan_kwong": [
+            "恩光",
+            "first_tier"
+        ],
+        "tim_kwui": [
+            "天貴",
+            "first_tier"
+        ],
+        "men_cheong": [
+            "文昌",
+            "moon"
+        ],
+        "men_kog": [
+            "文曲",
+            "moon"
+        ],
+        "tay_kong": [
+            "地空",
+            "first_tier"
+        ],
+        "tay_giv": [
+            "地劫",
+            "first_tier"
+        ],
+        "for_sing": [
+            "火星",
+            "moon"
+        ],
+        "lin_sing": [
+            "鈴星",
+            "moon"
+        ],
+        "swun_kong_main": [
+            "旬空",
+            "first_tier"
+        ],
+        "swun_kong_sub": [
+            "旬空",
+            "first_tier"
+        ],
+        "tim_sze": [
+            "天使",
+            "first_tier"
+        ],
+        "tim_shoin": [
+            "天傷",
+            "first_tier"
+        ],
+        "tai_fu": [
+            "台輔",
+            "first_tier"
+        ],
+        "fung_gau": [
+            "封誥",
+            "first_tier"
+        ],
+        "tim_tak": [
+            "天德",
+            "second_tier"
+        ],
+        "tim_yau": [
+            "天姚",
+            "first_tier"
+        ],
+        "zie_dau": [
+            "子斗",
+            "special"
+        ],
         "twelve_cheong_sun": {
-            "stars": [{
-                    "cheong_sun": ["長生", "cheong_sun"]
+            "stars": [
+                {
+                    "cheong_sun": [
+                        "長生",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "moo_yau": ["沐浴", "cheong_sun"]
+                    "moo_yau": [
+                        "沐浴",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "kwun_tai": ["冠帶", "cheong_sun"]
+                    "kwun_tai": [
+                        "冠帶",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "lin_kwun": ["臨官", "cheong_sun"]
+                    "lin_kwun": [
+                        "臨官",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "tai_mon": ["帝旺", "cheong_sun"]
+                    "tai_mon": [
+                        "帝旺",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "soi": ["衰", "cheong_sun"]
+                    "soi": [
+                        "衰",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "bang": ["病", "cheong_sun"]
+                    "bang": [
+                        "病",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "say": ["死", "cheong_sun"]
+                    "say": [
+                        "死",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "mou": ["墓", "cheong_sun"]
+                    "mou": [
+                        "墓",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "chue": ["絕", "cheong_sun"]
+                    "chue": [
+                        "絕",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "toi": ["胎", "cheong_sun"]
+                    "toi": [
+                        "胎",
+                        "cheong_sun"
+                    ]
                 },
                 {
-                    "yeung": ["養", "cheong_sun"]
+                    "yeung": [
+                        "養",
+                        "cheong_sun"
+                    ]
                 }
             ]
         }

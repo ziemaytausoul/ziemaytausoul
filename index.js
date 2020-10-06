@@ -9,8 +9,8 @@ const setting_background = require("./Utility/setting_background.js");
 const {
     Firestore
 } = require('@google-cloud/firestore');
-const data_convertion = require("./data_collections/data_convertion.json");
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
+const data_convertion = require("./data_collections/data_convertion.json");
 const { error } = require('console');
 
 /**Environment setting**/
@@ -107,15 +107,15 @@ app.post('/createModule', function (req, res) {
                                         if (star_name_translation[star].hasOwnProperty("stars")) {
                                             star_name_translation[star]["stars"].forEach(element => {
                                                 const key = Object.keys(element);
-                                                result[key]["metaData"] = element[key];
+                                                result[key]["metaData"] = [...element[key]];
                                             });
                                             delete result[star];
                                         } else {
-                                            result[star]["metaData"] = star_name_translation[star];
+                                            result[star]["metaData"] = [...star_name_translation[star]];
                                         }
 
                                     } else {
-                                        result[star]["metaData"] = star_name_translation[star];
+                                        result[star]["metaData"] = [...star_name_translation[star]];
                                     }
 
                                     // if (result[star] !== "undefined") {
@@ -214,6 +214,17 @@ app.post('/createModule', function (req, res) {
                                 "position": "510",
                                 "metaData": [setting_background.settingTenYearsLiving(reference_data.age, reference_data.type_of_module, reference_data.type_of_people, setting_background.defineTimGoneOfTwelveSections(reference_data.tim_gone), result["life_point"]["position"]), "span_ten_years_positioning"]
                             }
+
+                            /** Prepare four changes **/
+                            let matchMain_kwun = result["kwun"]["position"];
+                            let matchMain_gav = result["gav"]["position"];
+                            let matchMain_luc = result["luc"]["position"];
+                            let matchMain_fol = result["fol"]["position"];
+                            result[matchMain_kwun]["metaData"][0] = `${result[matchMain_kwun]["metaData"][0]}${result["kwun"]["metaData"][0]}`;
+                            result[matchMain_gav]["metaData"][0] = `${result[matchMain_gav]["metaData"][0]}${result["kwun"]["metaData"][0]}`;
+                            result[matchMain_luc]["metaData"][0] = `${result[matchMain_luc]["metaData"][0]}${result["luc"]["metaData"][0]}`;
+                            result[matchMain_fol]["metaData"][0] = `${result[matchMain_fol]["metaData"][0]}${result["fol"]["metaData"][0]}`;
+
                             var first_sec = new Object();
                             var second_sec = new Object();
                             var third_sec = new Object();
@@ -241,7 +252,7 @@ app.post('/createModule', function (req, res) {
                                 };
                             }
 
-                            var result = {
+                            result = {
                                 "first_sec": first_sec,
                                 "second_sec": second_sec,
                                 "third_sec": third_sec

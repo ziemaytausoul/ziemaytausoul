@@ -71,8 +71,8 @@
     <script>
         var template_obj = {
             "main": {
-                "front": "<div id=\"\" class=\"main\" style=\"display:inline-block;\"><span id=\"\">",
-                "end": "</span></div>"
+                "front": "<div id=\"\" class=\"main\" style=\"display:inline-block;\">",
+                "end": "</div>"
             },
             "moon": {
                 "front": "<div class=\"moon\">",
@@ -168,10 +168,11 @@
             } else {
                 $(".navbar").show();
             }
-        })
+        });
         var section_list = $(document).find("section");
 
         function createModule() {
+            $('#submitBtn').prop('disabled', true);
             var time = $("#time").children("option:selected").val();
             var day = "";
             var month = "";
@@ -227,6 +228,7 @@
                     contentType: "application/json;charset=utf-8",
                     success: function (result, status, xhr) {
                         LocateStar(result);
+                        $('#submitBtn').prop('disabled', false);
                     },
                     error: function (xhr, status, error) {
                         console.log(xhr.status);

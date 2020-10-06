@@ -22,13 +22,12 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="6_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="6_main" class="content" ></div>
+            
             <div class="row-4">
                 <div class="col-12">
                     <div id="6_ten_years" class="row-6 ten_years">
-
+                        
                     </div>
                     <div id="6_cheong_sun" class="row-6 cheong_sun">
 
@@ -86,9 +85,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="7_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="7_main" class="content" ></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="7_ten_years" class="row-6 ten_years">
@@ -150,9 +147,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="8_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="8_main" class="content" ></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="8_ten_years" class="row-6 ten_years">
@@ -214,9 +209,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="9_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="9_main" class="content" ></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="9_ten_years" class="row-6 ten_years">
@@ -282,9 +275,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="5_main" class="content" style="text-align:center;">
-
-                    </div>
+                    <div id="5_main" class="content" ></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="5_ten_years" class="row-6 ten_years">
@@ -347,9 +338,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="4_main" class="content" style="text-align:center;">
-
-                    </div>
+                    <div id="4_main" class="content" ></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="4_ten_years" class="row-6 ten_years">
@@ -401,10 +390,13 @@ const module_template = `<div style="height: 100vh;">
             <div id="510_anatomy_core">身主&nbsp;<span id="510_span_anatomy_core"></span></div>
             <div id="510_module_core">命主&nbsp;<span id="510_span_module_core"></span></div>
             <div id="module_level"><span id="510_span_module_level"></span>局</div>
-            <div id="birth_data"><span id="510_span_normal_year"
-                    style="writing-mode: horizontal-tb;"></span>年<span
-                    id="510_span_lunar_year"></span>年<span id="510_span_lunar_month"></span>月<span
-                    id="510_span_lunar_day"></span>日<span id="510_span_lunar_time"></span>時</div>
+            <div id="birth_data">
+                <span id="510_span_normal_year" style="writing-mode: horizontal-tb;"></span>年
+                <span id="510_span_lunar_year"></span>年
+                <span id="510_span_lunar_month"></span>月
+                <span id="510_span_lunar_day"></span>日
+                <span id="510_span_lunar_time"></span>時
+            </div>
             <div id="510_people_type" class="people_type"></div>
         </div>
     </div>
@@ -430,9 +422,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="10_main" class="content" style="text-align:center;">
-
-                    </div>
+                    <div id="10_main" class="content" ></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="10_ten_years" class="row-6 ten_years">
@@ -495,9 +485,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="11_main" class="content" style="text-align:center;">
-
-                    </div>
+                    <div id="11_main" class="content" ></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="11_ten_years" class="row-6 ten_years">
@@ -563,9 +551,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="3_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="3_main" class="content" ></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="3_ten_years" class="row-6 ten_years">
@@ -626,9 +612,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="2_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="2_main" class="content" ></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="2_ten_years" class="row-6 ten_years">
@@ -689,9 +673,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="1_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="1_main" class="content" ></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="1_ten_years" class="row-6 ten_years">
@@ -752,9 +734,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="12_main" class="content" style="text-align:center;">
-
-            </div>
+            <div id="12_main" class="content" ></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="12_ten_years" class="row-6 ten_years">
