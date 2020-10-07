@@ -132,13 +132,19 @@ div .source span {
   height: 66.7%;
 }
 
+.main_content {
+  text-align: center;
+  width: 100%;
+  height: 66.7%;
+}
+
 /** 主星 **/
 .main {
   writing-mode: vertical-lr;
   text-orientation: upright;
-  position: sticky;
-  top: 0;
   font-size: 1.6rem;
+  text-align: justify;
+  height: 100%;
 }
 
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/
