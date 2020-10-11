@@ -221,7 +221,7 @@ app.post('/createModule', function (req, res) {
                             let matchMain_luc = result["luc"]["position"];
                             let matchMain_fol = result["fol"]["position"];
                             result[matchMain_kwun]["metaData"][0] = `${result[matchMain_kwun]["metaData"][0]}${result["kwun"]["metaData"][0]}`;
-                            result[matchMain_gav]["metaData"][0] = `${result[matchMain_gav]["metaData"][0]}${result["kwun"]["metaData"][0]}`;
+                            result[matchMain_gav]["metaData"][0] = `${result[matchMain_gav]["metaData"][0]}${result["gav"]["metaData"][0]}`;
                             result[matchMain_luc]["metaData"][0] = `${result[matchMain_luc]["metaData"][0]}${result["luc"]["metaData"][0]}`;
                             result[matchMain_fol]["metaData"][0] = `${result[matchMain_fol]["metaData"][0]}${result["fol"]["metaData"][0]}`;
 

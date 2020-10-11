@@ -51,6 +51,10 @@
                         <option value="0">女</option>
                         <option value="1">男</option>
                     </select>
+                    <select id="dateType">
+                        <option value="1" selected>陽曆</option>
+                        <option value="2">陰曆</option>
+                    </select>
                     <input id="day" class="form-control mr-sm-2" type="text" placeholder="日" required>
                     <input id="month" class="form-control mr-sm-2" type="text" placeholder="月" required>
                     <input id="year" class="form-control mr-sm-2" type="text" placeholder="年" required>
@@ -193,9 +197,15 @@
                     var transformed_date = result["result"];
                     var date_arr = transformed_date.split("_");
                     if (date_arr) {
-                        c_year = date_arr[0];
-                        month = date_arr[1];
-                        day = date_arr[2];
+                        if ($("gender").children("option:selected").val() == "1") {
+                            c_year = date_arr[0];
+                            month = date_arr[1];
+                            day = date_arr[2];
+                        } else {
+                            c_year = $("#year").val();
+                            month = $("#month").val();
+                            day = $("#day").val();
+                        }
                         tim_gone = date_arr[3];
                         year = date_arr[4];
                         getModulData();
@@ -210,7 +220,6 @@
                     console.log(error);
                 }
             });
-
             function getModulData() {
                 $.ajax({
                     url: "/createModule",

@@ -382,7 +382,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
     </div>
     <div id="510" class="col-6 center_vector">
-        <div class="source">中洲派紫微斗數<span id="510_module_type"></span></div>
+        <div class="source">紫微斗數<span id="510_module_type"></span></div>
         <div class="center_vec_other">
             <div>現行&nbsp;<span id="510_span_ten_years_positioning"></span>&nbsp;大限</div>
             <div id="year_data"><span id="510_span_year_data"></span>年<span id="510_span_age"></span>歲
