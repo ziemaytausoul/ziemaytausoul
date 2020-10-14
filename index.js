@@ -11,7 +11,9 @@ const {
 } = require('@google-cloud/firestore');
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
-const { error } = require('console');
+const {
+    error
+} = require('console');
 
 /**Environment setting**/
 app.use(bodyParser.json());
@@ -67,7 +69,7 @@ app.post('/createModule', function (req, res) {
         reference_data.lunar_year = req.session["lunar_year"];
         reference_data.twelveTimGone = tim_gone_of_12Sections[reference_data.tim_gone];
 
-        setting_background.getAge(reference_data.lunar_year, reference_data.month, reference_data.day).then(result_Age => {
+        setting_background.getAge(reference_data.lunar_year, reference_data.birth_month, reference_data.birth_day).then(result_Age => {
             reference_data.age = result_Age;
             setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point.toString())
                 .then(result_type_of_module => {

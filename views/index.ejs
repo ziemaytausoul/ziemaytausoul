@@ -164,7 +164,7 @@
             }
 
         };
-        var top_position = $(".navbar").height();
+        /*var top_position = $(".navbar").height();
         $(window).scroll(function () {
             var position_staying = $(window).scrollTop();
             if (position_staying > top_position) {
@@ -172,7 +172,7 @@
             } else {
                 $(".navbar").show();
             }
-        });
+        });*/
         var section_list = $(document).find("section");
 
         function createModule() {
@@ -197,7 +197,7 @@
                     var transformed_date = result["result"];
                     var date_arr = transformed_date.split("_");
                     if (date_arr) {
-                        if ($("gender").children("option:selected").val() == "1") {
+                        if ($("#dateType").children("option:selected").val() == "1") {
                             c_year = date_arr[0];
                             month = date_arr[1];
                             day = date_arr[2];
@@ -220,6 +220,7 @@
                     console.log(error);
                 }
             });
+
             function getModulData() {
                 $.ajax({
                     url: "/createModule",

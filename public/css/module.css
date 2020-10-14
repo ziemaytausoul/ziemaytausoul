@@ -4,7 +4,7 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 1vmax;
 }
 
 .rat {
@@ -85,45 +85,51 @@ span {
 
 /** div class="source" **/
 .source {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   padding: 10% 0%;
   height: inherit;
 }
 
 div .source span {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .center_vec_other {
-  font-size: 1.75rem;
+  font-size: 1.35rem;
   padding: 15% 0%;
   height: inherit;
   margin: 0% 25%;
 }
 
-#year_data {
-  margin: 0% 10% 0% 0%;
+[id*="ten_years_positioning"] {
+  margin-block-end: 2%;
 }
 
-#body_core {
-  margin: 0% 10% 0% 0%;
+[id*="year_data"] {
+  /*margin: 0% 0% 0% 0%;*/
+  margin-block-end: 2%;
 }
 
-#module_core {
-  margin: 0% 10% 0% 0%;
+[id*=anatomy_core] {
+  margin-block-end: 2%;
 }
 
-#module_level {
-  margin: 0% 10% 0% 0%;
+[id*=body_core] {
+  margin-block-end: 2%;
 }
 
-#birth_data {
-  margin: 0% 10% 0% 0%;
+[id*=module_core] {
+  margin-block-end: 2%;
 }
 
-.people_type {
-  margin: 0% 10% 0% 0%;
+[id*=module_level] {
+  margin-block-end: 2%;
 }
+
+[id*=birth_data] {
+  margin-block-end: 2%;
+}
+
 
 /** 中間區域 **/
 .content {
@@ -142,15 +148,16 @@ div .source span {
 .main {
   writing-mode: vertical-lr;
   text-orientation: upright;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   text-align: justify;
   height: 100%;
+  padding-top: 10%;
 }
 
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/
 .moon {
   float: right;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   height: 100%;
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -181,13 +188,13 @@ div .source span {
 /** 十年大運 **/
 .ten_years {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 /** 長生 **/
 .cheong_sun {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 /** 十二宮宮位 **/
@@ -197,7 +204,7 @@ div .source span {
   width: auto;
   height: 100%;
   float: right;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 /** 十二宮天干地支 **/
@@ -207,7 +214,7 @@ div .source span {
   width: auto;
   height: 100%;
   float: right;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 

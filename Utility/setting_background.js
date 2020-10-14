@@ -6,9 +6,13 @@ const project_id = "ziemaytausoul",
     keyFilename = "./ziemaytausoul.json";
 const fs = require("fs");
 const superagent = require('superagent');
-const { openDelimiter } = require('ejs');
+const {
+    openDelimiter
+} = require('ejs');
 const express = require('express');
-const { resolveSoa } = require('dns');
+const {
+    resolveSoa
+} = require('dns');
 
 
 /** 十二宮的大運天干 **/
@@ -92,6 +96,9 @@ module.exports.settingTenYearsLiving = function (year_old, type_of_module, type_
         encoding: 'utf-8'
     }));
     let intervals = data.interval[type_of_module];
+    if (parseInt(intervals[0].split("-")[0], 10) >= year_old) {
+        return "";
+    }
     for (let steps = 0; steps < intervals.length; steps++) {
         var temp = intervals[steps].split("-");
         if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
@@ -119,23 +126,27 @@ module.exports.adjustTenYearsLiving = function (FirstSec_result, year_old, type_
     }));
     let positionOf_life_point = FirstSec_result[Section]["life_point"]["position"];
     let intervals = data.interval[type_of_module];
-    for (let steps = 0; steps < intervals.length; steps++) {
-        var temp = intervals[steps].split("-");
-        if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
-            let ten_year_living = '';
-            if (type_of_people == '11' || type_of_people == '00') {
-                ten_year_living = positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps;
-            } else {
-                ten_year_living = positionOf_life_point - steps < 1 ? positionOf_life_point + steps + 12 : positionOf_life_point - steps;
-            }
-            for (const key in tim_gone) {
-                const string_arr = key.split('_');
-                if (string_arr[1] == ten_year_living) { //Check if the value at position of 2 is equal to the value in ten_year_living
-                    FirstSec_result[Section]["ten_years_positioning"]["metaData"][0] = tim_gone[key]["metaData"][0];
+
+    if (parseInt(intervals[0].split("-")[0], 10) >= year_old) {
+        FirstSec_result[Section]["ten_years_positioning"]["metaData"][0] = "";
+    } else {
+        for (let steps = 0; steps < intervals.length; steps++) {
+            var temp = intervals[steps].split("-");
+            if (year_old >= parseInt(temp[0], 10) && year_old <= parseInt(temp[1], 10)) {
+                let ten_year_living = '';
+                if (type_of_people == '11' || type_of_people == '00') {
+                    ten_year_living = positionOf_life_point + steps > 12 ? positionOf_life_point + steps - 12 : positionOf_life_point + steps;
+                } else {
+                    ten_year_living = positionOf_life_point - steps < 1 ? positionOf_life_point + steps + 12 : positionOf_life_point - steps;
+                }
+                for (const key in tim_gone) {
+                    const string_arr = key.split('_');
+                    if (string_arr[1] == ten_year_living) { //Check if the value at position of 2 is equal to the value in ten_year_living
+                        FirstSec_result[Section]["ten_years_positioning"]["metaData"][0] = tim_gone[key]["metaData"][0];
+                    }
                 }
             }
         }
-
     }
 }
 
@@ -174,20 +185,20 @@ module.exports.getAge = async function (birth_year, birth_month, birth_day) {
     let now_month = '';
     let now_year = '';
     let result;
-    await getDate(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDay()).then(value => {
+
+    await getDate(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDate()).then(value => {
         result = JSON.parse(value)["result"].split("_");
     });
     now_year = parseInt(result[0], 10);
     now_month = parseInt(result[1], 10);
     now_day = parseInt(result[2], 10);
-
+    console.log(now_year, now_month, now_day, birth_year, birth_month, birth_day);
     if (now_month >= parseInt(birth_month, 10)) {
         if (now_day >= parseInt(birth_day, 10)) {
             return now_year - parseInt(birth_year, 10);
         }
     }
-    return now_year - parseInt(birth_year, 10) - 1;
-
+    return now_year - parseInt(birth_year, 10) - 1 < 1 ? 1 : now_year - parseInt(birth_year, 10) - 1;
 }
 
 /** 命主 **/
