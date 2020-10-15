@@ -87,7 +87,7 @@ span {
 .source {
   font-size: 2.3rem;
   padding: 10% 0%;
-  height: inherit;
+  height: 100%;
 }
 
 div .source span {
@@ -96,17 +96,15 @@ div .source span {
 
 .center_vec_other {
   font-size: 1.35rem;
-  padding: 15% 0%;
-  height: inherit;
-  margin: 0% 25%;
 }
 
+/*
 [id*="ten_years_positioning"] {
   margin-block-end: 2%;
 }
 
 [id*="year_data"] {
-  /*margin: 0% 0% 0% 0%;*/
+  margin: 0% 0% 0% 0%;
   margin-block-end: 2%;
 }
 
@@ -129,7 +127,7 @@ div .source span {
 [id*=birth_data] {
   margin-block-end: 2%;
 }
-
+*/
 
 /** 中間區域 **/
 .content {

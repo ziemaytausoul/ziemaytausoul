@@ -396,7 +396,7 @@ const module_template = `<div style="height: 100vh;">
                 <span id="510_span_lunar_day"></span>日
                 <span id="510_span_lunar_time"></span>時
             </div>
-            <div id="510_people_type" class="people_type"></div>
+            <div id="510_people_type"></div>
         </div>
     </div>
     <div class="col-3">
