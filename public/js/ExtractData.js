@@ -22,12 +22,12 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="6_main" class="main_content" ></div>
-            
+            <div id="6_main" class="main_content"></div>
+
             <div class="row-4">
                 <div class="col-12">
                     <div id="6_ten_years" class="row-6 ten_years">
-                        
+
                     </div>
                     <div id="6_cheong_sun" class="row-6 cheong_sun">
 
@@ -85,7 +85,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="7_main" class="main_content" ></div>
+            <div id="7_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="7_ten_years" class="row-6 ten_years">
@@ -147,7 +147,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="8_main" class="main_content" ></div>
+            <div id="8_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="8_ten_years" class="row-6 ten_years">
@@ -209,7 +209,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="9_main" class="main_content" ></div>
+            <div id="9_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="9_ten_years" class="row-6 ten_years">
@@ -275,7 +275,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="5_main" class="main_content" ></div>
+                    <div id="5_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="5_ten_years" class="row-6 ten_years">
@@ -338,7 +338,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="4_main" class="main_content" ></div>
+                    <div id="4_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="4_ten_years" class="row-6 ten_years">
@@ -381,22 +381,56 @@ const module_template = `<div style="height: 100vh;">
             </div>
         </div>
     </div>
-    <div id="510" class="col-6 center_vector">
-        <div class="source">紫微斗數<span id="510_module_type"></span></div>
-        <div class="center_vec_other">
-            <div id = "ten_years_positioning">現行&nbsp;<span id = "510_span_ten_years_positioning"> </span>&nbsp;大限</div>
-            <div id="year_data"><span id="510_span_year_data"></span>年<span id="510_span_age"></span>歲</div>
-            <div id="510_anatomy_core">身主&nbsp;<span id="510_span_anatomy_core"></span></div>
-            <div id="510_module_core">命主&nbsp;<span id="510_span_module_core"></span></div>
-            <div id="module_level"><span id="510_span_module_level"></span>局</div>
-            <div id="birth_data">
-                <span id="510_span_normal_year" style="writing-mode: horizontal-tb;"></span>年
-                <span id="510_span_lunar_year"></span>年
-                <span id="510_span_lunar_month"></span>月
-                <span id="510_span_lunar_day"></span>日
-                <span id="510_span_lunar_time"></span>時
+    <div class="col-6 center_vec_border">
+        <div class="row-2">
+            <div class="col-12"></div>
+        </div>
+        <div id="510" class="row-10">
+            <div class="col-2">
+                <div class="source center_vector">紫微斗數<span id="510_module_type"></span></div>
             </div>
-            <div id="510_people_type"></div>
+            <div class="col-10 center_vec_other">
+                <div class="row-12">
+                    <div class="col-1">
+                        <div id="ten_years_positioning" class="center_vector">現行&nbsp;
+                            <span id="510_span_ten_years_positioning"> </span>&nbsp;大限
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div id="year_data" class="center_vector">
+                            <span id="510_span_year_data"></span>年
+                            <span id="510_span_age"></span>歲
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div id="510_anatomy_core" class="center_vector">身主&nbsp;
+                            <span id="510_span_anatomy_core"></span>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div id="510_module_core" class="center_vector">命主&nbsp;
+                        <span id="510_span_module_core"></span>
+                    </div>
+                    </div>
+                    <div class="col-1">
+                        <div id="module_level" class="center_vector">
+                        <span id="510_span_module_level"></span>局
+                    </div>
+                    </div>
+                    <div class="col-1">
+                        <div id="birth_data" class="center_vector">
+                            <span id="510_span_normal_year" style="writing-mode: horizontal-tb;"></span>年
+                            <span id="510_span_lunar_year"></span>年
+                            <span id="510_span_lunar_month"></span>月
+                            <span id="510_span_lunar_day"></span>日
+                            <span id="510_span_lunar_time"></span>時
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div id="510_people_type" class="center_vector"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-3">
@@ -421,7 +455,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="10_main" class="main_content" ></div>
+                    <div id="10_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="10_ten_years" class="row-6 ten_years">
@@ -484,7 +518,7 @@ const module_template = `<div style="height: 100vh;">
                 </div>
                 <div class="col-mid">
                     <!--second column-->
-                    <div id="11_main" class="main_content" ></div>
+                    <div id="11_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
                             <div id="11_ten_years" class="row-6 ten_years">
@@ -550,7 +584,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="3_main" class="main_content" ></div>
+            <div id="3_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="3_ten_years" class="row-6 ten_years">
@@ -611,7 +645,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="2_main" class="main_content" ></div>
+            <div id="2_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="2_ten_years" class="row-6 ten_years">
@@ -672,7 +706,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="1_main" class="main_content" ></div>
+            <div id="1_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="1_ten_years" class="row-6 ten_years">
@@ -733,7 +767,7 @@ const module_template = `<div style="height: 100vh;">
         </div>
         <div class="col-mid">
             <!--second column-->
-            <div id="12_main" class="main_content" ></div>
+            <div id="12_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
                     <div id="12_ten_years" class="row-6 ten_years">
@@ -775,6 +809,8 @@ const module_template = `<div style="height: 100vh;">
     </div>
 </div>
 </div>`;
+
+
 
 function EmbedTemplate(sectionName) {
     $(`#${sectionName}`).html(module_template);

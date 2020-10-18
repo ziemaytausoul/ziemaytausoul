@@ -4,7 +4,7 @@
 }
 
 html {
-  font-size: 1vmax;
+  font-size: 1vmin;
 }
 
 .rat {
@@ -74,9 +74,6 @@ span {
 /** 中間區域 **/
 .center_vector {
   writing-mode: vertical-lr;
-  border: thin solid;
-  border-width: 0.5px 0.5px 0.5px 0.5px;
-  position: relatvie;
 }
 
 .center_vector span {
@@ -98,11 +95,17 @@ div .source span {
   font-size: 1.35rem;
 }
 
-/*
+.center_vec_border {
+  border: thin solid;
+  border-width: 0.5px 0.5px 0.5px 0.5px;
+}
+
+
 [id*="ten_years_positioning"] {
   margin-block-end: 2%;
 }
 
+/*
 [id*="year_data"] {
   margin: 0% 0% 0% 0%;
   margin-block-end: 2%;
@@ -127,6 +130,7 @@ div .source span {
 [id*=birth_data] {
   margin-block-end: 2%;
 }
+
 */
 
 /** 中間區域 **/
