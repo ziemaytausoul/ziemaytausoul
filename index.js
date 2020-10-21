@@ -217,6 +217,12 @@ app.post('/createModule', function (req, res) {
                                 "metaData": [setting_background.settingTenYearsLiving(reference_data.age, reference_data.type_of_module, reference_data.type_of_people, setting_background.defineTimGoneOfTwelveSections(reference_data.tim_gone), result["life_point"]["position"]), "span_ten_years_positioning"]
                             }
 
+                            /** Prepare Zie Tau **/
+                            result["zie_dau"] = {
+                                "position": setting_background.getZieDau(reference_data.birth_month, reference_data.birth_time),
+                                "metaData": data_convertion["zie_tau"]
+                            }
+
                             /** Prepare four changes **/
                             let matchMain_kwun = result["kwun"]["position"];
                             let matchMain_gav = result["gav"]["position"];
