@@ -23,7 +23,7 @@
     <script src="js/ExtractData.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./main.css">-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>紫微斗數</title>
 </head>
 
 <body>
@@ -60,6 +60,7 @@
                     <input id="year" class="form-control mr-sm-2" type="text" placeholder="年" required>
                     <button id="submitBtn" class="btn btn-success" type="button" onclick="createModule()">起盤</button>
                 </form>
+
             </li>
         </ul>
     </nav>
@@ -161,6 +162,10 @@
             "people_type": {
                 "front": "",
                 "end": ""
+            },
+            "special": {
+                "front": "<div class=\"special\">",
+                "end": "</div>"
             }
 
         };

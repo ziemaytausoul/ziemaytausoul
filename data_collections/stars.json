@@ -168,7 +168,6 @@
             "nine": 4,
             "ten": 2
         }
-
     },
     "by_year": {
         "for_sing": {
@@ -185,9 +184,12 @@
             "11": 2,
             "12": 10,
             "findingPosition": {
-                "findForSing": [{
-                    "positionOf": "for_sing"
-                }, "birth_time"]
+                "findForSing": [
+                    {
+                        "positionOf": "for_sing"
+                    },
+                    "birth_time"
+                ]
             }
         },
         "lin_sing": {
@@ -204,9 +206,12 @@
             "11": 4,
             "12": 11,
             "findingPosition": {
-                "findLinSing": [{
-                    "positionOf": "lin_sing"
-                }, "birth_time"]
+                "findLinSing": [
+                    {
+                        "positionOf": "lin_sing"
+                    },
+                    "birth_time"
+                ]
             }
         },
         "tim_ma": {
@@ -491,7 +496,9 @@
         },
         "tai_soi_twelve_stars": {
             "findingPosition": {
-                "findTaiSoiTwelveStars": ["birth_year"]
+                "findTaiSoiTwelveStars": [
+                    "birth_year"
+                ]
             }
         },
         "jaen_sing": {
@@ -664,9 +671,12 @@
         },
         "bou_si_twelve_stars": {
             "findingPosition": {
-                "findBouSiTwelveStars": [{
-                    "positionOf": "luc_chen"
-                }, "type_of_people"]
+                "findBouSiTwelveStars": [
+                    {
+                        "positionOf": "luc_chen"
+                    },
+                    "type_of_people"
+                ]
             }
         }
     },
@@ -787,30 +797,42 @@
     "by_day": {
         "san_tai": {
             "findingPosition": {
-                "findSanTai": [{
-                    "positionOf": "joe_fu"
-                }, "birth_day"]
+                "findSanTai": [
+                    {
+                        "positionOf": "joe_fu"
+                    },
+                    "birth_day"
+                ]
             }
         },
         "bap_zoi": {
             "findingPosition": {
-                "findBapZoi": [{
-                    "positionOf": "yo_bei"
-                }, "birth_day"]
+                "findBapZoi": [
+                    {
+                        "positionOf": "yo_bei"
+                    },
+                    "birth_day"
+                ]
             }
         },
         "yan_kwong": {
             "findingPosition": {
-                "findYanKwong": [{
-                    "positionOf": "men_cheong"
-                }, "birth_day"]
+                "findYanKwong": [
+                    {
+                        "positionOf": "men_cheong"
+                    },
+                    "birth_day"
+                ]
             }
         },
         "tim_kwui": {
             "findingPosition": {
-                "findTimKwui": [{
-                    "positionOf": "men_kog"
-                }, "birth_day"]
+                "findTimKwui": [
+                    {
+                        "positionOf": "men_kog"
+                    },
+                    "birth_day"
+                ]
             }
         }
     },
@@ -875,56 +897,92 @@
     "by_special_calculation": {
         "swun_kong_main": {
             "findingPosition": {
-                "findSwunKongMain": ["tim_gone", "birth_year"]
+                "findSwunKongMain": [
+                    "tim_gone",
+                    "birth_year"
+                ]
             }
         },
         "swun_kong_sub": {
             "findingPosition": {
-                "findSwunKongSub": ["tim_gone", "birth_year"]
+                "findSwunKongSub": [
+                    "tim_gone",
+                    "birth_year"
+                ]
             }
         },
         "tim_choi": {
             "findingPosition": {
-                "findTimChoi": ["life_point", "birth_year"]
+                "findTimChoi": [
+                    "life_point",
+                    "birth_year"
+                ]
             }
         },
         "tim_soul": {
             "findingPosition": {
-                "findTimSoul": ["life_point", "birth_year"]
+                "findTimSoul": [
+                    "life_point",
+                    "birth_year"
+                ]
             }
         },
         "tim_shoin": {
             "findingPosition": {
-                "findTimShoin": ["travel_point", "type_of_people"]
+                "findTimShoin": [
+                    "travel_point",
+                    "type_of_people"
+                ]
             }
         },
         "tim_sze": {
             "findingPosition": {
-                "findTimSze": ["travel_point", "type_of_people"]
+                "findTimSze": [
+                    "travel_point",
+                    "type_of_people"
+                ]
             }
         },
         "tai_fu": {
             "findingPosition": {
-                "findTaiFu": [{
-                    "positionOf": "men_kog"
-                }]
+                "findTaiFu": [
+                    {
+                        "positionOf": "men_kog"
+                    }
+                ]
             }
         },
         "fung_gau": {
             "findingPosition": {
-                "findFungGau": [{
-                    "positionOf": "men_kog"
-                }]
+                "findFungGau": [
+                    {
+                        "positionOf": "men_kog"
+                    }
+                ]
             }
         },
         "forteen_main_stars": {
             "findingPosition": {
-                "findForteenMainStars": ["birth_day", "type_of_module"]
+                "findForteenMainStars": [
+                    "birth_day",
+                    "type_of_module"
+                ]
             }
         },
         "twelve_cheong_sun": {
             "findingPosition": {
-                "findTwelveCheongSun": ["type_of_module", "type_of_people"]
+                "findTwelveCheongSun": [
+                    "type_of_module",
+                    "type_of_people"
+                ]
+            }
+        },
+        "zie_dau": {
+            "findingPosition": {
+                "findZieDau": [
+                    "birth_month",
+                    "birth_time"
+                ]
             }
         }
     }

@@ -6,6 +6,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="6_special" class="col-6"> 
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -26,10 +30,11 @@ const module_template = `<div style="height: 100vh;">
 
             <div class="row-4">
                 <div class="col-12">
-                    <div id="6_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="6_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="6_cheong_sun" class="row-6 cheong_sun">
+                    <div id="6_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>
@@ -69,6 +74,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="7_special" class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -88,10 +97,11 @@ const module_template = `<div style="height: 100vh;">
             <div id="7_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
-                    <div id="7_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="7_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="7_cheong_sun" class="row-6 cheong_sun">
+                    <div id="7_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>
@@ -131,6 +141,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="8_special" class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -150,10 +164,11 @@ const module_template = `<div style="height: 100vh;">
             <div id="8_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
-                    <div id="8_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="8_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="8_cheong_sun" class="row-6 cheong_sun">
+                    <div id="8_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>
@@ -193,6 +208,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="9_special" class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -212,10 +231,11 @@ const module_template = `<div style="height: 100vh;">
             <div id="9_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
-                    <div id="9_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="9_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="9_cheong_sun" class="row-6 cheong_sun">
+                    <div id="9_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>
@@ -259,6 +279,10 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--first column-->
                     <div class="row-4">
+                        <div id="5_special" class="col-6">
+                        </div>
+                        <div class="col-6">
+                        </div>
                     </div>
                     <div class="row-4">
                     </div>
@@ -278,10 +302,11 @@ const module_template = `<div style="height: 100vh;">
                     <div id="5_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
-                            <div id="5_ten_years" class="row-6 ten_years">
+                            <div class="row-4"></div>
+                            <div id="5_ten_years" class="row-4 ten_years">
 
                             </div>
-                            <div id="5_cheong_sun" class="row-6 cheong_sun">
+                            <div id="5_cheong_sun" class="row-4 cheong_sun">
 
                             </div>
                         </div>
@@ -322,6 +347,10 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--first column-->
                     <div class="row-4">
+                        <div id="4_special" class="col-6">
+                        </div>
+                        <div class="col-6">
+                        </div>
                     </div>
                     <div class="row-4">
                     </div>
@@ -341,10 +370,11 @@ const module_template = `<div style="height: 100vh;">
                     <div id="4_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
-                            <div id="4_ten_years" class="row-6 ten_years">
+                            <div class="row-4"></div>
+                            <div id="4_ten_years" class="row-4 ten_years">
 
                             </div>
-                            <div id="4_cheong_sun" class="row-6 cheong_sun">
+                            <div id="4_cheong_sun" class="row-4 cheong_sun">
 
                             </div>
                         </div>
@@ -439,6 +469,10 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--first column-->
                     <div class="row-4">
+                        <div id="10_special" class="col-6">
+                        </div>
+                        <div class="col-6">
+                        </div>
                     </div>
                     <div class="row-4">
                     </div>
@@ -458,10 +492,11 @@ const module_template = `<div style="height: 100vh;">
                     <div id="10_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
-                            <div id="10_ten_years" class="row-6 ten_years">
+                            <div class="row-4"></div>
+                            <div id="10_ten_years" class="row-4 ten_years">
 
                             </div>
-                            <div id="10_cheong_sun" class="row-6 cheong_sun">
+                            <div id="10_cheong_sun" class="row-4 cheong_sun">
 
                             </div>
                         </div>
@@ -502,6 +537,10 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--first column-->
                     <div class="row-4">
+                        <div id="11_special" class="col-6">
+                        </div>
+                        <div class="col-6">
+                        </div>
                     </div>
                     <div class="row-4">
                     </div>
@@ -521,10 +560,11 @@ const module_template = `<div style="height: 100vh;">
                     <div id="11_main" class="main_content"></div>
                     <div class="row-4">
                         <div class="col-12">
-                            <div id="11_ten_years" class="row-6 ten_years">
+                            <div class="row-4"></div>
+                            <div id="11_ten_years" class="row-4 ten_years">
 
                             </div>
-                            <div id="11_cheong_sun" class="row-6 cheong_sun">
+                            <div id="11_cheong_sun" class="row-4 cheong_sun">
 
                             </div>
                         </div>
@@ -568,6 +608,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="3_special" class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -587,10 +631,11 @@ const module_template = `<div style="height: 100vh;">
             <div id="3_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
-                    <div id="3_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="3_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="3_cheong_sun" class="row-6 cheong_sun">
+                    <div id="3_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>
@@ -629,6 +674,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="2_special" class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -648,10 +697,11 @@ const module_template = `<div style="height: 100vh;">
             <div id="2_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
-                    <div id="2_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="2_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="2_cheong_sun" class="row-6 cheong_sun">
+                    <div id="2_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>
@@ -690,6 +740,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="1_special" class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -709,10 +763,11 @@ const module_template = `<div style="height: 100vh;">
             <div id="1_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
-                    <div id="1_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="1_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="1_cheong_sun" class="row-6 cheong_sun">
+                    <div id="1_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>
@@ -751,6 +806,10 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--first column-->
             <div class="row-4">
+                <div id="12_special" class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
             </div>
             <div class="row-4">
             </div>
@@ -770,10 +829,11 @@ const module_template = `<div style="height: 100vh;">
             <div id="12_main" class="main_content"></div>
             <div class="row-4">
                 <div class="col-12">
-                    <div id="12_ten_years" class="row-6 ten_years">
+                    <div class="row-4"></div>
+                    <div id="12_ten_years" class="row-4 ten_years">
 
                     </div>
-                    <div id="12_cheong_sun" class="row-6 cheong_sun">
+                    <div id="12_cheong_sun" class="row-4 cheong_sun">
 
                     </div>
                 </div>

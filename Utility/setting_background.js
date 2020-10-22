@@ -211,14 +211,6 @@ module.exports.getAnatomyCore = function (birth_year) {
     return background["anatomy_core"][birth_year];
 }
 
-/** 子斗 **/
-module.exports.getZieDau = function (birth_month, birth_time) {
-    let positionOf_ZieDau = 1;
-    positionOf_ZieDau = positionOf_ZieDau - birth_month < 1 ? positionOf_ZieDau - birth_month + 12 : positionOf_ZieDau - birth_month;
-    positionOf_ZieDau = positionOf_ZieDau + birth_time > 12 ? positionOf_ZieDau + birth_time - 12 : positionOf_ZieDau + birth_time;
-    return positionOf_ZieDau;
-}
-
 /**
  * support function - Get lunar date
  * @param {*} year 

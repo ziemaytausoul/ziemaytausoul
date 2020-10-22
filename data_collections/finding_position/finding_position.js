@@ -424,6 +424,25 @@ module.exports.findTwelveCheongSun = function (type_of_module, type_of_people) {
     return result;
 }
 
+/** 子斗 **/
+module.exports.findZieDau = function (birth_month, birth_time) {
+    let positionOf_ZieDau = 1;
+    for (let step = 0; step < parseInt(birth_month, 10); step++) {
+        positionOf_ZieDau = positionOf_ZieDau - 1 < 1 ? 12 : positionOf_ZieDau - 1;
+        console.log("birth_month: " + positionOf_ZieDau);
+    }
+
+    for (let step = 0; step < parseInt(birth_time, 10); step++) {
+        positionOf_ZieDau = positionOf_ZieDau + 1 > 12 ? 1 : positionOf_ZieDau + 1;
+        console.log("birth_time: " + positionOf_ZieDau);
+    }
+    return {
+        "zie_dau": {
+            "position": positionOf_ZieDau
+        }
+    };
+}
+
 /** 人/地盤-十二宮 **/
 module.exports.AdjustTwelveSections = function (FirstSec_Result, StartPoint, Section) {
     const pointsName = Object.keys(data_convertion["point_name"]);

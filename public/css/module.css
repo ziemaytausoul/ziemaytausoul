@@ -100,6 +100,18 @@ div .source span {
   border-width: 0.5px 0.5px 0.5px 0.5px;
 }
 
+.special{
+  padding-left: 20%;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+[id*="special"]{
+  font-size: 1.4rem;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
 
 [id*="ten_years_positioning"] {
   margin-block-end: 2%;
@@ -170,7 +182,7 @@ div .source span {
   /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -181,7 +193,7 @@ div .source span {
   /*text-orientation: upright;*/
   width: auto;
   height: 100%;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   display: inline-block;
   vertical-align: bottom;
   float: left;
@@ -191,12 +203,14 @@ div .source span {
 .ten_years {
   text-align: center;
   font-size: 1.2rem;
+  bottom: 0px;
 }
 
 /** 長生 **/
 .cheong_sun {
   text-align: center;
   font-size: 1.2rem;
+  bottom: 0px;
 }
 
 /** 十二宮宮位 **/
