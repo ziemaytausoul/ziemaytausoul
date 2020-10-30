@@ -100,14 +100,14 @@ div .source span {
   border-width: 0.5px 0.5px 0.5px 0.5px;
 }
 
-.special{
+.special {
   padding-left: 20%;
   text-align: center;
   height: 100%;
   width: 100%;
 }
 
-[id*="special"]{
+[id*="special"] {
   font-size: 1.4rem;
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -166,6 +166,10 @@ div .source span {
   text-align: justify;
   height: 100%;
   padding-top: 10%;
+}
+
+.main_copy {
+  color: darkred;
 }
 
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/

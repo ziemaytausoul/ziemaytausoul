@@ -429,12 +429,10 @@ module.exports.findZieDau = function (birth_month, birth_time) {
     let positionOf_ZieDau = 1;
     for (let step = 0; step < parseInt(birth_month, 10); step++) {
         positionOf_ZieDau = positionOf_ZieDau - 1 < 1 ? 12 : positionOf_ZieDau - 1;
-        console.log("birth_month: " + positionOf_ZieDau);
     }
 
     for (let step = 0; step < parseInt(birth_time, 10); step++) {
         positionOf_ZieDau = positionOf_ZieDau + 1 > 12 ? 1 : positionOf_ZieDau + 1;
-        console.log("birth_time: " + positionOf_ZieDau);
     }
     return {
         "zie_dau": {

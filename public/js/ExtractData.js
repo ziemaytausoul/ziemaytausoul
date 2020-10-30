@@ -420,7 +420,7 @@ const module_template = `<div style="height: 100vh;">
                 <div class="source center_vector">紫微斗數<span id="510_module_type"></span></div>
             </div>
             <div class="col-10 center_vec_other">
-                <div class="row-12">
+                <div class="row-10">
                     <div class="col-1">
                         <div id="ten_years_positioning" class="center_vector">現行&nbsp;
                             <span id="510_span_ten_years_positioning"> </span>&nbsp;大限
@@ -440,12 +440,12 @@ const module_template = `<div style="height: 100vh;">
                     <div class="col-1">
                         <div id="510_module_core" class="center_vector">命主&nbsp;
                         <span id="510_span_module_core"></span>
-                    </div>
+                        </div>
                     </div>
                     <div class="col-1">
                         <div id="module_level" class="center_vector">
                         <span id="510_span_module_level"></span>局
-                    </div>
+                        </div>
                     </div>
                     <div class="col-1">
                         <div id="birth_data" class="center_vector">
@@ -458,6 +458,11 @@ const module_template = `<div style="height: 100vh;">
                     </div>
                     <div class="col-1">
                         <div id="510_people_type" class="center_vector"></div>
+                    </div>
+                </div>
+                <div class="row-2">
+                    <div class="col-12">
+                    <button id="copyStar" class="btn btn-success" type="button" onclick="CopyStars(this.id)">借星</button>
                     </div>
                 </div>
             </div>
@@ -883,15 +888,10 @@ function EmbedTemplate(sectionName) {
 }
 
 function LocateStar(module) {
-
     for (const data in module) {
-
         if (module.hasOwnProperty(data)) {
-
             const star = module[data];
-
             const node_id = `${star.position}_${star.metaData[1]}`;
-
         }
     }
 }
