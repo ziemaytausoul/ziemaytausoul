@@ -1,3 +1,6 @@
+const {
+    exception
+} = require('console');
 const fs = require('fs');
 const {
     start
@@ -7,18 +10,34 @@ const preparation_for_stars = require(__dirname.replace('finding_position', 'pre
 
 /** 火星 **/
 module.exports.findForSing = function (startPointForSing, birth_time) {
+    if (isNaN(startPointForSing)) {
+        throw exception("findForSing: not a number");
+    }
+    let forSing_position = parseInt(startPointForSing, 10);
+    birth_time = parseInt(birth_time, 10);
+    for (let step = 0; step < birth_time; step++) {
+        forSing_position += step;
+    }
     return {
         "for_sing": {
-            "position": isNaN(startPointForSing) ? 0 : parseInt(startPointForSing) + parseInt(birth_time)
+            "position": forSing_position
         }
     };
 }
 
 /** 鈴星 **/
 module.exports.findLinSing = function (startPointLinSing, birth_time) {
+    if (isNaN(startPointLinSing)) {
+        throw exception("findForSing: not a number");
+    }
+    let linSing_position = parseInt(startPointLinSing, 10);
+    birth_time = parseInt(birth_time, 10);
+    for (let step = 0; step < birth_time; step++) {
+        linSing_position += step;
+    }
     return {
         "lin_sing": {
-            "position": isNaN(startPointLinSing) ? 0 : parseInt(startPointLinSing) + parseInt(birth_time)
+            "position": linSing_position
         }
     };
 }
@@ -101,9 +120,9 @@ module.exports.findTimShoin = function (travel_point, type_of_people) {
 module.exports.findTimSze = function (travel_point, type_of_people) {
     let tim_sze = 0;
     travel_point = parseInt(travel_point);
-    if (type_of_people == "01" || type_of_people == "10") {
+    if (type_of_people == "11" || type_of_people == "00") {
         tim_sze = travel_point == 12 ? 1 : travel_point + 1;
-    } else if (type_of_people == "11" || type_of_people == "00") {
+    } else if (type_of_people == "01" || type_of_people == "10") {
         tim_sze = travel_point == 1 ? 12 : travel_point - 1;
     }
     return {
@@ -472,4 +491,28 @@ module.exports.AdjustMainStars = function (FirstSec_Result, typeOfModule, birth_
             FirstSec_Result[Section][key]["position"] = mainStars[key]["position"];
         }
     }
+}
+
+/** 人/地盤 - 天使 **/
+module.exports.adjustTimSze = function (Result, travel_point, type_of_people, Section) {
+    let tim_sze = 0;
+    travel_point = parseInt(travel_point, 10);
+    if (type_of_people == "11" || type_of_people == "00") {
+        tim_sze = travel_point == 12 ? 1 : travel_point + 1;
+    } else if (type_of_people == "01" || type_of_people == "10") {
+        tim_sze = travel_point == 1 ? 12 : travel_point - 1;
+    }
+    Result[Section]["tim_sze"]["position"] = tim_sze;
+}
+
+/** 人/地盤 - 天傷 **/
+module.exports.adjustTimShoin = function (Result, travel_point, type_of_people, Section) {
+    let tim_shoin = 0;
+    travel_point = parseInt(travel_point, 10);
+    if (type_of_people == "01" || type_of_people == "10") {
+        tim_shoin = travel_point == 12 ? 1 : travel_point + 1;
+    } else if (type_of_people == "11" || type_of_people == "00") {
+        tim_shoin = travel_point == 1 ? 12 : travel_point - 1;
+    }
+    Result[Section]["tim_shoin"]["position"] = tim_shoin;
 }

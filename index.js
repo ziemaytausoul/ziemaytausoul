@@ -270,6 +270,8 @@ app.post('/createModule', function (req, res) {
                                     finding_position.AdjustMainStars(result, typeOfModule, reference_data.birth_day, "second_sec");
                                     setting_background.adjustInternvalForTenYears(result, typeOfModule, reference_data.type_of_people, anatomyPoint_position, "second_sec");
                                     setting_background.adjustTenYearsLiving(result, reference_data.age, reference_data.type_of_module, reference_data.type_of_people, setting_background.defineTimGoneOfTwelveSections(reference_data.tim_gone), "second_sec");
+                                    finding_position.adjustTimSze(result, result["second_sec"]["travel_point"]["position"], reference_data.type_of_people, "second_sec");
+                                    finding_position.adjustTimShoin(result, result["second_sec"]["travel_point"]["position"], reference_data.type_of_people, "second_sec");
 
                                     finding_position.AdjustTwelveSections(result, thoughtPoint_position, "third_sec");
                                     setting_background.getTypeOfModule(reference_data.twelveTimGone[thoughtPoint_position], thoughtPoint_position)
@@ -279,6 +281,9 @@ app.post('/createModule', function (req, res) {
                                             finding_position.AdjustMainStars(result, typeOfModule, reference_data.birth_day, "third_sec");
                                             setting_background.adjustInternvalForTenYears(result, typeOfModule, reference_data.type_of_people, thoughtPoint_position, "third_sec");
                                             setting_background.adjustTenYearsLiving(result, reference_data.age, reference_data.type_of_module, reference_data.type_of_people, setting_background.defineTimGoneOfTwelveSections(reference_data.tim_gone), "third_sec");
+                                            finding_position.adjustTimSze(result, result["third_sec"]["travel_point"]["position"], reference_data.type_of_people, "third_sec");
+                                            finding_position.adjustTimShoin(result, result["third_sec"]["travel_point"]["position"], reference_data.type_of_people, "third_sec");
+
                                             res.status(200).jsonp(result);
                                         }).catch(error => {
                                             console.log(error);

@@ -419,8 +419,10 @@ const module_template = `<div style="height: 100vh;">
             <div class="col-2">
                 <div class="source center_vector">紫微斗數<span id="510_module_type"></span></div>
             </div>
-            <div class="col-10 center_vec_other">
+            <div class="col-6"></div>
+            <div class="col-4 center_vec_other">
                 <div class="row-10">
+                    <div class="col-2"></div>
                     <div class="col-1">
                         <div id="ten_years_positioning" class="center_vector">現行&nbsp;
                             <span id="510_span_ten_years_positioning"> </span>&nbsp;大限
@@ -447,7 +449,7 @@ const module_template = `<div style="height: 100vh;">
                         <span id="510_span_module_level"></span>局
                         </div>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         <div id="birth_data" class="center_vector">
                             <span id="510_span_normal_year" style="writing-mode: horizontal-tb;"></span>年
                             <span id="510_span_lunar_year"></span>年

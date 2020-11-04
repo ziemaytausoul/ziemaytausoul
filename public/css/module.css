@@ -92,7 +92,7 @@ div .source span {
 }
 
 .center_vec_other {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
 }
 
 .center_vec_border {
@@ -168,7 +168,7 @@ div .source span {
   padding-top: 10%;
 }
 
-.main_copy {
+[class*="_copy"] {
   color: darkred;
 }
 
