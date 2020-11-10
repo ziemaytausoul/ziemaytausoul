@@ -46,6 +46,37 @@ app.get('/updateData', function (req, res) {
     res.status(200).render("index");
 });
 
+app.post('/getMovingStars', function (req, res) {
+    const movingStars = require("./data_collections/moving_stars.json");
+    const tim_gone = req.body.tim_gone ? req.body.tim_gone : null;
+    const year = req.body.year ? req.body.year : null;
+    const data = {
+        "tim_gone": tim_gone,
+        "year": year
+    };
+    let result = {};
+    try {
+        for (const condition in movingStars) {
+            const stars = movingStars[condition];
+            for (const moving_star in stars) {
+                const position = stars[moving_star][data[condition]];
+                result[moving_star] = {
+                    "position": position,
+                    "metaData": data_convertion["star_name_translation"][moving_star]
+                };
+            }
+        }
+        if (result) {
+            res.status(200).jsonp(result);
+        } else {
+            res.status(500).jsonp("Bad_Result: " + result);
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).jsonp(error);
+    }
+});
+
 app.post('/createModule', function (req, res) {
     try {
         if (req.session.isPopulated) {
