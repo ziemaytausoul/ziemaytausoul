@@ -1,3 +1,5 @@
+const FetchTool = require("./FetchTool");
+
 function CopyStars(section) {
     let real_section = section.replace("_copyStar", "");
     for (let position = 1; position <= 12; position++) {
@@ -51,4 +53,8 @@ function UpdateBtnStarCopy(section) {
         $(`#${section}`).text("借星");
         $(`#${section}`).attr("onclick", "CopyStars(this.id)");
     }
+}
+
+function MovingStarsYear(section) {
+    let real_section = section.replace("_movingStarYear", "");
 }

@@ -74,28 +74,28 @@ module.exports.findSwunKongSub = function (tim_gone, birth_year) {
 
 /** 天才 **/
 module.exports.findTimChoi = function (life_point, birth_year) {
-    birth_year = parseInt(birth_year);
-    life_point = parseInt(life_point);
-    for (let steps = 1; steps < birth_year; steps++) {
-        life_point = life_point == 12 ? 1 : life_point++;
+    const birth_year_int = parseInt(birth_year);
+    let TimChoi_point = parseInt(life_point);
+    for (let steps = 1; steps < birth_year_int; steps++) {
+        TimChoi_point = TimChoi_point == 12 ? 1 : TimChoi_point + 1;
     }
     return {
         "tim_choi": {
-            "position": life_point
+            "position": TimChoi_point
         }
     };
 }
 
 /** 天壽 **/
 module.exports.findTimSoul = function (anatomy_point, birth_year) {
-    birth_year = parseInt(birth_year);
-    anatomy_point = parseInt(anatomy_point);
-    for (let steps = 1; steps < birth_year; steps++) {
-        anatomy_point = anatomy_point == 12 ? 1 : anatomy_point++;
+    const birth_year_int = parseInt(birth_year, 10);
+    let TimSoul_point = parseInt(anatomy_point, 10);
+    for (let steps = 1; steps < birth_year_int; steps++) {
+        TimSoul_point = TimSoul_point == 12 ? 1 : TimSoul_point + 1;
     }
     return {
         "tim_soul": {
-            "position": anatomy_point
+            "position": TimSoul_point
         }
     };
 }
