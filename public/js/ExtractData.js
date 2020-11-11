@@ -465,10 +465,10 @@ const module_template = `<div style="height: 100vh;">
                 <div class="row-2">
                     <div class="col-12">
                     <button id="copyStar" class="btn btn-success" type="button" onclick="CopyStars(this.id)">借星</button>
-                    <button id="MovingStarsYear" class="btn btn-success" type="button" onclick="">大運星曜</button>
+                    <button id="MovingStarsTenYears" class="btn btn-success" type="button" onclick="">大運星曜</button>
                     <button id="MovingStarsYear" class="btn btn-success" type="button" onclick="">流年星曜</button>
-                    <button id="MovingStarsYear" class="btn btn-success" type="button" onclick="">流月星曜</button>
-                    <button id="MovingStarsYear" class="btn btn-success" type="button" onclick="">流日星曜</button>
+                    <button id="MovingStarsMonth" class="btn btn-success" type="button" onclick="">流月星曜</button>
+                    <button id="MovingStarsDay" class="btn btn-success" type="button" onclick="">流日星曜</button>
                     </div>
                 </div>
             </div>
