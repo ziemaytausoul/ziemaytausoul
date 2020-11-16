@@ -150,7 +150,6 @@ module.exports.adjustTenYearsLiving = function (FirstSec_result, year_old, type_
     }
 }
 
-
 /** 人/地盤-十年大運 **/
 module.exports.adjustInternvalForTenYears = function (FirstSec_Result, type_of_module, type_of_people, positionOf_life_point, Section) {
     let data = JSON.parse(fs.readFileSync(path_mod.join(parent_dir, "interval_for_ten_years.json"), {
@@ -213,9 +212,9 @@ module.exports.getAnatomyCore = function (birth_year) {
 
 /**
  * support function - Get lunar date
- * @param {*} year 
- * @param {*} month 
- * @param {*} day 
+ * @param {String} year 
+ * @param {String} month 
+ * @param {String} day 
  */
 const getDate = async function (year, month, day) {
     const path = `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${year}&month=${month}&day=${day}`;

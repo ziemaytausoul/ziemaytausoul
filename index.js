@@ -46,13 +46,13 @@ app.get('/updateData', function (req, res) {
     res.status(200).render("index");
 });
 
-app.post('/getMovingStars', function (req, res) {
+app.post('/fetchMovingStars', function (req, res) {
     const movingStars = require("./data_collections/moving_stars.json");
     const tim_gone = req.body.tim_gone ? req.body.tim_gone : null;
-    const year = req.body.year ? req.body.year : null;
+    const zodiac = req.body.zodiac ? req.body.zodiac : null;
     const data = {
         "tim_gone": tim_gone,
-        "year": year
+        "zodiac": zodiac
     };
     let result = {};
     try {

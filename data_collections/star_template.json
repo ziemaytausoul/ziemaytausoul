@@ -19,20 +19,24 @@
         "front": "<span id=\"\">",
         "end": "</span>"
     },
-    "character":{
-        "front":"",
-        "end":""
+    "character": {
+        "front": "",
+        "end": ""
     },
-    "position":{
-        "front":"",
-        "end":""
+    "position": {
+        "front": "",
+        "end": ""
     },
-    "ten_years":{
-        "front":"",
-        "end":""
+    "ten_years": {
+        "front": "",
+        "end": ""
     },
-    "cheong_sun":{
-        "front":"",
-        "end":""
+    "cheong_sun": {
+        "front": "",
+        "end": ""
+    },
+    "m_moon": {
+        "front": "",
+        "end": ""
     }
 }
