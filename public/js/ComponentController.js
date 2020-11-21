@@ -59,11 +59,12 @@ function MovingStarsYear(section) {
     let real_section = section.replace("_movingStarYear", "");
     let respond = FetchTool.GETRequest("https://ziemaytausoul.azurewebsites.net/api/DateTransformation/YearTransform");
     if (respond["res"] == "success") {
-        respond["result"]["result"];
+        let [tim_gone, zodiac] = respond["result"]["result"].split("_");
         FetchTool.POSTRequestWithJSON("/fetchMovingStars", {
-            "tim_gone": "",
-            "zodiac": ""
+            "tim_gone": tim_gone,
+            "zodiac": zodiac
         });
+    } else {
+        console.log(respond);
     }
-
 }
