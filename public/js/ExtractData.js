@@ -43,9 +43,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4 ">
-                <div class="col-12 ">
+                <div class="col-6">
                     <div id="6_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="6_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
@@ -110,9 +115,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4">
-                <div class="col-12 ">
+                <div class="col-6">
                     <div id="7_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="7_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
@@ -177,9 +187,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4 ">
-                <div class="col-12 ">
+                <div class="col-6">
                     <div id="8_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="8_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
@@ -244,9 +259,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4">
-                <div class="col-12 ">
+                <div class="col-6">
                     <div id="9_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="9_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
@@ -315,8 +335,13 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--third column-->
                     <div class="row-4">
-                        <div class="col-12">
+                        <div class="col-6">
                             <div id="5_moon" class="row-12 content">
+
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div id="5_m_moon" class="row-12 content">
 
                             </div>
                         </div>
@@ -383,9 +408,14 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--third column-->
                     <div class="row-4">
-                        <div class="col-12 ">
+                        <div class="col-6">
                             <div id="4_moon" class="row-12 content">
 
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div id="4_m_moon" class="row-12 content">
+                        
                             </div>
                         </div>
                     </div>
@@ -516,9 +546,14 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--third column-->
                     <div class="row-4 ">
-                        <div class="col-12 ">
+                        <div class="col-6">
                             <div id="10_moon" class="row-12 content">
 
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div id="10_m_moon" class="row-12 content">
+                        
                             </div>
                         </div>
                     </div>
@@ -584,9 +619,14 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-beside">
                     <!--third column-->
                     <div class="row-4">
-                        <div class="col-12 ">
+                        <div class="col-6">
                             <div id="11_moon" class="row-12 content">
 
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div id="11_m_moon" class="row-12 content">
+                        
                             </div>
                         </div>
                     </div>
@@ -655,9 +695,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4 ">
-                <div class="col-12">
+                <div class="col-6">
                     <div id="3_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="3_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
@@ -721,9 +766,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4 ">
-                <div class="col-12 ">
+                <div class="col-6">
                     <div id="2_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="2_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
@@ -787,9 +837,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4 ">
-                <div class="col-12 ">
+                <div class="col-6">
                     <div id="1_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="1_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
@@ -853,9 +908,14 @@ const module_template = `<div style="height: 100vh;">
         <div class="col-beside">
             <!--third column-->
             <div class="row-4 ">
-                <div class="col-12 ">
+                <div class="col-6">
                     <div id="12_moon" class="row-12 content">
 
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div id="12_m_moon" class="row-12 content">
+                        
                     </div>
                 </div>
             </div>
