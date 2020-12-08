@@ -1,4 +1,5 @@
 const FetchTool = require("./FetchTool");
+const template = requrie("./ExtractData").getTemplate();
 
 function CopyStars(section) {
     let real_section = section.replace("_copyStar", "");
@@ -63,10 +64,20 @@ function MovingStarsYear(section) {
         let MovingStars = FetchTool.POSTRequestWithJSON("/fetchMovingStars", {
             "tim_gone": tim_gone,
             "zodiac": zodiac
+        }, function (result, status, xhr, indication) {
+            if (indication === "success") {
+                for (const star in result) {
+                    if (result.hasOwnProperty(star)) {
+                        const single_star = result[star];
+                        const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
+                        const template = template[single_star["metaData"][1]];
+                        $(`#${real_section}_${node_id}`).appendTo(`${template["front"]}${single_star["metaData"][0]}${template["end"]}`);
+                    }
+                }
+            } else if (indication === "fail") {
+                console.log(status, xhr, result);
+            }
         });
-        for (const star of MovingStars) {
-
-        }
 
     } else {
         console.log(respond);

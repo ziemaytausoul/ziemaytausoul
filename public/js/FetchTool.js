@@ -1,25 +1,11 @@
-module.exports.POSTRequestWithJSON = function (url, data) {
+module.exports.POSTRequestWithJSON = function (url, data, callback) {
     $.ajax({
         type: "POST",
         url: url,
         data: data,
         dataType: "json",
-        success: function (result, status, xhr) {
-            return {
-                "res": "success",
-                "xhr": xhr,
-                "status": status,
-                "result": result
-            }
-        },
-        error: function (xhr, status, error) {
-            return {
-                "res": "fail",
-                "xhr": xhr,
-                "status": status,
-                "error": error
-            }
-        }
+        success: callback(result, status, xhr, "success"),
+        error: callback(error, status, xhr, "fail")
     });
 }
 

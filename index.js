@@ -48,7 +48,7 @@ app.get('/updateData', function (req, res) {
 
 app.post('/fetchMovingStars', function (req, res) {
     const movingStars = require("./data_collections/moving_stars.json");
-    const tim_gone = req.body.tim_gone ? req.body.tim_gone : null;
+    const tim_gone = req.body.tim_gone ? data_convertion["number_to_tim_gone"][req.body.tim_gone] : null;
     const zodiac = req.body.zodiac ? req.body.zodiac : null;
     const data = {
         "tim_gone": tim_gone,
