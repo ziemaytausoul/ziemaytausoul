@@ -1,5 +1,4 @@
-const FetchTool = require("./FetchTool");
-const template = requrie("./ExtractData").getTemplate();
+const html_template = getTemplate();
 
 function CopyStars(section) {
     let real_section = section.replace("_copyStar", "");
@@ -70,7 +69,7 @@ function MovingStarsYear(section) {
                     if (result.hasOwnProperty(star)) {
                         const single_star = result[star];
                         const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
-                        const template = template[single_star["metaData"][1]];
+                        const template = html_template[single_star["metaData"][1]];
                         $(`#${real_section}_${node_id}`).appendTo(`${template["front"]}${single_star["metaData"][0]}${template["end"]}`);
                     }
                 }

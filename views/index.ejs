@@ -22,6 +22,7 @@
     <!-- Tailored JavaScript-->
     <script src="js/ExtractData.js"></script>
     <script src="js/ComponentController.js"></script>
+    <script src="js/FetchTool.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./main.css">-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>紫微斗數</title>
@@ -75,7 +76,7 @@
     </section>
     <script>
         var section_list = $(document).find("section");
-        const template_obj = getTempate();
+        const template_obj = getTemplate();
 
         function createModule() {
             $('#submitBtn').prop('disabled', true);

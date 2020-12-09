@@ -1,4 +1,4 @@
-module.exports.POSTRequestWithJSON = function (url, data, callback) {
+function POSTRequestWithJSON(url, data, callback) {
     $.ajax({
         type: "POST",
         url: url,
@@ -9,7 +9,7 @@ module.exports.POSTRequestWithJSON = function (url, data, callback) {
     });
 }
 
-module.exports.GETRequest = function (url) {
+function GETRequest(url) {
     $.ajax({
         type: "GET",
         url: url,
