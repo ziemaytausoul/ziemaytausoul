@@ -63,7 +63,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="6_character" class="character">
+                        <div id="6_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="6_position" class="position">
@@ -135,7 +135,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="7_character" class="character">
+                        <div id="7_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="7_position" class="position">
@@ -207,7 +207,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="8_character" class="character">
+                        <div id="8_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="8_position" class="position">
@@ -355,7 +355,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="5_character" class="character">
+                                <div id="5_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="5_position" class="position">
@@ -428,7 +428,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="4_character" class="character">
+                                <div id="4_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="4_position" class="position">
@@ -566,7 +566,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="10_character" class="character">
+                                <div id="10_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="10_position" class="position">
@@ -639,7 +639,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="11_character" class="character">
+                                <div id="11_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="11_position" class="position">
@@ -715,7 +715,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="3_character" class="character">
+                        <div id="3_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="3_position" class="position">
@@ -786,7 +786,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="2_character" class="character">
+                        <div id="2_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="2_position" class="position">
@@ -857,7 +857,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="1_character" class="character">
+                        <div id="1_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="1_position" class="position">
@@ -927,7 +927,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="12_character" class="character">
+                        <div id="12_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="12_position" class="position">
