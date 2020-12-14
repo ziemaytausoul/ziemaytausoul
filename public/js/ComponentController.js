@@ -57,7 +57,8 @@ function UpdateBtnStarCopy(section) {
 
 function MovingStarsYear(section, text) {
     var pattern = /[0-9]+/;
-    let zodiac_tenYear = pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
+    let timGone_tenYear = pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
+    let zodiac_tenYear = text.split(-1);
     let real_section = section.replace(/_[0-9]+_character/, "");
     let respond = FetchTool.GETRequest("https://ziemaytausoul.azurewebsites.net/api/DateTransformation/YearTransform");
     if (respond["res"] == "success") {
@@ -79,7 +80,6 @@ function MovingStarsYear(section, text) {
                 console.log(status, xhr, result);
             }
         });
-
     } else {
         console.log(respond);
     }
