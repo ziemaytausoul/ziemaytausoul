@@ -45,9 +45,15 @@ app.get('/updateData', function (req, res) {
 
 app.post('/fetchMovingStars', function (req, res) {
     const movingStars = require("./data_collections/moving_stars.json");
-    const tim_gone = "";
-    if (req.body.tim_gone !== undefined) {
-        time_gone = data_convertion["tim_gone_to_traChin"][req.body.tim_gone] | data_convertion["traChin_to_tim_gone"][req.body.tim_gone];
+    let tim_gone = "";
+    if (req.body.tim_gone) {
+        if (Object.keys(data_convertion["traChin_to_tim_gone"]).includes(req.body.tim_gone)) {
+            tim_gone = data_convertion["traChin_to_tim_gone"][req.body.tim_gone.trim()];
+        } else {
+            tim_gone = req.body.tim_gone;
+        }
+
+
     }
     const zodiac = req.body.zodiac ? req.body.zodiac : null;
     const data = {
