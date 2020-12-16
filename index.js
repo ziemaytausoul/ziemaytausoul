@@ -11,7 +11,7 @@ const {
 } = require('@google-cloud/firestore');
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
-
+const calendar_convertor = require("lunar-calendar-zh");
 /**Environment setting**/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -43,6 +43,10 @@ app.get('/updateData', function (req, res) {
     res.status(200).render("index");
 });
 
+app.post('/getLunarDate', function (req, res) {
+    res.status(200).jsonp(calendar_convertor.solarToLunar(req.body.year, req.body.month, req.body.day));
+});
+
 app.post('/fetchMovingStars', function (req, res) {
     const movingStars = require("./data_collections/moving_stars.json");
     let tim_gone = "";
@@ -52,8 +56,6 @@ app.post('/fetchMovingStars', function (req, res) {
         } else {
             tim_gone = req.body.tim_gone;
         }
-
-
     }
     const zodiac = req.body.zodiac ? req.body.zodiac : null;
     const data = {
@@ -105,7 +107,7 @@ app.post('/createModule', function (req, res) {
         reference_data.tim_gone = req.session["tim_gone"];
         reference_data.lunar_year = req.session["lunar_year"];
         reference_data.twelveTimGone = tim_gone_of_12Sections[reference_data.tim_gone];
-
+        console.log(reference_data);
         setting_background.getAge(reference_data.lunar_year, reference_data.birth_month, reference_data.birth_day).then(result_Age => {
             reference_data.age = result_Age;
             setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point.toString())

@@ -93,12 +93,21 @@
             });
 
             $.ajax({
-                url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
-                method: "GET",
+                //url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
+                url: `/getLunarDate`,
+                method: "POST",
+                data: {
+                    year: $("#year").val(),
+                    month: $("#month").val(),
+                    day: $("#day").val()
+                },
                 success: function (result, status, xhr) {
                     console.log(result, xhr);
-                    var transformed_date = result["result"];
-                    var date_arr = transformed_date.split("_");
+                    //var transformed_date = result["result"];
+                    //var date_arr = transformed_date.split("_");
+                    var timGoneNzodiac = result["GanZhiYear"].split('');
+                    var date_arr = new Array(result["lunarYear"], result["lunarMonth"], result["lunarDay"],
+                        timGoneNzodiac[0], timGoneNzodiac[1]);
                     if (date_arr) {
                         if ($("#dateType").children("option:selected").val() == "1") {
                             c_year = date_arr[0];

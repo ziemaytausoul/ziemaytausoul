@@ -2,9 +2,6 @@ const {
     exception
 } = require('console');
 const fs = require('fs');
-const {
-    start
-} = require('repl');
 const data_convertion = require(__dirname.replace('finding_position', 'data_convertion.json'));
 const preparation_for_stars = require(__dirname.replace('finding_position', 'preparation_for_stars.json'));
 

@@ -6,13 +6,6 @@ const project_id = "ziemaytausoul",
     keyFilename = "./ziemaytausoul.json";
 const fs = require("fs");
 const superagent = require('superagent');
-const {
-    openDelimiter
-} = require('ejs');
-const express = require('express');
-const {
-    resolveSoa
-} = require('dns');
 
 
 /** 十二宮的大運天干 **/
