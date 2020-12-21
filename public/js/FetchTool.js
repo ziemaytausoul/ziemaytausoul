@@ -4,8 +4,12 @@ function POSTRequestWithJSON(url, data, callback) {
         url: url,
         data: data,
         dataType: "json",
-        success: callback(result, status, xhr, "success"),
-        error: callback(error, status, xhr, "fail")
+        success: function (result, status, xhr) {
+            callback(result, status, xhr, "success");
+        },
+        error: function (result, status, xhr) {
+            callback(result, status, xhr, "fail");
+        }
     });
 }
 
@@ -13,7 +17,11 @@ function GETRequest(url, callback) {
     $.ajax({
         type: "GET",
         url: url,
-        success: callback(result, status, xhr, "success"),
-        error: callback(xhr, status, error, "fail")
+        success: function (result, status, xhr) {
+            callback(result, status, xhr, "success")
+        },
+        error: function (xhr, status, result) {
+            callback(xhr, status, result, "fail")
+        }
     });
 }

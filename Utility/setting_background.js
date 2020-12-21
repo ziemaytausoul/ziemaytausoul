@@ -6,6 +6,7 @@ const project_id = "ziemaytausoul",
     keyFilename = "./ziemaytausoul.json";
 const fs = require("fs");
 const superagent = require('superagent');
+const calendar_convertor = require("lunar-calendar-zh");
 
 
 /** 十二宮的大運天干 **/
@@ -176,15 +177,16 @@ module.exports.getAge = async function (birth_year, birth_month, birth_day) {
     let now_day = '';
     let now_month = '';
     let now_year = '';
-    let result;
 
-    await getDate(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDate()).then(value => {
+    /*await getDate(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDate()).then(value => {
         result = JSON.parse(value)["result"].split("_");
-    });
+    });*/
+    let temp_dateObj = calendar_convertor.solarToLunar(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDate());
+    let result = [temp_dateObj.lunarYear, temp_dateObj.lunarMonth, temp_dateObj.lunarDay];
     now_year = parseInt(result[0], 10);
     now_month = parseInt(result[1], 10);
     now_day = parseInt(result[2], 10);
-    console.log(now_year, now_month, now_day, birth_year, birth_month, birth_day);
+    //console.log(now_year, now_month, now_day, birth_year, birth_month, birth_day);
     if (now_month >= parseInt(birth_month, 10)) {
         if (now_day >= parseInt(birth_day, 10)) {
             return now_year - parseInt(birth_year, 10);

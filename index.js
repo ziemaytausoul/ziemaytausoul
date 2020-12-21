@@ -62,6 +62,7 @@ app.post('/fetchMovingStars', function (req, res) {
         "tim_gone": tim_gone,
         "zodiac": zodiac
     };
+    console.log(tim_gone, zodiac);
     let result = {};
     try {
         for (const condition in movingStars) {
@@ -107,7 +108,7 @@ app.post('/createModule', function (req, res) {
         reference_data.tim_gone = req.session["tim_gone"];
         reference_data.lunar_year = req.session["lunar_year"];
         reference_data.twelveTimGone = tim_gone_of_12Sections[reference_data.tim_gone];
-        console.log(reference_data);
+
         setting_background.getAge(reference_data.lunar_year, reference_data.birth_month, reference_data.birth_day).then(result_Age => {
             reference_data.age = result_Age;
             setting_background.getTypeOfModule(reference_data.twelveTimGone[reference_data.life_point.toString()], reference_data.life_point.toString())

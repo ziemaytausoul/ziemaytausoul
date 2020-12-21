@@ -57,33 +57,24 @@ function UpdateBtnStarCopy(section) {
 
 function MovingStarsYear(section, text) {
     var pattern = /[0-9]+/;
-    let timGone_tenYear = text.split(0, 1);
+    let timGone_tenYear = text.trim().slice(0, 1);
     let zodiac_tenYear = pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
     let real_section = section.replace(/_[0-9]+_character/, "");
-    let respond = FetchTool.POSTRequestWithJSON("/fetchMovingStars", {
+    POSTRequestWithJSON("/fetchMovingStars", {
         "tim_gone": timGone_tenYear,
         "zodiac": zodiac_tenYear
-    });
-    if (respond["res"] == "success") {
-        let [tim_gone, zodiac] = respond["result"]["result"].split("_");
-        let MovingStars = FetchTool.POSTRequestWithJSON("/fetchMovingStars", {
-            "tim_gone": tim_gone,
-            "zodiac": zodiac
-        }, function (result, status, xhr, indication) {
-            if (indication === "success") {
-                for (const star in result) {
-                    if (result.hasOwnProperty(star)) {
-                        const single_star = result[star];
-                        const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
-                        const template = html_template[single_star["metaData"][1]];
-                        $(`#${real_section}_${node_id}`).appendTo(`${template["front"]}${single_star["metaData"][0]}${template["end"]}`);
-                    }
+    }, function (result, status, xhr, indication) {
+        if (indication === "success") {
+            for (const star in result) {
+                if (result.hasOwnProperty(star)) {
+                    const single_star = result[star];
+                    const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
+                    const template = html_template[single_star["metaData"][1]];
+                    $(`#${real_section}_${node_id}`).append(`${template["front"]}${single_star["metaData"][0]}${template["end"]}`);
                 }
-            } else if (indication === "fail") {
-                console.log(status, xhr, result);
             }
-        });
-    } else {
-        console.log(respond);
-    }
+        } else if (indication === "fail") {
+            console.log("fail", status, xhr, result);
+        }
+    });
 }
