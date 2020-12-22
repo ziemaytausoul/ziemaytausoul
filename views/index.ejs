@@ -168,7 +168,8 @@
                     /*console.log(
                         `#${sec_name}_${node_id} : ${details.metaData[0]} : ${details.metaData[1]}`);*/
                     $(`#${sec_name}_${node_id}`).append(
-                        `${template["front"]}${details.metaData[0]}${template["end"]}`);
+                        `${template["front_begin"]}${template["front_end"]}${details.metaData[0]}${template["end"]}`
+                    );
                 });
                 switch (sec_name) {
                     case "first_sec":

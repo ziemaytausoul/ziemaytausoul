@@ -63,7 +63,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="6_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                        <div id="6_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="6_position" class="position">
@@ -135,7 +135,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="7_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                        <div id="7_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="7_position" class="position">
@@ -207,7 +207,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="8_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                        <div id="8_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="8_position" class="position">
@@ -355,7 +355,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="5_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                                <div id="5_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="5_position" class="position">
@@ -428,7 +428,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="4_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                                <div id="4_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="4_position" class="position">
@@ -496,7 +496,7 @@ const module_template = `<div style="height: 100vh;">
                     <div class="col-12">
                     <button id="copyStar" class="btn btn-success" type="button" onclick="CopyStars(this.id)">借星</button>
                     <button id="MovingStarsTenYears" class="btn btn-success" type="button" onclick="">大運星曜</button>
-                    <button id="MovingStarsYear" class="btn btn-success" type="button" onclick="">流年星曜</button>
+                    <button id="MovingStarsTenYear" class="btn btn-success" type="button" onclick="">流年星曜</button>
                     <button id="MovingStarsMonth" class="btn btn-success" type="button" onclick="">流月星曜</button>
                     <button id="MovingStarsDay" class="btn btn-success" type="button" onclick="">流日星曜</button>
                     </div>
@@ -566,7 +566,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="10_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                                <div id="10_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="10_position" class="position">
@@ -639,7 +639,7 @@ const module_template = `<div style="height: 100vh;">
 
                             </div>
                             <div class="row-7">
-                                <div id="11_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                                <div id="11_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                                 </div>
                                 <div id="11_position" class="position">
@@ -715,7 +715,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="3_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                        <div id="3_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="3_position" class="position">
@@ -786,7 +786,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="2_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                        <div id="2_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="2_position" class="position">
@@ -857,7 +857,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="1_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                        <div id="1_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="1_position" class="position">
@@ -927,7 +927,7 @@ const module_template = `<div style="height: 100vh;">
 
                     </div>
                     <div class="row-7">
-                        <div id="12_character" class="character" onclick="MovingStarsYear(this.id, this.innerHTML)">
+                        <div id="12_character" class="character" onclick="MovingStarsTenYear(this.id, this.innerHTML)">
 
                         </div>
                         <div id="12_position" class="position">
@@ -943,99 +943,123 @@ const module_template = `<div style="height: 100vh;">
 
 const template = {
     "main": {
-        "front": "<div class=\"main\" style=\"display:inline-block;\">",
+        "front_begin": "<div class=\"main\" style=\"display:inline-block;\"",
+        "front_end": ">",
         "end": "</div>"
     },
     "moon": {
-        "front": "<div class=\"moon\">",
+        "front_begin": "<div class=\"moon\"",
+        "front_end": ">",
         "end": "</div>"
     },
     "first_tier": {
-        "front": "<div class=\"first_tier\">",
+        "front_begin": "<div class=\"first_tier\"s",
+        "front_end": ">",
         "end": "</div>"
     },
     "second_tier": {
-        "front": "<div class=\"second_tier\">",
+        "front_begin": "<div class=\"second_tier\"",
+        "front_end": ">",
         "end": "</div>"
     },
     "changes": {
-        "front": "<span id=\"\">",
+        "front_begin": "<span id=\"\"",
+        "front_end": ">",
         "end": "</span>"
     },
     "character": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "position": {
-        "front": "<div>",
+        "front_begin": "<div",
+        "front_end": ">",
         "end": "</div>"
     },
     "ten_years": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "cheong_sun": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "module_type": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_ten_years_positioning": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_year_data": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_age": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_anatomy_core": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_module_core": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_module_level": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_normal_year": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_lunar_year": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_lunar_month": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_lunar_day": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "span_lunar_time": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "people_type": {
-        "front": "",
+        "front_begin": "",
+        "front_end": "",
         "end": ""
     },
     "special": {
-        "front": "<div class=\"special\">",
+        "front_begin": "<div class=\"special\"",
+        "front_end": ">",
         "end": "</div>"
     },
     "m_moon": {
-        "front": "<div class=\"m_moon\">",
+        "front_begin": "<div class=\"m_moon\"",
+        "front_end": ">",
         "end": "</div>"
     }
 

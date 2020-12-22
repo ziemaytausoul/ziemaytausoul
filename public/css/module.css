@@ -238,13 +238,14 @@ div .source span {
 }
 
 /* 流曜 */
-[id*="m_moon"] {
+.m_moon {
   float: right;
   font-size: 1.2rem;
   height: 100%;
   writing-mode: vertical-lr;
   text-orientation: upright;
 }
+
 
 /* row css */
 .row-1 {

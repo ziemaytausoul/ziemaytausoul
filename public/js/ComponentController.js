@@ -55,7 +55,7 @@ function UpdateBtnStarCopy(section) {
     }
 }
 
-function MovingStarsYear(section, text) {
+function MovingStarsTenYear(section, text) {
     var pattern = /[0-9]+/;
     let timGone_tenYear = text.trim().slice(0, 1);
     let zodiac_tenYear = pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
@@ -70,7 +70,7 @@ function MovingStarsYear(section, text) {
                     const single_star = result[star];
                     const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
                     const template = html_template[single_star["metaData"][1]];
-                    $(`#${real_section}_${node_id}`).append(`${template["front"]}${single_star["metaData"][0]}${template["end"]}`);
+                    $(`#${real_section}_${node_id}`).append(`${template["front_begin"]} id="${star}_tenYear"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`);
                 }
             }
         } else if (indication === "fail") {
