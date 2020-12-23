@@ -60,21 +60,26 @@ function MovingStarsTenYear(section, text) {
     let timGone_tenYear = text.trim().slice(0, 1);
     let zodiac_tenYear = pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
     let real_section = section.replace(/_[0-9]+_character/, "");
-    POSTRequestWithJSON("/fetchMovingStars", {
+    POSTRequestWithJSON("/fetchMovingStarsTenYear", {
         "tim_gone": timGone_tenYear,
         "zodiac": zodiac_tenYear
     }, function (result, status, xhr, indication) {
         if (indication === "success") {
+            ClearMovingStarsTenYears(real_section);
             for (const star in result) {
                 if (result.hasOwnProperty(star)) {
                     const single_star = result[star];
                     const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
                     const template = html_template[single_star["metaData"][1]];
-                    $(`#${real_section}_${node_id}`).append(`${template["front_begin"]} id="${star}_tenYear"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`);
+                    $(`#${real_section}_${node_id}`).append(`${template["front_begin"]} id="${star}_${real_section}_tenYear"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`);
                 }
             }
         } else if (indication === "fail") {
             console.log("fail", status, xhr, result);
         }
     });
+}
+
+function ClearMovingStarsTenYears(section) {
+    $(`div[id*='_${section}_tenYear']`).remove();
 }

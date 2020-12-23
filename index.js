@@ -47,7 +47,7 @@ app.post('/getLunarDate', function (req, res) {
     res.status(200).jsonp(calendar_convertor.solarToLunar(req.body.year, req.body.month, req.body.day));
 });
 
-app.post('/fetchMovingStars', function (req, res) {
+app.post('/fetchMovingStarsTenYear', function (req, res) {
     const movingStars = require("./data_collections/moving_stars.json");
     let tim_gone = "";
     if (req.body.tim_gone) {
@@ -62,7 +62,7 @@ app.post('/fetchMovingStars', function (req, res) {
         "tim_gone": tim_gone,
         "zodiac": zodiac
     };
-    console.log(tim_gone, zodiac);
+
     let result = {};
     try {
         for (const condition in movingStars) {
