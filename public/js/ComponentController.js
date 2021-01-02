@@ -1,4 +1,6 @@
 const html_template = getTemplate();
+let copy_star_flag = false;
+const position_id = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戍", "亥"];
 
 function CopyStars(section) {
     let real_section = section.replace("_copyStar", "");
@@ -17,6 +19,7 @@ function CopyStars(section) {
             }
         }
     }
+    copy_star_flag = true;
     UpdateBtnStarCopy(section);
 }
 
@@ -42,6 +45,7 @@ function ClearStarsCopied(section) {
             }
         }
     }
+    copy_star_flag = false;
     UpdateBtnStarCopy(section);
 }
 
@@ -65,13 +69,27 @@ function MovingStarsTenYear(section, text) {
         "zodiac": zodiac_tenYear
     }, function (result, status, xhr, indication) {
         if (indication === "success") {
-            ClearMovingStarsTenYears(real_section);
+            ClearMovingStars(real_section, 'tenYear');
             for (const star in result) {
                 if (result.hasOwnProperty(star)) {
                     const single_star = result[star];
                     const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
                     const template = html_template[single_star["metaData"][1]];
-                    $(`#${real_section}_${node_id}`).append(`${template["front_begin"]} id="${star}_${real_section}_tenYear"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`);
+                    $(`#${real_section}_${node_id}`).append(`${template["front_begin"]} id="${star}_${real_section}_${single_star["position"]}_tenYear"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`);
+                    if (copy_star_flag) {
+                        let position = parseInt(single_star["position"]);
+                        if (position < 7) {
+                            if ($(`div#${real_section}_${position + 6}_main > div.main_copy`).length > 0) {
+                                const elem_id = `${star}_${real_section}_${position + 6}_tenYear`;
+                                $(`${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`).addClass(`${single_star["metaData"][1]}_copy`).appendTo(`#${real_section}_${`${position + 6}_${single_star["metaData"][1]}`}`);
+                            }
+                        } else {
+                            if ($(`div#${real_section}_${position - 6}_main > div.main_copy`).length > 0) {
+                                const elem_id = `${star}_${real_section}_${position - 6}_tenYear`;
+                                $(`${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`).addClass(`${single_star["metaData"][1]}_copy`).appendTo(`#${real_section}_${`${position - 6}_${single_star["metaData"][1]}`}`);
+                            }
+                        }
+                    }
                 }
             }
         } else if (indication === "fail") {
@@ -80,6 +98,8 @@ function MovingStarsTenYear(section, text) {
     });
 }
 
-function ClearMovingStarsTenYears(section) {
-    $(`div[id*='_${section}_tenYear']`).remove();
+function ClearMovingStars(section, type) {
+    for (let position = 0; position <= 12; position++) {
+        $(`div[id*='_${section}_${position}_${type}']`).remove();
+    }
 }
