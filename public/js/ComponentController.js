@@ -59,7 +59,7 @@ function UpdateBtnStarCopy(section) {
     }
 }
 
-function MovingStarsTenYear(section, text) {
+function MovingStarsTenYear(section, text, ele) {
     var pattern = /[0-9]+/;
     let timGone_tenYear = text.trim().slice(0, 1);
     let zodiac_tenYear = pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
@@ -69,33 +69,37 @@ function MovingStarsTenYear(section, text) {
         "zodiac": zodiac_tenYear
     }, function (result, status, xhr, indication) {
         if (indication === "success") {
-            ClearMovingStars(real_section, 'tenYear');
-            for (const star in result) {
-                if (result.hasOwnProperty(star)) {
-                    const single_star = result[star];
-                    const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
-                    const template = html_template[single_star["metaData"][1]];
-                    $(`#${real_section}_${node_id}`).append(`${template["front_begin"]} id="${star}_${real_section}_${single_star["position"]}_tenYear"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`);
-                    if (copy_star_flag) {
-                        let position = parseInt(single_star["position"]);
-                        if (position < 7) {
-                            if ($(`div#${real_section}_${position + 6}_main > div.main_copy`).length > 0) {
-                                const elem_id = `${star}_${real_section}_${position + 6}_tenYear`;
-                                $(`${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`).addClass(`${single_star["metaData"][1]}_copy`).appendTo(`#${real_section}_${`${position + 6}_${single_star["metaData"][1]}`}`);
-                            }
-                        } else {
-                            if ($(`div#${real_section}_${position - 6}_main > div.main_copy`).length > 0) {
-                                const elem_id = `${star}_${real_section}_${position - 6}_tenYear`;
-                                $(`${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`).addClass(`${single_star["metaData"][1]}_copy`).appendTo(`#${real_section}_${`${position - 6}_${single_star["metaData"][1]}`}`);
-                            }
-                        }
-                    }
-                }
-            }
+            ClearMovingStars(real_section, "tenYear");
+            LocateMovingStar(result, "tenYear", real_section);
         } else if (indication === "fail") {
             console.log("fail", status, xhr, result);
         }
     });
+}
+
+function LocateMovingStar(result, type, section) {
+    for (const star in result) {
+        if (result.hasOwnProperty(star)) {
+            const single_star = result[star];
+            const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
+            const template = html_template[single_star["metaData"][1]];
+            $(`#${section}_${node_id}`).append(`${template["front_begin"]} id="${star}_${section}_${single_star["position"]}_${type}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`);
+            if (copy_star_flag) {
+                let position = parseInt(single_star["position"]);
+                if (position < 7) {
+                    if ($(`div#${section}_${position + 6}_main > div.main_copy`).length > 0) {
+                        const elem_id = `${star}_${section}_${position + 6}_${type}`;
+                        $(`${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`).addClass(`${single_star["metaData"][1]}_copy`).appendTo(`#${section}_${`${position + 6}_${single_star["metaData"][1]}`}`);
+                    }
+                } else {
+                    if ($(`div#${section}_${position - 6}_main > div.main_copy`).length > 0) {
+                        const elem_id = `${star}_${section}_${position - 6}_${type}`;
+                        $(`${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`).addClass(`${single_star["metaData"][1]}_copy`).appendTo(`#${section}_${`${position - 6}_${single_star["metaData"][1]}`}`);
+                    }
+                }
+            }
+        }
+    }
 }
 
 function ClearMovingStars(section, type) {
