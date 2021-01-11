@@ -449,7 +449,32 @@ const module_template = `<div style="height: 100vh;">
             <div class="col-2">
                 <div class="source center_vector">紫微斗數<span id="510_module_type"></span></div>
             </div>
-            <div class="col-6"></div>
+            <div class="col-6">
+                <div class="row-12">
+                    <form id="movingstars_form" style="display:none;">
+                        <div class="form-group">
+                            <label for="moving_day"><strong>日:</strong></label>
+                            <input id="moving_day" type="text" style="display:none" required/>
+                        </div> 
+                        <div class="form-group">
+                            <label for="moving_month"><strong>月:</strong></label>
+                            <input id="moving_month" type="text" style="display:none" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="moving_year"><strong>年:</strong></label>
+                            <input id="moving_year" type="text" style="display:none" required/>
+                        </div>
+                        <div class="form-group">
+                            <select id="movingstars_period">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" value="佈星"/>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
             <div class="col-4 center_vec_other">
                 <div class="row-10">
                     <div class="col-2"></div>
@@ -496,9 +521,9 @@ const module_template = `<div style="height: 100vh;">
                     <div class="col-12">
                     <button id="copyStar" class="btn btn-success" type="button" onclick="CopyStars(this.id)">借星</button>
                     <button id="MovingStarsTenYears" class="btn btn-success" type="button" onclick="ClearMovingStars(this.id.replace('_MovingStarsTenYears',''), 'tenYear')">清除大運星曜</button>
-                    <button id="MovingStarsTenYear" class="btn btn-success" type="button" onclick="">流年星曜</button>
-                    <button id="MovingStarsMonth" class="btn btn-success" type="button" onclick="">流月星曜</button>
-                    <button id="MovingStarsDay" class="btn btn-success" type="button" onclick="">流日星曜</button>
+                    <button id="MovingStarsYear" class="btn btn-success" type="button" onclick="MovingStarFormAppear(this,'year')">流年星曜</button>
+                    <button id="MovingStarsMonth" class="btn btn-success" type="button" onclick="MovingStarFormAppear(this,'month')">流月星曜</button>
+                    <button id="MovingStarsDay" class="btn btn-success" type="button" onclick="MovingStarFormAppear(this,'day')">流日星曜</button>
                     </div>
                 </div>
             </div>
@@ -1062,7 +1087,6 @@ const template = {
         "front_end": ">",
         "end": "</div>"
     }
-
 };
 
 function EmbedTemplate(sectionName) {
@@ -1073,15 +1097,6 @@ function EmbedTemplate(sectionName) {
             $(this).attr("id", `${sectionName}_${tag_id}`);
         }
     });
-}
-
-function LocateStar(module) {
-    for (const data in module) {
-        if (module.hasOwnProperty(data)) {
-            const star = module[data];
-            const node_id = `${star.position}_${star.metaData[1]}`;
-        }
-    }
 }
 
 function getTemplate() {

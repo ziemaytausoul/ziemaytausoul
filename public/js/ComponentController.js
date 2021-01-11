@@ -1,6 +1,11 @@
 const html_template = getTemplate();
 let copy_star_flag = false;
 const position_id = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戍", "亥"];
+const dateType = {
+    "year": "年",
+    "month": "月",
+    "day": "日"
+};
 
 function CopyStars(section) {
     let real_section = section.replace("_copyStar", "");
@@ -59,7 +64,7 @@ function UpdateBtnStarCopy(section) {
     }
 }
 
-function MovingStarsTenYear(section, text, ele) {
+function MovingStarsTenYear(section, text) {
     var pattern = /[0-9]+/;
     let timGone_tenYear = text.trim().slice(0, 1);
     let zodiac_tenYear = pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
@@ -75,6 +80,18 @@ function MovingStarsTenYear(section, text, ele) {
             console.log("fail", status, xhr, result);
         }
     });
+}
+
+function MovingStars(section, ele) {
+    console.log(section, ele);
+}
+
+function MovingStarFormAppear(component, type) {
+    const section = $(component).parents("section").prop("id");
+    const date = `<option selected>一${dateType[type]}</option><option>數${dateType[type]}</option>`;
+    $(`#${section}_movingstars_period`).empty().append(date);
+    $(`#${section}_movingstars_form > input[type='submit']`).click(MovingStars(section, this));
+    $(`#${section}_movingstars_form`).show();
 }
 
 function LocateMovingStar(result, type, section) {

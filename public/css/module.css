@@ -71,6 +71,23 @@ span {
   display: inline-block;
 }
 
+/*Navigation Bar*/
+.navbar,
+.navbar-nav,
+.nav-item,
+.form-inline {
+  width: 100%;
+}
+
+.form-inline>#gender,
+#time {
+  margin-right: 2px;
+}
+
+.form-inline>#dateType {
+  margin-right: 1%;
+}
+
 /** 中間區域 **/
 .center_vector {
   writing-mode: vertical-lr;
