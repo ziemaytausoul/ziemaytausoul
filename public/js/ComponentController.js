@@ -90,8 +90,48 @@ function MovingStarFormAppear(component, type) {
     const section = $(component).parents("section").prop("id");
     const date = `<option selected>一${dateType[type]}</option><option>數${dateType[type]}</option>`;
     $(`#${section}_movingstars_period`).empty().append(date);
-    $(`#${section}_movingstars_form > input[type='submit']`).click(MovingStars(section, this));
+    $(`#${section}_movingstars_submit`).attr("onclick", `MovingStarsSettle("${section}", "${type}")`);
+    $(`#${section}_moving_year`).val("");
+    $(`#${section}_moving_month`).val("");
+    $(`#${section}_moving_day`).val("");
+    switch (type) {
+        case "year":
+            $(`#${section}_movingstars_container_year`).show();
+            $(`#${section}_movingstars_container_month`).hide();
+            $(`#${section}_movingstars_container_day`).hide();
+            break;
+        case "month":
+            $(`#${section}_movingstars_container_year`).show();
+            $(`#${section}_movingstars_container_month`).show();
+            $(`#${section}_movingstars_container_day`).hide();
+            break;
+        default:
+            $(`#${section}_movingstars_container_year`).show();
+            $(`#${section}_movingstars_container_month`).show();
+            $(`#${section}_movingstars_container_day`).show();
+            break;
+    }
     $(`#${section}_movingstars_form`).show();
+}
+
+function MovingStarsSettle(section, type) {
+    let moving_day,
+        moving_month,
+        moving_year;
+    switch (type) {
+        case "year":
+            moving_year = $(`#${section}_moving_year`).val().replace(/\s+/g, "");
+            break;
+        case "month":
+            moving_year = $(`#${section}_moving_year`).val().replace(/\s+/g, "");
+            moving_month = $(`#${section}_moving_month`).val().replace(/\s+/g, "");
+            break;
+        default:
+            moving_year = $(`#${section}_moving_year`).val().replace(/\s+/g, "");
+            moving_month = $(`#${section}_moving_month`).val().replace(/\s+/g, "");
+            moving_day = $(`#${section}_moving_day`).val().replace(/\s+/g, "");
+            break;
+    }
 }
 
 function LocateMovingStar(result, type, section) {

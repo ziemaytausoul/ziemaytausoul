@@ -452,24 +452,25 @@ const module_template = `<div style="height: 100vh;">
             <div class="col-6">
                 <div class="row-12">
                     <form id="movingstars_form" style="display:none;">
-                        <div class="form-group">
+                        <div class="form-group" id="movingstars_container_day">
                             <label for="moving_day"><strong>日:</strong></label>
-                            <input id="moving_day" type="text" style="display:none" required/>
+                            <input id="moving_day" type="text" required/>
                         </div> 
-                        <div class="form-group">
+                        <div class="form-group" id="movingstars_container_month">
                             <label for="moving_month"><strong>月:</strong></label>
-                            <input id="moving_month" type="text" style="display:none" required/>
+                            <input id="moving_month" type="text" required/>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="movingstars_container_year">
                             <label for="moving_year"><strong>年:</strong></label>
-                            <input id="moving_year" type="text" style="display:none" required/>
+                            <input id="moving_year" type="text" required/>
                         </div>
                         <div class="form-group">
                             <select id="movingstars_period">
                             </select>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <input type="button" value="佈星"/>
+                            <input type="button" value="佈星" id="movingstars_submit"/>
                         </div>
                     </form>
                 </div>
