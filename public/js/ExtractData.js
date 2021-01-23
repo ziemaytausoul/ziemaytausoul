@@ -464,17 +464,15 @@ const module_template = `<div style="height: 100vh;">
                             <label for="moving_year"><strong>年:</strong></label>
                             <input id="moving_year" type="text" required/>
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <select id="movingstars_period">
                             </select>
-                            </select>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <input type="button" value="佈星" id="movingstars_submit"/>
                         </div>
                     </form>
                 </div>
-
             </div>
             <div class="col-4 center_vec_other">
                 <div class="row-10">

@@ -10,15 +10,17 @@
   "author": "Harus Ho",
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/firestore": "^4.8.0",
+    "@google-cloud/firestore": "^4.8.1",
     "body-parser": "^1.19.0",
     "cookie-session": "^1.3.3",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
+    "grpc": "^1.24.4",
     "helmet": "^3.23.3",
     "lunar-calendar-zh": "^0.1.4",
     "node-fetch": "^2.6.1",
     "node-forge": "^0.10.0",
+    "readable-stream": "^3.6.0",
     "superagent": "^6.1.0"
   }
 }

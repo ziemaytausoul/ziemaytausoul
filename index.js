@@ -11,7 +11,7 @@ const {
 } = require('@google-cloud/firestore');
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
-const calendar_convertor = require("lunar-calendar-zh");
+const calendar_convertor = require("lunar-calendar-zh/lib/LunarCalendar.js");
 /**Environment setting**/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -45,6 +45,14 @@ app.get('/updateData', function (req, res) {
 
 app.post('/getLunarDate', function (req, res) {
     res.status(200).jsonp(calendar_convertor.solarToLunar(req.body.year, req.body.month, req.body.day));
+});
+
+app.post('/getLunarYear', function (req, res) { 
+    res.status(200).jsonp(calendar_convertor.getLunarYear(parseInt(req.body.year,10), 1));
+});
+
+app.post('/getLunarMonth', function (req, res) {
+    res.status(200).jsonp(calendar_convertor.getLunarMonth(parseInt(req.body.year,10), parseInt(req.body.month,10))); 
 });
 
 app.post('/fetchMovingStarsTenYear', function (req, res) {

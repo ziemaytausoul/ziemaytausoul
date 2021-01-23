@@ -88,8 +88,8 @@ function MovingStars(section, ele) {
 
 function MovingStarFormAppear(component, type) {
     const section = $(component).parents("section").prop("id");
-    const date = `<option selected>一${dateType[type]}</option><option>數${dateType[type]}</option>`;
-    $(`#${section}_movingstars_period`).empty().append(date);
+    /*const date = `<option selected>一${dateType[type]}</option><option>數${dateType[type]}</option>`;
+    $(`#${section}_movingstars_period`).empty().append(date);*/
     $(`#${section}_movingstars_submit`).attr("onclick", `MovingStarsSettle("${section}", "${type}")`);
     $(`#${section}_moving_year`).val("");
     $(`#${section}_moving_month`).val("");
@@ -132,6 +132,9 @@ function MovingStarsSettle(section, type) {
             moving_day = $(`#${section}_moving_day`).val().replace(/\s+/g, "");
             break;
     }
+    $(`#${section}_movingstars_form`).hide();
+    
+
 }
 
 function LocateMovingStar(result, type, section) {
