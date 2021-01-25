@@ -82,8 +82,8 @@ function MovingStarsTenYear(section, text) {
     });
 }
 
-function MovingStars(section, ele) {
-    console.log(section, ele);
+function MovingStars(section, type) {
+
 }
 
 function MovingStarFormAppear(component, type) {
@@ -133,8 +133,34 @@ function MovingStarsSettle(section, type) {
             break;
     }
     $(`#${section}_movingstars_form`).hide();
-    
+    let day = $(`#${section}_moving_day`).val(),
+        month = $(`#${section}_moving_month`).val(),
+        year = $(`#${section}_moving_year`).val(),
+        data = {},
+        url = ``;
+    if (type === "day") {
+        data["day"] = day;
+        data["month"] = month;
+        data["year"] = year;
+        url = `/getLunarDate`;
+    }
+    else if (type === "month") {
+        data["month"] = month;
+        data["year"] = year;
+        url = `/getLunarMonth`;
+    }
+    else if (type === "year") {
+        data["year"] = year;
+        url = `/getLunarYear`;
+    }
 
+    POSTRequestWithJSON(url, data, function (result, status, xhr, indication) {
+        if (indication === "success") {
+            console.log(result);
+        } else if (indication === "fail") {
+            console.log("fail", status, xhr, result);
+       }
+    });
 }
 
 function LocateMovingStar(result, type, section) {

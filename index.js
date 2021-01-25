@@ -52,7 +52,7 @@ app.post('/getLunarYear', function (req, res) {
 });
 
 app.post('/getLunarMonth', function (req, res) {
-    res.status(200).jsonp(calendar_convertor.getLunarMonth(parseInt(req.body.year,10), parseInt(req.body.month,10))); 
+    res.status(200).jsonp(calendar_convertor.getLunarMonth(parseInt(req.body.year,10), parseInt(req.body.month,10), 1)); 
 });
 
 app.post('/fetchMovingStarsTenYear', function (req, res) {
