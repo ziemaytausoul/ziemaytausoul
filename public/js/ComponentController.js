@@ -142,7 +142,7 @@ function MovingStarsSettle(section, type) {
         data["day"] = day;
         data["month"] = month;
         data["year"] = year;
-        url = `/getLunarDate`;
+        url = `/getLunarDay`;
     }
     else if (type === "month") {
         data["month"] = month;
@@ -156,7 +156,22 @@ function MovingStarsSettle(section, type) {
 
     POSTRequestWithJSON(url, data, function (result, status, xhr, indication) {
         if (indication === "success") {
-            console.log(result);
+            var pattern = /_/;
+            let [timGone, zodiac] = result.split(pattern);
+            console.log(timGone, zodiac);
+            POSTRequestWithJSON("/fetchMovingStarsTenYear", {
+                "tim_gone": timGone,
+                "zodiac": zodiac
+            }, function (result, status, xhr, indication) {
+                    console.log(result);
+                    if (indication === "success") {
+                    ClearMovingStars(section, type);
+                    LocateMovingStar(result, type, section);
+                    
+                } else if (indication === "fail") {
+                    console.log("fail", status, xhr, result);
+                }
+            });
         } else if (indication === "fail") {
             console.log("fail", status, xhr, result);
        }

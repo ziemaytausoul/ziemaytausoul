@@ -12,6 +12,7 @@ const {
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
 const calendar_convertor = require("lunar-calendar-zh/lib/LunarCalendar.js");
+const { calendar } = require('lunar-calendar-zh/lib/LunarCalendar.js');
 /**Environment setting**/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -55,14 +56,18 @@ app.post('/getLunarMonth', function (req, res) {
     res.status(200).jsonp(calendar_convertor.getLunarMonth(parseInt(req.body.year,10), parseInt(req.body.month,10), 1)); 
 });
 
+app.post('/getLunarDay', function (req, res) {
+    res.status(200).jsonp(calendar_convertor.getLunarDay(parseInt(req.body.year,10), parseInt(req.body.month,10) -1, parseInt(req.body.day, 10)));
+});
+
 app.post('/fetchMovingStarsTenYear', function (req, res) {
     const movingStars = require("./data_collections/moving_stars.json");
     let tim_gone = "";
     if (req.body.tim_gone) {
         if (Object.keys(data_convertion["traChin_to_tim_gone"]).includes(req.body.tim_gone)) {
             tim_gone = data_convertion["traChin_to_tim_gone"][req.body.tim_gone.trim()];
-        } else {
-            tim_gone = req.body.tim_gone;
+        } else if (Object.keys(data_convertion["number_to_tim_gone"]).includes(req.body.tim_gone.trim())) {
+            tim_gone = data_convertion["number_to_tim_gone"][req.body.tim_gone.trim()];
         }
     }
     const zodiac = req.body.zodiac ? req.body.zodiac : null;
@@ -70,7 +75,7 @@ app.post('/fetchMovingStarsTenYear', function (req, res) {
         "tim_gone": tim_gone,
         "zodiac": zodiac
     };
-
+    console.log(data);
     let result = {};
     try {
         for (const condition in movingStars) {
