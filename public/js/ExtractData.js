@@ -520,6 +520,9 @@ const module_template = `<div style="height: 100vh;">
                     <div class="col-12">
                     <button id="copyStar" class="btn btn-success" type="button" onclick="CopyStars(this.id)">借星</button>
                     <button id="MovingStarsTenYears" class="btn btn-success" type="button" onclick="ClearMovingStars(this.id.replace('_MovingStarsTenYears',''), 'tenYear')">清除大運星曜</button>
+                    <button id="ClearMovingStarsYear"class="btn btn-success" type="button" onclick="ClearMovingStars(this.id.replace('_ClearMovingStarsYear',''), 'year')">清除流年星曜</button>
+                    <button id="ClearMovingStarsMonth"class="btn btn-success" type="button" onclick="ClearMovingStars(this.id.replace('_ClearMovingStarsMonth',''), 'month')">清除流月星曜</button>
+                    <button id="ClearMovingStarsDay"class="btn btn-success" type="button" onclick="ClearMovingStars(this.id.replace('_ClearMovingStarsDay',''), 'day')">清除流日星曜</button>
                     <button id="MovingStarsYear" class="btn btn-success" type="button" onclick="MovingStarFormAppear(this,'year')">流年星曜</button>
                     <button id="MovingStarsMonth" class="btn btn-success" type="button" onclick="MovingStarFormAppear(this,'month')">流月星曜</button>
                     <button id="MovingStarsDay" class="btn btn-success" type="button" onclick="MovingStarFormAppear(this,'day')">流日星曜</button>
@@ -966,138 +969,140 @@ const module_template = `<div style="height: 100vh;">
 </div>`;
 
 const template = {
-    "main": {
-        "front_begin": "<div class=\"main\" style=\"display:inline-block;\"",
-        "front_end": ">",
-        "end": "</div>"
-    },
-    "moon": {
-        "front_begin": "<div class=\"moon\"",
-        "front_end": ">",
-        "end": "</div>"
-    },
-    "first_tier": {
-        "front_begin": "<div class=\"first_tier\"s",
-        "front_end": ">",
-        "end": "</div>"
-    },
-    "second_tier": {
-        "front_begin": "<div class=\"second_tier\"",
-        "front_end": ">",
-        "end": "</div>"
-    },
-    "changes": {
-        "front_begin": "<span id=\"\"",
-        "front_end": ">",
-        "end": "</span>"
-    },
-    "character": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "position": {
-        "front_begin": "<div",
-        "front_end": ">",
-        "end": "</div>"
-    },
-    "ten_years": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "cheong_sun": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "module_type": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_ten_years_positioning": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_year_data": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_age": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_anatomy_core": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_module_core": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_module_level": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_normal_year": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_lunar_year": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_lunar_month": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_lunar_day": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "span_lunar_time": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "people_type": {
-        "front_begin": "",
-        "front_end": "",
-        "end": ""
-    },
-    "special": {
-        "front_begin": "<div class=\"special\"",
-        "front_end": ">",
-        "end": "</div>"
-    },
-    "m_moon": {
-        "front_begin": "<div class=\"m_moon\"",
-        "front_end": ">",
-        "end": "</div>"
-    }
+  main: {
+    front_begin: '<div class="main" style="display:inline-block;"',
+    front_end: ">",
+    end: "</div>",
+  },
+  moon: {
+    front_begin: '<div class="moon"',
+    front_end: ">",
+    end: "</div>",
+  },
+  first_tier: {
+    front_begin: '<div class="first_tier"s',
+    front_end: ">",
+    end: "</div>",
+  },
+  second_tier: {
+    front_begin: '<div class="second_tier"',
+    front_end: ">",
+    end: "</div>",
+  },
+  changes: {
+    front_begin: '<span id=""',
+    front_end: ">",
+    end: "</span>",
+  },
+  character: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  position: {
+    front_begin: "<div",
+    front_end: ">",
+    end: "</div>",
+  },
+  ten_years: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  cheong_sun: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  module_type: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_ten_years_positioning: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_year_data: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_age: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_anatomy_core: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_module_core: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_module_level: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_normal_year: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_year: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_month: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_day: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_time: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  people_type: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  special: {
+    front_begin: '<div class="special"',
+    front_end: ">",
+    end: "</div>",
+  },
+  m_moon: {
+    front_begin: '<div class="m_moon"',
+    front_end: ">",
+    end: "</div>",
+  },
 };
 
 function EmbedTemplate(sectionName) {
-    $(`#${sectionName}`).html(module_template);
-    $(`#${sectionName}`).find("*").filter(function () {
-        var tag_id = $(this).attr("id");
-        if ($(this).attr("id") != undefined) {
-            $(this).attr("id", `${sectionName}_${tag_id}`);
-        }
+  $(`#${sectionName}`).html(module_template);
+  $(`#${sectionName}`)
+    .find("*")
+    .filter(function () {
+      var tag_id = $(this).attr("id");
+      if ($(this).attr("id") != undefined) {
+        $(this).attr("id", `${sectionName}_${tag_id}`);
+      }
     });
 }
 
 function getTemplate() {
-    return template;
+  return template;
 }
