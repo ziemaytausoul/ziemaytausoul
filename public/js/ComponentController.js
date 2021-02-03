@@ -175,7 +175,7 @@ function MovingStarFormAppear(component, type) {
 }
 
 function MovingStarsSettle(section, type, id) {
-  let moving_day, moving_month, moving_year;
+  /*let moving_day, moving_month, moving_year;
   switch (type) {
     case "year":
       moving_year = $(`#${section}_moving_year`).val().replace(/\s+/g, "");
@@ -189,11 +189,11 @@ function MovingStarsSettle(section, type, id) {
       moving_month = $(`#${section}_moving_month`).val().replace(/\s+/g, "");
       moving_day = $(`#${section}_moving_day`).val().replace(/\s+/g, "");
       break;
-  }
+  }*/
   $(`#${section}_movingstars_form`).hide();
-  let day = $(`#${section}_moving_day`).val(),
-    month = $(`#${section}_moving_month`).val(),
-    year = $(`#${section}_moving_year`).val(),
+  let day = $(`#${section}_moving_day`).val().replace(/\s+/g, ""),
+    month = $(`#${section}_moving_month`).val().replace(/\s+/g, ""),
+    year = $(`#${section}_moving_year`).val().replace(/\s+/g, ""),
     data = {},
     url = ``;
   if (type === "day") {
