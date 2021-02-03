@@ -220,13 +220,13 @@ function MovingStarsSettle(section, type, id) {
           tim_gone: timGone,
           zodiac: zodiac,
         },
-        function (result, status, xhr, indication) {
+        function (result_stars, status_stars, xhr_stars, indication_stars) {
           try {
-            if (indication === "success") {
+            if (indication_stars === "success") {
               ClearMovingStars(section, type);
-              LocateMovingStar(result, type, section);
-            } else if (indication === "fail") {
-              console.log("fail", status, xhr, result);
+              LocateMovingStar(result_stars, type, section);
+            } else if (indication_stars === "fail") {
+              console.log("fail", status_stars, xhr_stars, result_stars);
             }
           } catch (e) {
             console.log(e);
