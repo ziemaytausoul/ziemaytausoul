@@ -441,11 +441,11 @@ app.post("/createModule", function (req, res) {
                       "metaData"
                     ][0] = `${result[matchMain_fol]["metaData"][0]}${result["fol"]["metaData"][0]}`;
 
-                    var first_sec = new Object();
+                    /*var first_sec = new Object();
                     var second_sec = new Object();
-                    var third_sec = new Object();
+                    var third_sec = new Object();*/
 
-                    for (const key in result) {
+                    /*for (const key in result) {
                       const position = result[key]["position"];
                       let first_sec_metaData = new Array();
                       let second_sec_metaData = new Array();
@@ -466,12 +466,13 @@ app.post("/createModule", function (req, res) {
                         position: position,
                         metaData: third_sec_metaData,
                       };
-                    }
+                    }*/
+                    const result_str = JSON.stringify(result);
 
                     result = {
-                      first_sec: first_sec,
-                      second_sec: second_sec,
-                      third_sec: third_sec,
+                      first_sec: JSON.parse(result_str),
+                      second_sec: JSON.parse(result_str),
+                      third_sec: JSON.parse(result_str),
                     };
                     var anatomyPoint_position =
                       result["first_sec"]["anatomy_point"].position;
