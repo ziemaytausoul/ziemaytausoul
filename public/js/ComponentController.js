@@ -124,8 +124,7 @@ function MovingStarsTenYear(section, text) {
     pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
   let real_section = section.replace(/_[0-9]+_character/, "");
   POSTRequestWithJSON(
-    "/fetchMovingStarsTenYear",
-    {
+    "/fetchMovingStarsTenYear", {
       tim_gone: timGone_tenYear,
       zodiac: zodiac_tenYear,
     },
@@ -215,8 +214,7 @@ function MovingStarsSettle(section, type, id) {
       var pattern = /_/;
       let [timGone, zodiac] = result.split(pattern);
       POSTRequestWithJSON(
-        "/fetchMovingStarsTenYear",
-        {
+        "/fetchMovingStarsTenYear", {
           tim_gone: timGone,
           zodiac: zodiac,
         },
@@ -259,8 +257,8 @@ function LocateMovingStar(result, type, section) {
           ) {
             const elem_id = `${star}_${section}_${position + 6}_${type}`;
             $(
-              `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
-            )
+                `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
+              )
               .addClass(`${single_star["metaData"][1]}_copy`)
               .appendTo(
                 `#${section}_${`${position + 6}_${single_star["metaData"][1]}`}`
@@ -272,8 +270,8 @@ function LocateMovingStar(result, type, section) {
           ) {
             const elem_id = `${star}_${section}_${position - 6}_${type}`;
             $(
-              `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
-            )
+                `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
+              )
               .addClass(`${single_star["metaData"][1]}_copy`)
               .appendTo(
                 `#${section}_${`${position - 6}_${single_star["metaData"][1]}`}`

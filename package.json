@@ -22,5 +22,8 @@
     "node-forge": "^0.10.0",
     "readable-stream": "^3.6.0",
     "superagent": "^6.1.0"
+  },
+  "engines": {
+    "node": "10.16.3"
   }
 }
