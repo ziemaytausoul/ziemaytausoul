@@ -80,6 +80,7 @@
     <script>
         var section_list = $(document).find("section");
         const template_obj = getTemplate();
+        console.log(window.location.host);
 
         function createModule() {
             $('#submitBtn').prop('disabled', true);
@@ -97,7 +98,7 @@
 
             $.ajax({
                 //url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
-                url: `/getLunarDate`,
+                url: `http://${window.location.host}/getLunarDate`,
                 method: "POST",
                 data: {
                     year: $("#year").val(),
@@ -138,7 +139,7 @@
 
             function getModulData() {
                 $.ajax({
-                    url: "/createModule",
+                    url: `http://${window.location.host}/createModule`,
                     method: "POST",
                     data: JSON.stringify({
                         "tim_gone": tim_gone,

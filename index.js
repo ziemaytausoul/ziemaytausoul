@@ -1,16 +1,24 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const cookie = require("cookie-session");
 const finding_position = require("./data_collections/finding_position/finding_position.js");
 const handleTaskFunctions = require("./Utility/handleTaskFunctions.js");
 const setting_background = require("./Utility/setting_background.js");
-const { Firestore } = require("@google-cloud/firestore");
+const {
+  Firestore
+} = require("@google-cloud/firestore");
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
-const calendar_convertor = require("lunar-calendar-zh/lib/LunarCalendar.js");
-const { calendar } = require("lunar-calendar-zh/lib/LunarCalendar.js");
+const calendar_convertor = require("./Utility/LunarCalendar.js");
+const {
+  calendar
+} = require("lunar-calendar-zh/lib/LunarCalendar.js");
+const {
+  solarCalendar
+} = require("./Utility/LunarCalendar.js");
 /**Environment setting**/
 app.use(bodyParser.json());
 app.use(
@@ -25,6 +33,9 @@ app.use(
   })
 );
 app.use(express.static(__dirname + "/public"));
+app.use(cors({
+  origin: "*"
+}));
 
 app.set("port", process.env.PORT || 3000);
 app.set("views", __dirname + "/views");
@@ -80,6 +91,10 @@ app.post("/getLunarMonth", function (req, res) {
 });
 
 app.post("/getLunarDay", function (req, res) {
+  console.log(calendar_convertor.getLunarDay(
+    parseInt(req.body.year, 10),
+    parseInt(req.body.month, 10) - 1,
+    parseInt(req.body.day, 10)));
   res
     .status(200)
     .jsonp(
@@ -150,9 +165,9 @@ app.post("/createModule", function (req, res) {
     req.session["birth_month"] = req.body.month ? req.body.month : "5";
     req.session["birth_day"] = req.body.day ? req.body.day : "5";
     req.session["birth_time"] = req.body.time ? req.body.time : "5";
-    req.session["tim_gone"] = req.body.tim_gone
-      ? data_convertion["number_to_tim_gone"][req.body.tim_gone]
-      : "five";
+    req.session["tim_gone"] = req.body.tim_gone ?
+      data_convertion["number_to_tim_gone"][req.body.tim_gone] :
+      "five";
     req.session["lunar_year"] = req.body.c_year ? req.body.c_year : "0";
 
     let reference_data = finding_position.defineSection(
@@ -302,10 +317,9 @@ app.post("/createModule", function (req, res) {
                       if (temp_twelveSections.hasOwnProperty(position)) {
                         result[position] = {
                           position: temp_twelveSections[position],
-                          metaData:
-                            twelveSections_trans[
-                              position
-                            ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/,
+                          metaData: twelveSections_trans[
+                            position
+                          ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/ ,
                         };
                       }
                     }
@@ -317,11 +331,11 @@ app.post("/createModule", function (req, res) {
                         data_convertion["five_elements"][
                           reference_data.type_of_module
                         ] +
-                          data_convertion["chinese_numbers"][
-                            data_convertion["type_of_module"][
-                              reference_data.type_of_module
-                            ]
-                          ],
+                        data_convertion["chinese_numbers"][
+                          data_convertion["type_of_module"][
+                            reference_data.type_of_module
+                          ]
+                        ],
                         "span_module_level",
                       ],
                     };
@@ -594,7 +608,8 @@ app.post("/createModule", function (req, res) {
                               reference_data.type_of_people,
                               "third_sec"
                             );
-
+                            console.log(req.baseUrl);
+                            res.header('Access-Control-Allow-Origin', req.baseUrl)
                             res.status(200).jsonp(result);
                           })
                           .catch((error) => {

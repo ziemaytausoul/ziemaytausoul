@@ -6,7 +6,7 @@ const project_id = "ziemaytausoul",
     keyFilename = "./ziemaytausoul.json";
 const fs = require("fs");
 const superagent = require('superagent');
-const calendar_convertor = require("lunar-calendar-zh");
+const calendar_convertor = require("./LunarCalendar.js");
 
 
 /** 十二宮的大運天干 **/
