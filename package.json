@@ -18,7 +18,6 @@
     "express": "^4.17.1",
     "grpc": "^1.24.4",
     "helmet": "^3.23.3",
-    "lunar-calendar-zh": "^0.1.4",
     "node-fetch": "^2.6.1",
     "node-forge": "^0.10.0",
     "readable-stream": "^3.6.0",
