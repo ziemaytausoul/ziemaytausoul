@@ -621,7 +621,8 @@ app.post("/createModule", function (req, res) {
                       });
                   },
                   function (error) {
-                    res.status(500).end(error);
+                    console.log(error);
+                    res.status(500).end(JSON.stringify(error));
                   }
                 )
                 .catch((error) => {
@@ -639,14 +640,15 @@ app.post("/createModule", function (req, res) {
             });
         },
         function (error) {
-          res.status(500).end(error);
+          console.log(error);
+          res.status(500).end(JSON.stringify(error));
         }
       )
       .catch((error) => {
         console.error("Index.js -> /handleTaskFunction.getAge\n", error);
       });
   } catch (error) {
-    res.status(500).end(error);
+    res.status(500).end(JSON.stringify(error));
   }
 });
 

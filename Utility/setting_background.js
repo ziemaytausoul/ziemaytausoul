@@ -44,7 +44,7 @@ module.exports.getTypeOfModule = function (tim_gone, positionOf_life_point) {
     });
 
     const promise = new Promise(function (resolve, reject) {
-        firestore.collection("type_of_module").doc(tim_gone).get().then(result => {
+        /*firestore.collection("type_of_module").doc(tim_gone).get().then(result => {
             if (result.exists) {
                 resolve(result.get(`${positionOf_life_point}`.toString()));
             } else {
@@ -52,7 +52,20 @@ module.exports.getTypeOfModule = function (tim_gone, positionOf_life_point) {
             }
         }).catch(error => {
             reject(error);
-        });
+        });*/
+        const type_of_module_obj = require(path_mod.join(parent_dir, "type_of_module.json"));
+        if (type_of_module_obj) {
+            try {
+                const type_of_module = type_of_module_obj[tim_gone][`${positionOf_life_point}`.toString()];
+                resolve(type_of_module);
+            } catch (error) {
+                reject(error);
+            }
+
+        } else {
+            reject("Failed to import type_of_module.json");
+        }
+
     });
     return promise;
 }

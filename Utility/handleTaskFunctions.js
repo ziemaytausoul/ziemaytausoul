@@ -1,6 +1,8 @@
 const project_id = "ziemaytausoul",
     keyFilename = "./ziemaytausoul.json";
 const path = require("path");
+const parent_dir = path.join(path.resolve(__dirname, ".."), "data_collections");
+const raw_stars = require(path.join(parent_dir, "stars.json"));
 
 exports.uploadData = function (dir_name, collection = "") {
     const fs = require("fs");
@@ -82,50 +84,79 @@ module.exports.updateData = function (newData, collection = "") {
 }
 
 module.exports.getModuleData = function (birth_year, birth_month, birth_day, birth_time, tim_gone) {
-    const {
+    /*const {
         Firestore
     } = require('@google-cloud/firestore');
     const firestore = new Firestore({
         projectId: project_id,
         keyFilename: keyFilename
-    });
-    let stars = new Object();
-    const collection_ref = firestore.collection("stars");
-    let key = {
-        "by_year": birth_year,
-        "by_month": birth_month,
-        "by_day": birth_day,
-        "by_time": birth_time,
-        "by_tim_gone": tim_gone
-    };
+    });*/
+    try {
+        let stars = new Object();
+        //const collection_ref = firestore.collection("stars");
+        let key = {
+            "by_year": birth_year,
+            "by_month": birth_month,
+            "by_day": birth_day,
+            "by_time": birth_time,
+            "by_tim_gone": tim_gone
+        };
 
-    var promise = new Promise(function (resolve, reject) {
-        collection_ref.get().then(results => {
-            results.docs.forEach(items => {
-                let item = items.data();
-                let doc_id = items.id;
+        var promise = new Promise(function (resolve, reject) {
+            /*collection_ref.get().then(results => {
+                results.docs.forEach(items => {
+                    let item = items.data();
+                    let doc_id = items.id;
 
-                for (const star in item) {
+                    for (const star in item) {
 
-                    stars[star] = new Object();
+                        stars[star] = new Object();
 
-                    if (typeof item[star][key[doc_id]] != "undefined") {
+                        if (typeof item[star][key[doc_id]] != "undefined") {
 
-                        stars[star]["position"] = item[star][key[doc_id]];
+                            stars[star]["position"] = item[star][key[doc_id]];
 
+                        }
+                        if (item[star].hasOwnProperty("findingPosition")) {
+
+                            stars[star]["findingPosition"] = item[star]["findingPosition"];
+
+                        }
                     }
-                    if (item[star].hasOwnProperty("findingPosition")) {
+                });
+                resolve(stars);
+            }).catch(error => {
+                reject(error);
+            });*/
+            if (raw_stars) {
+                for (const items in raw_stars) {
+                    const doc_id = items;
+                    const item = raw_stars[items];
+                    for (const star in item) {
 
-                        stars[star]["findingPosition"] = item[star]["findingPosition"];
+                        stars[star] = new Object();
 
+                        if (typeof item[star][key[doc_id]] != "undefined") {
+
+                            stars[star]["position"] = item[star][key[doc_id]];
+
+                        }
+                        if (item[star].hasOwnProperty("findingPosition")) {
+
+                            stars[star]["findingPosition"] = item[star]["findingPosition"];
+
+                        }
                     }
                 }
-            });
-            resolve(stars);
-        }).catch(error => {
-            reject(error);
+                resolve(stars);
+            } else {
+                reject("Failed to import the stars.json");
+            }
         });
-    });
+    } catch (error) {
+        reject(error);
+        console.log(error);
+    }
     return promise;
 }
 
