@@ -7,15 +7,9 @@ const cookie = require("cookie-session");
 const finding_position = require("./data_collections/finding_position/finding_position.js");
 const handleTaskFunctions = require("./Utility/handleTaskFunctions.js");
 const setting_background = require("./Utility/setting_background.js");
-const {
-  Firestore
-} = require("@google-cloud/firestore");
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
 const calendar_convertor = require("./Utility/LunarCalendar.js");
-const {
-  calendar
-} = require("lunar-calendar-zh/lib/LunarCalendar.js");
 const {
   solarCalendar
 } = require("./Utility/LunarCalendar.js");
@@ -33,9 +27,11 @@ app.use(
   })
 );
 app.use(express.static(__dirname + "/public"));
-app.use(cors({
-  origin: "*"
-}));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.set("port", process.env.PORT || 3000);
 app.set("views", __dirname + "/views");
@@ -91,10 +87,13 @@ app.post("/getLunarMonth", function (req, res) {
 });
 
 app.post("/getLunarDay", function (req, res) {
-  console.log(calendar_convertor.getLunarDay(
-    parseInt(req.body.year, 10),
-    parseInt(req.body.month, 10) - 1,
-    parseInt(req.body.day, 10)));
+  console.log(
+    calendar_convertor.getLunarDay(
+      parseInt(req.body.year, 10),
+      parseInt(req.body.month, 10) - 1,
+      parseInt(req.body.day, 10)
+    )
+  );
   res
     .status(200)
     .jsonp(
@@ -609,7 +608,10 @@ app.post("/createModule", function (req, res) {
                               "third_sec"
                             );
                             console.log(req.baseUrl);
-                            res.header('Access-Control-Allow-Origin', req.baseUrl)
+                            res.header(
+                              "Access-Control-Allow-Origin",
+                              req.baseUrl
+                            );
                             res.status(200).jsonp(result);
                           })
                           .catch((error) => {

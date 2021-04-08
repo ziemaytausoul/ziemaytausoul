@@ -124,7 +124,7 @@ function MovingStarsTenYear(section, text) {
     pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
   let real_section = section.replace(/_[0-9]+_character/, "");
   POSTRequestWithJSON(
-    "/fetchMovingStarsTenYear", {
+    `https://${window.location.hostname}/fetchMovingStarsTenYear`, {
       tim_gone: timGone_tenYear,
       zodiac: zodiac_tenYear,
     },
@@ -199,14 +199,14 @@ function MovingStarsSettle(section, type, id) {
     data["day"] = day;
     data["month"] = month;
     data["year"] = year;
-    url = `/getLunarDay`;
+    url = `https://${window.location.hostname}/getLunarDay`;
   } else if (type === "month") {
     data["month"] = month;
     data["year"] = year;
-    url = `/getLunarMonth`;
+    url = `https://${window.location.hostname}/getLunarMonth`;
   } else if (type === "year") {
     data["year"] = year;
-    url = `/getLunarYear`;
+    url = `https://${window.location.hostname}/getLunarYear`;
   }
 
   POSTRequestWithJSON(url, data, function (result, status, xhr, indication) {
@@ -214,7 +214,7 @@ function MovingStarsSettle(section, type, id) {
       var pattern = /_/;
       let [timGone, zodiac] = result.split(pattern);
       POSTRequestWithJSON(
-        "/fetchMovingStarsTenYear", {
+        `https://${window.location.hostname}/fetchMovingStarsTenYear`, {
           tim_gone: timGone,
           zodiac: zodiac,
         },
