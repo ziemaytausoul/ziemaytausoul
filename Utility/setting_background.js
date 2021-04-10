@@ -233,29 +233,26 @@ module.exports.adjustInternvalForTenYears = function (
     })
   );
   let intervals = data.interval[type_of_module];
-  switch (type_of_people) {
-    case ("11", "00"):
-      for (let steps = 0; steps < intervals.length; steps++) {
-        FirstSec_Result[Section][steps] = {
-          position:
-            positionOf_life_point + steps > 12
-              ? positionOf_life_point + steps - 12
-              : positionOf_life_point + steps,
-          metaData: [intervals[steps], "ten_years"],
-        };
-      }
-      break;
-    default:
-      for (let steps = 0; steps < intervals.length; steps++) {
-        FirstSec_Result[Section][steps] = {
-          position:
-            positionOf_life_point - steps < 1
-              ? positionOf_life_point - steps + 12
-              : positionOf_life_point - steps,
-          metaData: [intervals[steps], "ten_years"],
-        };
-      }
-      break;
+  if (type_of_people === "11" || type_of_people === "00") {
+    for (let steps = 0; steps < intervals.length; steps++) {
+      FirstSec_Result[Section][steps] = {
+        position:
+          positionOf_life_point + steps > 12
+            ? positionOf_life_point + steps - 12
+            : positionOf_life_point + steps,
+        metaData: [intervals[steps], "ten_years"],
+      };
+    }
+  } else {
+    for (let steps = 0; steps < intervals.length; steps++) {
+      FirstSec_Result[Section][steps] = {
+        position:
+          positionOf_life_point - steps < 1
+            ? positionOf_life_point - steps + 12
+            : positionOf_life_point - steps,
+        metaData: [intervals[steps], "ten_years"],
+      };
+    }
   }
 };
 
