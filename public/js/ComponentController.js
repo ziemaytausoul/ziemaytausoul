@@ -124,7 +124,8 @@ function MovingStarsTenYear(section, text) {
     pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
   let real_section = section.replace(/_[0-9]+_character/, "");
   POSTRequestWithJSON(
-    "/fetchMovingStarsTenYear", {
+    `${window.location.origin}/fetchMovingStarsTenYear`,
+    {
       tim_gone: timGone_tenYear,
       zodiac: zodiac_tenYear,
     },
@@ -146,6 +147,10 @@ function MovingStarFormAppear(component, type) {
   $(`#${section}_movingstars_submit`).attr(
     "onclick",
     `MovingStarsSettle("${section}", "${type}", "${$(component).prop("id")}")`
+  );
+  $(`#${section}_movingstars_cancel`).attr(
+    "onclick",
+    `CancelMovingStarsSettle("${section}")`
   );
   $(`#${section}_MovingStarsYear`).prop("disabled", true);
   $(`#${section}_MovingStarsMonth`).prop("disabled", true);
@@ -199,14 +204,14 @@ function MovingStarsSettle(section, type, id) {
     data["day"] = day;
     data["month"] = month;
     data["year"] = year;
-    url = `/getLunarDay`;
+    url = `${window.location.origin}/getLunarDay`;
   } else if (type === "month") {
     data["month"] = month;
     data["year"] = year;
-    url = `/getLunarMonth`;
+    url = `${window.location.origin}/getLunarMonth`;
   } else if (type === "year") {
     data["year"] = year;
-    url = `/getLunarYear`;
+    url = `${window.location.origin}/getLunarYear`;
   }
 
   POSTRequestWithJSON(url, data, function (result, status, xhr, indication) {
@@ -214,7 +219,8 @@ function MovingStarsSettle(section, type, id) {
       var pattern = /_/;
       let [timGone, zodiac] = result.split(pattern);
       POSTRequestWithJSON(
-        "/fetchMovingStarsTenYear", {
+        `${window.location.origin}/fetchMovingStarsTenYear`,
+        {
           tim_gone: timGone,
           zodiac: zodiac,
         },
@@ -235,9 +241,19 @@ function MovingStarsSettle(section, type, id) {
         }
       );
     } else if (indication === "fail") {
+      $(`#${section}_MovingStarsYear`).prop("disabled", false);
+      $(`#${section}_MovingStarsMonth`).prop("disabled", false);
+      $(`#${section}_MovingStarsDay`).prop("disabled", false);
       console.log("fail", status, xhr, result);
     }
   });
+}
+
+function CancelMovingStarsSettle(section) {
+  $(`#${section}_MovingStarsYear`).prop("disabled", false);
+  $(`#${section}_MovingStarsMonth`).prop("disabled", false);
+  $(`#${section}_MovingStarsDay`).prop("disabled", false);
+  $(`#${section}_movingstars_form`).hide();
 }
 
 function LocateMovingStar(result, type, section) {
@@ -245,9 +261,18 @@ function LocateMovingStar(result, type, section) {
     if (result.hasOwnProperty(star)) {
       const single_star = result[star];
       const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
-      const template = html_template[single_star["metaData"][1]];
+      let template;
+      if (single_star["metaData"][1] === "moon") {
+        template = html_template["m_moon"];
+      } /*else if (single_star["metaData"][1] === "") {
+        template = html_template["m_moon"];
+      }*/
       $(`#${section}_${node_id}`).append(
-        `${template["front_begin"]} id="${star}_${section}_${single_star["position"]}_${type}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
+        `${template["front_begin"]} class="${
+          template["class"] + " moving_" + type
+        }" id="${star}_${section}_${single_star["position"]}_${type}"${
+          template["front_end"]
+        }${single_star["metaData"][0]}${template["end"]}`
       );
       if (copy_star_flag) {
         let position = parseInt(single_star["position"]);
@@ -257,8 +282,8 @@ function LocateMovingStar(result, type, section) {
           ) {
             const elem_id = `${star}_${section}_${position + 6}_${type}`;
             $(
-                `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
-              )
+              `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
+            )
               .addClass(`${single_star["metaData"][1]}_copy`)
               .appendTo(
                 `#${section}_${`${position + 6}_${single_star["metaData"][1]}`}`
@@ -270,8 +295,8 @@ function LocateMovingStar(result, type, section) {
           ) {
             const elem_id = `${star}_${section}_${position - 6}_${type}`;
             $(
-                `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
-              )
+              `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
+            )
               .addClass(`${single_star["metaData"][1]}_copy`)
               .appendTo(
                 `#${section}_${`${position - 6}_${single_star["metaData"][1]}`}`

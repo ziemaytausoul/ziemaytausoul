@@ -186,7 +186,7 @@ div .source span {
 }
 
 [class*="_copy"] {
-  color: darkred;
+  color: rgba(207, 31, 0, 0.8);
 }
 
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/
@@ -261,9 +261,20 @@ div .source span {
   height: 100%;
   writing-mode: vertical-lr;
   text-orientation: upright;
+  font-style: italic;
 }
 
+.moving_year {
+  color: rgb(0, 0, 150);
+}
 
+.moving_month{
+  color:rgb(11, 104, 11);
+}
+
+.moving_day {
+  color: rgb(192, 77, 0);
+}
 /* row css */
 .row-1 {
   height: 8.33%;

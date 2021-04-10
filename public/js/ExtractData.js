@@ -470,6 +470,7 @@ const module_template = `<div style="height: 100vh;">
                         </div>-->
                         <div class="form-group">
                             <input type="button" value="佈星" id="movingstars_submit"/>
+                            <input type="button" value="取消" id="movingstars_cancel"/>
                         </div>
                     </form>
                 </div>
@@ -991,140 +992,141 @@ const module_template = `<div style="height: 100vh;">
 </div>`;
 
 const template = {
-    main: {
-        front_begin: '<div class="main" style="display:inline-block;"',
-        front_end: ">",
-        end: "</div>",
-    },
-    moon: {
-        front_begin: '<div class="moon"',
-        front_end: ">",
-        end: "</div>",
-    },
-    first_tier: {
-        front_begin: '<div class="first_tier"s',
-        front_end: ">",
-        end: "</div>",
-    },
-    second_tier: {
-        front_begin: '<div class="second_tier"',
-        front_end: ">",
-        end: "</div>",
-    },
-    changes: {
-        front_begin: '<span id=""',
-        front_end: ">",
-        end: "</span>",
-    },
-    character: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    position: {
-        front_begin: "<div",
-        front_end: ">",
-        end: "</div>",
-    },
-    ten_years: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    cheong_sun: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    module_type: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_ten_years_positioning: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_year_data: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_age: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_anatomy_core: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_module_core: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_module_level: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_normal_year: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_lunar_year: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_lunar_month: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_lunar_day: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    span_lunar_time: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    people_type: {
-        front_begin: "",
-        front_end: "",
-        end: "",
-    },
-    special: {
-        front_begin: '<div class="special"',
-        front_end: ">",
-        end: "</div>",
-    },
-    m_moon: {
-        front_begin: '<div class="m_moon"',
-        front_end: ">",
-        end: "</div>",
-    },
+  main: {
+    front_begin: '<div class="main" style="display:inline-block;"',
+    front_end: ">",
+    end: "</div>",
+  },
+  moon: {
+    front_begin: '<div class="moon"',
+    front_end: ">",
+    end: "</div>",
+  },
+  first_tier: {
+    front_begin: '<div class="first_tier"s',
+    front_end: ">",
+    end: "</div>",
+  },
+  second_tier: {
+    front_begin: '<div class="second_tier"',
+    front_end: ">",
+    end: "</div>",
+  },
+  changes: {
+    front_begin: '<span id=""',
+    front_end: ">",
+    end: "</span>",
+  },
+  character: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  position: {
+    front_begin: "<div",
+    front_end: ">",
+    end: "</div>",
+  },
+  ten_years: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  cheong_sun: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  module_type: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_ten_years_positioning: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_year_data: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_age: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_anatomy_core: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_module_core: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_module_level: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_normal_year: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_year: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_month: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_day: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  span_lunar_time: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  people_type: {
+    front_begin: "",
+    front_end: "",
+    end: "",
+  },
+  special: {
+    front_begin: '<div class="special"',
+    front_end: ">",
+    end: "</div>",
+  },
+  m_moon: {
+    front_begin: "<div ",
+    class: "m_moon",
+    front_end: ">",
+    end: "</div>",
+  },
 };
 
 function EmbedTemplate(sectionName) {
-    $(`#${sectionName}`).html(module_template);
-    $(`#${sectionName}`)
-        .find("*")
-        .filter(function () {
-            var tag_id = $(this).attr("id");
-            if ($(this).attr("id") != undefined) {
-                $(this).attr("id", `${sectionName}_${tag_id}`);
-            }
-        });
+  $(`#${sectionName}`).html(module_template);
+  $(`#${sectionName}`)
+    .find("*")
+    .filter(function () {
+      var tag_id = $(this).attr("id");
+      if ($(this).attr("id") != undefined) {
+        $(this).attr("id", `${sectionName}_${tag_id}`);
+      }
+    });
 }
 
 function getTemplate() {
-    return template;
+  return template;
 }
