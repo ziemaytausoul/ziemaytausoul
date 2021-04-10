@@ -10,7 +10,6 @@ const setting_background = require("./Utility/setting_background.js");
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
 const calendar_convertor = require("./Utility/LunarCalendar.js");
-
 /**Environment setting**/
 app.use(bodyParser.json());
 app.use(
