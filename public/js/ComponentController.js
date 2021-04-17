@@ -1,4 +1,5 @@
 const html_template = getTemplate();
+const html_others = getOthers();
 let copy_star_flag = false;
 const position_id = [
   "子",
@@ -35,6 +36,11 @@ function CopyStars(section) {
           .clone()
           .addClass("moon_copy")
           .appendTo(`#${real_section}_${position}_moon`);
+        $(`#${real_section}_${position + 6}_moon`)
+          .children(".m_moon")
+          .clone()
+          .addClass("m_moon_copy")
+          .appendTo(`#${real_section}_${position}_moon`);
         $(`#${real_section}_${position + 6}_first_tier`)
           .children(".first_tier")
           .clone()
@@ -55,6 +61,11 @@ function CopyStars(section) {
           .children(".moon")
           .clone()
           .addClass("moon_copy")
+          .appendTo(`#${real_section}_${position}_moon`);
+        $(`#${real_section}_${position - 6}_moon`)
+          .children(".m_moon")
+          .clone()
+          .addClass("m_moon_copy")
           .appendTo(`#${real_section}_${position}_moon`);
         $(`#${real_section}_${position - 6}_first_tier`)
           .children(".first_tier")
@@ -124,8 +135,7 @@ function MovingStarsTenYear(section, text) {
     pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
   let real_section = section.replace(/_[0-9]+_character/, "");
   POSTRequestWithJSON(
-    `${window.location.origin}/fetchMovingStarsTenYear`,
-    {
+    `${window.location.origin}/fetchMovingStarsTenYear`, {
       tim_gone: timGone_tenYear,
       zodiac: zodiac_tenYear,
     },
@@ -219,8 +229,7 @@ function MovingStarsSettle(section, type, id) {
       var pattern = /_/;
       let [timGone, zodiac] = result.split(pattern);
       POSTRequestWithJSON(
-        `${window.location.origin}/fetchMovingStarsTenYear`,
-        {
+        `${window.location.origin}/fetchMovingStarsTenYear`, {
           tim_gone: timGone,
           zodiac: zodiac,
         },
@@ -264,16 +273,12 @@ function LocateMovingStar(result, type, section) {
       let template;
       if (single_star["metaData"][1] === "moon") {
         template = html_template["m_moon"];
-      } /*else if (single_star["metaData"][1] === "") {
-        template = html_template["m_moon"];
-      }*/
-      $(`#${section}_${node_id}`).append(
-        `${template["front_begin"]} class="${
-          template["class"] + " moving_" + type
-        }" id="${star}_${section}_${single_star["position"]}_${type}"${
-          template["front_end"]
-        }${single_star["metaData"][0]}${template["end"]}`
-      );
+      }
+      /*else if (single_star["metaData"][1] === "") {
+             template = html_template["m_moon"];
+           }*/
+      let html_node = `${template["front_begin"]} id="${star}_${section}_${single_star["position"]}_${type}"${template["front_end"]}${single_star["metaData"][0]}${html_others[type]}${template["end"]}`;
+      $(html_node).appendTo(`#${section}_${node_id}`);
       if (copy_star_flag) {
         let position = parseInt(single_star["position"]);
         if (position < 7) {
@@ -281,10 +286,9 @@ function LocateMovingStar(result, type, section) {
             $(`div#${section}_${position + 6}_main > div.main_copy`).length > 0
           ) {
             const elem_id = `${star}_${section}_${position + 6}_${type}`;
-            $(
-              `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
-            )
+            $(html_node)
               .addClass(`${single_star["metaData"][1]}_copy`)
+              .attr("id", elem_id)
               .appendTo(
                 `#${section}_${`${position + 6}_${single_star["metaData"][1]}`}`
               );
@@ -294,10 +298,9 @@ function LocateMovingStar(result, type, section) {
             $(`div#${section}_${position - 6}_main > div.main_copy`).length > 0
           ) {
             const elem_id = `${star}_${section}_${position - 6}_${type}`;
-            $(
-              `${template["front_begin"]} id="${elem_id}"${template["front_end"]}${single_star["metaData"][0]}${template["end"]}`
-            )
+            $(html_node)
               .addClass(`${single_star["metaData"][1]}_copy`)
+              .attr("id", elem_id)
               .appendTo(
                 `#${section}_${`${position - 6}_${single_star["metaData"][1]}`}`
               );
