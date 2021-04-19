@@ -76,6 +76,12 @@
 
     </section>
     <script>
+        $(document).ready(() => {
+            $(window).resize(() => {
+                let winWidth = $(window).width();
+                $(document).css("font-size", winWidth / 1233)
+            });
+        });
         var section_list = $(document).find("section");
         const template_obj = getTemplate();
 

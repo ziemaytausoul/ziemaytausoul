@@ -5,6 +5,7 @@
 
 html {
   font-size: 1vmin;
+  cursor: default;
 }
 
 .rat {
@@ -242,6 +243,7 @@ div .source span {
   height: 100%;
   float: right;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 /** 十二宮天干地支 **/
