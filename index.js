@@ -161,9 +161,9 @@ app.post("/createModule", function (req, res) {
     req.session["birth_month"] = req.body.month ? req.body.month : "5";
     req.session["birth_day"] = req.body.day ? req.body.day : "5";
     req.session["birth_time"] = req.body.time ? req.body.time : "5";
-    req.session["tim_gone"] = req.body.tim_gone
-      ? data_convertion["number_to_tim_gone"][req.body.tim_gone]
-      : "five";
+    req.session["tim_gone"] = req.body.tim_gone ?
+      data_convertion["number_to_tim_gone"][req.body.tim_gone] :
+      "five";
     req.session["lunar_year"] = req.body.c_year ? req.body.c_year : "0";
 
     let reference_data = finding_position.defineSection(
@@ -313,10 +313,9 @@ app.post("/createModule", function (req, res) {
                       if (temp_twelveSections.hasOwnProperty(position)) {
                         result[position] = {
                           position: temp_twelveSections[position],
-                          metaData:
-                            twelveSections_trans[
-                              position
-                            ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/,
+                          metaData: twelveSections_trans[
+                            position
+                          ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/ ,
                         };
                       }
                     }
@@ -328,11 +327,11 @@ app.post("/createModule", function (req, res) {
                         data_convertion["five_elements"][
                           reference_data.type_of_module
                         ] +
-                          data_convertion["chinese_numbers"][
-                            data_convertion["type_of_module"][
-                              reference_data.type_of_module
-                            ]
-                          ],
+                        data_convertion["chinese_numbers"][
+                          data_convertion["type_of_module"][
+                            reference_data.type_of_module
+                          ]
+                        ],
                         "span_module_level",
                       ],
                     };
