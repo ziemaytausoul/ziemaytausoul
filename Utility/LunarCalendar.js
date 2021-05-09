@@ -625,14 +625,14 @@
     var monthDataArr = monthData.split("");
 
     //還原數據至16位,少於16位的在前面插入0（二進制存儲時前面的0被忽略）
-    for (var i = 0; i < 16 - monthDataArr.length; i++) {
+    for (let i = 0; i < 16 - monthDataArr.length; i++) {
       monthDataArr.unshift(0);
     }
 
     var len = leapMonth ? 13 : 12; //該年有幾個月
     var yearDays = 0;
     var monthDays = [];
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
       if (monthDataArr[i] == 0) {
         yearDays += 29;
         monthDays.push(29);

@@ -678,6 +678,28 @@
                     "type_of_people"
                 ]
             }
+        },
+        "dai_hau": {
+            "1": 7,
+            "2": 8,
+            "3": 9,
+            "4": 10,
+            "5": 11,
+            "6": 12,
+            "7": 1,
+            "8": 2,
+            "9": 3,
+            "10": 4,
+            "11": 5,
+            "12": 6,
+            "findingPosition" : {
+                "findDaiHau": [
+                    {
+                        "positionOf": "dai_hau"
+                    },
+                    "type_of_people"
+                ]
+            }
         }
     },
     "by_month": {

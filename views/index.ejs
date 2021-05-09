@@ -168,6 +168,7 @@
         }
 
         function LocateStar(module) {
+        console.log(module)
             $.each(module, function (sec_name, section_content) {
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;

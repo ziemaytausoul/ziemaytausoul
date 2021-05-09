@@ -391,7 +391,7 @@
             "劫殺",
             "first_tier"
         ],
-        "die_hau": [
+        "dai_hau": [
             "大耗",
             "first_tier"
         ],
@@ -504,7 +504,7 @@
                     ]
                 },
                 {
-                    "siu_ho": [
+                    "siu_hau": [
                         "小耗",
                         "second_tier"
                     ]
