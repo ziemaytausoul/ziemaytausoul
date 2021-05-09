@@ -127,11 +127,11 @@
                         }
                         tim_gone = date_arr[3];
                         year = date_arr[4];
+                        console.log("day: ", day, "month: ", month, "year: ", year, "tim_gone: ", tim_gone,
+                            "time: ", time, "c_year: ", c_year, "gender: ", gender)
                         getModulData();
                     } else {
-                        //console.log(result);
                         console.log(status);
-                        //console.log(xhr);
                     }
                 },
                 error: function (xhr, status, error) {

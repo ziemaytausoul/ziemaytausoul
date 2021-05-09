@@ -54,6 +54,9 @@ app.get("/updateData", function (req, res) {
 });
 
 app.post("/getLunarDate", function (req, res) {
+  console.log(
+    calendar_convertor.solarToLunar(req.body.year, req.body.month, req.body.day)
+  );
   res
     .status(200)
     .jsonp(
