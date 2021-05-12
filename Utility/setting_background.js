@@ -99,10 +99,8 @@ module.exports.settingInternvalForTenYears = function (
   if (type_of_people === "11" || type_of_people === "00") {
     for (let steps = 0; steps < intervals.length; steps++) {
       result[steps] = {
-        position:
-          positionOf_life_point + steps > 12
-            ? positionOf_life_point + steps - 12
-            : positionOf_life_point + steps,
+        position: positionOf_life_point + steps > 12 ?
+          positionOf_life_point + steps - 12 : positionOf_life_point + steps,
         metaData: [intervals[steps], "ten_years"],
       };
     }
@@ -110,10 +108,8 @@ module.exports.settingInternvalForTenYears = function (
   } else {
     for (let steps = 0; steps < intervals.length; steps++) {
       result[steps] = {
-        position:
-          positionOf_life_point - steps < 1
-            ? positionOf_life_point - steps + 12
-            : positionOf_life_point - steps,
+        position: positionOf_life_point - steps < 1 ?
+          positionOf_life_point - steps + 12 : positionOf_life_point - steps,
         metaData: [intervals[steps], "ten_years"],
       };
     }
@@ -147,14 +143,14 @@ module.exports.settingTenYearsLiving = function (
       let ten_year_living = "";
       if (type_of_people == "11" || type_of_people == "00") {
         ten_year_living =
-          positionOf_life_point + steps > 12
-            ? positionOf_life_point + steps - 12
-            : positionOf_life_point + steps;
+          positionOf_life_point + steps > 12 ?
+          positionOf_life_point + steps - 12 :
+          positionOf_life_point + steps;
       } else {
         ten_year_living =
-          positionOf_life_point - steps < 1
-            ? positionOf_life_point + steps + 12
-            : positionOf_life_point - steps;
+          positionOf_life_point - steps < 1 ?
+          positionOf_life_point + steps + 12 :
+          positionOf_life_point - steps;
       }
       for (const key in tim_gone) {
         const string_arr = key.split("_");
@@ -197,14 +193,14 @@ module.exports.adjustTenYearsLiving = function (
         let ten_year_living = "";
         if (type_of_people == "11" || type_of_people == "00") {
           ten_year_living =
-            positionOf_life_point + steps > 12
-              ? positionOf_life_point + steps - 12
-              : positionOf_life_point + steps;
+            positionOf_life_point + steps > 12 ?
+            positionOf_life_point + steps - 12 :
+            positionOf_life_point + steps;
         } else {
           ten_year_living =
-            positionOf_life_point - steps < 1
-              ? positionOf_life_point + steps + 12
-              : positionOf_life_point - steps;
+            positionOf_life_point - steps < 1 ?
+            positionOf_life_point + steps + 12 :
+            positionOf_life_point - steps;
         }
         for (const key in tim_gone) {
           const string_arr = key.split("_");
@@ -236,20 +232,16 @@ module.exports.adjustInternvalForTenYears = function (
   if (type_of_people === "11" || type_of_people === "00") {
     for (let steps = 0; steps < intervals.length; steps++) {
       FirstSec_Result[Section][steps] = {
-        position:
-          positionOf_life_point + steps > 12
-            ? positionOf_life_point + steps - 12
-            : positionOf_life_point + steps,
+        position: positionOf_life_point + steps > 12 ?
+          positionOf_life_point + steps - 12 : positionOf_life_point + steps,
         metaData: [intervals[steps], "ten_years"],
       };
     }
   } else {
     for (let steps = 0; steps < intervals.length; steps++) {
       FirstSec_Result[Section][steps] = {
-        position:
-          positionOf_life_point - steps < 1
-            ? positionOf_life_point - steps + 12
-            : positionOf_life_point - steps,
+        position: positionOf_life_point - steps < 1 ?
+          positionOf_life_point - steps + 12 : positionOf_life_point - steps,
         metaData: [intervals[steps], "ten_years"],
       };
     }
@@ -285,9 +277,9 @@ module.exports.getAge = async function (birth_year, birth_month, birth_day) {
       return now_year - parseInt(birth_year, 10);
     }
   }
-  return now_year - parseInt(birth_year, 10) - 1 < 1
-    ? 1
-    : now_year - parseInt(birth_year, 10) - 1;
+  return now_year - parseInt(birth_year, 10) - 1 < 1 ?
+    1 :
+    now_year - parseInt(birth_year, 10) - 1;
 };
 
 /** 命主 **/

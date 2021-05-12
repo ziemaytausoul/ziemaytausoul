@@ -98,47 +98,74 @@
             section_list.each(function (index, elem) {
                 EmbedTemplate(elem.id);
             });
-
-            $.ajax({
-                //url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
-                url: `${window.location.origin}/getLunarDate`,
-                method: "POST",
-                data: {
-                    year: $("#year").val(),
-                    month: $("#month").val(),
-                    day: $("#day").val()
-                },
-                success: function (result, status, xhr) {
-                    //console.log(result, xhr);
-                    //var transformed_date = result["result"];
-                    //var date_arr = transformed_date.split("_");
-                    var timGoneNzodiac = result["GanZhiYear"].split('_');
-                    var date_arr = new Array(result["lunarYear"], result["lunarMonth"], result["lunarDay"],
-                        timGoneNzodiac[0], timGoneNzodiac[1]);
-                    if (date_arr) {
-                        if ($("#dateType").children("option:selected").val() == "1") {
+            if ($("#dateType").children("option:selected").val() == "1") {
+                $.ajax({
+                    //url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
+                    url: `${window.location.origin}/getLunarDate`,
+                    method: "POST",
+                    data: {
+                        year: $("#year").val(),
+                        month: $("#month").val(),
+                        day: $("#day").val()
+                    },
+                    success: function (result, status, xhr) {
+                        //console.log(result, xhr);
+                        //var transformed_date = result["result"];
+                        //var date_arr = transformed_date.split("_");
+                        var timGoneNzodiac = result["GanZhiYear"].split('_');
+                        var date_arr = new Array(result["lunarYear"], result["lunarMonth"], result[
+                                "lunarDay"],
+                            timGoneNzodiac[0], timGoneNzodiac[1]);
+                        if (date_arr) {
                             c_year = date_arr[0];
                             month = date_arr[1];
                             day = date_arr[2];
+                            tim_gone = date_arr[3];
+                            year = date_arr[4];
+                            console.log("day: ", day, "month: ", month, "year: ", year, "tim_gone: ",
+                                tim_gone,
+                                "time: ", time, "c_year: ", c_year, "gender: ", gender);
+                            getModulData();
                         } else {
+                            console.log(status);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.status);
+                        console.log(error);
+                    }
+                });
+            } else {
+                $.ajax({
+                    //url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
+                    url: `${window.location.origin}/getLunarYear`,
+                    method: "POST",
+                    data: {
+                        year: $("#year").val()
+                    },
+                    success: function (result, status, xhr) {
+                        console.log(result);
+                        var timGoneNzodiac = result.split('_');
+                        if (timGoneNzodiac) {
                             c_year = $("#year").val();
                             month = $("#month").val();
                             day = $("#day").val();
+                            tim_gone = timGoneNzodiac[0];
+                            year = timGoneNzodiac[1];
+                            console.log("day: ", day, "month: ", month, "year: ", year, "tim_gone: ",
+                                tim_gone,
+                                "time: ", time, "c_year: ", c_year, "gender: ", gender);
+                            getModulData();
+                        } else {
+                            console.log(status);
                         }
-                        tim_gone = date_arr[3];
-                        year = date_arr[4];
-                        console.log("day: ", day, "month: ", month, "year: ", year, "tim_gone: ", tim_gone,
-                            "time: ", time, "c_year: ", c_year, "gender: ", gender)
-                        getModulData();
-                    } else {
-                        console.log(status);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.status);
+                        console.log(error);
                     }
-                },
-                error: function (xhr, status, error) {
-                    console.log(xhr.status);
-                    console.log(error);
-                }
-            });
+                });
+            }
 
             function getModulData() {
                 $.ajax({
@@ -168,7 +195,7 @@
         }
 
         function LocateStar(module) {
-        console.log(module)
+            console.log(module)
             $.each(module, function (sec_name, section_content) {
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;
