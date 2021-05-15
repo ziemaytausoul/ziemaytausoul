@@ -1,6 +1,4 @@
-const {
-  exception
-} = require("console");
+const { exception } = require("console");
 const fs = require("fs");
 const data_convertion = require(__dirname.replace(
   "finding_position",
@@ -71,7 +69,9 @@ module.exports.findSwunKongMain = function (tim_gone, birth_year) {
   birth_year = parseInt(birth_year);
 
   for (
-    let temp_tim_gone = number_tim_gone; temp_tim_gone <= 10; temp_tim_gone++
+    let temp_tim_gone = number_tim_gone;
+    temp_tim_gone <= 10;
+    temp_tim_gone++
   ) {
     birth_year = birth_year == 12 ? 1 : birth_year + 1;
   }
@@ -88,7 +88,9 @@ module.exports.findSwunKongSub = function (tim_gone, birth_year) {
   birth_year = parseInt(birth_year);
 
   for (
-    let temp_tim_gone = number_tim_gone; temp_tim_gone <= 10; temp_tim_gone++
+    let temp_tim_gone = number_tim_gone;
+    temp_tim_gone <= 10;
+    temp_tim_gone++
   ) {
     birth_year = birth_year == 12 ? 1 : birth_year + 1;
   }
@@ -100,31 +102,49 @@ module.exports.findSwunKongSub = function (tim_gone, birth_year) {
 };
 
 /** 天才 **/
-module.exports.findTimChoi = function (life_point, birth_year) {
+module.exports.findTimChoi = function (
+  life_point,
+  birth_year,
+  result = null,
+  section = null
+) {
   const birth_year_int = parseInt(birth_year);
   let TimChoi_point = parseInt(life_point);
   for (let steps = 1; steps < birth_year_int; steps++) {
     TimChoi_point = TimChoi_point == 12 ? 1 : TimChoi_point + 1;
   }
-  return {
-    tim_choi: {
-      position: TimChoi_point,
-    },
-  };
+  if (result != null && section != null) {
+    result[section]["tim_choi"]["position"] = TimChoi_point;
+  } else {
+    return {
+      tim_choi: {
+        position: TimChoi_point,
+      },
+    };
+  }
 };
 
 /** 天壽 **/
-module.exports.findTimSoul = function (anatomy_point, birth_year) {
+module.exports.findTimSoul = function (
+  anatomy_point,
+  birth_year,
+  result = null,
+  section = null
+) {
   const birth_year_int = parseInt(birth_year, 10);
   let TimSoul_point = parseInt(anatomy_point, 10);
   for (let steps = 1; steps < birth_year_int; steps++) {
     TimSoul_point = TimSoul_point == 12 ? 1 : TimSoul_point + 1;
   }
-  return {
-    tim_soul: {
-      position: TimSoul_point,
-    },
-  };
+  if (result != null && section != null) {
+    result[section]["tim_soul"]["position"] = TimSoul_point;
+  } else {
+    return {
+      tim_soul: {
+        position: TimSoul_point,
+      },
+    };
+  }
 };
 
 /** 天傷 **/
@@ -319,13 +339,17 @@ module.exports.defineSection = function (birth_month, birth_time) {
     thought_point: life_point + 2 > 12 ? life_point + 2 - 12 : life_point + 2,
     housing_point: life_point + 3 > 12 ? life_point + 3 - 12 : life_point + 3,
     career_point: life_point + 4 > 12 ? life_point + 4 - 12 : life_point + 4,
-    friendship_point: life_point + 5 > 12 ? life_point + 5 - 12 : life_point + 5,
+    friendship_point:
+      life_point + 5 > 12 ? life_point + 5 - 12 : life_point + 5,
     travel_point: life_point + 6 > 12 ? life_point + 6 - 12 : life_point + 6,
     illness_point: life_point + 7 > 12 ? life_point + 7 - 12 : life_point + 7,
-    possession_point: life_point + 8 > 12 ? life_point + 8 - 12 : life_point + 8,
+    possession_point:
+      life_point + 8 > 12 ? life_point + 8 - 12 : life_point + 8,
     posterity_point: life_point + 9 > 12 ? life_point + 9 - 12 : life_point + 9,
-    marriage_point: life_point + 10 > 12 ? life_point + 10 - 12 : life_point + 10,
-    sibling_point: life_point + 11 > 12 ? life_point + 11 - 12 : life_point + 11,
+    marriage_point:
+      life_point + 10 > 12 ? life_point + 10 - 12 : life_point + 10,
+    sibling_point:
+      life_point + 11 > 12 ? life_point + 11 - 12 : life_point + 11,
     anatomy_point: anatomy_point,
   };
 };
@@ -368,24 +392,28 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
       position: zie_may_end_point == 1 ? 12 : zie_may_end_point - 1,
     },
     tai_yueng: {
-      position: zie_may_end_point > 3 ?
-        zie_may_end_point - 3 :
-        zie_may_end_point - 3 + 12,
+      position:
+        zie_may_end_point > 3
+          ? zie_may_end_point - 3
+          : zie_may_end_point - 3 + 12,
     },
     mau_koo: {
-      position: zie_may_end_point > 4 ?
-        zie_may_end_point - 4 :
-        zie_may_end_point - 4 + 12,
+      position:
+        zie_may_end_point > 4
+          ? zie_may_end_point - 4
+          : zie_may_end_point - 4 + 12,
     },
     tim_toun: {
-      position: zie_may_end_point > 5 ?
-        zie_may_end_point - 5 :
-        zie_may_end_point - 5 + 12,
+      position:
+        zie_may_end_point > 5
+          ? zie_may_end_point - 5
+          : zie_may_end_point - 5 + 12,
     },
     lin_zaen: {
-      position: zie_may_end_point > 8 ?
-        zie_may_end_point - 8 :
-        zie_may_end_point - 8 + 12,
+      position:
+        zie_may_end_point > 8
+          ? zie_may_end_point - 8
+          : zie_may_end_point - 8 + 12,
     },
     tim_foo: {
       position: tim_foo_start_point,
@@ -394,34 +422,40 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
       position: tim_foo_start_point == 12 ? 1 : tim_foo_start_point + 1,
     },
     tam_long: {
-      position: tim_foo_start_point > 10 ?
-        tim_foo_start_point + 2 - 12 :
-        tim_foo_start_point + 2,
+      position:
+        tim_foo_start_point > 10
+          ? tim_foo_start_point + 2 - 12
+          : tim_foo_start_point + 2,
     },
     guoy_moon: {
-      position: tim_foo_start_point > 9 ?
-        tim_foo_start_point + 3 - 12 :
-        tim_foo_start_point + 3,
+      position:
+        tim_foo_start_point > 9
+          ? tim_foo_start_point + 3 - 12
+          : tim_foo_start_point + 3,
     },
     tim_sueng: {
-      position: tim_foo_start_point > 8 ?
-        tim_foo_start_point + 4 - 12 :
-        tim_foo_start_point + 4,
+      position:
+        tim_foo_start_point > 8
+          ? tim_foo_start_point + 4 - 12
+          : tim_foo_start_point + 4,
     },
     tim_leung: {
-      position: tim_foo_start_point > 7 ?
-        tim_foo_start_point + 5 - 12 :
-        tim_foo_start_point + 5,
+      position:
+        tim_foo_start_point > 7
+          ? tim_foo_start_point + 5 - 12
+          : tim_foo_start_point + 5,
     },
     chey_sa: {
-      position: tim_foo_start_point > 6 ?
-        tim_foo_start_point + 6 - 12 :
-        tim_foo_start_point + 6,
+      position:
+        tim_foo_start_point > 6
+          ? tim_foo_start_point + 6 - 12
+          : tim_foo_start_point + 6,
     },
     pob_gaun: {
-      position: tim_foo_start_point > 2 ?
-        tim_foo_start_point + 10 - 12 :
-        tim_foo_start_point + 10,
+      position:
+        tim_foo_start_point > 2
+          ? tim_foo_start_point + 10 - 12
+          : tim_foo_start_point + 10,
     },
   };
 };
@@ -547,9 +581,9 @@ module.exports.AdjustTwelveSections = function (
   pointsName.forEach((name) => {
     if (name != "anatomy_point") {
       FirstSec_Result[Section][name].position =
-        nextPoint + newLifePoint > 12 ?
-        nextPoint + newLifePoint - 12 :
-        nextPoint + newLifePoint;
+        nextPoint + newLifePoint > 12
+          ? nextPoint + newLifePoint - 12
+          : nextPoint + newLifePoint;
       nextPoint++;
     }
   });

@@ -161,9 +161,9 @@ app.post("/createModule", function (req, res) {
     req.session["birth_month"] = req.body.month ? req.body.month : "5";
     req.session["birth_day"] = req.body.day ? req.body.day : "5";
     req.session["birth_time"] = req.body.time ? req.body.time : "5";
-    req.session["tim_gone"] = req.body.tim_gone ?
-      data_convertion["number_to_tim_gone"][req.body.tim_gone] :
-      "five";
+    req.session["tim_gone"] = req.body.tim_gone
+      ? data_convertion["number_to_tim_gone"][req.body.tim_gone]
+      : "five";
     req.session["lunar_year"] = req.body.c_year ? req.body.c_year : "0";
 
     let reference_data = finding_position.defineSection(
@@ -313,9 +313,10 @@ app.post("/createModule", function (req, res) {
                       if (temp_twelveSections.hasOwnProperty(position)) {
                         result[position] = {
                           position: temp_twelveSections[position],
-                          metaData: twelveSections_trans[
-                            position
-                          ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/ ,
+                          metaData:
+                            twelveSections_trans[
+                              position
+                            ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/,
                         };
                       }
                     }
@@ -327,11 +328,11 @@ app.post("/createModule", function (req, res) {
                         data_convertion["five_elements"][
                           reference_data.type_of_module
                         ] +
-                        data_convertion["chinese_numbers"][
-                          data_convertion["type_of_module"][
-                            reference_data.type_of_module
-                          ]
-                        ],
+                          data_convertion["chinese_numbers"][
+                            data_convertion["type_of_module"][
+                              reference_data.type_of_module
+                            ]
+                          ],
                         "span_module_level",
                       ],
                     };
@@ -550,11 +551,24 @@ app.post("/createModule", function (req, res) {
                           reference_data.type_of_people,
                           "second_sec"
                         );
-
                         finding_position.AdjustTwelveSections(
                           result,
                           thoughtPoint_position,
-                          "third_sec"
+                          "second_sec"
+                        );
+                        /* Adjust Tim Choi Position */
+                        finding_position.findTimChoi(
+                          result["second_sec"]["life_point"]["position"],
+                          reference_data.birth_year,
+                          result,
+                          "second_sec"
+                        );
+                        /* Adjust Tim Soul Position */
+                        finding_position.findTimSoul(
+                          result["second_sec"]["anatomy_point"]["position"],
+                          reference_data.birth_year,
+                          result,
+                          "second_sec"
                         );
                         setting_background
                           .getTypeOfModule(
@@ -610,6 +624,20 @@ app.post("/createModule", function (req, res) {
                               result,
                               result["third_sec"]["travel_point"]["position"],
                               reference_data.type_of_people,
+                              "third_sec"
+                            );
+                            /* Adjust Tim Choi Position */
+                            finding_position.findTimChoi(
+                              result["third_sec"]["life_point"]["position"],
+                              reference_data.birth_year,
+                              result,
+                              "third_sec"
+                            );
+                            /* Adjust Tim Soul Position */
+                            finding_position.findTimSoul(
+                              result["third_sec"]["anatomy_point"]["position"],
+                              reference_data.birth_year,
+                              result,
                               "third_sec"
                             );
                             //console.log(req.baseUrl);
