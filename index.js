@@ -283,20 +283,22 @@ app.post("/createModule", function (req, res) {
                       }
                     }
                     /** Prepare ten_years **/
-                    const temp_ten_years = setting_background.settingInternvalForTenYears(
-                      reference_data.type_of_module,
-                      reference_data.type_of_people,
-                      reference_data.life_point
-                    );
+                    const temp_ten_years =
+                      setting_background.settingInternvalForTenYears(
+                        reference_data.type_of_module,
+                        reference_data.type_of_people,
+                        reference_data.life_point
+                      );
                     for (const year in temp_ten_years) {
                       if (temp_ten_years.hasOwnProperty(year)) {
                         result[year] = temp_ten_years[year];
                       }
                     }
                     /** Prepare character **/
-                    const temp_character = setting_background.defineTimGoneOfTwelveSections(
-                      reference_data.tim_gone
-                    );
+                    const temp_character =
+                      setting_background.defineTimGoneOfTwelveSections(
+                        reference_data.tim_gone
+                      );
                     for (const charac in temp_character) {
                       if (temp_character.hasOwnProperty(charac)) {
                         result[charac] = temp_character[charac];
@@ -489,6 +491,9 @@ app.post("/createModule", function (req, res) {
                       result["first_sec"]["anatomy_point"].position;
                     var thoughtPoint_position =
                       result["first_sec"]["thought_point"].position;
+
+                    console.log(anatomyPoint_position, thoughtPoint_position);
+
                     finding_position.AdjustTwelveSections(
                       result,
                       anatomyPoint_position,
@@ -551,11 +556,7 @@ app.post("/createModule", function (req, res) {
                           reference_data.type_of_people,
                           "second_sec"
                         );
-                        finding_position.AdjustTwelveSections(
-                          result,
-                          thoughtPoint_position,
-                          "second_sec"
-                        );
+
                         /* Adjust Tim Choi Position */
                         finding_position.findTimChoi(
                           result["second_sec"]["life_point"]["position"],
@@ -570,6 +571,13 @@ app.post("/createModule", function (req, res) {
                           result,
                           "second_sec"
                         );
+
+                        finding_position.AdjustTwelveSections(
+                          result,
+                          thoughtPoint_position,
+                          "third_sec"
+                        );
+
                         setting_background
                           .getTypeOfModule(
                             reference_data.twelveTimGone[thoughtPoint_position],
