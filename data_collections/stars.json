@@ -944,7 +944,7 @@
         "tim_soul": {
             "findingPosition": {
                 "findTimSoul": [
-                    "life_point",
+                    "anatomy_point",
                     "birth_year"
                 ]
             }

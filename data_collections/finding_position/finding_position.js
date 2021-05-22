@@ -131,6 +131,7 @@ module.exports.findTimSoul = function (
   result = null,
   section = null
 ) {
+  console.log(anatomy_point, " ", birth_year, " ", section);
   const birth_year_int = parseInt(birth_year, 10);
   let TimSoul_point = parseInt(anatomy_point, 10);
   for (let steps = 1; steps < birth_year_int; steps++) {
@@ -139,6 +140,7 @@ module.exports.findTimSoul = function (
   if (result != null && section != null) {
     result[section]["tim_soul"]["position"] = TimSoul_point;
   } else {
+    console.log("TimSoul_point: ", TimSoul_point);
     return {
       tim_soul: {
         position: TimSoul_point,

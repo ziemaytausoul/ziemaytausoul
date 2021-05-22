@@ -492,7 +492,7 @@ app.post("/createModule", function (req, res) {
                     var thoughtPoint_position =
                       result["first_sec"]["thought_point"].position;
 
-                    console.log(anatomyPoint_position, thoughtPoint_position);
+                    //console.log(anatomyPoint_position, thoughtPoint_position);
 
                     finding_position.AdjustTwelveSections(
                       result,
