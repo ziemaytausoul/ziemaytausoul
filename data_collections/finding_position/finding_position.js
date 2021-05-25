@@ -16,8 +16,9 @@ module.exports.findForSing = function (startPointForSing, birth_time) {
   }
   let forSing_position = parseInt(startPointForSing, 10);
   birth_time = parseInt(birth_time, 10);
-  for (let step = 0; step < birth_time; step++) {
-    forSing_position += step;
+  for (let step = 1; step < birth_time; step++) {
+    const temp_pos = forSing_position + 1;
+    forSing_position = temp_pos > 12 ? temp_pos - 12 : temp_pos;
   }
   return {
     for_sing: {
@@ -33,8 +34,9 @@ module.exports.findLinSing = function (startPointLinSing, birth_time) {
   }
   let linSing_position = parseInt(startPointLinSing, 10);
   birth_time = parseInt(birth_time, 10);
-  for (let step = 0; step < birth_time; step++) {
-    linSing_position += step;
+  for (let step = 1; step < birth_time; step++) {
+    const temp_pos = linSing_position + 1;
+    linSing_position = temp_pos > 12 ? temp_pos - 12 : temp_pos;
   }
   return {
     lin_sing: {
@@ -131,7 +133,6 @@ module.exports.findTimSoul = function (
   result = null,
   section = null
 ) {
-  console.log(anatomy_point, " ", birth_year, " ", section);
   const birth_year_int = parseInt(birth_year, 10);
   let TimSoul_point = parseInt(anatomy_point, 10);
   for (let steps = 1; steps < birth_year_int; steps++) {
@@ -140,7 +141,6 @@ module.exports.findTimSoul = function (
   if (result != null && section != null) {
     result[section]["tim_soul"]["position"] = TimSoul_point;
   } else {
-    console.log("TimSoul_point: ", TimSoul_point);
     return {
       tim_soul: {
         position: TimSoul_point,
