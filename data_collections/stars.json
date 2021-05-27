@@ -669,33 +669,25 @@
             "11": 6,
             "12": 3
         },
+        "dai_hau": {
+            "1": 8,
+            "2": 7,
+            "3": 10,
+            "4": 9,
+            "5": 12,
+            "6": 11,
+            "7": 2,
+            "8": 1,
+            "9": 4,
+            "10": 3,
+            "11": 6,
+            "12": 5
+        },
         "bou_si_twelve_stars": {
             "findingPosition": {
                 "findBouSiTwelveStars": [
                     {
                         "positionOf": "luc_chen"
-                    },
-                    "type_of_people"
-                ]
-            }
-        },
-        "dai_hau": {
-            "1": 7,
-            "2": 8,
-            "3": 9,
-            "4": 10,
-            "5": 11,
-            "6": 12,
-            "7": 1,
-            "8": 2,
-            "9": 3,
-            "10": 4,
-            "11": 5,
-            "12": 6,
-            "findingPosition" : {
-                "findDaiHau": [
-                    {
-                        "positionOf": "dai_hau"
                     },
                     "type_of_people"
                 ]
