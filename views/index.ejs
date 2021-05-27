@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-HK">
+<html lang="zh-Hant-HK" style="font-size: 1vmin; cursor: default;">
 
 <head>
     <meta charset="UTF-8">
@@ -75,11 +75,13 @@
     <section id="third_sec">
 
     </section>
-    <script>
+    <script text="text/javascript">
         $(document).ready(() => {
             $(window).resize(() => {
                 let winWidth = $(window).width();
-                $(document).css("font-size", winWidth / 1233)
+                let winHeight = $(window).height();
+                //$("html").css({"font-size" : (Math.pow(Math.pow(winWidth,2) + Math.pow(winHeight,2),0.5) / Math.pow(Math.pow(1672,2) + Math.pow(1297,2),0.5)) + "px" })
+                $(document).css({"font-size" : (Math.pow(Math.pow(winWidth,2) + Math.pow(winHeight,2),0.5) / Math.pow(Math.pow(1672,2) + Math.pow(1297,2),0.5))});
             });
         });
         var section_list = $(document).find("section");

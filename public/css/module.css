@@ -3,11 +3,6 @@
   margin: 0;
 }
 
-html {
-  font-size: 1vmin;
-  cursor: default;
-}
-
 .rat {
   border: thin solid;
   border-width: 1px 1px 2px 1px;
@@ -193,7 +188,7 @@ div .source span {
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/
 .moon {
   float: right;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   height: 100%;
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -202,10 +197,11 @@ div .source span {
 .first_tier {
   writing-mode: vertical-lr;
   /*text-orientation: upright;*/
-  width: auto;
+  width: fit-content;
   height: 100%;
-  font-size: 1.2rem;
-  display: inline-block;
+  padding: 0;
+  font-size: 1rem;
+  display: inline;
   vertical-align: bottom;
   float: left;
 }
@@ -213,10 +209,11 @@ div .source span {
 .second_tier {
   writing-mode: vertical-lr;
   /*text-orientation: upright;*/
-  width: auto;
+  width: fit-content;
   height: 100%;
-  font-size: 1.2rem;
-  display: inline-block;
+  padding: 0;
+  font-size: 1rem;
+  display: inline;
   vertical-align: bottom;
   float: left;
 }
