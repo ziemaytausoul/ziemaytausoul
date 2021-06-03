@@ -81,7 +81,8 @@
                 let winWidth = $(window).width();
                 let winHeight = $(window).height();
                 //$("html").css({"font-size" : (Math.pow(Math.pow(winWidth,2) + Math.pow(winHeight,2),0.5) / Math.pow(Math.pow(1672,2) + Math.pow(1297,2),0.5)) + "px" })
-                $(document).css({"font-size" : (Math.pow(Math.pow(winWidth,2) + Math.pow(winHeight,2),0.5) / Math.pow(Math.pow(1672,2) + Math.pow(1297,2),0.5))});
+                //$(document).css({"font-size" : (Math.pow(Math.pow(winWidth,2) + Math.pow(winHeight,2),0.5) / Math.pow(Math.pow(1672,2) + Math.pow(1297,2),0.5))});
+                $("html").css({"font-size": "1vmin"});
             });
         });
         var section_list = $(document).find("section");
@@ -197,7 +198,6 @@
         }
 
         function LocateStar(module) {
-            console.log(module)
             $.each(module, function (sec_name, section_content) {
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;

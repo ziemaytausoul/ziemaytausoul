@@ -11,12 +11,11 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="6_first_tier" class="row-6 content">
-
                     </div>
                     <div id="6_second_tier" class="row-6 content">
 
@@ -84,9 +83,9 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="7_first_tier" class="row-6 content">
 
@@ -156,9 +155,9 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="8_first_tier" class="row-6 content">
 
@@ -228,9 +227,9 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="9_first_tier" class="row-6 content">
 
@@ -304,9 +303,9 @@ const module_template = `<div style="height: 100vh;">
                         <div class="col-6">
                         </div>
                     </div>
-                    <div class="row-4">
-                    </div>
-                    <div class="row-4">
+                    <!--<div class="row-4">
+                    </div>-->
+                    <div class="row-8">
                         <div class="col-12">
                             <div id="5_first_tier" class="row-6 content">
 
@@ -377,9 +376,9 @@ const module_template = `<div style="height: 100vh;">
                         <div class="col-6">
                         </div>
                     </div>
-                    <div class="row-4">
-                    </div>
-                    <div class="row-4">
+                    <!--<div class="row-4">
+                    </div>-->
+                    <div class="row-8">
                         <div class="col-12">
                             <div id="4_first_tier" class="row-6 content">
 
@@ -565,9 +564,9 @@ const module_template = `<div style="height: 100vh;">
                         <div class="col-6">
                         </div>
                     </div>
-                    <div class="row-4">
-                    </div>
-                    <div class="row-4">
+                    <!--<div class="row-4">
+                    </div>-->
+                    <div class="row-8">
                         <div class="col-12">
                             <div id="10_first_tier" class="row-6 content">
 
@@ -638,9 +637,9 @@ const module_template = `<div style="height: 100vh;">
                         <div class="col-6">
                         </div>
                     </div>
-                    <div class="row-4">
-                    </div>
-                    <div class="row-4">
+                    <!--<div class="row-4">
+                    </div>-->
+                    <div class="row-8">
                         <div class="col-12">
                             <div id="11_first_tier" class="row-6 content">
 
@@ -714,9 +713,9 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="3_first_tier" class="row-6 content">
 
@@ -785,9 +784,9 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="2_first_tier" class="row-6 content">
 
@@ -856,9 +855,9 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="1_first_tier" class="row-6 content">
 
@@ -927,9 +926,9 @@ const module_template = `<div style="height: 100vh;">
                 <div class="col-6">
                 </div>
             </div>
-            <div class="row-4">
-            </div>
-            <div class="row-4">
+            <!--<div class="row-4">
+            </div>-->
+            <div class="row-8">
                 <div class="col-12">
                     <div id="12_first_tier" class="row-6 content">
 
@@ -1003,7 +1002,7 @@ const template = {
     end: "</div>",
   },
   first_tier: {
-    front_begin: '<div class="first_tier"s',
+    front_begin: '<div class="first_tier"',
     front_end: ">",
     end: "</div>",
   },
