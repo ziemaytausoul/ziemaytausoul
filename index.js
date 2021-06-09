@@ -123,7 +123,8 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     }
   }
   const zodiac = req.body.zodiac ? req.body.zodiac : null;
-  const data = {
+  const other_info = { type_of_people: req.body.type_of_people };
+  const date = {
     tim_gone: tim_gone,
     zodiac: zodiac,
   };
@@ -133,13 +134,55 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     for (const condition in movingStars) {
       const stars = movingStars[condition];
       for (const moving_star in stars) {
-        const position = stars[moving_star][data[condition]];
-        result[moving_star] = {
-          position: position,
-          metaData: data_convertion["star_name_translation"][moving_star],
-        };
+        if (moving_star.hasOwnProperty("findingPosition")) {
+          let [params] = Object.values(moving_star["findingPosition"]);
+          let func =
+            finding_position[Object.keys(moving_star["findingPosition"])];
+          let params_toPass = new Array();
+          for (let i = 0; i < params.length; i++) {
+            if (typeof params[i] == "object") {
+              if (params[i].hasOwnProperty("positionOf")) {
+                params_toPass[i] = result[params[i].positionOf]["position"];
+              }
+            } else {
+              params_toPass[i] = other_info[params[i]];
+            }
+          }
+
+          //delete result[moving_star].findingPosition;
+          let result_fromFindingPosition = func.apply(this, params_toPass);
+
+          for (const r_result in result_fromFindingPosition) {
+            result[r_result] = result_fromFindingPosition[r_result];
+          }
+
+          if (
+            data_convertion["star_name_translation"][
+              moving_star
+            ].hasOwnProperty("stars")
+          ) {
+            data_convertion["star_name_translation"][moving_star][
+              "stars"
+            ].forEach((element) => {
+              const key = Object.keys(element);
+              result[key]["metaData"] = [...element[key]];
+            });
+            delete result[moving_star];
+          } else {
+            result[moving_star]["metaData"] = [
+              ...data_convertion["star_name_translation"][moving_star],
+            ];
+          }
+        } else {
+          const position = stars[moving_star][date[condition]];
+          result[moving_star] = {
+            position: position,
+            metaData: data_convertion["star_name_translation"][moving_star],
+          };
+        }
       }
     }
+
     if (result) {
       res.status(200).jsonp(result);
     } else {
@@ -151,6 +194,7 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
   }
 });
 
+/* Creating Module */
 app.post("/createModule", function (req, res) {
   try {
     if (req.session.isPopulated) {

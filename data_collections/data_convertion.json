@@ -471,6 +471,206 @@
             "流馬",
             "moon"
         ],
+        "m_tai_soi_twelve_stars": {
+            "stars": [
+                {
+                    "m_tai_soi": [
+                        "太歲",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_foi_hey": [
+                        "晦氣",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_song_mon": [
+                        "喪門",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_gwan_sol": [
+                        "貫索",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_kwun_fu": [
+                        "官符",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_siu_hau": [
+                        "小耗",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_soi_po": [
+                        "歲破",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_non_tak": [
+                        "龍德",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_bab_fu": [
+                        "白虎",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_tim_tak": [
+                        "天德",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_dual_hak": [
+                        "吊客",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_bang_fu": [
+                        "病符",
+                        "second_tier"
+                    ]
+                }
+            ]
+        },
+        "m_jaen_sing": [
+            "將星",
+            "second_tier"
+        ],
+        "m_pam_on": [
+            "攀鞍",
+            "second_tier"
+        ],
+        "m_soi_yea": [
+            "歲驛",
+            "second_tier"
+        ],
+        "m_sig_sun": [
+            "息神",
+            "second_tier"
+        ],
+        "m_wa_goi": [
+            "華蓋",
+            "second_tier"
+        ],
+        "m_gee_sak": [
+            "劫煞",
+            "second_tier"
+        ],
+        "m_zoi_sa": [
+            "災煞",
+            "second_tier"
+        ],
+        "m_tim_sa": [
+            "天煞",
+            "second_tier"
+        ],
+        "m_zie_boi": [
+            "指背",
+            "second_tier"
+        ],
+        "m_ham_chee": [
+            "咸池",
+            "second_tier"
+        ],
+        "m_yuk_sa": [
+            "月煞",
+            "second_tier"
+        ],
+        "m_mong_sun": [
+            "亡神",
+            "second_tier"
+        ],
+        "m_bou_si_twelve_stars": {
+            "stars": [
+                {
+                    "m_bou_si": [
+                        "博士",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_lag_si": [
+                        "力士",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_ching_non": [
+                        "青龍",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_siu_ho": [
+                        "小耗",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_jaen_gwun": [
+                        "將軍",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_joe_sue": [
+                        "奏書",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_phea_ling": [
+                        "蜚廉",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_hey_sun": [
+                        "喜神",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_bang_phoo": [
+                        "病符",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_die_hau": [
+                        "大耗",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_phok_bing": [
+                        "伏兵",
+                        "second_tier"
+                    ]
+                },
+                {
+                    "m_kwun_phoo": [
+                        "官符",
+                        "second_tier"
+                    ]
+                }
+            ]
+        },
         "tai_soi_twelve_stars": {
             "stars": [
                 {
