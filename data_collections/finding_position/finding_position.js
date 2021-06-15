@@ -260,14 +260,16 @@ module.exports.findTimKwui = function (positionOf_men_kog, birth_day) {
 };
 
 /** 太歲十二神 **/
-module.exports.findTaiSoiTwelveStars = function (birth_year) {
+module.exports.findTaiSoiTwelveStars = function (birth_year, moving = false) {
   let birth_year_number = parseInt(birth_year);
   let tai_soi_twelve_stars = new Array();
   tai_soi_twelve_stars =
-    data_convertion["star_name_translation"]["tai_soi_twelve_stars"]["stars"];
+    data_convertion["star_name_translation"][
+      `${moving ? "m_" : ""}tai_soi_twelve_stars`
+    ]["stars"];
 
   let [tai_soi] = Object.keys(tai_soi_twelve_stars[0]);
-
+  if (moving) tai_soi = `m_${tai_soi}`;
   let result = new Object();
   result[tai_soi] = {
     position: birth_year_number,
@@ -277,7 +279,7 @@ module.exports.findTaiSoiTwelveStars = function (birth_year) {
     birth_year_number = birth_year_number == 12 ? 1 : birth_year_number + 1;
 
     let [result_key] = Object.keys(tai_soi_twelve_stars[steps]);
-
+    if (moving) result_key = `m_${result_key}`;
     result[result_key] = {
       position: birth_year_number,
     };
@@ -288,20 +290,27 @@ module.exports.findTaiSoiTwelveStars = function (birth_year) {
 /** 博士十二神 **/
 module.exports.findBouSiTwelveStars = function (
   positionOf_luk_chen,
-  type_of_people
+  type_of_people,
+  moving = false
 ) {
   let luk_chen = parseInt(positionOf_luk_chen);
   let bou_si_twelve_stars =
-    data_convertion["star_name_translation"]["bou_si_twelve_stars"]["stars"];
+    data_convertion["star_name_translation"][
+      `${moving ? "m_" : ""}bou_si_twelve_stars`
+    ]["stars"];
 
   let result = new Object();
-  result[Object.keys(bou_si_twelve_stars[0])[0]] = {
+  const bou_si = moving
+    ? `m_${Object.keys(bou_si_twelve_stars[0])[0]}`
+    : Object.keys(bou_si_twelve_stars[0])[0];
+  result[bou_si] = {
     position: luk_chen,
   };
 
   if (type_of_people == "01" || type_of_people == "10") {
     for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
-      const [result_key] = Object.keys(bou_si_twelve_stars[steps]);
+      let [result_key] = Object.keys(bou_si_twelve_stars[steps]);
+      if (moving) result_key = `m_${result_key}`;
       luk_chen = luk_chen == 1 ? 12 : luk_chen - 1;
       result[result_key] = {
         position: luk_chen,
@@ -309,7 +318,8 @@ module.exports.findBouSiTwelveStars = function (
     }
   } else if (type_of_people == "00" || type_of_people == "11") {
     for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
-      const [result_key] = Object.keys(bou_si_twelve_stars[steps]);
+      let [result_key] = Object.keys(bou_si_twelve_stars[steps]);
+      if (moving) result_key = `m_${result_key}`;
       luk_chen = luk_chen == 12 ? 1 : luk_chen + 1;
       result[result_key] = {
         position: luk_chen,

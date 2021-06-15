@@ -3,13 +3,14 @@ const app = express();
 const cors = require("cors");
 const fs = require("fs");
 const bodyParser = require("body-parser");
-const cookie = require("cookie-session");
+const crypto = require("crypto");
 const finding_position = require("./data_collections/finding_position/finding_position.js");
 const handleTaskFunctions = require("./Utility/handleTaskFunctions.js");
 const setting_background = require("./Utility/setting_background.js");
 const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_sections");
 const data_convertion = require("./data_collections/data_convertion.json");
 const calendar_convertor = require("./Utility/LunarCalendar.js");
+const cookieSession = require("cookie-session");
 /**Environment setting**/
 app.use(bodyParser.json());
 app.use(
@@ -18,9 +19,10 @@ app.use(
   })
 );
 app.use(
-  cookie({
-    name: "birth_information",
-    keys: ["key1", "key2"],
+  cookieSession({
+    name: "session",
+    keys: ["type_of_people"],
+    secret: crypto.randomBytes(16).toString("base64"),
   })
 );
 app.use(express.static(__dirname + "/public"));
@@ -105,6 +107,9 @@ app.post("/getLunarDay", function (req, res) {
 app.post("/fetchMovingStarsTenYear", function (req, res) {
   const movingStars = require("./data_collections/moving_stars.json");
   let tim_gone = "";
+  let type_of_people = "";
+  type_of_people = req.session.type_of_people;
+
   if (req.body.tim_gone) {
     if (
       Object.keys(data_convertion["traChin_to_tim_gone"]).includes(
@@ -123,7 +128,11 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     }
   }
   const zodiac = req.body.zodiac ? req.body.zodiac : null;
-  const other_info = { type_of_people: req.body.type_of_people };
+  const other_info = {
+    type_of_people: type_of_people,
+    tim_gone: tim_gone,
+    zodiac: zodiac,
+  };
   const date = {
     tim_gone: tim_gone,
     zodiac: zodiac,
@@ -134,28 +143,27 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     for (const condition in movingStars) {
       const stars = movingStars[condition];
       for (const moving_star in stars) {
-        if (moving_star.hasOwnProperty("findingPosition")) {
-          let [params] = Object.values(moving_star["findingPosition"]);
-          let func =
-            finding_position[Object.keys(moving_star["findingPosition"])];
+        if (stars[moving_star].hasOwnProperty("findingPosition")) {
+          let content = stars[moving_star];
+          let [params] = Object.values(content["findingPosition"]);
+          let func = finding_position[Object.keys(content["findingPosition"])];
           let params_toPass = new Array();
           for (let i = 0; i < params.length; i++) {
             if (typeof params[i] == "object") {
               if (params[i].hasOwnProperty("positionOf")) {
-                params_toPass[i] = result[params[i].positionOf]["position"];
+                params_toPass[i] = result[params[i]["positionOf"]]["position"];
               }
             } else {
               params_toPass[i] = other_info[params[i]];
             }
           }
-
+          params_toPass.push(true);
           //delete result[moving_star].findingPosition;
           let result_fromFindingPosition = func.apply(this, params_toPass);
 
           for (const r_result in result_fromFindingPosition) {
             result[r_result] = result_fromFindingPosition[r_result];
           }
-
           if (
             data_convertion["star_name_translation"][
               moving_star
@@ -167,7 +175,6 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
               const key = Object.keys(element);
               result[key]["metaData"] = [...element[key]];
             });
-            delete result[moving_star];
           } else {
             result[moving_star]["metaData"] = [
               ...data_convertion["star_name_translation"][moving_star],
@@ -182,7 +189,6 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
         }
       }
     }
-
     if (result) {
       res.status(200).jsonp(result);
     } else {
@@ -246,7 +252,6 @@ app.post("/createModule", function (req, res) {
                 req.body.gender != null ? req.body.gender : "0",
                 reference_data.tim_gone
               );
-
               handleTaskFunctions
                 .getModuleData(
                   reference_data.birth_year,
@@ -697,6 +702,10 @@ app.post("/createModule", function (req, res) {
                               "Access-Control-Allow-Origin",
                               req.baseUrl
                             );
+                            //Set seesion of type_of_people
+                            req.session.type_of_people =
+                              reference_data.type_of_people;
+
                             res.status(200).jsonp(result);
                           })
                           .catch((error) => {
