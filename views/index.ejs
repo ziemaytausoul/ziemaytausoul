@@ -186,12 +186,29 @@
                     dataType: "json",
                     contentType: "application/json;charset=utf-8",
                     success: function (result, status, xhr) {
+                        /*let people_type = result["first_sec"]["people_type"];
+                        switch(people_type) {
+                            case "陽女" :
+                            sessionStorage.setItem("type_of_people", "10")
+                            break;
+                            case "陽男" :
+                            sessionStorage.setItem("type_of_people", "11")
+                            break;
+                            case "陰女" :
+                            sessionStorage.setItem("type_of_people", "00")
+                            break;
+                            default:
+                            sessionStorage.setItem("type_of_people", "01")
+                            break;
+                        }*/
+                        
                         LocateStar(result);
                         $('#submitBtn').prop('disabled', false);
                     },
                     error: function (xhr, status, error) {
                         console.log(xhr.status);
                         console.log(error);
+                        $('#submitBtn').prop('disabled', false);
                     }
                 });
             }

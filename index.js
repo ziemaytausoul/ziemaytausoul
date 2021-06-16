@@ -21,7 +21,15 @@ app.use(
 app.use(
   cookieSession({
     name: "session",
-    keys: ["type_of_people"],
+    keys: [
+      "type_of_people",
+      "birth_year",
+      "birth_month",
+      "birth_day",
+      "birth_time",
+      "tim_gone",
+      "lunar_year",
+    ],
     secret: crypto.randomBytes(16).toString("base64"),
   })
 );
@@ -107,8 +115,6 @@ app.post("/getLunarDay", function (req, res) {
 app.post("/fetchMovingStarsTenYear", function (req, res) {
   const movingStars = require("./data_collections/moving_stars.json");
   let tim_gone = "";
-  let type_of_people = "";
-  type_of_people = req.session.type_of_people;
 
   if (req.body.tim_gone) {
     if (
@@ -128,6 +134,9 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     }
   }
   const zodiac = req.body.zodiac ? req.body.zodiac : null;
+  const type_of_people = req.body.type_of_people
+    ? req.body.type_of_people
+    : req.session.type_of_people;
   const other_info = {
     type_of_people: type_of_people,
     tim_gone: tim_gone,
@@ -137,7 +146,7 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     tim_gone: tim_gone,
     zodiac: zodiac,
   };
-  //console.log(data);
+
   let result = {};
   try {
     for (const condition in movingStars) {
@@ -189,6 +198,7 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
         }
       }
     }
+    console.log(result);
     if (result) {
       res.status(200).jsonp(result);
     } else {
@@ -196,7 +206,7 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     }
   } catch (error) {
     console.log(error);
-    res.status(500).jsonp(error);
+    res.status(500).jsonp(error.message);
   }
 });
 
@@ -252,6 +262,8 @@ app.post("/createModule", function (req, res) {
                 req.body.gender != null ? req.body.gender : "0",
                 reference_data.tim_gone
               );
+              //Set session for type_of_people
+              req.session.type_of_people = reference_data.type_of_people;
               handleTaskFunctions
                 .getModuleData(
                   reference_data.birth_year,
@@ -702,10 +714,6 @@ app.post("/createModule", function (req, res) {
                               "Access-Control-Allow-Origin",
                               req.baseUrl
                             );
-                            //Set seesion of type_of_people
-                            req.session.type_of_people =
-                              reference_data.type_of_people;
-
                             res.status(200).jsonp(result);
                           })
                           .catch((error) => {
@@ -744,6 +752,7 @@ app.post("/createModule", function (req, res) {
         console.error("Index.js -> /handleTaskFunction.getAge\n", error);
       });
   } catch (error) {
+    console.log(error);
     res.status(500).end(JSON.stringify(error));
   }
 });

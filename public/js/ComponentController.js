@@ -227,6 +227,7 @@ function MovingStarsSettle(section, type, id) {
 
   POSTRequestWithJSON(url, data, function (result, status, xhr, indication) {
     if (indication === "success") {
+      console.log(sessionStorage.getItem("type_of_people"));
       var pattern = /_/;
       let [timGone, zodiac] = result.split(pattern);
       POSTRequestWithJSON(
@@ -234,6 +235,7 @@ function MovingStarsSettle(section, type, id) {
         {
           tim_gone: timGone,
           zodiac: zodiac,
+          //type_of_people: sessionStorage.getItem("type_of_people"),
         },
         function (result_stars, status_stars, xhr_stars, indication_stars) {
           try {
@@ -275,6 +277,8 @@ function LocateMovingStar(result, type, section) {
       let template;
       if (single_star["metaData"][1] === "moon") {
         template = html_template["m_moon"];
+      } else if (single_star["metaData"][1] === "second_tier") {
+        template = html_template["m_second_tier"];
       }
       /*else if (single_star["metaData"][1] === "") {
              template = html_template["m_moon"];

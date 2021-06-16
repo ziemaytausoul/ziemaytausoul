@@ -1111,6 +1111,11 @@ const template = {
     front_end: ">",
     end: "</div>",
   },
+  m_second_tier: {
+    front_begin: "<div class='m_second_tier'",
+    front_end: ">",
+    end: "</div>",
+  },
 };
 
 const others = {

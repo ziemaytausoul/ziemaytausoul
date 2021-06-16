@@ -269,20 +269,23 @@ module.exports.findTaiSoiTwelveStars = function (birth_year, moving = false) {
     ]["stars"];
 
   let [tai_soi] = Object.keys(tai_soi_twelve_stars[0]);
-  if (moving) tai_soi = `m_${tai_soi}`;
+  //if (moving) tai_soi = `m_${tai_soi}`;
   let result = new Object();
   result[tai_soi] = {
     position: birth_year_number,
   };
+  try {
+    for (let steps = 1; steps < tai_soi_twelve_stars.length; steps++) {
+      birth_year_number = birth_year_number == 12 ? 1 : birth_year_number + 1;
 
-  for (let steps = 1; steps < tai_soi_twelve_stars.length; steps++) {
-    birth_year_number = birth_year_number == 12 ? 1 : birth_year_number + 1;
-
-    let [result_key] = Object.keys(tai_soi_twelve_stars[steps]);
-    if (moving) result_key = `m_${result_key}`;
-    result[result_key] = {
-      position: birth_year_number,
-    };
+      let [result_key] = Object.keys(tai_soi_twelve_stars[steps]);
+      //if (moving) result_key = `m_${result_key}`;
+      result[result_key] = {
+        position: birth_year_number,
+      };
+    }
+  } catch (error) {
+    console.log(error);
   }
   return result;
 };
@@ -300,32 +303,38 @@ module.exports.findBouSiTwelveStars = function (
     ]["stars"];
 
   let result = new Object();
-  const bou_si = moving
-    ? `m_${Object.keys(bou_si_twelve_stars[0])[0]}`
-    : Object.keys(bou_si_twelve_stars[0])[0];
-  result[bou_si] = {
-    position: luk_chen,
-  };
+  /*const bou_si = moving
+      ? `m_${Object.keys(bou_si_twelve_stars[0])[0]}`
+      : Object.keys(bou_si_twelve_stars[0])[0];*/
+  try {
+    const bou_si = Object.keys(bou_si_twelve_stars[0])[0];
+    result[bou_si] = {
+      position: luk_chen,
+    };
 
-  if (type_of_people == "01" || type_of_people == "10") {
-    for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
-      let [result_key] = Object.keys(bou_si_twelve_stars[steps]);
-      if (moving) result_key = `m_${result_key}`;
-      luk_chen = luk_chen == 1 ? 12 : luk_chen - 1;
-      result[result_key] = {
-        position: luk_chen,
-      };
+    if (type_of_people == "01" || type_of_people == "10") {
+      for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
+        let [result_key] = Object.keys(bou_si_twelve_stars[steps]);
+        //if (moving) result_key = `m_${result_key}`;
+        luk_chen = luk_chen == 1 ? 12 : luk_chen - 1;
+        result[result_key] = {
+          position: luk_chen,
+        };
+      }
+    } else if (type_of_people == "00" || type_of_people == "11") {
+      for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
+        let [result_key] = Object.keys(bou_si_twelve_stars[steps]);
+        //if (moving) result_key = `m_${result_key}`;
+        luk_chen = luk_chen == 12 ? 1 : luk_chen + 1;
+        result[result_key] = {
+          position: luk_chen,
+        };
+      }
     }
-  } else if (type_of_people == "00" || type_of_people == "11") {
-    for (let steps = 1; steps < bou_si_twelve_stars.length; steps++) {
-      let [result_key] = Object.keys(bou_si_twelve_stars[steps]);
-      if (moving) result_key = `m_${result_key}`;
-      luk_chen = luk_chen == 12 ? 1 : luk_chen + 1;
-      result[result_key] = {
-        position: luk_chen,
-      };
-    }
+  } catch (error) {
+    console.log(error);
   }
+
   return result;
 };
 
