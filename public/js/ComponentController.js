@@ -322,3 +322,18 @@ function ClearMovingStars(section, type) {
     $(`div[id*='_${section}_${position}_${type}']`).remove();
   }
 }
+
+function OrderingStars(section, position) {
+  let main_stars,
+    borrowing_stars,
+    moving_stars = [];
+  let second_tier = `#${section}_${position}_second_tier`;
+  let moon = `#${section}_${position}_moon`;
+
+  let second_tier_nodes = $(second_tier).children();
+  let moon_nodes = $(moon).children();
+
+  for (const node of second_tier_nodes) {
+    console.log(node);
+  }
+}
