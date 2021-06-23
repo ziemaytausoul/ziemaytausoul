@@ -227,7 +227,7 @@ function MovingStarsSettle(section, type, id) {
 
   POSTRequestWithJSON(url, data, function (result, status, xhr, indication) {
     if (indication === "success") {
-      console.log(sessionStorage.getItem("type_of_people"));
+      //console.log(sessionStorage.getItem("type_of_people"));
       var pattern = /_/;
       let [timGone, zodiac] = result.split(pattern);
       POSTRequestWithJSON(
@@ -315,6 +315,7 @@ function LocateMovingStar(result, type, section) {
       }
     }
   }
+  OrderingStars(section, 1);
 }
 
 function ClearMovingStars(section, type) {
@@ -324,9 +325,12 @@ function ClearMovingStars(section, type) {
 }
 
 function OrderingStars(section, position) {
-  let main_stars,
-    borrowing_stars,
-    moving_stars = [];
+  let origin_stars = new Array();
+  let borrowing_stars = new Array();
+  let moving_stars = new Array();
+  let borrowing_moving_stars = new Array();
+  let collection = new Array();
+
   let second_tier = `#${section}_${position}_second_tier`;
   let moon = `#${section}_${position}_moon`;
 
@@ -334,6 +338,40 @@ function OrderingStars(section, position) {
   let moon_nodes = $(moon).children();
 
   for (const node of second_tier_nodes) {
-    console.log(node);
+    const class_list = $(node).attr("class");
+    if (
+      class_list.includes("second_tier_copy") &&
+      !class_list.includes("m_second_tier")
+    ) {
+      borrowing_stars.push(node);
+    } else if (
+      class_list.includes("m_second_tier") &&
+      !class_list.includes("second_tier_copy")
+    ) {
+      moving_stars.push(node);
+    } else if (
+      class_list.includes("m_second_tier") &&
+      class_list.includes("second_tier_copy")
+    ) {
+      borrowing_moving_stars.push(node);
+    } else if (class_list.includes("second_tier")) {
+      origin_stars.push(node);
+    }
+  }
+  collection.push(
+    collection.concat(
+      origin_stars,
+      borrowing_stars,
+      borrowing_moving_stars,
+      moving_stars
+    )
+  );
+
+  collection.forEach((node) => {
+    $(second_tier).append($(node));
+    console.log($(node));
+  });
+
+  for (const node of moon_nodes) {
   }
 }
