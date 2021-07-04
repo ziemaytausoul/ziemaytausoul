@@ -80,8 +80,6 @@
             $(window).resize(() => {
                 let winWidth = $(window).width();
                 let winHeight = $(window).height();
-                //$("html").css({"font-size" : (Math.pow(Math.pow(winWidth,2) + Math.pow(winHeight,2),0.5) / Math.pow(Math.pow(1672,2) + Math.pow(1297,2),0.5)) + "px" })
-                //$(document).css({"font-size" : (Math.pow(Math.pow(winWidth,2) + Math.pow(winHeight,2),0.5) / Math.pow(Math.pow(1672,2) + Math.pow(1297,2),0.5))});
                 $("html").css({"font-size": "1vmin"});
             });
         });
@@ -101,9 +99,9 @@
             section_list.each(function (index, elem) {
                 EmbedTemplate(elem.id);
             });
+            console.log($("#dateType").children("option:selected").val());
             if ($("#dateType").children("option:selected").val() == "1") {
                 $.ajax({
-                    //url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
                     url: `${window.location.origin}/getLunarDate`,
                     method: "POST",
                     data: {
@@ -125,9 +123,7 @@
                             day = date_arr[2];
                             tim_gone = date_arr[3];
                             year = date_arr[4];
-                            /*console.log("day: ", day, "month: ", month, "year: ", year, "tim_gone: ",
-                                tim_gone,
-                                "time: ", time, "c_year: ", c_year, "gender: ", gender);*/
+                            
                             getModulData();
                         } else {
                             console.log(status);
@@ -140,14 +136,12 @@
                 });
             } else {
                 $.ajax({
-                    //url: `https://ziemaytausoul.azurewebsites.net/api/DateTransformation/GetLunarDate?year=${$("#year").val()}&month=${$("#month").val()}&day=${$("#day").val()}`,
                     url: `${window.location.origin}/getLunarYear`,
                     method: "POST",
                     data: {
                         year: $("#year").val()
                     },
                     success: function (result, status, xhr) {
-                        console.log(result);
                         var timGoneNzodiac = result.split('_');
                         if (timGoneNzodiac) {
                             c_year = $("#year").val();
@@ -155,9 +149,6 @@
                             day = $("#day").val();
                             tim_gone = timGoneNzodiac[0];
                             year = timGoneNzodiac[1];
-                            /*console.log("day: ", day, "month: ", month, "year: ", year, "tim_gone: ",
-                                tim_gone,
-                                "time: ", time, "c_year: ", c_year, "gender: ", gender);*/
                             getModulData();
                         } else {
                             console.log(status);
@@ -186,22 +177,6 @@
                     dataType: "json",
                     contentType: "application/json;charset=utf-8",
                     success: function (result, status, xhr) {
-                        /*let people_type = result["first_sec"]["people_type"];
-                        switch(people_type) {
-                            case "陽女" :
-                            sessionStorage.setItem("type_of_people", "10")
-                            break;
-                            case "陽男" :
-                            sessionStorage.setItem("type_of_people", "11")
-                            break;
-                            case "陰女" :
-                            sessionStorage.setItem("type_of_people", "00")
-                            break;
-                            default:
-                            sessionStorage.setItem("type_of_people", "01")
-                            break;
-                        }*/
-                        
                         LocateStar(result);
                         $('#submitBtn').prop('disabled', false);
                     },
@@ -219,8 +194,6 @@
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;
                     const template = template_obj[details.metaData[1]];
-                    /*console.log(
-                        `#${sec_name}_${node_id} : ${details.metaData[0]} : ${details.metaData[1]}`);*/
                     $(`#${sec_name}_${node_id}`).append(
                         `${template["front_begin"]}${template["front_end"]}${details.metaData[0]}${template["end"]}`
                     );

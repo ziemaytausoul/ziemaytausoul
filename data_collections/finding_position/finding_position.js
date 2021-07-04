@@ -392,8 +392,10 @@ module.exports.findForteenMainStars = function (birth_day, type_of_module) {
     if (num_birth_day % num_type_of_module == 0) {
       zie_may_end_point = 2 + parseInt(num_birth_day / num_type_of_module, 10);
     } else {
+      let reminder = num_birth_day % num_type_of_module;
       zie_may_end_point =
-        zie_may_start_point + parseInt(num_birth_day / num_type_of_module, 10);
+        zie_may_start_point[reminder - 1] +
+        parseInt(num_birth_day / num_type_of_module, 10);
     }
   } else {
     zie_may_end_point = zie_may_start_point;
