@@ -198,7 +198,6 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
         }
       }
     }
-    console.log(result);
     if (result) {
       res.status(200).jsonp(result);
     } else {

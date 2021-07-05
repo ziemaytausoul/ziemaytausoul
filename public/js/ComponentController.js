@@ -94,6 +94,9 @@ function ClearStarsCopied(section) {
       const moon_copy = $(`#${real_section}_${position}_moon`).children(
         ".moon_copy"
       );
+      const m_moon_copy = $(`#${real_section}_${position}_moon`).children(
+        ".m_moon_copy"
+      );
       const first_tier = $(`#${real_section}_${position}_first_tier`).children(
         ".first_tier_copy"
       );
@@ -104,6 +107,9 @@ function ClearStarsCopied(section) {
         child.remove();
       }
       for (const child of moon_copy) {
+        child.remove();
+      }
+      for (const child of m_moon_copy) {
         child.remove();
       }
       for (const child of first_tier) {
@@ -369,7 +375,7 @@ function OrderingStars(section, position) {
 
   collection.forEach((node) => {
     $(second_tier).append($(node));
-    console.log($(node));
+    //console.log($(node));
   });
 
   for (const node of moon_nodes) {
