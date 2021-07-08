@@ -99,7 +99,7 @@
             section_list.each(function (index, elem) {
                 EmbedTemplate(elem.id);
             });
-            console.log($("#dateType").children("option:selected").val());
+
             if ($("#dateType").children("option:selected").val() == "1") {
                 $.ajax({
                     url: `${window.location.origin}/getLunarDate`,
@@ -210,7 +210,6 @@
                         break;
                 }
             });
-            OrderingStars('first_sec','2');
         }
         
     </script>
