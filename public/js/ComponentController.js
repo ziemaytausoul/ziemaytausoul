@@ -311,10 +311,97 @@ function LocateMovingStar(result, type, section) {
       }
     }
   }
+  OrderingStars(section);
 }
 
 function ClearMovingStars(section, type) {
   for (let position = 0; position <= 12; position++) {
     $(`div[id*='_${section}_${position}_${type}']`).remove();
+  }
+}
+
+function OrderingStars(section) {
+  for (let position = 1; position <= 12; position++) {
+    let origin_stars = new Array();
+    let borrowing_stars = new Array();
+    let moving_stars = new Array();
+    let borrowing_moving_stars = new Array();
+    let collection = new Array();
+    let second_tier = `#${section}_${position}_second_tier`;
+    let moon = `#${section}_${position}_moon`;
+
+    let second_tier_nodes = $(second_tier).children();
+    let moon_nodes = $(moon).children();
+
+    for (const node of second_tier_nodes) {
+      const class_list = $(node).attr("class");
+      if (
+        class_list.includes("second_tier_copy") &&
+        !class_list.includes("m_second_tier")
+      ) {
+        borrowing_stars.push(node);
+      } else if (
+        class_list.includes("m_second_tier") &&
+        !class_list.includes("second_tier_copy")
+      ) {
+        moving_stars.push(node);
+      } else if (
+        class_list.includes("m_second_tier") &&
+        class_list.includes("second_tier_copy")
+      ) {
+        borrowing_moving_stars.push(node);
+      } else if (class_list.includes("second_tier")) {
+        origin_stars.push(node);
+      }
+    }
+    collection.push(
+      collection.concat(
+        origin_stars,
+        borrowing_stars,
+        borrowing_moving_stars,
+        moving_stars
+      )
+    );
+
+    collection.forEach((node) => {
+      $(second_tier).append($(node));
+    });
+
+    origin_stars = new Array();
+    borrowing_stars = new Array();
+    moving_stars = new Array();
+    borrowing_moving_stars = new Array();
+    collection = new Array();
+    for (const node of moon_nodes) {
+      const class_list = $(node).attr("class");
+      if (class_list.includes("moon_copy") && !class_list.includes("m_moon")) {
+        borrowing_stars.push(node);
+      } else if (
+        class_list.includes("m_moon") &&
+        !class_list.includes("moon_copy")
+      ) {
+        moving_stars.push(node);
+      } else if (
+        class_list.includes("m_moon") &&
+        class_list.includes("moon_copy")
+      ) {
+        borrowing_moving_stars.push(node);
+      } else if (class_list.includes("moon")) {
+        origin_stars.push(node);
+      }
+    }
+
+    collection.push(
+      collection.concat(
+        origin_stars,
+        borrowing_stars,
+        borrowing_moving_stars,
+        moving_stars
+      )
+    );
+
+    collection.forEach((node) => {
+      $(moon).append($(node));
+    });
   }
 }
