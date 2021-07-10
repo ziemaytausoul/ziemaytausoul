@@ -94,13 +94,6 @@ app.post("/getLunarMonth", function (req, res) {
 });
 
 app.post("/getLunarDay", function (req, res) {
-  /*console.log(
-    calendar_convertor.getLunarDay(
-      parseInt(req.body.year, 10),
-      parseInt(req.body.month, 10) - 1,
-      parseInt(req.body.day, 10)
-    )
-  );*/
   res
     .status(200)
     .jsonp(
@@ -112,6 +105,7 @@ app.post("/getLunarDay", function (req, res) {
     );
 });
 
+//parameter: tim_gone, zodiac, type_of_people
 app.post("/fetchMovingStarsTenYear", function (req, res) {
   const movingStars = require("./data_collections/moving_stars.json");
   let tim_gone = "";

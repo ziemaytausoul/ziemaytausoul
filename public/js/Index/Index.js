@@ -128,7 +128,6 @@ function createModule() {
                     sessionStorage.setItem("type_of_people", "01")
                     break;
                 }*/
-
         LocateStar(result);
         $("#submitBtn").prop("disabled", false);
       },

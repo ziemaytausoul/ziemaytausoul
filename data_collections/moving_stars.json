@@ -83,6 +83,54 @@
             "eight": 9,
             "nine": 11,
             "ten": 12
+        },
+        "m_luc": {
+            "one": "lin_zaen",
+            "two": "tim_gey",
+            "three": "tim_toun",
+            "four": "tai_yian",
+            "five": "tam_long",
+            "six": "mau_koo",
+            "seven": "tai_yueng",
+            "eight": "guoy_moon",
+            "nine": "tim_leung",
+            "ten": "pob_gaun"
+        },
+        "m_kwun": {
+            "one": "pob_gaun",
+            "two": "tim_leung",
+            "three": "tim_gey",
+            "four": "tim_toun",
+            "five": "tai_yian",
+            "six": "tam_long",
+            "seven": "mau_koo",
+            "eight": "tai_yueng",
+            "nine": "zie_may",
+            "ten": "guoy_moon"
+        },
+        "m_fol": {
+            "one": "mau_koo",
+            "two": "zie_may",
+            "three": "men_cheong",
+            "four": "tim_gey",
+            "five": "tai_yueng",
+            "six": "tim_leung",
+            "seven": "tim_foo",
+            "eight": "men_kog",
+            "nine": "tim_foo",
+            "ten": "tai_yian"
+        },
+        "m_gav": {
+            "one": "tai_yueng",
+            "two": "tai_yian",
+            "three": "lin_zaen",
+            "four": "guoy_moon",
+            "five": "tim_gey",
+            "six": "tim_gey",
+            "seven": "tim_toun",
+            "eight": "men_cheong",
+            "nine": "mau_koo",
+            "ten": "tam_long"
         }
     },
     "zodiac": {
