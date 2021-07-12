@@ -1116,6 +1116,11 @@ const template = {
     front_end: ">",
     end: "</div>",
   },
+  m_changes: {
+    front_begin: "<span class='m_changes'",
+    front_end: ">",
+    end: "</span>",
+  },
 };
 
 const others = {

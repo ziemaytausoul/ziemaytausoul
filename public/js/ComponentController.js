@@ -279,18 +279,22 @@ function LocateMovingStar(result, type, section) {
   for (const star in result) {
     if (result.hasOwnProperty(star)) {
       const single_star = result[star];
-      const node_id = `${single_star["position"]}_${single_star["metaData"][1]}`;
+      const node_id =
+        single_star["metaData"][1] === "changes"
+          ? single_star["position"]
+          : `${single_star["position"]}_${single_star["metaData"][1]}`;
       let template;
       if (single_star["metaData"][1] === "moon") {
         template = html_template["m_moon"];
       } else if (single_star["metaData"][1] === "second_tier") {
         template = html_template["m_second_tier"];
+      } else if (single_star["metaData"][1] === "changes") {
+        template = html_template["m_changes"];
+        console.log(node_id);
       }
-      /*else if (single_star["metaData"][1] === "") {
-             template = html_template["m_moon"];
-           }*/
       let html_node = `${template["front_begin"]} id="${star}_${section}_${single_star["position"]}_${type}"${template["front_end"]}${single_star["metaData"][0]}${html_others[type]}${template["end"]}`;
       $(html_node).appendTo(`#${section}_${node_id}`);
+
       if (copy_star_flag) {
         let position = parseInt(single_star["position"]);
         if (position < 7) {

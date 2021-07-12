@@ -273,6 +273,10 @@ div .source span {
   float: left;
 }
 
+.m_changes{
+  font-size: 1rem;
+}
+
 /*.moving_year {
   background: rgba(0, 0, 150, 0.15);
   background-clip: content-box;

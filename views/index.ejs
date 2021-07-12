@@ -19,6 +19,8 @@
     <!-- Tailored CSS -->
     <link rel="stylesheet" type="text/css" href="css/module.css">
 
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+
     <!-- Tailored JavaScript-->
     <script src="js/ExtractData.js" type="text/javascript"></script>
     <script src="js/ComponentController.js" type="text/javascript"></script>
@@ -195,7 +197,7 @@
                     const node_id = `${details.position}_${details.metaData[1]}`;
                     const template = template_obj[details.metaData[1]];
                     $(`#${sec_name}_${node_id}`).append(
-                        `${template["front_begin"]}${template["front_end"]}${details.metaData[0]}${template["end"]}`
+                        `${template["front_begin"]}${template["front_begin"] == "" ? "" : `id='${sec_name}_${star}'`}${template["front_end"]}${details.metaData[0]}${template["end"]}`
                     );
                 });
                 switch (sec_name) {
