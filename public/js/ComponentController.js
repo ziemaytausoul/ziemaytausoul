@@ -103,6 +103,7 @@ function ClearStarsCopied(section) {
       const second_tier = $(
         `#${real_section}_${position}_second_tier`
       ).children(".second_tier_copy");
+
       for (const child of main_copy) {
         child.remove();
       }
@@ -290,9 +291,27 @@ function LocateMovingStar(result, type, section) {
         template = html_template["m_second_tier"];
       } else if (single_star["metaData"][1] === "changes") {
         template = html_template["m_changes"];
-        console.log(node_id);
       }
-      let html_node = `${template["front_begin"]} id="${star}_${section}_${single_star["position"]}_${type}"${template["front_end"]}${single_star["metaData"][0]}${html_others[type]}${template["end"]}`;
+
+      /*
+       * Get the id in the parent of main star container and split the id into string array based on "_".
+       * Then get the third element from the array.
+       * The third element is the position(zodiac).
+       */
+      let zodiac_position =
+        single_star["metaData"][1] === "changes"
+          ? $(`#${section}_${single_star["position"]}`)
+              .parent()
+              .prop("id")
+              .split("_")[2]
+          : single_star["position"];
+
+      let html_node;
+      if (single_star["metaData"][1] === "changes") {
+        html_node = `${template["front_begin"]} id="${star}_${section}_${zodiac_position}_${type}"${template["front_end"]}${html_others[type]}${single_star["metaData"][0]}${template["end"]}`;
+      } else {
+        html_node = `${template["front_begin"]} id="${star}_${section}_${zodiac_position}_${type}"${template["front_end"]}${single_star["metaData"][0]}${html_others[type]}${template["end"]}`;
+      }
       $(html_node).appendTo(`#${section}_${node_id}`);
 
       if (copy_star_flag) {
@@ -331,6 +350,7 @@ function LocateMovingStar(result, type, section) {
 function ClearMovingStars(section, type) {
   for (let position = 1; position <= 12; position++) {
     $(`div[id*='_${section}_${position}_${type}']`).remove();
+    $(`span[id*='_${section}_${position}_${type}']`).remove();
   }
 }
 
