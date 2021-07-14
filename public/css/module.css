@@ -183,7 +183,7 @@ div .source span {
 }
 
 [class*="_copy"] {
-  color: rgba(207, 31, 0, 0.8);
+  color: rgba(132, 134, 133, 1)
 }
 
 /** 八吉(昌曲/輔弼/魁鉞/祿馬)四煞(羊陀/火鈴) **/
@@ -193,6 +193,10 @@ div .source span {
   height: 100%;
   writing-mode: vertical-lr;
   text-orientation: upright;
+}
+
+.special_moon{
+  color: darkred;
 }
 
 .first_tier {
@@ -276,6 +280,7 @@ div .source span {
 .m_changes{
   font-size: 1.2rem;
 }
+
 
 /*.moving_year {
   background: rgba(0, 0, 150, 0.15);

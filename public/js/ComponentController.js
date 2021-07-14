@@ -1,5 +1,6 @@
 const html_template = getTemplate();
 const html_others = getOthers();
+const class_change = getSpecialAdjustment();
 let copy_star_flag = false;
 const position_id = [
   "子",
@@ -312,8 +313,14 @@ function LocateMovingStar(result, type, section) {
       } else {
         html_node = `${template["front_begin"]} id="${star}_${section}_${zodiac_position}_${type}"${template["front_end"]}${single_star["metaData"][0]}${html_others[type]}${template["end"]}`;
       }
+
       $(html_node).appendTo(`#${section}_${node_id}`);
 
+      if (class_change["class_change"].includes(star)) {
+        $(`#${star}_${section}_${zodiac_position}_${type}`).addClass(
+          "special_moon"
+        );
+      }
       if (copy_star_flag) {
         let position = parseInt(single_star["position"]);
         if (position < 7) {

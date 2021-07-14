@@ -192,6 +192,7 @@
         }
 
         function LocateStar(module) {
+            const special_adjustment = getSpecialAdjustment();
             $.each(module, function (sec_name, section_content) {
                 $.each(section_content, function (star, details) {
                     const node_id = `${details.position}_${details.metaData[1]}`;
@@ -199,6 +200,9 @@
                     $(`#${sec_name}_${node_id}`).append(
                         `${template["front_begin"]}${template["front_begin"] == "" ? "" : `id='${sec_name}_${star}'`}${template["front_end"]}${details.metaData[0]}${template["end"]}`
                     );
+                    if(special_adjustment["class_change"].includes(star)){
+                        $(`#${sec_name}_${star}`).addClass("special_moon");
+                    }
                 });
                 switch (sec_name) {
                     case "first_sec":

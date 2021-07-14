@@ -1130,6 +1130,19 @@ const others = {
   tenYear: "&#160;&#36939;",
 };
 
+const special_adjustment = {
+  class_change: [
+    "king_yeong",
+    "tau_lo",
+    "for_sing",
+    "lin_sing",
+    "tay_kong",
+    "tay_giv",
+    "m_king_yeong",
+    "m_tau_lo",
+  ],
+};
+
 function EmbedTemplate(sectionName) {
   $(`#${sectionName}`).html(module_template);
   $(`#${sectionName}`)
@@ -1140,6 +1153,10 @@ function EmbedTemplate(sectionName) {
         $(this).attr("id", `${sectionName}_${tag_id}`);
       }
     });
+}
+
+function getSpecialAdjustment() {
+  return special_adjustment;
 }
 
 function getTemplate() {
