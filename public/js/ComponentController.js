@@ -143,10 +143,10 @@ function MovingStarsTenYear(section, text) {
     pattern.exec(section) == null ? 0 : pattern.exec(section)[0];
   let real_section = section.replace(/_[0-9]+_character/, "");
   POSTRequestWithJSON(
-    `${window.location.origin}/fetchMovingStarsTenYear`,
-    {
+    `${window.location.origin}/fetchMovingStarsTenYear`, {
       tim_gone: timGone_tenYear,
       zodiac: zodiac_tenYear,
+      time_type: "other"
     },
     function (result, status, xhr, indication) {
       if (indication === "success") {
@@ -218,18 +218,22 @@ function MovingStarsSettle(section, type, id) {
     month = $(`#${section}_moving_month`).val().replace(/\s+/g, ""),
     year = $(`#${section}_moving_year`).val().replace(/\s+/g, ""),
     data = {},
-    url = ``;
+    url = ``,
+    interval = "";
   if (type === "day") {
     data["day"] = day;
     data["month"] = month;
     data["year"] = year;
+    interval = "other";
     url = `${window.location.origin}/getLunarDay`;
   } else if (type === "month") {
     data["month"] = month;
     data["year"] = year;
+    interval = "other";
     url = `${window.location.origin}/getLunarMonth`;
   } else if (type === "year") {
     data["year"] = year;
+    interval = "year";
     url = `${window.location.origin}/getLunarYear`;
   }
 
@@ -239,10 +243,10 @@ function MovingStarsSettle(section, type, id) {
       var pattern = /_/;
       let [timGone, zodiac] = result.split(pattern);
       POSTRequestWithJSON(
-        `${window.location.origin}/fetchMovingStarsTenYear`,
-        {
+        `${window.location.origin}/fetchMovingStarsTenYear`, {
           tim_gone: timGone,
           zodiac: zodiac,
+          time_type: interval
           //type_of_people: sessionStorage.getItem("type_of_people"),
         },
         function (result_stars, status_stars, xhr_stars, indication_stars) {
@@ -282,9 +286,9 @@ function LocateMovingStar(result, type, section) {
     if (result.hasOwnProperty(star)) {
       const single_star = result[star];
       const node_id =
-        single_star["metaData"][1] === "changes"
-          ? single_star["position"]
-          : `${single_star["position"]}_${single_star["metaData"][1]}`;
+        single_star["metaData"][1] === "changes" ?
+        single_star["position"] :
+        `${single_star["position"]}_${single_star["metaData"][1]}`;
       let template;
       if (single_star["metaData"][1] === "moon") {
         template = html_template["m_moon"];
@@ -300,12 +304,12 @@ function LocateMovingStar(result, type, section) {
        * The third element is the position(zodiac).
        */
       let zodiac_position =
-        single_star["metaData"][1] === "changes"
-          ? $(`#${section}_${single_star["position"]}`)
-              .parent()
-              .prop("id")
-              .split("_")[2]
-          : single_star["position"];
+        single_star["metaData"][1] === "changes" ?
+        $(`#${section}_${single_star["position"]}`)
+        .parent()
+        .prop("id")
+        .split("_")[2] :
+        single_star["position"];
 
       let html_node;
       if (single_star["metaData"][1] === "changes") {

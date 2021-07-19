@@ -11,7 +11,9 @@ const tim_gone_of_12Sections = require("./data_collections/tim_gone_of_twelve_se
 const data_convertion = require("./data_collections/data_convertion.json");
 const calendar_convertor = require("./Utility/LunarCalendar.js");
 const cookieSession = require("cookie-session");
+const helmet = require("helmet");
 /**Environment setting**/
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -31,6 +33,9 @@ app.use(
       "lunar_year",
     ],
     secret: crypto.randomBytes(16).toString("base64"),
+    cookie: {
+      domain: "*"
+    }
   })
 );
 app.use(express.static(__dirname + "/public"));
@@ -107,7 +112,7 @@ app.post("/getLunarDay", function (req, res) {
 
 //parameter: tim_gone, zodiac, type_of_people
 app.post("/fetchMovingStarsTenYear", function (req, res) {
-  const movingStars = require("./data_collections/moving_stars.json");
+  const movingStars = require("./data_collections/moving_stars.json")[req.body.time_type];
   let tim_gone = "";
 
   if (req.body.tim_gone) {
@@ -128,9 +133,7 @@ app.post("/fetchMovingStarsTenYear", function (req, res) {
     }
   }
   const zodiac = req.body.zodiac ? req.body.zodiac : null;
-  const type_of_people = req.body.type_of_people
-    ? req.body.type_of_people
-    : req.session.type_of_people;
+  const type_of_people = req.session.type_of_people;
   const other_info = {
     type_of_people: type_of_people,
     tim_gone: tim_gone,
@@ -214,9 +217,9 @@ app.post("/createModule", function (req, res) {
     req.session["birth_month"] = req.body.month ? req.body.month : "5";
     req.session["birth_day"] = req.body.day ? req.body.day : "5";
     req.session["birth_time"] = req.body.time ? req.body.time : "5";
-    req.session["tim_gone"] = req.body.tim_gone
-      ? data_convertion["number_to_tim_gone"][req.body.tim_gone]
-      : "five";
+    req.session["tim_gone"] = req.body.tim_gone ?
+      data_convertion["number_to_tim_gone"][req.body.tim_gone] :
+      "five";
     req.session["lunar_year"] = req.body.c_year ? req.body.c_year : "0";
 
     let reference_data = finding_position.defineSection(
@@ -369,10 +372,9 @@ app.post("/createModule", function (req, res) {
                       if (temp_twelveSections.hasOwnProperty(position)) {
                         result[position] = {
                           position: temp_twelveSections[position],
-                          metaData:
-                            twelveSections_trans[
-                              position
-                            ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/,
+                          metaData: twelveSections_trans[
+                            position
+                          ] /** Expected return value: ["<star's Chinese name>", "<tier>"] **/ ,
                         };
                       }
                     }
@@ -384,11 +386,11 @@ app.post("/createModule", function (req, res) {
                         data_convertion["five_elements"][
                           reference_data.type_of_module
                         ] +
-                          data_convertion["chinese_numbers"][
-                            data_convertion["type_of_module"][
-                              reference_data.type_of_module
-                            ]
-                          ],
+                        data_convertion["chinese_numbers"][
+                          data_convertion["type_of_module"][
+                            reference_data.type_of_module
+                          ]
+                        ],
                         "span_module_level",
                       ],
                     };
